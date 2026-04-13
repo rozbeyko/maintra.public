@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ — Maintra</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="site-header">
+      <a href="index.html"><img src="assets/logo.png" alt="Maintra logo" class="logo-img" /></a>
+      <a href="index.html" class="brand" style="text-decoration:none;">Maintra</a>
+      <nav>
+        <a href="privacy.html">Privacy</a>
+        <a href="delete-account.html">Delete Account</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </header>
+
+    <h1>Frequently Asked Questions</h1>
+    <p class="lede">Answers to the questions we hear most often. If yours isn't here, <a href="support.html">drop us a line</a>.</p>
+
+    <h2>General</h2>
+
+    <h3>What is Maintra?</h3>
+    <p>Maintra is an AI-powered vehicle maintenance tracker. You log your vehicles, service records, and fuel-ups; Maintra generates a personalized maintenance plan so you never miss a service interval.</p>
+
+    <h3>Is Maintra free?</h3>
+    <p>Yes — the core features are free forever. You can track one vehicle, log unlimited service records and fuel-ups, and generate 1 AI maintenance plan per month on the free tier. Pro and VIP subscriptions unlock more vehicles, more AI generations, and advanced features like the AI chat assistant and receipt parsing.</p>
+
+    <h3>Which platforms are supported?</h3>
+    <p>Android only, for now. We're available on the Google Play Store.</p>
+
+    <h3>Does Maintra work offline?</h3>
+    <p>Yes. All your data is stored locally on your device, so you can add and view records without an internet connection. Changes sync back to our servers as soon as you're online again. AI features (plan generation, chat, receipt parsing) require an internet connection.</p>
+
+    <h3>Which languages is Maintra available in?</h3>
+    <p>English, Ukrainian, Polish, French, Italian, and Spanish. The app automatically picks up your device language and can be changed manually in Profile → Language & Region.</p>
+
+    <h2>Account &amp; Data</h2>
+
+    <h3>How do I create an account?</h3>
+    <p>Open the app and sign up with your email address or with your Google account. That's it — no credit card required.</p>
+
+    <h3>Can I export my data?</h3>
+    <p>Yes. Open any vehicle, tap the menu, and choose <strong>Export as PDF</strong>. You'll get a complete service history document you can save or share.</p>
+
+    <h3>How do I delete my account?</h3>
+    <p>Profile → Delete Account. Full instructions on the <a href="delete-account.html">account deletion page</a>.</p>
+
+    <h3>Is my data shared with anyone?</h3>
+    <p>We share the minimum necessary data with our backend provider (Supabase), our AI provider (Anthropic, to generate maintenance plans), and payment providers (Google Play, RevenueCat). We do not sell your data, we do not run ads, and we do not use tracking analytics. See our <a href="privacy.html">Privacy Policy</a> for details.</p>
+
+    <h3>Does Maintra track my location?</h3>
+    <p>No. Maintra does not collect your location, does not use GPS, and does not track you in any way.</p>
+
+    <h2>AI features</h2>
+
+    <h3>How does the AI maintenance plan work?</h3>
+    <p>When you tap "Generate Plan" on a vehicle, we send your vehicle details (make, model, year, mileage, fuel type, VIN, and service history summary) to Anthropic's Claude AI, which returns a personalized list of upcoming maintenance items with intervals and priorities. Responses typically take 10–30 seconds.</p>
+
+    <h3>How accurate is the AI?</h3>
+    <p>Claude is a general-purpose AI and its maintenance suggestions are based on typical intervals for your vehicle type. It may occasionally miss manufacturer-specific quirks or make minor errors. Always cross-check with your owner's manual or a qualified mechanic before performing (or skipping) any maintenance.</p>
+
+    <h3>What's the monthly AI limit?</h3>
+    <ul>
+      <li><strong>Free:</strong> 1 AI plan generation per month.</li>
+      <li><strong>Pro:</strong> 10 AI plan generations per month.</li>
+      <li><strong>VIP:</strong> 30 AI plan generations per month, plus AI chat and receipt parsing.</li>
+    </ul>
+    <p>Counters reset 30 days after your first AI generation.</p>
+
+    <h3>What is the chat feature?</h3>
+    <p>VIP subscribers can chat with a vehicle-aware AI assistant that has context about their specific vehicle. Ask it about maintenance questions, diagnostic help, or part recommendations.</p>
+
+    <h2>Subscriptions</h2>
+
+    <h3>How do I subscribe?</h3>
+    <p>Profile → Upgrade, or tap the Pro/VIP prompt when you hit a free-tier limit. Subscriptions are processed through Google Play.</p>
+
+    <h3>How do I cancel?</h3>
+    <p>Subscriptions are managed by Google Play. Open the Google Play Store app → tap your profile icon → Payments &amp; subscriptions → Subscriptions → Maintra → Cancel. Your subscription remains active until the end of the current billing period.</p>
+
+    <h3>Can I get a refund?</h3>
+    <p>Refunds are handled by Google Play. See <a href="https://support.google.com/googleplay/answer/2479637" target="_blank" rel="noopener">Google's refund policy</a>.</p>
+
+    <h3>I paid but the app still shows Free. What do I do?</h3>
+    <p>Go to Profile → <strong>Refresh subscription status</strong>. If that doesn't work, restart the app. Still stuck? <a href="support.html">Contact us</a>.</p>
+
+    <h2>Troubleshooting</h2>
+
+    <h3>My data isn't syncing.</h3>
+    <p>Check your internet connection. If you see an offline banner at the top of the app, reconnect and the app will sync automatically. You can also force a sync by pulling down to refresh on any list screen.</p>
+
+    <h3>I forgot my password.</h3>
+    <p>On the sign-in screen, tap "Forgot password?" and we'll email you a reset link.</p>
+
+    <h3>Still need help?</h3>
+    <p><a href="support.html">Get in touch</a> — we usually respond within 48 hours.</p>
+
+    <footer>
+      <div>&copy; <span id="year">2026</span> Maintra</div>
+      <div><a href="index.html">Home</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></div>
+    </footer>
+  </div>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
