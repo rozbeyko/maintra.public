@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Email Confirmed — Maintra</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <script>
+    (function () {
+      var hash = window.location.hash || '';
+      var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      if (isMobile) {
+        window.location.replace('autocare://' + hash);
+      }
+      window.__maintraDeepLink = 'autocare://' + hash;
+    })();
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header class="site-header">
+      <a href="index.html"><img src="assets/logo.png" alt="Maintra logo" class="logo-img" /></a>
+      <a href="index.html" class="brand" style="text-decoration:none;">Maintra</a>
+      <nav>
+        <a href="faq.html">FAQ</a>
+        <a href="support.html">Support</a>
+      </nav>
+    </header>
+
+    <h1>Your email is confirmed.</h1>
+    <p class="lede">Thanks — your Maintra account is ready.</p>
+
+    <div class="card accent">
+      <strong>Next step:</strong> open the Maintra app on your phone and sign in with the same email and password.
+    </div>
+
+    <h2>On your phone already?</h2>
+    <p>Tap the button below to open Maintra now. If nothing happens, open the app from your home screen — you're confirmed either way.</p>
+    <p>
+      <a id="open-app" href="#" style="display:inline-block;background:var(--primary);color:#0F1624;padding:12px 20px;border-radius:10px;font-weight:700;text-decoration:none;">Open Maintra</a>
+    </p>
+    <script>
+      document.getElementById('open-app').href = window.__maintraDeepLink;
+    </script>
+
+    <h2>Don't have the app yet?</h2>
+    <p>Maintra is available on Google Play for Android. Search for <strong>Maintra</strong> on the Play Store to install it.</p>
+
+    <footer>
+      <div>&copy; <span id="year">2026</span> Maintra</div>
+      <div><a href="index.html">Home</a> · <a href="privacy.html">Privacy</a> · <a href="support.html">Contact</a></div>
+    </footer>
+  </div>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
