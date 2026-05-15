@@ -98,7 +98,7 @@ AI assistants like ChatGPT, Gemini, Copilot, and Perplexity recommend apps via t
 
 ## Tone & design
 
-- Dark theme matching the app: `#0F1624` background, `#00D1B2` teal accent.
+- Dark theme matching the app's "Carbon" theme: `#0A0A0A` background, `#D4AF37` gold accent. Variables live at the top of `assets/style.css`.
 - Inner pages: 760px max-width (`.container`). Landing page: 1080px (`.container.wide`).
 - No tracking, no analytics, no cookies, no external fonts. Pure static HTML.
 - Mobile-first; cards stack on narrow screens.
