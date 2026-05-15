@@ -20,12 +20,109 @@
 html, body {
   margin: 0;
   padding: 0;
-  background: var(--bg);
   color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Ambient garage background ──────────────────────────────────────
+   - html carries the solid fallback color (paints first, even before bg.jpg
+     loads).
+   - body is transparent so the negative-z-index pseudos below show through.
+   - body::before is the blurred bg.jpg, body::after the dark overlay; both
+     position: fixed so they stay put while the page scrolls (the "parallax"
+     feel — no JS required, no jank on mobile). */
+html { background: var(--bg); overflow-x: hidden; }
+body { background: transparent; position: relative; overflow-x: hidden; }
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  pointer-events: none;
+}
+
+body::after {
+  inset: 0;
+}
+
+/* The bg image element is slightly taller than the viewport (top: -15vh,
+   bottom: -15vh) so it has room to drift up via --bg-shift without
+   revealing black edges at the bottom of long pages. */
+body::before {
+  z-index: -2;
+  top: -15vh;
+  left: 0;
+  right: 0;
+  bottom: -15vh;
+  background: url(bg.jpg) center/cover no-repeat;
+  filter: blur(8px) brightness(0.6);
+  transform: translateY(var(--bg-shift, 0)) scale(1.04);
+  will-change: transform;
+}
+
+body::after {
+  z-index: -1;
+  background: linear-gradient(180deg,
+    rgba(10, 10, 10, 0.30) 0%,
+    rgba(10, 10, 10, 0.55) 55%,
+    rgba(10, 10, 10, 0.78) 100%);
+}
+
+/* ─── Drifting smoke / haze particles ────────────────────────────────
+   Injected from fancy-fx.js as <div.smoke><div.smoke-particle/>...
+   Sits between the bg overlay and page content. Pure CSS animation. */
+.smoke {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.smoke-particle {
+  position: absolute;
+  bottom: -300px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(212, 175, 55, 0.12) 0%,
+    rgba(212, 175, 55, 0.04) 40%,
+    transparent 70%
+  );
+  filter: blur(50px);
+  will-change: transform, opacity;
+  animation: smoke-drift linear infinite;
+}
+@keyframes smoke-drift {
+  0%   { transform: translate3d(0, 0, 0); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translate3d(60px, -130vh, 0); opacity: 0; }
+}
+
+/* Make sure page content paints above .smoke. */
+.container { position: relative; z-index: 1; }
+
+/* ─── Scroll-reveal ───────────────────────────────────────────────────
+   fancy-fx.js adds .reveal to sections / cards on load, then toggles
+   .visible when they enter the viewport. The fallback (no JS) leaves
+   elements fully visible because the .reveal class is added at runtime,
+   not in HTML. */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .smoke { display: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
 }
 
 a {
@@ -235,11 +332,16 @@ footer a:hover { color: var(--primary); }
   max-width: 1080px;
 }
 
-/* Hero */
+/* Hero
+   Mobile (<880px): 2-col grid — text on the left, narrow "peek" column on
+     the right that holds the phone screenshot. The image is wider than the
+     column so ~70% of the phone overflows off the right edge of the viewport,
+     leaving the left ~30% peeking in.
+   ≥880px: balanced 2-col, phone fully visible. */
 .hero {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 40px;
+  grid-template-columns: 1fr 90px;
+  gap: 12px;
   align-items: center;
   padding: 24px 0 32px;
 }
@@ -261,12 +363,14 @@ footer a:hover { color: var(--primary); }
 }
 
 .hero h1 {
-  font-size: 40px;
+  font-size: 30px;     /* mobile: smaller so it fits next to the phone peek */
   line-height: 1.15;
   margin: 0 0 16px;
-  letter-spacing: -0.8px;
+  letter-spacing: -0.5px;
 }
-@media (min-width: 880px) { .hero h1 { font-size: 52px; } }
+@media (min-width: 880px) {
+  .hero h1 { font-size: 52px; letter-spacing: -0.8px; }
+}
 
 .hero .hero-sub {
   font-size: 18px;
@@ -323,40 +427,102 @@ footer a:hover { color: var(--primary); }
 }
 .hero-trust strong { color: var(--text); }
 
-/* Real screenshot on the right side of the hero */
+/* Real screenshot on the right side of the hero.
+   Mobile: image is wider than its column → overflows right, ~30% peeks in.
+   Desktop: image fully visible, centered in its column. */
 .hero-shot {
-  display: flex;
-  justify-content: center;
   position: relative;
+  display: flex;
+  justify-content: flex-start;  /* mobile: hug left edge of column */
 }
 .hero-shot img {
-  width: 100%;
-  max-width: 320px;
+  width: 260px;
+  max-width: none;
   height: auto;
-  border-radius: 28px;
+  border-radius: 24px;
   border: 1px solid var(--border);
   box-shadow: 0 30px 60px -20px rgba(212, 175, 55, 0.18),
               0 10px 30px -10px rgba(0, 0, 0, 0.8);
   display: block;
 }
-
-/* Screenshot showcase grid */
-.shot-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 32px;
-  justify-items: center;
+@media (min-width: 880px) {
+  .hero-shot { justify-content: center; }
+  .hero-shot img { width: 100%; max-width: 320px; border-radius: 28px; }
 }
+
+/* Mobile (<880px): override the column-overflow approach. Use absolute
+   positioning so the WHOLE phone is visible (constrained by height, not
+   width) and ~50% of its width peeks in from the right edge. */
+@media (max-width: 879px) {
+  .hero {
+    position: relative;
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 28px 0 32px;
+    min-height: 300px;
+    overflow: clip;
+  }
+  .hero > div:first-child {
+    padding-right: 64px;     /* leave space for the peek */
+  }
+  .hero h1 { font-size: 30px; }
+  .hero .hero-sub { font-size: 16px; margin-bottom: 22px; }
+
+  .hero-shot {
+    position: absolute;
+    right: -55px;            /* phone overflows 55px past viewport right edge */
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+    margin: 0;
+    pointer-events: none;
+  }
+  .hero-shot img {
+    width: auto;
+    height: 240px;           /* full phone visible — no top/bottom crop */
+    max-width: none;
+    border-radius: 16px;
+  }
+}
+
+/* Screenshot showcase
+   Mobile: horizontal scroll-snap carousel (native swipe, no JS).
+   ≥720px: 3-column grid, fully visible. */
+.shot-grid {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;             /* Firefox */
+  padding: 4px 20px 16px;            /* room for shadow + side padding for snap centering */
+  margin: 0 -20px;                   /* counter the side padding to use full viewport width */
+  scroll-padding: 0 20px;
+}
+.shot-grid::-webkit-scrollbar { display: none; } /* Chrome/Safari */
 @media (min-width: 720px) {
-  .shot-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; }
+  .shot-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    align-items: start;
+    overflow: visible;
+    padding: 0;
+    margin: 0;
+    justify-items: center;
+  }
 }
 .shot {
   margin: 0;
-  width: 100%;
+  flex: 0 0 80%;
+  scroll-snap-align: center;
   max-width: 280px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+@media (min-width: 720px) {
+  .shot { flex: 1; width: 100%; }
 }
 .shot img {
   width: 100%;
@@ -444,7 +610,6 @@ footer a:hover { color: var(--primary); }
 /* Section heading */
 .section {
   padding: 48px 0;
-  border-top: 1px solid var(--border);
 }
 .section-title {
   font-size: 28px;
@@ -467,11 +632,29 @@ footer a:hover { color: var(--primary); }
 }
 @media (min-width: 640px) { .feature-grid { grid-template-columns: 1fr 1fr; } }
 @media (min-width: 960px) { .feature-grid { grid-template-columns: 1fr 1fr 1fr; } }
+/* Glass material — iOS-style frosted panels.
+   The semi-transparent dark fill + backdrop-filter blurs whatever's
+   behind the card (the bg image, drifting smoke). The inset white
+   top-edge shadow is the subtle highlight that sells the "glass" feel. */
 .feature {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
+  background: rgba(24, 24, 24, 0.38);
+  backdrop-filter: blur(22px) saturate(150%);
+  -webkit-backdrop-filter: blur(22px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
   padding: 22px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+.feature:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212, 175, 55, 0.35);
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(212, 175, 55, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 .feature-icon {
   width: 40px; height: 40px;
@@ -483,6 +666,14 @@ footer a:hover { color: var(--primary); }
   justify-content: center;
   margin-bottom: 14px;
   font-size: 20px;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              background 0.3s ease,
+              box-shadow 0.3s ease;
+}
+.feature:hover .feature-icon {
+  transform: scale(1.15) rotate(-6deg);
+  background: rgba(212, 175, 55, 0.22);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.35);
 }
 .feature h3 { margin: 0 0 6px; font-size: 17px; }
 .feature p { color: var(--text-muted); font-size: 14px; margin: 0; }
@@ -495,43 +686,104 @@ footer a:hover { color: var(--primary); }
 }
 @media (min-width: 720px) { .steps { grid-template-columns: 1fr 1fr 1fr; } }
 .step {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
+  background: rgba(24, 24, 24, 0.38);
+  backdrop-filter: blur(22px) saturate(150%);
+  -webkit-backdrop-filter: blur(22px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
   padding: 22px;
   position: relative;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+.step:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212, 175, 55, 0.35);
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(212, 175, 55, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 .step-num {
   position: absolute; top: 18px; right: 18px;
-  width: 26px; height: 26px;
+  width: 30px; height: 30px;
   border-radius: 50%;
   background: var(--primary);
   color: #0A0A0A;
   font-weight: 800;
-  font-size: 13px;
+  font-size: 14px;
   display: flex; align-items: center; justify-content: center;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.3s ease;
 }
-.step h3 { margin: 0 0 6px; font-size: 17px; padding-right: 36px; }
+.step:hover .step-num {
+  transform: scale(1.18) rotate(6deg);
+  box-shadow: 0 0 22px rgba(212, 175, 55, 0.55);
+}
+.step h3 { margin: 0 0 6px; font-size: 17px; padding-right: 42px; }
 .step p { color: var(--text-muted); font-size: 14px; margin: 0; }
 
 /* Pricing tiers */
+/* Pricing tiers
+   Mobile: horizontal scroll-snap carousel (swipe through Free / Pro / VIP).
+   ≥800px: 3-column grid, all visible. */
 .tiers {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
   gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 4px 20px 16px;
+  margin: 0 -20px;
+  scroll-padding: 0 20px;
 }
-@media (min-width: 800px) { .tiers { grid-template-columns: 1fr 1fr 1fr; } }
+.tiers::-webkit-scrollbar { display: none; }
 .tier {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 14px;
+  flex: 0 0 85%;
+  scroll-snap-align: center;
+  max-width: 360px;
+}
+@media (min-width: 800px) {
+  .tiers {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    overflow: visible;
+    padding: 0;
+    margin: 0;
+  }
+  .tier { flex: 1; max-width: none; }
+}
+.tier {
+  background: rgba(24, 24, 24, 0.38);
+  backdrop-filter: blur(22px) saturate(150%);
+  -webkit-backdrop-filter: blur(22px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
   padding: 24px;
   display: flex;
   flex-direction: column;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+.tier:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212, 175, 55, 0.35);
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(212, 175, 55, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 .tier.recommended {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.3);
+  border-color: rgba(212, 175, 55, 0.5);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(212, 175, 55, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 .tier-label {
   font-size: 12px;
@@ -583,10 +835,95 @@ footer a:hover { color: var(--primary); }
 }
 @media (min-width: 720px) { .faq-teaser { grid-template-columns: 1fr 1fr; } }
 .faq-q {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 10px;
+  background: rgba(24, 24, 24, 0.38);
+  backdrop-filter: blur(22px) saturate(150%);
+  -webkit-backdrop-filter: blur(22px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
   padding: 16px 18px;
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.faq-q:hover {
+  transform: translateY(-2px);
+  border-color: rgba(212, 175, 55, 0.25);
 }
 .faq-q h3 { margin: 0 0 4px; font-size: 15px; }
 .faq-q p { margin: 0; font-size: 14px; color: var(--text-muted); }
+
+/* ─────────────────────────────────────────────────────────────────────
+   Mobile layout overrides (< 880px / < 720px / < 800px)
+   - Hero: text full-width, phone screenshot peeks ~30% from the right
+   - Screenshot showcase: horizontal swipe carousel
+   - Pricing tiers: horizontal swipe carousel
+   All carousels use CSS scroll-snap — no JS required, native touch feel.
+   ───────────────────────────────────────────────────────────────────── */
+
+@media (max-width: 879px) {
+  /* Mobile: hide the hero screenshot entirely — the "See it in action"
+     carousel right below shows the same garage shot anyway, so the hero
+     stays clean and the headline gets full width. */
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 0;
+    align-items: stretch;
+    padding: 28px 0 32px;
+  }
+  .hero > div:first-child {
+    padding-right: 0;
+  }
+  .hero-shot {
+    display: none;
+  }
+  .hero h1 {
+    font-size: 34px;
+  }
+  .hero .hero-sub {
+    font-size: 16px;
+    margin-bottom: 22px;
+  }
+}
+
+/* Screenshot showcase as a horizontal swipe carousel on mobile.
+   Each card is 78% of viewport, so the next card peeks in from the
+   right as a swipe affordance. */
+@media (max-width: 719px) {
+  .shot-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px;
+    padding: 4px 20px 12px;
+    margin: 0 -20px;
+    scrollbar-width: none;
+  }
+  .shot-grid::-webkit-scrollbar { display: none; }
+  .shot {
+    flex: 0 0 78%;
+    max-width: 280px;
+    scroll-snap-align: center;
+  }
+}
+
+/* Pricing tiers as a swipe carousel on narrower-than-tablet screens. */
+@media (max-width: 799px) {
+  .tiers {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px;
+    padding: 4px 20px 12px;
+    margin: 0 -20px;
+    scrollbar-width: none;
+  }
+  .tiers::-webkit-scrollbar { display: none; }
+  .tier {
+    flex: 0 0 82%;
+    max-width: 320px;
+    scroll-snap-align: center;
+  }
+}
