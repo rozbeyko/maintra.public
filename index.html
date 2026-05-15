@@ -3,58 +3,385 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Maintra — Your digital service book</title>
-  <meta name="description" content="Maintra is an AI-powered vehicle maintenance tracker. Keep your service history, fuel logs, and maintenance plans in one place." />
+  <title>Maintra — AI-powered car maintenance tracker for Android</title>
+  <meta name="description" content="Maintra is an AI-powered vehicle maintenance app for Android. Track service history, fuel-ups, and get a personalized maintenance plan tailored to your car. Free to start." />
+  <meta name="keywords" content="car maintenance app, vehicle service tracker, car service history, fuel log, AI maintenance plan, digital service book, Android car app" />
+  <meta name="author" content="Maintra" />
+  <meta name="theme-color" content="#0F1624" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://rozbeyko.github.io/maintra.public/" />
+
+  <!-- Open Graph (Facebook, LinkedIn, Slack, Discord, etc.) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Maintra" />
+  <meta property="og:title" content="Maintra — AI-powered car maintenance tracker" />
+  <meta property="og:description" content="Track service history, fuel-ups, and get a personalized AI maintenance plan for every car you own. Android, free to start." />
+  <meta property="og:url" content="https://rozbeyko.github.io/maintra.public/" />
+  <meta property="og:image" content="https://rozbeyko.github.io/maintra.public/assets/logo.png" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Maintra — AI-powered car maintenance tracker" />
+  <meta name="twitter:description" content="Track service history, fuel-ups, and get a personalized AI maintenance plan for every car you own." />
+  <meta name="twitter:image" content="https://rozbeyko.github.io/maintra.public/assets/logo.png" />
+
   <link rel="icon" type="image/png" href="assets/favicon.png" />
   <link rel="stylesheet" href="assets/style.css" />
+
+  <!-- Structured data: MobileApplication + Organization + WebSite. -->
+  <!-- Read by Google, Bing, and AI crawlers (GPTBot, ClaudeBot, PerplexityBot)
+       to recognise this as an app landing page and surface rich results. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "MobileApplication",
+        "name": "Maintra",
+        "alternateName": "Maintra — Digital Service Book",
+        "operatingSystem": "Android",
+        "applicationCategory": "AutoAndVehiclesApplication",
+        "description": "AI-powered vehicle maintenance tracker. Log service history and fuel-ups, generate personalized maintenance plans for each car, and never miss a service interval.",
+        "url": "https://rozbeyko.github.io/maintra.public/",
+        "downloadUrl": "https://play.google.com/store/apps/details?id=com.maintra.app",
+        "installUrl": "https://play.google.com/store/apps/details?id=com.maintra.app",
+        "image": "https://rozbeyko.github.io/maintra.public/assets/logo.png",
+        "inLanguage": ["en", "uk", "pl", "fr", "it", "es"],
+        "offers": [
+          { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "Pro",  "category": "subscription" },
+          { "@type": "Offer", "name": "VIP",  "category": "subscription" }
+        ],
+        "featureList": [
+          "AI-generated maintenance plans tailored to your vehicle",
+          "Service history log with PDF export",
+          "Fuel consumption tracking",
+          "Multiple vehicles (Pro and VIP)",
+          "Vehicle-aware AI chat assistant (VIP)",
+          "Receipt parsing (VIP)",
+          "Offline-first — works without internet",
+          "Six languages: English, Ukrainian, Polish, French, Italian, Spanish"
+        ]
+      },
+      {
+        "@type": "Organization",
+        "name": "Maintra",
+        "url": "https://rozbeyko.github.io/maintra.public/",
+        "logo": "https://rozbeyko.github.io/maintra.public/assets/logo.png",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "rokops13@gmail.com",
+          "contactType": "customer support",
+          "availableLanguage": ["English", "Ukrainian", "Polish", "French", "Italian", "Spanish"]
+        }
+      },
+      {
+        "@type": "WebSite",
+        "name": "Maintra",
+        "url": "https://rozbeyko.github.io/maintra.public/",
+        "inLanguage": "en"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Maintra?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Maintra is an AI-powered vehicle maintenance tracker for Android. You log your vehicles, service records, and fuel-ups; Maintra generates a personalized maintenance plan so you never miss a service interval."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Maintra free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes — the core features are free forever. You can track one vehicle, log unlimited service records and fuel-ups, and generate 1 AI maintenance plan per month on the free tier. Pro and VIP unlock more vehicles, more AI generations, and advanced features."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Maintra work offline?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. All your data is stored locally on your device, so you can add and view records without an internet connection. Changes sync back to our servers as soon as you're online again."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which platforms are supported?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Android only, for now. Maintra is available on the Google Play Store."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
-  <div class="container">
+  <div class="container wide">
+
     <header class="site-header">
       <img src="assets/logo.png" alt="Maintra logo" class="logo-img" />
       <span class="brand">Maintra</span>
       <nav>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
         <a href="faq.html">FAQ</a>
-        <a href="privacy.html">Privacy</a>
         <a href="support.html">Support</a>
       </nav>
     </header>
 
-    <h1>Your smart digital service book.</h1>
-    <p class="lede">Maintra helps you track every service, fuel-up, and maintenance task for your vehicles — with AI-generated maintenance plans tailored to each car.</p>
+    <!-- ─── HERO ────────────────────────────────────────────────────── -->
+    <section class="hero">
+      <div>
+        <span class="hero-eyebrow">Android · Free to start</span>
+        <h1>Your car's<br />smart digital service book.</h1>
+        <p class="hero-sub">Maintra tracks every service, fuel-up, and upcoming maintenance task for your vehicles — with AI-generated plans tailored to each car you own.</p>
 
-    <div class="card accent">
-      <strong>Available on Google Play.</strong>
-      <p class="muted" style="margin-top:6px;margin-bottom:0;">Android app built with Expo / React Native. Free to use, with optional Pro and VIP tiers for advanced AI features.</p>
-    </div>
+        <div class="hero-cta-row">
+          <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.maintra.app" rel="noopener" aria-label="Get Maintra on Google Play">
+            <svg class="play-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path fill="#00D1B2" d="M3.6 1.9c-.4.3-.6.7-.6 1.3v17.5c0 .6.2 1 .6 1.3l9.3-9.5L3.6 1.9z"/>
+              <path fill="#FFBE0B" d="M16.9 8.4 13 12l3.9 3.6 3.7-2.1c1.2-.7 1.2-2.3 0-3l-3.7-2.1z"/>
+              <path fill="#FF6B6B" d="M3.6 1.9 12.9 11l3.5-3.3-9.6-5.5c-.5-.3-1-.4-1.5-.4-.6 0-1.1.2-1.7.1z"/>
+              <path fill="#9BA3B4" d="M3.6 22 12.9 13l3.5 3.3-9.6 5.5c-1 .5-1.7.4-2.7.2z"/>
+            </svg>
+            <span class="play-text">
+              <span class="play-small">Get it on</span><br />
+              <span class="play-big">Google Play</span>
+            </span>
+          </a>
+          <a href="#features" class="muted" style="font-size:14px;">↓ See what it does</a>
+        </div>
 
-    <h2>Resources</h2>
-    <div class="cards-grid">
-      <a class="card" href="privacy.html">
-        <div class="card-title">Privacy Policy</div>
-        <div class="card-desc">What we collect, why, and how we protect it.</div>
+        <p class="hero-trust">
+          <strong>Offline-first</strong> · No ads · No tracking · Six languages
+        </p>
+      </div>
+
+      <!-- Pure-CSS phone mock so the hero has visual weight without a real
+           screenshot. Swap the inner cards for a real screenshot whenever
+           you have one — replace the .phone-mock-body block with an <img>. -->
+      <div class="phone-mock" aria-hidden="true">
+        <div class="phone-mock-body">
+          <div class="phone-card">
+            <div class="pc-title">2018 Toyota Camry</div>
+            <div class="pc-sub">142,300 km · 6 months since service</div>
+          </div>
+          <div class="phone-card alt">
+            <div class="pc-title">Oil change due soon</div>
+            <div class="pc-sub">in ~700 km or 2 weeks</div>
+          </div>
+          <div class="phone-card">
+            <span class="phone-pill">AI plan</span>
+            <div class="phone-row" style="margin-top:8px;">
+              <span class="pr-label">Brake pads</span><span class="pr-value">~3,200 km</span>
+            </div>
+            <div class="phone-row">
+              <span class="pr-label">Cabin filter</span><span class="pr-value">~5,800 km</span>
+            </div>
+            <div class="phone-row">
+              <span class="pr-label">Coolant flush</span><span class="pr-value">~12,000 km</span>
+            </div>
+          </div>
+          <div class="phone-card">
+            <div class="phone-row">
+              <span class="pr-label">Last fill-up</span><span class="pr-value">7.4 L/100km</span>
+            </div>
+            <div class="phone-row">
+              <span class="pr-label">Trip cost</span><span class="pr-value">€38.20</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FEATURES ────────────────────────────────────────────────── -->
+    <section class="section" id="features">
+      <h2 class="section-title">Everything your glove-box folder should be.</h2>
+      <p class="section-sub">A complete service history, on your phone — searchable, exportable, and always with you.</p>
+
+      <div class="feature-grid">
+        <div class="feature">
+          <div class="feature-icon">⚙️</div>
+          <h3>AI maintenance plans</h3>
+          <p>Tell Maintra your make, model, year, and mileage. It generates an upcoming-service list with intervals and priorities, tuned to your car.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">📋</div>
+          <h3>Service history</h3>
+          <p>Log every oil change, repair, and inspection. Export the full record as a PDF when you sell — or hand it to a mechanic.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">⛽</div>
+          <h3>Fuel log</h3>
+          <p>Track fill-ups, consumption (L/100km or MPG), and cost per trip. Multi-currency, multi-fuel-quality.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🚗</div>
+          <h3>Multiple vehicles</h3>
+          <p>Cars, motorcycles, trucks — keep them all in one garage. Drag-sort, search, archive.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">💬</div>
+          <h3>AI chat assistant <span class="phone-pill" style="margin-left:6px;">VIP</span></h3>
+          <p>Ask a vehicle-aware AI about symptoms, parts, or DIY repair steps. It knows your car's history.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🧾</div>
+          <h3>Receipt scanning <span class="phone-pill" style="margin-left:6px;">VIP</span></h3>
+          <p>Snap a photo of your service receipt — Maintra pulls out the date, mileage, items, and total automatically.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">📡</div>
+          <h3>Offline-first</h3>
+          <p>All your data lives on your device. Works without internet, syncs when you reconnect. AI features need a connection.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🔒</div>
+          <h3>No ads, no tracking</h3>
+          <p>No analytics, no location data, no third-party trackers. Just the app.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🌍</div>
+          <h3>Six languages</h3>
+          <p>English, Ukrainian, Polish, French, Italian, Spanish — switches with your device or in Profile.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── HOW IT WORKS ────────────────────────────────────────────── -->
+    <section class="section" id="how">
+      <h2 class="section-title">How it works.</h2>
+      <p class="section-sub">Three steps to a maintenance plan that actually fits your car.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Add your car</h3>
+          <p>Pick make, model, year, fuel type. Pre-loaded catalog covers 67 popular makes.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Log what you've done</h3>
+          <p>Add past service records — or skip this and start fresh with today's mileage.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Get your AI plan</h3>
+          <p>Tap Generate Plan. Maintra returns a tailored list of upcoming services with intervals and priorities in ~30 seconds.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── PRICING ─────────────────────────────────────────────────── -->
+    <section class="section" id="pricing">
+      <h2 class="section-title">Free, Pro, or VIP.</h2>
+      <p class="section-sub">Start free. Upgrade in the app whenever you want more — billed through Google Play, cancel anytime.</p>
+
+      <div class="tiers">
+        <div class="tier">
+          <div class="tier-label">Free</div>
+          <div class="tier-name">$0</div>
+          <div class="tier-tag">Forever</div>
+          <ul>
+            <li>1 active vehicle</li>
+            <li>Unlimited service records</li>
+            <li>Unlimited fuel logs</li>
+            <li>1 AI plan generation / month</li>
+            <li>PDF export</li>
+          </ul>
+        </div>
+
+        <div class="tier recommended">
+          <div class="tier-label">Pro · Recommended</div>
+          <div class="tier-name">Pro</div>
+          <div class="tier-tag">Monthly or yearly · in-app</div>
+          <ul>
+            <li>Unlimited vehicles</li>
+            <li>Everything in Free</li>
+            <li>10 AI plan generations / month</li>
+            <li>Priority support</li>
+          </ul>
+          <p class="tier-note">Best for owners of 2+ vehicles or anyone who wants a fully-fledged maintenance plan.</p>
+        </div>
+
+        <div class="tier">
+          <div class="tier-label">VIP</div>
+          <div class="tier-name">VIP</div>
+          <div class="tier-tag">Monthly or yearly · in-app</div>
+          <ul>
+            <li>Everything in Pro</li>
+            <li>30 AI plan generations / month</li>
+            <li>AI chat assistant</li>
+            <li>Receipt scanning (15 / month)</li>
+          </ul>
+          <p class="tier-note">For people who want the AI to do as much of the bookkeeping as possible.</p>
+        </div>
+      </div>
+
+      <p class="muted" style="margin-top:18px;">
+        Exact prices in your local currency are shown in the app at checkout. Subscriptions are managed by Google Play — see the <a href="faq.html">FAQ</a> for cancellation and refund details.
+      </p>
+    </section>
+
+    <!-- ─── FAQ TEASER ──────────────────────────────────────────────── -->
+    <section class="section">
+      <h2 class="section-title">Questions?</h2>
+      <p class="section-sub">A few of the most common ones — the <a href="faq.html">full FAQ</a> has more.</p>
+
+      <div class="faq-teaser">
+        <div class="faq-q">
+          <h3>Does Maintra work offline?</h3>
+          <p>Yes — all your data is stored locally and syncs when you reconnect. Only AI features need internet.</p>
+        </div>
+        <div class="faq-q">
+          <h3>Does it track my location?</h3>
+          <p>No. Maintra does not collect location, does not use GPS, and does not track you in any way.</p>
+        </div>
+        <div class="faq-q">
+          <h3>Can I export my service history?</h3>
+          <p>Yes — open a vehicle, tap the menu, choose Export as PDF. Hand it to a buyer or mechanic.</p>
+        </div>
+        <div class="faq-q">
+          <h3>iPhone version?</h3>
+          <p>Not yet. Android only for now — iOS is on the roadmap.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FINAL CTA ───────────────────────────────────────────────── -->
+    <section class="section" style="text-align:center;">
+      <h2 class="section-title" style="margin-bottom:18px;">Ready to organize your garage?</h2>
+      <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.maintra.app" rel="noopener" aria-label="Get Maintra on Google Play">
+        <svg class="play-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path fill="#00D1B2" d="M3.6 1.9c-.4.3-.6.7-.6 1.3v17.5c0 .6.2 1 .6 1.3l9.3-9.5L3.6 1.9z"/>
+          <path fill="#FFBE0B" d="M16.9 8.4 13 12l3.9 3.6 3.7-2.1c1.2-.7 1.2-2.3 0-3l-3.7-2.1z"/>
+          <path fill="#FF6B6B" d="M3.6 1.9 12.9 11l3.5-3.3-9.6-5.5c-.5-.3-1-.4-1.5-.4-.6 0-1.1.2-1.7.1z"/>
+          <path fill="#9BA3B4" d="M3.6 22 12.9 13l3.5 3.3-9.6 5.5c-1 .5-1.7.4-2.7.2z"/>
+        </svg>
+        <span class="play-text">
+          <span class="play-small">Get it on</span><br />
+          <span class="play-big">Google Play</span>
+        </span>
       </a>
-      <a class="card" href="delete-account.html">
-        <div class="card-title">Delete Your Account</div>
-        <div class="card-desc">How to request account and data deletion.</div>
-      </a>
-      <a class="card" href="terms.html">
-        <div class="card-title">Terms of Service</div>
-        <div class="card-desc">The rules for using the app.</div>
-      </a>
-      <a class="card" href="faq.html">
-        <div class="card-title">FAQ</div>
-        <div class="card-desc">Answers to common questions.</div>
-      </a>
-      <a class="card" href="support.html">
-        <div class="card-title">Support</div>
-        <div class="card-desc">Get help or report an issue.</div>
-      </a>
-    </div>
+    </section>
 
     <footer>
       <div>&copy; <span id="year">2026</span> Maintra. All rights reserved.</div>
-      <div><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="support.html">Contact</a></div>
+      <div>
+        <a href="privacy.html">Privacy</a> ·
+        <a href="terms.html">Terms</a> ·
+        <a href="delete-account.html">Delete account</a> ·
+        <a href="support.html">Contact</a>
+      </div>
     </footer>
   </div>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>

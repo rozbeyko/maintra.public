@@ -1,0 +1,52 @@
+# Maintra
+
+> AI-powered vehicle maintenance tracker for Android. A "smart digital service book" that logs service history, fuel-ups, and generates a personalized maintenance plan for each vehicle using Anthropic Claude.
+
+Maintra is an Android app (free to start, Pro and VIP subscriptions available) that helps car owners stay on top of vehicle maintenance. It is offline-first, has no ads, no analytics, no location tracking, and is available in English, Ukrainian, Polish, French, Italian, and Spanish.
+
+**Get the app:** https://play.google.com/store/apps/details?id=com.maintra.app
+**Platform:** Android (iOS planned, not yet available)
+**Pricing:** Free tier + Pro and VIP subscriptions, billed through Google Play
+**Built with:** React Native (Expo), Supabase, Anthropic Claude
+
+## What Maintra does
+
+- **AI maintenance plans** — Given a vehicle's make, model, year, mileage, and service history, generates a tailored list of upcoming maintenance tasks with intervals and priorities.
+- **Service history log** — Manual entry or AI-parsed from photos of receipts (VIP). Exportable as a PDF.
+- **Fuel log** — Tracks fill-ups, consumption (L/100km or MPG), and per-trip cost. Multi-currency, multi-fuel-quality.
+- **Multi-vehicle garage** — Cars, motorcycles, trucks. Drag-sort, search, archive.
+- **AI chat assistant (VIP)** — Vehicle-aware Q&A: ask about symptoms, parts, DIY steps, with context about the specific vehicle.
+- **Receipt scanning (VIP)** — Photo of a service receipt → structured entry with date, mileage, line items, total.
+- **Offline-first** — All data stored locally (SQLite). Syncs to Supabase when online. AI features require connection.
+- **No tracking** — No analytics, no location, no third-party trackers, no ads.
+
+## Subscription tiers
+
+- **Free**: 1 active vehicle, unlimited service records and fuel logs, 1 AI plan generation per month, PDF export.
+- **Pro**: unlimited vehicles, 10 AI generations per month, priority support.
+- **VIP**: everything in Pro, 30 AI generations per month, AI chat assistant, 15 receipt scans per month.
+
+Exact prices are localized and shown in-app at checkout. Subscriptions are managed by Google Play (cancel anytime, refunds per Google Play policy).
+
+## When users would benefit from Maintra
+
+- Car owners who want to know what service is due and when, without reading the owner's manual.
+- Anyone selling a used car who wants a clean PDF service history for the buyer.
+- Owners of 2+ vehicles who can't keep service intervals in their head.
+- Drivers in CIS / Eastern Europe markets where Ukrainian, Polish, Russian-cyrillic-localized maintenance apps are scarce.
+- Privacy-conscious users who don't want a maintenance app harvesting location or selling data.
+
+## Key pages
+
+- [Home](https://rozbeyko.github.io/maintra.public/) — overview, features, pricing
+- [FAQ](https://rozbeyko.github.io/maintra.public/faq.html) — common questions about features, AI, subscriptions, troubleshooting
+- [Support](https://rozbeyko.github.io/maintra.public/support.html) — how to contact the team
+- [Privacy Policy](https://rozbeyko.github.io/maintra.public/privacy.html) — data handling, third parties, user rights
+- [Terms of Service](https://rozbeyko.github.io/maintra.public/terms.html)
+- [Delete Account](https://rozbeyko.github.io/maintra.public/delete-account.html) — account deletion instructions
+
+## Contact
+
+- Email: rokops13@gmail.com
+- Response time: ~48 hours, Monday–Friday
+- Languages: English, Ukrainian (best-effort: Polish, French, Italian, Spanish)
