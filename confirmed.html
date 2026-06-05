@@ -11,12 +11,16 @@
   <script src="assets/fancy-fx.js" defer></script>
   <script>
     (function () {
+      // Forward query (?code=… PKCE) + hash (#access_token=… implicit) so the
+      // confirmation code reaches the app and auto-signs the user in.
+      var qs = window.location.search || '';
       var hash = window.location.hash || '';
+      var target = 'autocare://' + qs + hash;
       var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
       if (isMobile) {
-        window.location.replace('autocare://' + hash);
+        window.location.replace(target);
       }
-      window.__maintraDeepLink = 'autocare://' + hash;
+      window.__maintraDeepLink = target;
     })();
   </script>
 </head>
