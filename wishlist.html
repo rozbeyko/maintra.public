@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shared wishlist — Maintra</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    .wl-head { text-align: center; margin: 24px 0 8px; }
+    .wl-head h1 { margin-bottom: 4px; }
+    .wl-sub { color: var(--muted, #9aa0a6); font-size: 14px; }
+    .wl-list { display: flex; flex-direction: column; gap: 12px; margin: 24px 0; }
+    .wl-item {
+      display: flex; gap: 14px; align-items: center;
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 14px; padding: 12px 14px; text-decoration: none; color: inherit;
+    }
+    .wl-thumb {
+      width: 56px; height: 56px; border-radius: 10px; object-fit: cover; flex-shrink: 0;
+      background: rgba(255,255,255,0.06);
+    }
+    .wl-thumb.ph { display: flex; align-items: center; justify-content: center; font-size: 24px; }
+    .wl-body { flex: 1; min-width: 0; }
+    .wl-title { font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .wl-site { font-size: 12px; color: var(--muted, #9aa0a6); }
+    .wl-price { font-weight: 800; white-space: nowrap; }
+    .wl-prio { font-size: 10px; font-weight: 800; letter-spacing: .4px; border-radius: 999px; padding: 2px 8px; margin-left: 8px; }
+    .wl-prio.high { color: #f87171; border: 1px solid rgba(248,113,113,.45); }
+    .wl-prio.normal { color: #fb923c; border: 1px solid rgba(251,146,60,.45); }
+    .wl-prio.low { color: #fbbf24; border: 1px solid rgba(251,191,36,.45); }
+    .wl-total { text-align: center; margin: 18px 0 6px; font-size: 18px; font-weight: 800; }
+    .wl-cta { text-align: center; margin: 26px 0; }
+    .wl-err { text-align: center; color: var(--muted, #9aa0a6); margin: 60px 0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="site-header">
+      <a href="index.html"><img src="assets/logo.png" alt="Maintra logo" class="logo-img" /></a>
+      <a href="index.html" class="brand" style="text-decoration:none;">Maintra</a>
+      <nav><a href="index.html">Get the app</a></nav>
+    </header>
+
+    <div class="wl-head">
+      <h1 id="wl-vehicle">Wishlist</h1>
+      <div class="wl-sub" id="wl-meta">Loading…</div>
+    </div>
+
+    <div class="wl-list" id="wl-list"></div>
+    <div class="wl-total" id="wl-total"></div>
+
+    <div class="wl-cta">
+      <a href="index.html" style="display:inline-block;background:var(--primary);color:#0A0A0A;padding:12px 22px;border-radius:10px;font-weight:700;text-decoration:none;">
+        Track your car with Maintra
+      </a>
+    </div>
+
+    <footer>
+      <div>&copy; <span id="year">2026</span> Maintra</div>
+      <div><a href="index.html">Home</a> · <a href="privacy.html">Privacy</a></div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    (async function () {
+      var token = new URLSearchParams(location.search).get('t');
+      var meta = document.getElementById('wl-meta');
+      var list = document.getElementById('wl-list');
+      if (!token) { meta.textContent = ''; list.innerHTML = '<div class="wl-err">This link is missing its key.</div>'; return; }
+      try {
+        var res = await fetch('https://girxnrqwghdarubohncs.supabase.co/rest/v1/rpc/get_shared_wishlist', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': 'sb_publishable_l2vb-NocFTY08FQJ5dfHbg_Nv3B64z6',
+          },
+          body: JSON.stringify({ p_token: token }),
+        });
+        var data = await res.json();
+        if (!data || !data.items) throw new Error('not found');
+        document.getElementById('wl-vehicle').textContent = data.vehicle_label;
+        var items = data.items;
+        meta.textContent = items.length + ' item' + (items.length === 1 ? '' : 's') + ' wanted';
+        var totals = {};
+        items.forEach(function (i) {
+          var a = document.createElement(i.url ? 'a' : 'div');
+          if (i.url) { a.href = i.url; a.target = '_blank'; a.rel = 'noopener nofollow'; }
+          a.className = 'wl-item';
+          var prio = i.priority || 'normal';
+          a.innerHTML =
+            (i.image_url
+              ? '<img class="wl-thumb" src="' + encodeURI(i.image_url) + '" alt="" loading="lazy" />'
+              : '<div class="wl-thumb ph">🎁</div>') +
+            '<div class="wl-body"><div class="wl-title"></div><div class="wl-site"></div></div>' +
+            '<div class="wl-price"></div>' +
+            '<span class="wl-prio ' + prio + '">' + prio.toUpperCase() + '</span>';
+          a.querySelector('.wl-title').textContent = i.title;
+          a.querySelector('.wl-site').textContent = i.site_name || '';
+          a.querySelector('.wl-price').textContent = i.price != null ? Number(i.price).toLocaleString() + ' ' + (i.currency || '') : '';
+          list.appendChild(a);
+          if (i.price != null) totals[i.currency || ''] = (totals[i.currency || ''] || 0) + Number(i.price);
+        });
+        var totalStr = Object.keys(totals).map(function (c) { return totals[c].toLocaleString() + ' ' + c; }).join(' + ');
+        if (totalStr) document.getElementById('wl-total').textContent = 'Total: ~' + totalStr;
+      } catch (e) {
+        meta.textContent = '';
+        list.innerHTML = '<div class="wl-err">This wishlist link doesn\'t exist or was removed.</div>';
+      }
+    })();
+  </script>
+</body>
+</html>
