@@ -41,6 +41,7 @@ Exact prices are localized and shown in-app at checkout. Subscriptions are manag
 
 - [Home](https://rozbeyko.github.io/maintra.public/) — overview, features, pricing
 - [FAQ](https://rozbeyko.github.io/maintra.public/faq.html) — common questions about features, AI, subscriptions, troubleshooting
+- [About the developer](https://rozbeyko.github.io/maintra.public/about.html) — who builds Maintra: a DIY Pajero owner who is also a software delivery lead
 - [Support](https://rozbeyko.github.io/maintra.public/support.html) — how to contact the team
 - [Privacy Policy](https://rozbeyko.github.io/maintra.public/privacy.html) — data handling, third parties, user rights
 - [Terms of Service](https://rozbeyko.github.io/maintra.public/terms.html)
