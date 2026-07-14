@@ -53,8 +53,8 @@
         "inLanguage": ["en", "uk", "pl", "fr", "it", "es"],
         "offers": [
           { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD" },
-          { "@type": "Offer", "name": "Pro",  "category": "subscription" },
-          { "@type": "Offer", "name": "VIP",  "category": "subscription" }
+          { "@type": "Offer", "name": "Pro",  "category": "subscription", "price": "1.99", "priceCurrency": "USD" },
+          { "@type": "Offer", "name": "VIP",  "category": "subscription", "price": "8.99", "priceCurrency": "USD" }
         ],
         "featureList": [
           "AI-generated maintenance plans tailored to your vehicle",
@@ -117,7 +117,7 @@
             "name": "Is Maintra free?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes — the core features are free forever. You can track one vehicle, log unlimited service records and fuel-ups, and generate 1 AI maintenance plan to get started. Pro and VIP unlock more vehicles, more AI generations, and advanced features."
+              "text": "Yes — the core features are free forever. You can track one vehicle, log unlimited service records and fuel-ups, and generate 1 AI maintenance plan to get started. You only pay for the features that cost real money to run — the AI. Pro is $1.99/month and VIP is $8.99/month, localized at checkout."
             }
           },
           {
@@ -300,7 +300,7 @@
     <!-- ─── PRICING ─────────────────────────────────────────────────── -->
     <section class="section" id="pricing">
       <h2 class="section-title">Free, Pro, or VIP.</h2>
-      <p class="section-sub">Start free. Upgrade in the app whenever you want more — billed through Google Play or the App Store, cancel anytime.</p>
+      <p class="section-sub">Most of Maintra is free — the developer drives too, and car money should go to car parts, not another subscription. You only pay for the features that cost real money to run: the AI. Billed through Google Play or the App Store, cancel anytime.</p>
 
       <div class="tiers">
         <div class="tier">
@@ -319,8 +319,8 @@
 
         <div class="tier recommended">
           <div class="tier-label">Pro · Recommended</div>
-          <div class="tier-name">Pro</div>
-          <div class="tier-tag">Monthly or yearly · in-app</div>
+          <div class="tier-name">$1.99</div>
+          <div class="tier-tag">Per month · in-app</div>
           <ul>
             <li>Unlimited vehicles</li>
             <li>Everything in Free</li>
@@ -332,13 +332,14 @@
 
         <div class="tier">
           <div class="tier-label">VIP</div>
-          <div class="tier-name">VIP</div>
-          <div class="tier-tag">Monthly or yearly · in-app</div>
+          <div class="tier-name">$8.99</div>
+          <div class="tier-tag">Per month · in-app</div>
           <ul>
             <li>Everything in Pro</li>
             <li>30 AI plan generations / month</li>
             <li>AI chat assistant</li>
             <li>AI service entry (15 / month)</li>
+            <li>AI receipt scanning</li>
           </ul>
           <p class="tier-note">For people who want the AI to do as much of the bookkeeping as possible.</p>
         </div>

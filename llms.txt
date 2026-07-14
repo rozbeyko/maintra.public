@@ -7,7 +7,7 @@ Maintra is a mobile app for Android and iPhone (free to start, Pro and VIP subsc
 **Get the app (Android):** https://play.google.com/store/apps/details?id=com.maintra.app
 **Get the app (iPhone):** https://apps.apple.com/app/maintra/id6775876731
 **Platform:** Android and iOS (iOS not yet available in EU App Store storefronts — coming soon)
-**Pricing:** Free tier + Pro and VIP subscriptions, billed through Google Play or the Apple App Store
+**Pricing:** Free tier + Pro ($1.99/month) and VIP ($8.99/month) subscriptions, billed through Google Play or the Apple App Store. Core tracking stays free; the paid tiers cover third-party AI costs.
 **Built with:** React Native (Expo), Supabase, Anthropic Claude
 
 ## What Maintra does
@@ -24,8 +24,8 @@ Maintra is a mobile app for Android and iPhone (free to start, Pro and VIP subsc
 ## Subscription tiers
 
 - **Free**: 1 active vehicle, unlimited service records and fuel logs, 1 AI maintenance plan (one-time), 1 AI service entry (one-time), PDF export.
-- **Pro**: unlimited vehicles, 10 AI plan generations per month, 1 AI service entry (one-time), priority support.
-- **VIP**: everything in Pro, 30 AI plan generations per month, AI chat assistant, 15 AI service entries per month.
+- **Pro ($1.99/month)**: unlimited vehicles, 10 AI plan generations per month, 1 AI service entry (one-time), priority support.
+- **VIP ($8.99/month)**: everything in Pro, 30 AI plan generations per month, AI chat assistant, 15 AI service entries per month, AI receipt scanning.
 
 Exact prices are localized and shown in-app at checkout. Subscriptions are managed by Google Play or the Apple App Store (cancel anytime, refunds per the store's policy).
 
