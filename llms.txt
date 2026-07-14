@@ -1,12 +1,13 @@
 # Maintra
 
-> AI-powered vehicle maintenance tracker for Android. A "smart digital service book" that logs service history, fuel-ups, and generates a personalized maintenance plan for each vehicle using Anthropic Claude.
+> AI-powered vehicle maintenance tracker for Android and iPhone. A "smart digital service book" that logs service history, fuel-ups, and generates a personalized maintenance plan for each vehicle using Anthropic Claude.
 
-Maintra is an Android app (free to start, Pro and VIP subscriptions available) that helps car owners stay on top of vehicle maintenance. It is offline-first, has no ads, no analytics, no location tracking, and is available in English, Ukrainian, Polish, French, Italian, and Spanish.
+Maintra is a mobile app for Android and iPhone (free to start, Pro and VIP subscriptions available) that helps car owners stay on top of vehicle maintenance. It is offline-first, has no ads, no location tracking, and is available in English, Ukrainian, Polish, French, Italian, and Spanish.
 
-**Get the app:** https://play.google.com/store/apps/details?id=com.maintra.app
-**Platform:** Android (iOS planned, not yet available)
-**Pricing:** Free tier + Pro and VIP subscriptions, billed through Google Play
+**Get the app (Android):** https://play.google.com/store/apps/details?id=com.maintra.app
+**Get the app (iPhone):** https://apps.apple.com/app/maintra/id6775876731
+**Platform:** Android and iOS (iOS not yet available in EU App Store storefronts — coming soon)
+**Pricing:** Free tier + Pro and VIP subscriptions, billed through Google Play or the Apple App Store
 **Built with:** React Native (Expo), Supabase, Anthropic Claude
 
 ## What Maintra does
@@ -26,7 +27,7 @@ Maintra is an Android app (free to start, Pro and VIP subscriptions available) t
 - **Pro**: unlimited vehicles, 10 AI plan generations per month, 1 AI service entry (one-time), priority support.
 - **VIP**: everything in Pro, 30 AI plan generations per month, AI chat assistant, 15 AI service entries per month.
 
-Exact prices are localized and shown in-app at checkout. Subscriptions are managed by Google Play (cancel anytime, refunds per Google Play policy).
+Exact prices are localized and shown in-app at checkout. Subscriptions are managed by Google Play or the Apple App Store (cancel anytime, refunds per the store's policy).
 
 ## When users would benefit from Maintra
 

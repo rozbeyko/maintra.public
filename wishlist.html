@@ -74,15 +74,16 @@
 
     // Store + open-in-app wiring. Android: an intent URL opens the app if
     // installed, else falls back to the Play Store. iOS: the custom scheme
-    // opens the app if installed (App Store link pending — V1 not live yet, so
-    // the "Get Maintra" CTA points at the site for now). The shared list below
-    // always renders as the web fallback for anyone without the app.
+    // opens the app if installed; the "Get Maintra" CTA points at the App
+    // Store. The shared list below always renders as the web fallback for
+    // anyone without the app.
     (function () {
       var ua = navigator.userAgent || '';
       var isAndroid = /android/i.test(ua);
       var isIOS = /iphone|ipad|ipod/i.test(ua);
       var PLAY = 'https://play.google.com/store/apps/details?id=com.maintra.app';
-      var storeUrl = isAndroid ? PLAY : 'index.html';
+      var APPSTORE = 'https://apps.apple.com/app/maintra/id6775876731';
+      var storeUrl = isAndroid ? PLAY : (isIOS ? APPSTORE : 'index.html');
       Array.prototype.forEach.call(document.querySelectorAll('.js-store'), function (a) { a.href = storeUrl; });
 
       var token = new URLSearchParams(location.search).get('t');
