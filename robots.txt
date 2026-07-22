@@ -63,4 +63,4 @@ Allow: /
 User-agent: MistralAI-User
 Allow: /
 
-Sitemap: https://rozbeyko.github.io/maintra.public/sitemap.xml
+Sitemap: https://maintra.me/sitemap.xml

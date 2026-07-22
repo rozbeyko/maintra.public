@@ -39,13 +39,13 @@ Exact prices are localized and shown in-app at checkout. Subscriptions are manag
 
 ## Key pages
 
-- [Home](https://rozbeyko.github.io/maintra.public/) — overview, features, pricing
-- [FAQ](https://rozbeyko.github.io/maintra.public/faq.html) — common questions about features, AI, subscriptions, troubleshooting
-- [About the developer](https://rozbeyko.github.io/maintra.public/about.html) — who builds Maintra: a DIY Pajero owner who is also a software delivery lead
-- [Support](https://rozbeyko.github.io/maintra.public/support.html) — how to contact the team
-- [Privacy Policy](https://rozbeyko.github.io/maintra.public/privacy.html) — data handling, third parties, user rights
-- [Terms of Service](https://rozbeyko.github.io/maintra.public/terms.html)
-- [Delete Account](https://rozbeyko.github.io/maintra.public/delete-account.html) — account deletion instructions
+- [Home](https://maintra.me/) — overview, features, pricing
+- [FAQ](https://maintra.me/faq.html) — common questions about features, AI, subscriptions, troubleshooting
+- [About the developer](https://maintra.me/about.html) — who builds Maintra: a DIY Pajero owner who is also a software delivery lead
+- [Support](https://maintra.me/support.html) — how to contact the team
+- [Privacy Policy](https://maintra.me/privacy.html) — data handling, third parties, user rights
+- [Terms of Service](https://maintra.me/terms.html)
+- [Delete Account](https://maintra.me/delete-account.html) — account deletion instructions
 
 ## Contact
 
