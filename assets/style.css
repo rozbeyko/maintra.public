@@ -524,7 +524,7 @@ footer a:hover { color: var(--primary); }
 @media (min-width: 720px) {
   .shot { flex: 1; width: 100%; }
 }
-/* Direct child only: a framed screenshot is styled by the .shot .device img
+/* Direct child only: a framed screenshot is styled by the .device-screen img
    rule below, and these must not reach inside the bezel. Left unscoped, the
    hover translateY(-4px) here also moved the image within its frame — which
    overflow:hidden on the frame turned into a strip of bare bezel along the
@@ -1019,83 +1019,113 @@ footer a:hover { color: var(--primary); }
 }
 
 /* ─── Device frames ───────────────────────────────────────────────────
-   The showcase screenshots were bare PNGs with a rounded corner, so they read
-   as pictures of a screen rather than as a phone. Same treatment as the
-   portfolio case study: a dark bezel, a fixed 9/19.5 body, and the screenshot
-   cropped to fill it.
+   A real CSS-3D extrusion, ported from the phone on the portfolio's Maintra
+   case study. .device-solid carries preserve-3d and holds a stack of slabs
+   pushed backwards along Z (built by assets/device.js), so the rounded side
+   wall genuinely exists when the phone turns — a rotated flat card only ever
+   looks like a picture leaning over.
 
-   `aspect-ratio` on the frame rather than the image is what makes the row
-   line up — the three PNGs are not identically sized, and letting each set its
-   own height gave a ragged grid. The image fills a box of known shape instead.
+   The one trap: overflow:hidden ANYWHERE between .device and the slabs forces
+   transform-style back to flat and collapses the extrusion, with no warning
+   from anything. Clipping lives on .device-screen only.
 
-   The tilt is CSS, not a rendered asset: a rendered 3D mockup would mean
-   re-exporting three images every time a screen changes, and would sit at one
-   fixed size. This costs nothing and stays sharp at any width. It is dropped
-   entirely under `prefers-reduced-motion` and on touch, where a perspective
-   transform on a scroll-snap carousel fights the swipe. */
+   The tilt is CSS rather than a rendered 3D asset: rendered mockups would mean
+   re-exporting three images whenever a screen changes, and would sit at one
+   fixed size. This stays sharp at any width and costs three spans plus a
+   transform. */
 .shot .device {
   position: relative;
   width: 100%;
-  aspect-ratio: 9 / 19.5;
-  border-radius: 26px;
-  padding: 6px;                     /* the bezel itself */
-  background: linear-gradient(160deg, #2a2a2e 0%, #131316 45%, #0a0a0c 100%);
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.06) inset,   /* the light catch on the rim */
-    0 24px 48px -18px rgba(0, 0, 0, 0.85),
-    0 6px 16px -8px rgba(0, 0, 0, 0.6);
-  overflow: hidden;
+  perspective: 1250px;
+  perspective-origin: 50% 42%;
 }
-.shot .device img {
+.device-solid {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 650ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.device-slab {
+  position: absolute;
+  inset: 0;
+  border-radius: 40px;
+  display: block;
+}
+
+/* Rim hardware, sunk halfway into the side wall so it extrudes with it. */
+.device-key {
+  position: absolute;
+  width: 4px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, #6e6e78, #34343c);
+  transform: translateZ(-13px);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35);
+}
+.device-key-power  { right: -3px; top: 25%; height: 58px; }
+.device-key-vol-up { left: -3px;  top: 20%; height: 34px; }
+.device-key-vol-dn { left: -3px;  top: 33%; height: 34px; }
+
+/* The front face: chassis gradient with a specular catch along the top edge. */
+.device-body {
+  position: relative;
+  border-radius: 40px;
+  padding: 8px;
+  background:
+    linear-gradient(148deg,
+      rgba(255, 255, 255, 0.42) 0%,
+      rgba(255, 255, 255, 0.06) 14%,
+      rgba(255, 255, 255, 0) 30%),
+    linear-gradient(155deg, #43434a 0%, #17171b 34%, #0a0a0c 64%, #33333a 100%);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.13) inset,
+    0 1px 0 rgba(255, 255, 255, 0.22) inset,
+    0 44px 60px -22px rgba(0, 0, 0, 0.6),
+    0 16px 30px -14px rgba(0, 0, 0, 0.45);
+}
+/* aspect-ratio matches the screenshots exactly (1080x2347), so cover crops
+   nothing and the three phones line up despite the PNGs not being identical. */
+.device-screen {
+  position: relative;
+  border-radius: 33px;
+  overflow: hidden;
+  background: #0a0a0c;
+  aspect-ratio: 1080 / 2347;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.85) inset;
+}
+.device-screen img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top;             /* keep the status bar and header, crop the fold */
-  border-radius: 20px;
-  border: 0;
-  box-shadow: none;
   display: block;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
 }
-/* The speaker slot. Purely cosmetic, and small enough to read as a detail
-   rather than an attempt at photorealism. */
-.shot .device::after {
-  content: '';
+.device-glare {
   position: absolute;
-  top: 14px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 54px;
-  height: 5px;
-  border-radius: 3px;
-  background: rgba(0, 0, 0, 0.55);
-  z-index: 2;
+  inset: 8px;
+  border-radius: 33px;
   pointer-events: none;
+  background: linear-gradient(118deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.05) 21%,
+    rgba(255, 255, 255, 0) 45%);
 }
 
+/* The outer two lean inward so the row reads as three objects on a surface;
+   hovering one turns it square to you. Below 720px the grid is a horizontal
+   scroll carousel with overflow:auto, which would clip a turned phone against
+   its own edge — so the tilt is desktop-only and the phone simply sits flat. */
 @media (hover: hover) and (min-width: 720px) {
-  .shot-grid { perspective: 1600px; }
-  .shot .device {
-    transform: rotateY(-9deg) rotateX(2deg);
-    transform-origin: center;
-    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-                box-shadow 0.35s ease;
-  }
-  /* The middle phone faces front and the outer two angle inwards, so the row
-     reads as three objects on a surface rather than three identical cards. */
-  .shot:nth-child(2) .device { transform: rotateX(2deg); }
-  .shot:nth-child(3) .device { transform: rotateY(9deg) rotateX(2deg); }
-  .shot:hover .device,
-  .shot:nth-child(2):hover .device,
-  .shot:nth-child(3):hover .device {
+  .shot:nth-child(1) .device-solid { transform: rotateY(19deg)  rotateX(6deg) rotateZ(-0.8deg); }
+  .shot:nth-child(2) .device-solid { transform: rotateX(5deg); }
+  .shot:nth-child(3) .device-solid { transform: rotateY(-19deg) rotateX(6deg) rotateZ(0.8deg); }
+  .shot:hover .device-solid,
+  .shot:focus-within .device-solid {
     transform: rotateY(0deg) rotateX(0deg) translateY(-6px);
-    box-shadow:
-      0 0 0 1px rgba(255, 255, 255, 0.09) inset,
-      0 32px 60px -20px rgba(0, 0, 0, 0.9),
-      0 0 40px -12px rgba(212, 175, 55, 0.25);
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .shot .device,
-  .shot:nth-child(2) .device,
-  .shot:nth-child(3) .device { transform: none; transition: none; }
+  .device-solid { transition: none; }
 }
