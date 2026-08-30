@@ -47,7 +47,10 @@ So every CSS/JS reference carries a version token:
 
 **Changing `assets/style.css` or any `assets/*.js` means bumping the token in
 every HTML file in the same commit.** It is a date stamp, so use the day you
-made the change:
+made the change — and if you change an asset twice in one day, append a letter
+(`20260830`, then `20260830b`). A token that does not change is a token that
+does nothing, and the second edit of the day is exactly when you stop thinking
+about it:
 
 ```bash
 grep -rl 'v=20260830' *.html | xargs sed -i 's/v=20260830/v=YYYYMMDD/g'

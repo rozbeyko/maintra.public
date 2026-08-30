@@ -1134,6 +1134,24 @@ footer a:hover { color: var(--primary); }
    which is why the keyframe's `to` repeats the resting angles exactly. */
 .hero-shot .device-solid {
   transform: rotateY(-18deg) rotateX(6deg) rotateZ(0.6deg);
+  /* The only element on the page that animates, so it is the only one worth
+     giving its own compositor layer. On the parent, not the slabs — promoting
+     68 slabs individually is how you turn a cheap effect into a slideshow. */
+  will-change: transform;
+}
+/* device.js sets .devices-ready once the slabs are in. Without this gate the
+   animation starts at first render, which is before the chassis exists — the
+   phone swung in as a bare card and grew its side wall halfway through.
+
+   Gating the animation alone is not enough: the phone would still paint once
+   at its resting angle with no side wall, then snap back to the keyframe's
+   start and run. So under .js it is held invisible, and revealed by the same
+   class that starts the animation — whose first frame is opacity 0 anyway.
+   Keyed on .js so that with scripting off the phone is simply visible and
+   still, rather than hidden forever waiting for a class that never lands. */
+.js .hero-shot .device-solid { opacity: 0; }
+.devices-ready .hero-shot .device-solid {
+  opacity: 1;
   animation: device-settle 1150ms cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 @keyframes device-settle {
