@@ -5,7 +5,13 @@
  * device turns there is an actual rounded side wall to see. tone() shades that
  * stack — a bright chamfer at the front, a dark trough through the middle, a
  * softer back rail — which is what reads as machined metal instead of a flat
- * grey band. Ported from the phone on the portfolio's Maintra case study.
+ * grey band. Ported from the phone on the portfolio's Maintra case study —
+ * but the TONES are deliberately not the portfolio's. That site has a cream
+ * background, so a dark side wall reads strongly against it. The same numbers
+ * here put the middle of the wall at grey 24 against a page background of grey
+ * 10: fourteen levels of contrast, and the extrusion was invisible. It looked
+ * like a flat card even though every slab was present and correct in the DOM.
+ * On a dark ground the wall has to be LIGHTER than the page, not darker.
  *
  * The slabs are built here rather than written into the markup because there
  * are DEPTH of them per phone and three phones: ~84 spans of pure decoration
@@ -20,14 +26,14 @@
  * on .device-screen and nowhere else.
  */
 (function () {
-  var DEPTH = 28;
+  var DEPTH = 34;
 
   function tone(n, total) {
-    if (n < 2) return 'rgb(122,122,134)';              /* front chamfer */
-    if (n > total - 4) return 'rgb(58,58,68)';         /* back rail */
+    if (n < 2) return 'rgb(158,158,170)';              /* front chamfer */
+    if (n > total - 4) return 'rgb(74,74,86)';         /* back rail */
     var t = (n - 2) / (total - 6);
-    var v = Math.round(64 - 40 * Math.sin(Math.PI * t));
-    return 'rgb(' + v + ',' + v + ',' + (v + 6) + ')';
+    var v = Math.round(108 - 46 * Math.sin(Math.PI * t));
+    return 'rgb(' + v + ',' + v + ',' + (v + 8) + ')';
   }
 
   document.addEventListener('DOMContentLoaded', function () {

@@ -435,19 +435,10 @@ footer a:hover { color: var(--primary); }
   display: flex;
   justify-content: flex-start;  /* mobile: hug left edge of column */
 }
-.hero-shot img {
-  width: 260px;
-  max-width: none;
-  height: auto;
-  border-radius: 24px;
-  border: 1px solid var(--border);
-  box-shadow: 0 30px 60px -20px rgba(212, 175, 55, 0.18),
-              0 10px 30px -10px rgba(0, 0, 0, 0.8);
-  display: block;
-}
+.hero-shot .device { width: 260px; }
 @media (min-width: 880px) {
   .hero-shot { justify-content: center; }
-  .hero-shot img { width: 100%; max-width: 320px; border-radius: 28px; }
+  .hero-shot .device { width: 100%; max-width: 320px; }
 }
 
 /* Mobile (<880px): override the column-overflow approach. Use absolute
@@ -1033,7 +1024,7 @@ footer a:hover { color: var(--primary); }
    re-exporting three images whenever a screen changes, and would sit at one
    fixed size. This stays sharp at any width and costs three spans plus a
    transform. */
-.shot .device {
+.device {
   position: relative;
   width: 100%;
   perspective: 1250px;
@@ -1118,9 +1109,9 @@ footer a:hover { color: var(--primary); }
    scroll carousel with overflow:auto, which would clip a turned phone against
    its own edge — so the tilt is desktop-only and the phone simply sits flat. */
 @media (hover: hover) and (min-width: 720px) {
-  .shot:nth-child(1) .device-solid { transform: rotateY(19deg)  rotateX(6deg) rotateZ(-0.8deg); }
-  .shot:nth-child(2) .device-solid { transform: rotateX(5deg); }
-  .shot:nth-child(3) .device-solid { transform: rotateY(-19deg) rotateX(6deg) rotateZ(0.8deg); }
+  .shot:nth-child(1) .device-solid { transform: rotateY(22deg)  rotateX(6deg) rotateZ(-0.8deg); }
+  .shot:nth-child(2) .device-solid { transform: rotateY(-9deg)  rotateX(5deg); }
+  .shot:nth-child(3) .device-solid { transform: rotateY(-22deg) rotateX(6deg) rotateZ(0.8deg); }
   .shot:hover .device-solid,
   .shot:focus-within .device-solid {
     transform: rotateY(0deg) rotateX(0deg) translateY(-6px);
@@ -1128,4 +1119,33 @@ footer a:hover { color: var(--primary); }
 }
 @media (prefers-reduced-motion: reduce) {
   .device-solid { transition: none; }
+  .hero-shot .device-solid { animation: none; }
+}
+
+/* ─── The hero phone ──────────────────────────────────────────────────
+   The first phone on the page, and the only one that moves by itself: it
+   swings in from a steeper angle and settles. That motion is what says
+   "solid object" before the visitor has scrolled anywhere near the showcase.
+
+   No animation-fill-mode, on purpose. With `forwards` the animation's final
+   frame keeps overriding the transform property and the hover-to-flatten
+   below would be dead for the rest of the session. Without it the resting
+   rule takes over the moment the animation ends — so the two have to agree,
+   which is why the keyframe's `to` repeats the resting angles exactly. */
+.hero-shot .device-solid {
+  transform: rotateY(-18deg) rotateX(6deg) rotateZ(0.6deg);
+  animation: device-settle 1150ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+@keyframes device-settle {
+  from {
+    opacity: 0;
+    transform: rotateY(-42deg) rotateX(12deg) rotateZ(0.6deg) translateY(28px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: rotateY(-18deg) rotateX(6deg) rotateZ(0.6deg) translateY(0) scale(1);
+  }
+}
+.hero-shot .device:hover .device-solid {
+  transform: rotateY(0deg) rotateX(0deg) translateY(-6px);
 }
