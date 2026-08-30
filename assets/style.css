@@ -524,7 +524,12 @@ footer a:hover { color: var(--primary); }
 @media (min-width: 720px) {
   .shot { flex: 1; width: 100%; }
 }
-.shot img {
+/* Direct child only: a framed screenshot is styled by the .shot .device img
+   rule below, and these must not reach inside the bezel. Left unscoped, the
+   hover translateY(-4px) here also moved the image within its frame — which
+   overflow:hidden on the frame turned into a strip of bare bezel along the
+   bottom edge. Kept as the fallback for a shot with no frame. */
+.shot > img {
   width: 100%;
   height: auto;
   border-radius: 22px;
@@ -533,7 +538,7 @@ footer a:hover { color: var(--primary); }
   display: block;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.shot:hover img {
+.shot:hover > img {
   transform: translateY(-4px);
   box-shadow: 0 30px 50px -15px rgba(212, 175, 55, 0.15),
               0 20px 40px -15px rgba(0, 0, 0, 0.7);
@@ -886,6 +891,14 @@ footer a:hover { color: var(--primary); }
   }
 }
 
+/* Once the two store badges wrap onto separate lines, the trailing
+   "See what it does" link lands beside the App Store badge rather than under
+   it, reading as a caption on the badge. Give it a row of its own. Above
+   560px all three fit on one line and this changes nothing. */
+@media (max-width: 559px) {
+  .hero-cta-row > a.muted { flex-basis: 100%; }
+}
+
 /* Screenshot showcase as a horizontal swipe carousel on mobile.
    Each card is 78% of viewport, so the next card peeks in from the
    right as a swipe affordance. */
@@ -926,4 +939,163 @@ footer a:hover { color: var(--primary); }
     max-width: 320px;
     scroll-snap-align: center;
   }
+}
+
+/* ─── Mobile navigation ───────────────────────────────────────────────
+   The header was a single flex row — logo, brand and five links — with no
+   breakpoint of its own, so on a phone the links ran straight off the right
+   edge and the last ones were simply unreachable. Reported 2026-08-30.
+
+   Below 880px (the breakpoint the hero already uses) the links collapse into
+   a panel behind a button. Above it, nothing changes: the button is hidden
+   and the row is exactly as it was.
+
+   The `js` class on <html> is what gates this. Without JavaScript there is no
+   way to open the panel, so hiding the links would leave a visitor with no
+   navigation at all — worse than the overflow. The script adds the class, so
+   a no-JS visitor keeps the old behaviour and everyone else gets the panel. */
+.nav-toggle {
+  display: none;
+  margin-left: auto;
+  width: 44px;                      /* 44px: the smallest comfortable tap target */
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  cursor: pointer;
+  padding: 0;
+}
+.nav-toggle:hover { border-color: var(--primary); color: var(--primary); }
+.nav-toggle span {
+  position: relative;
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+/* The other two bars, so the markup stays one element. */
+.nav-toggle span::before,
+.nav-toggle span::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform 0.18s ease, top 0.18s ease;
+}
+.nav-toggle span::before { top: -6px; }
+.nav-toggle span::after { top: 6px; }
+/* Open: the bars cross. The middle one is hidden via colour so the two
+   pseudo-elements can rotate through the same centre point. */
+.nav-toggle[aria-expanded='true'] span { background: transparent; }
+.nav-toggle[aria-expanded='true'] span::before { top: 0; transform: rotate(45deg); }
+.nav-toggle[aria-expanded='true'] span::after { top: 0; transform: rotate(-45deg); }
+
+@media (max-width: 879px) {
+  html.js header.site-header { position: relative; flex-wrap: wrap; }
+  html.js .nav-toggle { display: flex; }
+  html.js header.site-header nav {
+    display: none;
+    order: 3;                       /* full-width row under the logo */
+    width: 100%;
+    margin-left: 0;
+    flex-direction: column;
+    gap: 0;
+    padding-top: 14px;
+  }
+  html.js header.site-header nav[data-open='true'] { display: flex; }
+  html.js header.site-header nav a {
+    padding: 13px 2px;
+    font-size: 15px;
+    border-top: 1px solid var(--border);
+  }
+  html.js header.site-header nav a:first-child { border-top: none; }
+}
+
+/* ─── Device frames ───────────────────────────────────────────────────
+   The showcase screenshots were bare PNGs with a rounded corner, so they read
+   as pictures of a screen rather than as a phone. Same treatment as the
+   portfolio case study: a dark bezel, a fixed 9/19.5 body, and the screenshot
+   cropped to fill it.
+
+   `aspect-ratio` on the frame rather than the image is what makes the row
+   line up — the three PNGs are not identically sized, and letting each set its
+   own height gave a ragged grid. The image fills a box of known shape instead.
+
+   The tilt is CSS, not a rendered asset: a rendered 3D mockup would mean
+   re-exporting three images every time a screen changes, and would sit at one
+   fixed size. This costs nothing and stays sharp at any width. It is dropped
+   entirely under `prefers-reduced-motion` and on touch, where a perspective
+   transform on a scroll-snap carousel fights the swipe. */
+.shot .device {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 19.5;
+  border-radius: 26px;
+  padding: 6px;                     /* the bezel itself */
+  background: linear-gradient(160deg, #2a2a2e 0%, #131316 45%, #0a0a0c 100%);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset,   /* the light catch on the rim */
+    0 24px 48px -18px rgba(0, 0, 0, 0.85),
+    0 6px 16px -8px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+.shot .device img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;             /* keep the status bar and header, crop the fold */
+  border-radius: 20px;
+  border: 0;
+  box-shadow: none;
+  display: block;
+}
+/* The speaker slot. Purely cosmetic, and small enough to read as a detail
+   rather than an attempt at photorealism. */
+.shot .device::after {
+  content: '';
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 54px;
+  height: 5px;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 2;
+  pointer-events: none;
+}
+
+@media (hover: hover) and (min-width: 720px) {
+  .shot-grid { perspective: 1600px; }
+  .shot .device {
+    transform: rotateY(-9deg) rotateX(2deg);
+    transform-origin: center;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.35s ease;
+  }
+  /* The middle phone faces front and the outer two angle inwards, so the row
+     reads as three objects on a surface rather than three identical cards. */
+  .shot:nth-child(2) .device { transform: rotateX(2deg); }
+  .shot:nth-child(3) .device { transform: rotateY(9deg) rotateX(2deg); }
+  .shot:hover .device,
+  .shot:nth-child(2):hover .device,
+  .shot:nth-child(3):hover .device {
+    transform: rotateY(0deg) rotateX(0deg) translateY(-6px);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.09) inset,
+      0 32px 60px -20px rgba(0, 0, 0, 0.9),
+      0 0 40px -12px rgba(212, 175, 55, 0.25);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .shot .device,
+  .shot:nth-child(2) .device,
+  .shot:nth-child(3) .device { transform: none; transition: none; }
 }
