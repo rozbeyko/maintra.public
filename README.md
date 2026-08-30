@@ -25,6 +25,38 @@ maintra.public/
 
 No build step, no dependencies, no JavaScript bundler. Just static HTML + one CSS file.
 
+## Cache busting — bump this or your change is invisible
+
+Cloudflare Pages serves `assets/*` with `Cache-Control: public, max-age=14400`.
+The HTML is `max-age=0, must-revalidate` and so is always fresh, but the CSS and
+JS are held by the visitor's browser for **four hours** without so much as a
+revalidation request. The filenames never change, so nothing tells the browser
+its copy is stale.
+
+The effect is nasty because the deploy genuinely succeeded: the origin serves
+the new file, `curl` proves it, a fresh browser shows it, and the person who
+asked for the change still sees the old site and reasonably concludes it was
+never done. This cost a full round of "it's still not working" on 2026-08-30.
+
+So every CSS/JS reference carries a version token:
+
+```html
+<link rel="stylesheet" href="assets/style.css?v=20260830" />
+<script src="assets/device.js?v=20260830" defer></script>
+```
+
+**Changing `assets/style.css` or any `assets/*.js` means bumping the token in
+every HTML file in the same commit.** It is a date stamp, so use the day you
+made the change:
+
+```bash
+grep -rl 'v=20260830' *.html | xargs sed -i 's/v=20260830/v=YYYYMMDD/g'
+grep -c 'v=' *.html   # sanity: index 5, wishlist 2, everything else 4
+```
+
+Images are deliberately not versioned — a stale screenshot is cosmetic, and
+they are large enough that the four-hour cache is worth keeping.
+
 ## Canonical URL
 
 Every page hard-codes `https://rozbeyko.github.io/maintra.public/` as the canonical host in:
