@@ -1,0 +1,80 @@
+MAINTRA — PRESS COPY
+Updated: 15 September 2026
+
+Use it as it stands. Nothing here needs clearing with me.
+The name is written Maintra — capital M, one word.
+
+Ukrainian versions of the same text are in texts.txt
+
+════════════════════════════════════════════════════════════════════════
+ONE SENTENCE
+════════════════════════════════════════════════════════════════════════
+
+Maintra is a digital service book for cars and motorcycles: photograph a
+garage receipt and it becomes a full record — parts, labour and cost.
+
+════════════════════════════════════════════════════════════════════════
+50 WORDS
+════════════════════════════════════════════════════════════════════════
+
+Maintra is a digital service book for cars and motorcycles. It reads a garage
+or fuel receipt in any language and turns it into a complete record, builds a
+maintenance plan from your mileage, keeps documents in an encrypted vault, and
+tracks tyres by their manufacturing date. Works offline, no ads, no tracking.
+
+════════════════════════════════════════════════════════════════════════
+150 WORDS
+════════════════════════════════════════════════════════════════════════
+
+Maintra is a digital service book for cars and motorcycles. It reads a receipt
+from a garage or a filling station in any language and turns it into a complete
+record: parts, labour, cost, mileage. From there it builds a maintenance plan,
+works out real fuel consumption, keeps documents in an encrypted vault, and
+tracks tyres — including the date they were made, because rubber hardens with
+age rather than mileage.
+
+The app grew out of its developer's own problem: he keeps an old Mitsubishi
+Pajero on the road and got tired of the shoebox of receipts in the glovebox.
+Maintra works offline, shows no ads and carries no tracking; the service
+history can be exported and taken elsewhere at any time.
+
+Free: one vehicle, the full service history, fuel logs, plan, reminders, tyres
+and documents. Paid covers only what the developer pays third parties for:
+receipt reading, the AI maintenance plan, and tyre photo analysis.
+
+════════════════════════════════════════════════════════════════════════
+QUOTES FROM THE DEVELOPER (take any of them)
+════════════════════════════════════════════════════════════════════════
+
+"You remember the big repairs without an app. It is the small things that get
+lost: which filter exactly, how much went in, when it was last done. Three
+years on, that is not a car's history any more — it is a pile of receipts in
+the glovebox."
+
+"Everyone checks the tread before winter; almost nobody checks the date. After
+six years rubber hardens no matter how many millimetres are left on it."
+
+"A registration document and an insurance policy are a full name, an address,
+a VIN and a signature in one file. So documents are encrypted on the phone
+before they go anywhere: the owner holds the only key, and there is no
+'recover my access' button. That is inconvenient, and it is deliberate."
+
+"I did not want to build another subscription. Anything that costs nothing to
+run stays free. The paid part is only what I pay third parties for myself."
+
+════════════════════════════════════════════════════════════════════════
+BOILERPLATE (for the end of a piece)
+════════════════════════════════════════════════════════════════════════
+
+Maintra is a digital service book for cars and motorcycles: it reads garage
+receipts and keeps a maintenance plan, tyres and encrypted documents. It works
+offline and carries no ads.
+Built by one developer, ROK (Kyrylo Rozbeiko).
+Free on the App Store and Google Play. maintra.me
+
+════════════════════════════════════════════════════════════════════════
+PERMISSION
+════════════════════════════════════════════════════════════════════════
+
+Everything in this press kit may be used in editorial coverage without asking
+first. The name Maintra is written with a capital M, one word.

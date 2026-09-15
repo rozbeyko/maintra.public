@@ -77,28 +77,4 @@ Maintra — цифрова сервісна книжка для авто й мо
 матеріалах без окремого погодження. Назва Maintra пишеться з великої M,
 без пробілів.
 
-════════════════════════════════════════════════════════════════════════
-ENGLISH — ONE SENTENCE
-════════════════════════════════════════════════════════════════════════
-
-Maintra is a digital service book for cars and motorcycles: photograph a
-garage receipt and it becomes a full record — parts, labour and cost.
-
-════════════════════════════════════════════════════════════════════════
-ENGLISH — 50 WORDS
-════════════════════════════════════════════════════════════════════════
-
-Maintra is a digital service book for cars and motorcycles. It reads a garage
-or fuel receipt in any language and turns it into a complete record, builds a
-maintenance plan from your mileage, keeps documents in an encrypted vault, and
-tracks tyres by their manufacturing date. Works offline, no ads, no tracking.
-
-════════════════════════════════════════════════════════════════════════
-ENGLISH — BOILERPLATE
-════════════════════════════════════════════════════════════════════════
-
-Maintra is a digital service book for cars and motorcycles: it reads garage
-receipts, keeps a maintenance plan, tyres and encrypted documents, and works
-offline with no ads.
-Built by one developer, ROK (Kyrylo Rozbeiko).
-Free on the App Store and Google Play. maintra.me
+Англійською ці самі тексти — у файлі texts-en.txt

@@ -1,0 +1,123 @@
+/* Press kit.
+ *
+ * Shared by press.html (uk) and press-en.html, so the two language versions
+ * cannot drift apart visually — they are generated from one template and they
+ * read from one stylesheet.
+ */
+
+.lang-switch {
+  color: var(--primary) !important;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 999px;
+  padding: 2px 12px;
+  line-height: 1.5;
+}
+.lang-switch:hover {
+  background: rgba(212, 175, 55, 0.12);
+  text-decoration: none;
+}
+
+/* Below 880px the nav collapses into a stack of full-width rows divided by
+   hairlines (style.css). A pill sitting in that stack reads as a stray
+   button, so it drops back to a plain row and keeps only the gold to mark it
+   out. Matched to that breakpoint — change both or neither. */
+@media (max-width: 879px) {
+  html.js header.site-header nav .lang-switch {
+    border: none;
+    border-top: 1px solid var(--border);
+    border-radius: 0;
+    padding: 13px 2px;
+  }
+  html.js header.site-header nav .lang-switch:hover { background: none; }
+}
+
+/* Logos and icons — a few large items, each shown whole. */
+.press-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin: 18px 0 28px;
+}
+.press-item {
+  background: #141312;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 14px;
+  padding: 14px;
+}
+.press-item img {
+  width: 100%;
+  height: 120px;
+  object-fit: contain;
+  background: #0a0a0a;
+  border-radius: 8px;
+}
+.press-item .name { font-weight: 700; margin: 10px 0 2px; font-size: 14px; }
+.press-item .meta { color: #8d897f; font-size: 12.5px; }
+.press-item a { display: inline-block; margin-top: 8px; font-size: 13px; }
+
+/* Screenshots — many tall phone images, so the columns are narrower and the
+   thumbnail keeps its own aspect ratio rather than being boxed to a fixed
+   height. The <img> carries width/height attributes so the grid does not
+   reflow as the lazy-loaded thumbnails arrive. */
+.shot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 14px;
+  margin: 16px 0 30px;
+}
+.shot { margin: 0; }
+.shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: #0a0a0a;
+}
+.shot a:hover img { border-color: rgba(212, 175, 55, 0.5); }
+.shot figcaption { padding: 8px 2px 0; }
+.shot .name { display: block; font-size: 13px; font-weight: 700; line-height: 1.35; }
+.shot .meta { display: block; color: #8d897f; font-size: 11.5px; }
+.shot figcaption a { font-size: 12px; }
+
+table.facts {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0 26px;
+  font-size: 15px;
+}
+table.facts td {
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  vertical-align: top;
+}
+table.facts td:first-child { color: #8d897f; width: 38%; padding-right: 16px; }
+
+.copyblock {
+  background: #141312;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-left: 3px solid #d4af37;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 12px 0 20px;
+}
+.copyblock p { margin: 0 0 10px; }
+.copyblock p:last-child { margin-bottom: 0; }
+
+.permission {
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin: 22px 0;
+}
+
+/* Material that is promised but not here yet. Said plainly rather than left
+   out, so a journalist knows whether to wait or work around it. */
+.pending {
+  color: #8d897f;
+  font-size: 14px;
+  border-left: 2px solid rgba(255, 255, 255, 0.14);
+  padding-left: 12px;
+  margin: 10px 0 22px;
+}
