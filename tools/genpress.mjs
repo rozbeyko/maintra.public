@@ -24,10 +24,20 @@ import { join } from 'node:path';
 const SITE = process.argv[2];
 const SHOTS = 'assets/press/screens';
 
-/** PNG dimensions straight from the IHDR chunk — stated sizes have to be true. */
+/** Dimensions read from the file itself — stated sizes have to be true. */
 function pngSize(file) {
   const b = readFileSync(file);
-  return { w: b.readUInt32BE(16), h: b.readUInt32BE(20) };
+  if (b.readUInt32BE(0) === 0x89504e47) return { w: b.readUInt32BE(16), h: b.readUInt32BE(20) };
+  // JPEG: walk the segment chain to the start-of-frame, which carries the size.
+  for (let i = 2; i < b.length; ) {
+    if (b[i] !== 0xff) { i++; continue; }
+    const marker = b[i + 1];
+    if (marker >= 0xc0 && marker <= 0xcf && marker !== 0xc4 && marker !== 0xc8 && marker !== 0xcc) {
+      return { h: b.readUInt16BE(i + 5), w: b.readUInt16BE(i + 7) };
+    }
+    i += 2 + b.readUInt16BE(i + 2);
+  }
+  throw new Error(`could not read dimensions from ${file}`);
 }
 const kb = (file) => Math.round(statSync(file).size / 1024);
 
@@ -64,6 +74,33 @@ const STORE = [
   ['wishlist', 'Хотілки', 'Wishlist'],
   ['stats', 'Статистика', 'Statistics'],
 ];
+
+/**
+ * Photos of the developer. Same images on both pages — only the caption is
+ * translated — so this is a flat list rather than a per-language one.
+ */
+const PHOTOS = [
+  ['maintra-developer-1', '.png', 'Кирило Розбейко', 'Kyrylo Rozbeiko'],
+  ['maintra-developer-2', '.jpg', 'Кирило Розбейко', 'Kyrylo Rozbeiko'],
+];
+
+function photos(lang) {
+  return PHOTOS.map(([key, ext, uk, en]) => {
+    const name = lang === 'uk' ? uk : en;
+    const file = `assets/press/photo/${key}${ext}`;
+    const thumb = `assets/press/photo/thumbs/${key}.jpg`;
+    const { w, h } = pngSize(join(SITE, file));
+    const dl = lang === 'uk' ? 'Завантажити' : 'Download';
+    return `      <figure class="shot">
+        <a href="${file}" target="_blank" rel="noopener"><img src="${thumb}" alt="${name}" loading="lazy" width="560" height="${Math.round(560 * (h / w))}" /></a>
+        <figcaption>
+          <span class="name">${name}</span>
+          <span class="meta">${ext.slice(1).toUpperCase()} · ${w}×${h} · ${kb(join(SITE, file))} KB</span>
+          <a href="${file}" download>${dl}</a>
+        </figcaption>
+      </figure>`;
+  }).join('\n');
+}
 
 function gallery(lang, rows, kind) {
   return rows
@@ -179,7 +216,8 @@ const T = {
     videoH: 'Відео',
     videoNote: 'Готується: запис екрана на 20–40 секунд без музики й голосу — один сценарій, фото чека перетворюється на запис. MP4 файлом, окремо GIF на 5 секунд для телеграм-каналів.',
     photoH: 'Фото розробника',
-    photoNote: 'Готується: горизонтальне й вертикальне фото, від 2000 px по довгій стороні.',
+    photoNote: 'У розробника в телефоні більше фото запчастин, ніж власних — оце те, що знайшлося.',
+    photoDl: 'Завантажити оригінал',
     zipH: 'Забрати все одразу',
     zipNote: 'Архів зʼявиться тут, коли всі матеріали будуть на місці.',
     qH: 'Питання',
@@ -265,7 +303,8 @@ const T = {
     videoH: 'Video',
     videoNote: 'Coming: a 20–40 second screen recording with no music and no voiceover — one scenario, a photographed receipt becoming a record. As an MP4, plus a 5-second GIF for messaging channels.',
     photoH: 'Photo of the developer',
-    photoNote: 'Coming: a landscape and a portrait shot, at least 2000 px on the long edge.',
+    photoNote: 'There are more photos of car parts on the developer’s phone than of the developer — this is what turned up.',
+    photoDl: 'Download the original',
     zipH: 'Everything in one download',
     zipNote: 'A zip will appear here once all the materials are in place.',
     qH: 'Questions',
@@ -380,7 +419,10 @@ ${gallery(lang, STORE, 'store')}
     <p class="pending">${t.videoNote}</p>
 
     <h2>${t.photoH}</h2>
-    <p class="pending">${t.photoNote}</p>
+    <p class="muted">${t.photoNote}</p>
+    <div class="photo-grid">
+${photos(lang)}
+    </div>
 
     <h2>${t.zipH}</h2>
     <p class="pending">${t.zipNote}</p>

@@ -80,6 +80,27 @@
 .shot .meta { display: block; color: #8d897f; font-size: 11.5px; }
 .shot figcaption a { font-size: 12px; }
 
+/* Photos of the developer. Wider columns than the screenshot grid — there are
+   only a couple and a face at 150px is not a photograph. Shares .shot for the
+   frame and caption so the two galleries read as one page. */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin: 16px 0 30px;
+}
+
+/* The photos are whatever shape they were shot in, so left to their natural
+   height the captions sit at different levels and the row reads as broken.
+   Fixed height with `contain` — the same treatment the logo grid gets — evens
+   it out and, unlike `cover`, crops nobody's head off. The full file is one
+   click away, so the thumbnail owes the reader an honest whole frame. */
+.photo-grid .shot img {
+  height: 320px;
+  object-fit: contain;
+  background: #0a0a0a;
+}
+
 table.facts {
   width: 100%;
   border-collapse: collapse;
