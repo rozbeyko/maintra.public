@@ -86,9 +86,23 @@ function gallery(lang, rows, kind) {
     .join('\n');
 }
 
+/**
+ * Cloudflare Pages strips `.html` and 308-redirects to the bare path, so
+ * https://maintra.me/press.html is never the URL anyone ends up on. Canonical,
+ * og:url and the hreflang pair must name the destination rather than a
+ * redirect to it — an hreflang pair that points at redirects is the one place
+ * the extra hop actually costs something. The language toggle uses the same
+ * form so a reader lands on the canonical URL directly.
+ *
+ * The rest of the site still links `.html` internally; that convention is
+ * older than this page and is left alone.
+ */
+const URL_UK = 'https://maintra.me/press';
+const URL_EN = 'https://maintra.me/press-en';
+
 const T = {
   uk: {
-    other: 'press-en.html',
+    other: '/press-en',
     otherLabel: 'English',
     title: 'Прескіт — Maintra',
     desc: 'Матеріали для преси: логотипи, скріншоти, готові тексти й фактаж про Maintra — цифрову сервісну книжку для авто й мотоциклів. Використання дозволено без погодження.',
@@ -157,7 +171,7 @@ const T = {
     dl: 'Завантажити',
     shotsH: 'Скріншоти',
     shotsLede:
-      'Скріншоти українською. Англійські — на <a href="press-en.html">English version</a> цієї сторінки. Клік відкриває повний розмір.',
+      'Скріншоти українською. Англійські — на <a href="/press-en">English version</a> цієї сторінки. Клік відкриває повний розмір.',
     cleanH: 'Чисті скріншоти',
     cleanNote: 'Просто екран застосунку: без рамки телефона й без маркетингового тексту. Для статті беріть ці — слоган поверх картинки виглядає як реклама.',
     storeH: 'Сторові скріншоти',
@@ -174,7 +188,7 @@ const T = {
   },
 
   en: {
-    other: 'press.html',
+    other: '/press',
     otherLabel: 'Українська',
     title: 'Press kit — Maintra',
     desc: 'Press materials for Maintra, a digital service book for cars and motorcycles: logos, screenshots, ready-to-use copy and a fact sheet. Free to use in editorial coverage.',
@@ -243,7 +257,7 @@ const T = {
     dl: 'Download',
     shotsH: 'Screenshots',
     shotsLede:
-      'Screenshots in English. For Ukrainian, see the <a href="press.html">українська версія</a> of this page. Click any one for the full size.',
+      'Screenshots in English. For Ukrainian, see the <a href="/press">українська версія</a> of this page. Click any one for the full size.',
     cleanH: 'Clean screenshots',
     cleanNote: 'Just the app’s screen: no phone frame, no marketing text. Use these in an article — a slogan across the image reads as an advert.',
     storeH: 'Store screenshots',
@@ -264,7 +278,6 @@ const block = (paras) => `    <div class="copyblock">\n${paras.map((p) => `     
 
 function page(lang) {
   const t = T[lang];
-  const file = lang === 'uk' ? 'press.html' : 'press-en.html';
   const logoGrid = t.logos
     .map(
       ([f, name, meta, alt]) => `      <div class="press-item">
@@ -285,16 +298,16 @@ function page(lang) {
   <title>${t.title}</title>
   <meta name="description" content="${t.desc}" />
   <meta name="theme-color" content="#0A0A0A" />
-  <link rel="canonical" href="https://maintra.me/${file}" />
-  <link rel="alternate" hreflang="uk" href="https://maintra.me/press.html" />
-  <link rel="alternate" hreflang="en" href="https://maintra.me/press-en.html" />
-  <link rel="alternate" hreflang="x-default" href="https://maintra.me/press-en.html" />
+  <link rel="canonical" href="${lang === 'uk' ? URL_UK : URL_EN}" />
+  <link rel="alternate" hreflang="uk" href="${URL_UK}" />
+  <link rel="alternate" hreflang="en" href="${URL_EN}" />
+  <link rel="alternate" hreflang="x-default" href="${URL_EN}" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Maintra" />
   <meta property="og:locale" content="${lang === 'uk' ? 'uk_UA' : 'en_GB'}" />
   <meta property="og:title" content="${t.title}" />
   <meta property="og:description" content="${t.ogDesc}" />
-  <meta property="og:url" content="https://maintra.me/${file}" />
+  <meta property="og:url" content="${lang === 'uk' ? URL_UK : URL_EN}" />
   <meta property="og:image" content="https://maintra.me/assets/press/maintra-feature-1024x500.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" href="assets/favicon.png" />

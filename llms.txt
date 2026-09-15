@@ -46,8 +46,8 @@ Exact prices are localized and shown in-app at checkout. Subscriptions are manag
 - [Privacy Policy](https://maintra.me/privacy.html) — data handling, third parties, user rights
 - [Terms of Service](https://maintra.me/terms.html)
 - [Delete Account](https://maintra.me/delete-account.html) — account deletion instructions
-- [Press kit](https://maintra.me/press-en.html) — logos, screenshots, ready-to-use copy and a fact sheet; free to use in editorial coverage
-- [Прескіт](https://maintra.me/press.html) — the same press kit in Ukrainian
+- [Press kit](https://maintra.me/press-en) — logos, screenshots, ready-to-use copy and a fact sheet; free to use in editorial coverage
+- [Прескіт](https://maintra.me/press) — the same press kit in Ukrainian
 
 ## Contact
 

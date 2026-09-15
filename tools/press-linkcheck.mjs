@@ -14,7 +14,13 @@ for (const page of ['press.html', 'press-en.html']) {
   const refs = [...html.matchAll(/(?:href|src)="([^"]+)"/g)].map((m) => m[1]);
   for (const ref of refs) {
     if (/^(https?:|mailto:|#)/.test(ref)) continue;
-    const path = join(SITE, ref.split('?')[0]);
+    let rel = ref.split('?')[0];
+    // Cloudflare Pages serves /press from press.html and 308-redirects the
+    // .html form, so an extensionless root-relative link is backed by a file
+    // with .html appended. Resolving it here is what makes the check prove
+    // the page exists rather than pass because it could not tell.
+    if (rel.startsWith('/') && !/\.[a-z0-9]+$/i.test(rel)) rel = `${rel.slice(1)}.html`;
+    const path = join(SITE, rel);
     checked++;
     if (!existsSync(path)) {
       console.log(`MISSING  ${page}  ->  ${ref}`);
