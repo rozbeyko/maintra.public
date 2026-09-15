@@ -19,10 +19,37 @@
  * there is lost on the next run.
  */
 import { readFileSync, writeFileSync, statSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { join } from 'node:path';
 
 const SITE = process.argv[2];
 const SHOTS = 'assets/press/screens';
+
+/**
+ * Cache-buster derived from the file's own contents.
+ *
+ * The site versions its CSS and JS URLs by hand with a date (`?v=20260915`),
+ * which only works if whoever edits the file remembers to bump it. Editing
+ * press.css without bumping shipped a correct stylesheet that nobody could
+ * see: the server had it, and every browser holding the old copy under the
+ * identical URL kept serving that for the four hours Cache-Control allows.
+ * A hash cannot be forgotten — change the file and the URL changes with it,
+ * leave it alone and the URL stays put so the cache still does its job.
+ *
+ * style.css and nav.js keep the hand-typed date: they are shared with the
+ * rest of the site, and giving them a different query string here would just
+ * make press visitors download a second copy of files they already have.
+ *
+ * Line endings are normalised before hashing. Git hands this repo CRLF on
+ * checkout while the generator writes LF, so hashing the raw bytes makes the
+ * URL depend on who last touched the working copy rather than on the content
+ * — a fresh clone would regenerate a different version for an identical file.
+ */
+const assetVersion = (rel) =>
+  createHash('sha256')
+    .update(readFileSync(join(SITE, rel), 'utf8').split('\r\n').join('\n'))
+    .digest('hex')
+    .slice(0, 8);
 
 /** Dimensions read from the file itself — stated sizes have to be true. */
 function pngSize(file) {
@@ -361,7 +388,7 @@ function page(lang) {
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" href="assets/favicon.png" />
   <link rel="stylesheet" href="assets/style.css?v=20260915" />
-  <link rel="stylesheet" href="assets/press.css?v=20260915" />
+  <link rel="stylesheet" href="assets/press.css?v=${assetVersion('assets/press.css')}" />
   <script src="assets/nav.js?v=20260915" defer></script>
 </head>
 <body>
