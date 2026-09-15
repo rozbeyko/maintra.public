@@ -83,23 +83,34 @@
 /* Photos of the developer. Wider columns than the screenshot grid — there are
    only a couple and a face at 150px is not a photograph. Shares .shot for the
    frame and caption so the two galleries read as one page. */
+/* `auto-fit`, not `auto-fill`: with only two photos, auto-fill would lay out
+   four 240px tracks and leave two empty, while auto-fit collapses the empties
+   so the pair share the full width side by side. The 150px floor keeps them
+   beside each other well down into phone widths instead of stacking. */
 .photo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 16px;
   margin: 16px 0 30px;
 }
 
-/* The photos are whatever shape they were shot in, so left to their natural
-   height the captions sit at different levels and the row reads as broken.
-   Fixed height with `contain` — the same treatment the logo grid gets — evens
-   it out and, unlike `cover`, crops nobody's head off. The full file is one
-   click away, so the thumbnail owes the reader an honest whole frame. */
+/* The photos are whatever shape they were shot in, so at their natural heights
+   the captions sit at different levels and the row reads as broken. A shared
+   aspect ratio with `contain` evens it out and, unlike `cover`, crops nobody's
+   head off — the full file is one click away, so the thumbnail owes the reader
+   an honest whole frame. Ratio rather than a pixel height so a narrow column
+   shrinks the box instead of letterboxing it. */
 .photo-grid .shot img {
-  height: 320px;
+  aspect-ratio: 3 / 4;
+  height: auto;
   object-fit: contain;
   background: #0a0a0a;
 }
+
+/* The archive cards reuse .press-item but carry no image, so they need their
+   own top padding to sit level with the rest. */
+.zip-item { padding: 18px; }
+.zip-item .name { margin-top: 0; font-size: 16px; }
 
 table.facts {
   width: 100%;

@@ -219,7 +219,12 @@ const T = {
     photoNote: 'У розробника в телефоні більше фото запчастин, ніж власних — оце те, що знайшлося.',
     photoDl: 'Завантажити оригінал',
     zipH: 'Забрати все одразу',
-    zipNote: 'Архів зʼявиться тут, коли всі матеріали будуть на місці.',
+    zipNote:
+      'Два архіви — по одному на мову. У кожному: логотипи, всі скріншоти тією мовою, фото розробника й тексти. Відео додам до архіву, щойно буде.',
+    zips: [
+      ['maintra-press-kit-uk.zip', 'Українською', 'логотипи · 21 скріншот · 2 фото · тексти'],
+      ['maintra-press-kit-en.zip', 'Англійською', 'логотипи · 21 скріншот · 2 фото · тексти'],
+    ],
     qH: 'Питання',
     q: 'Пишіть на <a href="mailto:rokops13@gmail.com">rokops13@gmail.com</a> — відповідаю на всі листи. Якщо потрібен матеріал, якого тут немає, або цифра з актуальною датою — так само.',
     footer: '<a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="faq.html">FAQ</a> · <a href="privacy.html">Privacy</a>',
@@ -306,7 +311,12 @@ const T = {
     photoNote: 'There are more photos of car parts on the developer’s phone than of the developer — this is what turned up.',
     photoDl: 'Download the original',
     zipH: 'Everything in one download',
-    zipNote: 'A zip will appear here once all the materials are in place.',
+    zipNote:
+      'Two archives, one per language. Each holds the logos, every screenshot in that language, the photos of the developer, and the copy. The video goes in as soon as it exists.',
+    zips: [
+      ['maintra-press-kit-en.zip', 'English', 'logos · 21 screenshots · 2 photos · copy'],
+      ['maintra-press-kit-uk.zip', 'Ukrainian', 'logos · 21 screenshots · 2 photos · copy'],
+    ],
     qH: 'Questions',
     q: 'Write to <a href="mailto:rokops13@gmail.com">rokops13@gmail.com</a> — I answer every email. Same if you need material that is not here, or a figure with a current date on it.',
     footer: '<a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="faq.html">FAQ</a> · <a href="privacy.html">Privacy</a>',
@@ -425,7 +435,19 @@ ${photos(lang)}
     </div>
 
     <h2>${t.zipH}</h2>
-    <p class="pending">${t.zipNote}</p>
+    <p class="muted">${t.zipNote}</p>
+    <div class="press-grid">
+${t.zips
+  .map(([f, name, meta]) => {
+    const mb = (statSync(join(SITE, `assets/press/${f}`)).size / 1024 / 1024).toFixed(1);
+    return `      <div class="press-item zip-item">
+        <div class="name">${name}</div>
+        <div class="meta">ZIP · ${mb} MB · ${meta}</div>
+        <a href="assets/press/${f}" download>${t.dl}</a>
+      </div>`;
+  })
+  .join('\n')}
+    </div>
 
     <h2>${t.qH}</h2>
     <p>${t.q}</p>
