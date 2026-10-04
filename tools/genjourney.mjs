@@ -82,21 +82,35 @@ const HERO_JS = `${ASSETS}/hero3d.js?v=${hash(`${ASSETS}/hero3d.js`)}`;
 // code the loader waits for, on every connection. hero3d.js calls play() once
 // the phone is up, which loads it then, after what the first screen needs.
 const HERO_VIDEO_AUTO = 'id="heroVid" src="assets/journey/hero.mp4" poster="assets/journey/hero-poster.webp" muted loop playsinline preload="auto"';
-const body = toAssets(source.slice(start, end))
+// A poster is fetched at once even with preload="none", so the eight motion
+// clips' posters (340 KB) and the hidden fallback's copy of the hero poster
+// all raced the 3D code. They become data-poster, and LOADER_JS sets them:
+// the clips' as they come near, the hero's only if the fallback is shown.
+const POSTERS = 9;
+const withSrc = toAssets(source.slice(start, end));
+if ((withSrc.match(/ poster="/g) ?? []).length !== POSTERS) {
+  throw new Error(`expected ${POSTERS} video posters, the design changed; recount and check LOADER_JS`);
+}
+const body = withSrc
   .replace(`src="${ASSETS}/hero3d.js"`, `src="${HERO_JS}"`)
-  .replace(HERO_VIDEO_AUTO, HERO_VIDEO_AUTO.replace('preload="auto"', 'preload="none"'));
+  .replace(HERO_VIDEO_AUTO, HERO_VIDEO_AUTO.replace('preload="auto"', 'preload="none"'))
+  .replaceAll(' poster="', ' data-poster="');
 if (/["(]i\//.test(body)) throw new Error('an i/ path survived the rewrite');
-if (!body.includes('id="heroVid"') || body.includes(HERO_VIDEO_AUTO)) {
+if (!body.includes('id="heroVid"') || body.includes('preload="auto"')) {
   throw new Error('the hero video markup moved, update HERO_VIDEO_AUTO');
 }
 
 // What the loader waits for, requested from the head instead of whenever the
 // parser reaches it: the 3D code (exact URLs, or the preload is wasted), the
 // screen texture (crossorigin, because three.js loads it in cors mode and a
-// mismatched preload is fetched twice), and the fonts this language draws.
+// mismatched preload is fetched twice), and the fonts of the first screen in
+// this language: Tektur and Fira 400 for the words, Fira 500 for the plates
+// hero3d.js draws (always Latin). Nothing below the fold: preloads are the
+// highest priority there is, and every extra one delays the phone.
 const preloads = (lang) => {
-  const fontFiles = ['tektur-400-900', 'firasans-400', 'firasans-700']
-    .flatMap((f) => (lang === 'uk' ? [`${f}-latin`, `${f}-cyrillic`] : [`${f}-latin`]));
+  const fontFiles = ['tektur-400-900', 'firasans-400']
+    .flatMap((f) => (lang === 'uk' ? [`${f}-latin`, `${f}-cyrillic`] : [`${f}-latin`]))
+    .concat('firasans-500-latin');
   return [
     `<link rel="modulepreload" href="${HERO_JS}">`,
     `<link rel="modulepreload" href="${ASSETS}/three.module.min.js">`,
@@ -157,21 +171,36 @@ const LOADER_JS = `<script>
   if (!el) return;
   var CYCLE = 2400, SNAP = 0.46 * CYCLE, REST = 0.83 * CYCLE, CAP = 8000, gone = false;
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var sample = 'AaZz09 \\u0410\\u044f\\u0407\\u0457\\u0490\\u0491';
-  var faces = ['italic 800 40px Tektur', '700 40px Tektur', '400 17px "Fira Sans"', '500 17px "Fira Sans"', '600 17px "Fira Sans"', '700 17px "Fira Sans"'];
+  // The first screen's own words as the sample, so only the subsets this
+  // page draws are fetched: an invented sample pulled every Cyrillic file
+  // onto the English page, at the highest priority, ahead of the phone.
+  var first = document.querySelector('.hero-txt');
+  var sample = (first && first.textContent.replace(/\\s+/g, ' ')) || 'Aa';
+  var faces = ['italic 800 40px Tektur', '400 17px "Fira Sans"'];
   var fonts = document.fonts ? Promise.all(faces.map(function (f) { return document.fonts.load(f, sample); })) : Promise.resolve();
+  var w = document.getElementById('hero3d'), vid = document.getElementById('heroVid');
   var hero = new Promise(function (done) {
-    var w = document.getElementById('hero3d');
     if (!w) return done();
-    var ok = function () { return w.classList.contains('ready') || w.classList.contains('nogl'); };
-    if (ok()) return done();
-    new MutationObserver(function (m, o) { if (ok()) { o.disconnect(); done(); } }).observe(w, { attributes: true, attributeFilter: ['class'] });
+    var check = function () {
+      if (w.classList.contains('nogl') && vid && !vid.poster && vid.dataset.poster) vid.poster = vid.dataset.poster;
+      return w.classList.contains('ready') || w.classList.contains('nogl');
+    };
+    if (check()) return done();
+    new MutationObserver(function (m, o) { if (check()) { o.disconnect(); done(); } }).observe(w, { attributes: true, attributeFilter: ['class'] });
   });
+  function posters() {
+    var vs = [].slice.call(document.querySelectorAll('.mv video[data-poster]'));
+    var set = function (v) { if (!v.poster) v.poster = v.dataset.poster; };
+    if (!('IntersectionObserver' in window)) return vs.forEach(set);
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { set(e.target); io.unobserve(e.target); } }); }, { rootMargin: '900px 0px' });
+    vs.forEach(function (v) { io.observe(v); });
+  }
   function leave() {
     if (gone) return; gone = true;
     root.classList.remove('loading');
     el.classList.add('out');
     dispatchEvent(new Event('journey:reveal'));
+    posters();
     setTimeout(function () { el.remove(); }, 400);
   }
   function atRest() {

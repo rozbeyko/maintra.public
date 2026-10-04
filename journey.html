@@ -29,8 +29,7 @@
 <link rel="preload" href="assets/journey/fonts/tektur-400-900-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/journey/fonts/firasans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/journey/fonts/firasans-400-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/journey/fonts/firasans-700-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/journey/fonts/firasans-700-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/journey/fonts/firasans-500-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 /* cyrillic-ext */
 @font-face {
@@ -488,7 +487,7 @@ html.loading{overflow:hidden}
   </div>
   <div class="hero-3d" id="hero3d" role="img" aria-label="Maintra 2.0 на телефоні: гараж, меню плюса, свайп між авто і полароїд, що стає шапкою">
     <canvas aria-hidden="true"></canvas>
-    <div class="hero-fallback" aria-hidden="true"><video id="heroVid" src="assets/journey/hero.mp4" poster="assets/journey/hero-poster.webp" muted loop playsinline preload="none"></video></div>
+    <div class="hero-fallback" aria-hidden="true"><video id="heroVid" src="assets/journey/hero.mp4" data-poster="assets/journey/hero-poster.webp" muted loop playsinline preload="none"></video></div>
   </div>
 </header>
 
@@ -700,14 +699,14 @@ html.loading{overflow:hidden}
     <div><span class="k">Гучно тільки в Моменті</span><p>Відскок, масштаб і вібрація лише тоді, коли закрив роботу.</p></div>
   </div>
   <div class="motion">
-    <figure class="mv"><video data-src="assets/journey/m-add-local.mp4" poster="assets/journey/m-add-local.webp" muted loop playsinline preload="none" aria-label="+ меню"></video><figcaption><b>+ меню</b>Плашки виїжджають з-за правого краю, ближня до пальця перша. Плюс повертається в хрестик.</figcaption></figure>
-    <figure class="mv"><video data-src="assets/journey/m-next-car.mp4" poster="assets/journey/m-next-car.webp" muted loop playsinline preload="none" aria-label="Свайп по гаражу"></video><figcaption><b>Свайп по гаражу</b>Полароїд іде за пальцем і сідає на місце пружиною. Наприкінці місце для ще однієї машини.</figcaption></figure>
-    <figure class="mv"><video data-src="assets/journey/m-hero.mp4" poster="assets/journey/m-hero.webp" muted loop playsinline preload="none" aria-label="Полароїд у шапку"></video><figcaption><b>Полароїд у шапку</b>Фото з гаража стає шапкою екрана авто, а не відкривається з нуля.</figcaption></figure>
-    <figure class="mv"><video data-src="assets/journey/m-push.mp4" poster="assets/journey/m-push.webp" muted loop playsinline preload="none" aria-label="З гаража в авто"></video><figcaption><b>З гаража в авто</b>Екран авто заїжджає збоку і так само повертається, гараж лишається під ним.</figcaption></figure>
-    <figure class="mv"><video data-src="assets/journey/m-moment.mp4" poster="assets/journey/m-moment.webp" muted loop playsinline preload="none" aria-label="Момент"></video><figcaption><b>Момент</b>Роботу закрито: штамп SERVICED, потім +8 до здоров'я. Єдине місце, де анімація гучна.</figcaption></figure>
-    <figure class="mv"><video data-src="assets/journey/m-plan-gen.mp4" poster="assets/journey/m-plan-gen.webp" muted loop playsinline preload="none" aria-label="AI пише план"></video><figcaption><b>AI пише план</b>Видно, що саме зараз робиться і скільки ще чекати.</figcaption></figure>
-    <figure class="mv"><video data-src="assets/journey/m-save.mp4" poster="assets/journey/m-save.webp" muted loop playsinline preload="none" aria-label="Витрату збережено"></video><figcaption><b>Витрату збережено</b>Лист закривається, запис лягає в список, де його й шукатимеш.</figcaption></figure>
-    <figure class="mv"><video data-src="assets/journey/m-tabs.mp4" poster="assets/journey/m-tabs.webp" muted loop playsinline preload="none" aria-label="Вкладки авто"></video><figcaption><b>Вкладки авто</b>Сервіси, план, пальне, гроші. Шапка лишається, міняється тільки зміст.</figcaption></figure>
+    <figure class="mv"><video data-src="assets/journey/m-add-local.mp4" data-poster="assets/journey/m-add-local.webp" muted loop playsinline preload="none" aria-label="+ меню"></video><figcaption><b>+ меню</b>Плашки виїжджають з-за правого краю, ближня до пальця перша. Плюс повертається в хрестик.</figcaption></figure>
+    <figure class="mv"><video data-src="assets/journey/m-next-car.mp4" data-poster="assets/journey/m-next-car.webp" muted loop playsinline preload="none" aria-label="Свайп по гаражу"></video><figcaption><b>Свайп по гаражу</b>Полароїд іде за пальцем і сідає на місце пружиною. Наприкінці місце для ще однієї машини.</figcaption></figure>
+    <figure class="mv"><video data-src="assets/journey/m-hero.mp4" data-poster="assets/journey/m-hero.webp" muted loop playsinline preload="none" aria-label="Полароїд у шапку"></video><figcaption><b>Полароїд у шапку</b>Фото з гаража стає шапкою екрана авто, а не відкривається з нуля.</figcaption></figure>
+    <figure class="mv"><video data-src="assets/journey/m-push.mp4" data-poster="assets/journey/m-push.webp" muted loop playsinline preload="none" aria-label="З гаража в авто"></video><figcaption><b>З гаража в авто</b>Екран авто заїжджає збоку і так само повертається, гараж лишається під ним.</figcaption></figure>
+    <figure class="mv"><video data-src="assets/journey/m-moment.mp4" data-poster="assets/journey/m-moment.webp" muted loop playsinline preload="none" aria-label="Момент"></video><figcaption><b>Момент</b>Роботу закрито: штамп SERVICED, потім +8 до здоров'я. Єдине місце, де анімація гучна.</figcaption></figure>
+    <figure class="mv"><video data-src="assets/journey/m-plan-gen.mp4" data-poster="assets/journey/m-plan-gen.webp" muted loop playsinline preload="none" aria-label="AI пише план"></video><figcaption><b>AI пише план</b>Видно, що саме зараз робиться і скільки ще чекати.</figcaption></figure>
+    <figure class="mv"><video data-src="assets/journey/m-save.mp4" data-poster="assets/journey/m-save.webp" muted loop playsinline preload="none" aria-label="Витрату збережено"></video><figcaption><b>Витрату збережено</b>Лист закривається, запис лягає в список, де його й шукатимеш.</figcaption></figure>
+    <figure class="mv"><video data-src="assets/journey/m-tabs.mp4" data-poster="assets/journey/m-tabs.webp" muted loop playsinline preload="none" aria-label="Вкладки авто"></video><figcaption><b>Вкладки авто</b>Сервіси, план, пальне, гроші. Шапка лишається, міняється тільки зміст.</figcaption></figure>
   </div>
   <p class="small col" style="margin-top:14px">З увімкненим «Зменшити рух» у системі все те саме, але без руху: прості проявлення або миттєва зміна.</p>
 </section>
@@ -843,21 +842,36 @@ vs.forEach(function(v){io.observe(v);v.addEventListener('click',function(){if(v.
   if (!el) return;
   var CYCLE = 2400, SNAP = 0.46 * CYCLE, REST = 0.83 * CYCLE, CAP = 8000, gone = false;
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var sample = 'AaZz09 \u0410\u044f\u0407\u0457\u0490\u0491';
-  var faces = ['italic 800 40px Tektur', '700 40px Tektur', '400 17px "Fira Sans"', '500 17px "Fira Sans"', '600 17px "Fira Sans"', '700 17px "Fira Sans"'];
+  // The first screen's own words as the sample, so only the subsets this
+  // page draws are fetched: an invented sample pulled every Cyrillic file
+  // onto the English page, at the highest priority, ahead of the phone.
+  var first = document.querySelector('.hero-txt');
+  var sample = (first && first.textContent.replace(/\s+/g, ' ')) || 'Aa';
+  var faces = ['italic 800 40px Tektur', '400 17px "Fira Sans"'];
   var fonts = document.fonts ? Promise.all(faces.map(function (f) { return document.fonts.load(f, sample); })) : Promise.resolve();
+  var w = document.getElementById('hero3d'), vid = document.getElementById('heroVid');
   var hero = new Promise(function (done) {
-    var w = document.getElementById('hero3d');
     if (!w) return done();
-    var ok = function () { return w.classList.contains('ready') || w.classList.contains('nogl'); };
-    if (ok()) return done();
-    new MutationObserver(function (m, o) { if (ok()) { o.disconnect(); done(); } }).observe(w, { attributes: true, attributeFilter: ['class'] });
+    var check = function () {
+      if (w.classList.contains('nogl') && vid && !vid.poster && vid.dataset.poster) vid.poster = vid.dataset.poster;
+      return w.classList.contains('ready') || w.classList.contains('nogl');
+    };
+    if (check()) return done();
+    new MutationObserver(function (m, o) { if (check()) { o.disconnect(); done(); } }).observe(w, { attributes: true, attributeFilter: ['class'] });
   });
+  function posters() {
+    var vs = [].slice.call(document.querySelectorAll('.mv video[data-poster]'));
+    var set = function (v) { if (!v.poster) v.poster = v.dataset.poster; };
+    if (!('IntersectionObserver' in window)) return vs.forEach(set);
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { set(e.target); io.unobserve(e.target); } }); }, { rootMargin: '900px 0px' });
+    vs.forEach(function (v) { io.observe(v); });
+  }
   function leave() {
     if (gone) return; gone = true;
     root.classList.remove('loading');
     el.classList.add('out');
     dispatchEvent(new Event('journey:reveal'));
+    posters();
     setTimeout(function () { el.remove(); }, 400);
   }
   function atRest() {

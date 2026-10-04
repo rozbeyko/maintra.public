@@ -27,7 +27,7 @@
 <link rel="preload" href="assets/journey/hero-poster.webp" as="image" crossorigin="anonymous" fetchpriority="high">
 <link rel="preload" href="assets/journey/fonts/tektur-400-900-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/journey/fonts/firasans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/journey/fonts/firasans-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/journey/fonts/firasans-500-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 /* cyrillic-ext */
 @font-face {
@@ -485,7 +485,7 @@ html.loading{overflow:hidden}
   </div>
   <div class="hero-3d" id="hero3d" role="img" aria-label="Maintra 2.0 on a phone: the garage, the plus menu, swiping between cars, and the polaroid turning into the header">
     <canvas aria-hidden="true"></canvas>
-    <div class="hero-fallback" aria-hidden="true"><video id="heroVid" src="assets/journey/hero.mp4" poster="assets/journey/hero-poster.webp" muted loop playsinline preload="none"></video></div>
+    <div class="hero-fallback" aria-hidden="true"><video id="heroVid" src="assets/journey/hero.mp4" data-poster="assets/journey/hero-poster.webp" muted loop playsinline preload="none"></video></div>
   </div>
 </header>
 
@@ -697,14 +697,14 @@ html.loading{overflow:hidden}
     <div><span class="k">Loud only in the Moment</span><p>Bounce, scale and haptics only when you finish a job.</p></div>
   </div>
   <div class="motion">
-    <figure class="mv"><video data-src="assets/journey/m-add-local.mp4" poster="assets/journey/m-add-local.webp" muted loop playsinline preload="none" aria-label="+ menu"></video><figcaption><b>+ menu</b>Cards slide in from the right edge, the one nearest your finger first. The plus turns into a cross.</figcaption></figure>
-    <figure class="mv"><video data-src="assets/journey/m-next-car.mp4" poster="assets/journey/m-next-car.webp" muted loop playsinline preload="none" aria-label="Swiping the garage"></video><figcaption><b>Swiping the garage</b>The polaroid follows your finger and springs into place. At the end, room for one more car.</figcaption></figure>
-    <figure class="mv"><video data-src="assets/journey/m-hero.mp4" poster="assets/journey/m-hero.webp" muted loop playsinline preload="none" aria-label="Polaroid to header"></video><figcaption><b>Polaroid to header</b>The photo from the garage becomes the car screen's header instead of opening from scratch.</figcaption></figure>
-    <figure class="mv"><video data-src="assets/journey/m-push.mp4" poster="assets/journey/m-push.webp" muted loop playsinline preload="none" aria-label="Garage to car"></video><figcaption><b>Garage to car</b>The car screen slides in from the side and back out the same way, with the garage staying underneath.</figcaption></figure>
-    <figure class="mv"><video data-src="assets/journey/m-moment.mp4" poster="assets/journey/m-moment.webp" muted loop playsinline preload="none" aria-label="The Moment"></video><figcaption><b>The Moment</b>A job is done: the SERVICED stamp, then +8 health. The only place where animation gets loud.</figcaption></figure>
-    <figure class="mv"><video data-src="assets/journey/m-plan-gen.mp4" poster="assets/journey/m-plan-gen.webp" muted loop playsinline preload="none" aria-label="AI writes the plan"></video><figcaption><b>AI writes the plan</b>You can see what's happening right now and how long is left.</figcaption></figure>
-    <figure class="mv"><video data-src="assets/journey/m-save.mp4" poster="assets/journey/m-save.webp" muted loop playsinline preload="none" aria-label="Expense saved"></video><figcaption><b>Expense saved</b>The sheet closes and the entry drops into the list, right where you'll look for it.</figcaption></figure>
-    <figure class="mv"><video data-src="assets/journey/m-tabs.mp4" poster="assets/journey/m-tabs.webp" muted loop playsinline preload="none" aria-label="Car tabs"></video><figcaption><b>Car tabs</b>Services, plan, fuel, money. The header stays, only the content changes.</figcaption></figure>
+    <figure class="mv"><video data-src="assets/journey/m-add-local.mp4" data-poster="assets/journey/m-add-local.webp" muted loop playsinline preload="none" aria-label="+ menu"></video><figcaption><b>+ menu</b>Cards slide in from the right edge, the one nearest your finger first. The plus turns into a cross.</figcaption></figure>
+    <figure class="mv"><video data-src="assets/journey/m-next-car.mp4" data-poster="assets/journey/m-next-car.webp" muted loop playsinline preload="none" aria-label="Swiping the garage"></video><figcaption><b>Swiping the garage</b>The polaroid follows your finger and springs into place. At the end, room for one more car.</figcaption></figure>
+    <figure class="mv"><video data-src="assets/journey/m-hero.mp4" data-poster="assets/journey/m-hero.webp" muted loop playsinline preload="none" aria-label="Polaroid to header"></video><figcaption><b>Polaroid to header</b>The photo from the garage becomes the car screen's header instead of opening from scratch.</figcaption></figure>
+    <figure class="mv"><video data-src="assets/journey/m-push.mp4" data-poster="assets/journey/m-push.webp" muted loop playsinline preload="none" aria-label="Garage to car"></video><figcaption><b>Garage to car</b>The car screen slides in from the side and back out the same way, with the garage staying underneath.</figcaption></figure>
+    <figure class="mv"><video data-src="assets/journey/m-moment.mp4" data-poster="assets/journey/m-moment.webp" muted loop playsinline preload="none" aria-label="The Moment"></video><figcaption><b>The Moment</b>A job is done: the SERVICED stamp, then +8 health. The only place where animation gets loud.</figcaption></figure>
+    <figure class="mv"><video data-src="assets/journey/m-plan-gen.mp4" data-poster="assets/journey/m-plan-gen.webp" muted loop playsinline preload="none" aria-label="AI writes the plan"></video><figcaption><b>AI writes the plan</b>You can see what's happening right now and how long is left.</figcaption></figure>
+    <figure class="mv"><video data-src="assets/journey/m-save.mp4" data-poster="assets/journey/m-save.webp" muted loop playsinline preload="none" aria-label="Expense saved"></video><figcaption><b>Expense saved</b>The sheet closes and the entry drops into the list, right where you'll look for it.</figcaption></figure>
+    <figure class="mv"><video data-src="assets/journey/m-tabs.mp4" data-poster="assets/journey/m-tabs.webp" muted loop playsinline preload="none" aria-label="Car tabs"></video><figcaption><b>Car tabs</b>Services, plan, fuel, money. The header stays, only the content changes.</figcaption></figure>
   </div>
   <p class="small col" style="margin-top:14px">With “Reduce motion” turned on in the system, everything is the same but without movement: simple fades or an instant change.</p>
 </section>
@@ -840,21 +840,36 @@ vs.forEach(function(v){io.observe(v);v.addEventListener('click',function(){if(v.
   if (!el) return;
   var CYCLE = 2400, SNAP = 0.46 * CYCLE, REST = 0.83 * CYCLE, CAP = 8000, gone = false;
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var sample = 'AaZz09 \u0410\u044f\u0407\u0457\u0490\u0491';
-  var faces = ['italic 800 40px Tektur', '700 40px Tektur', '400 17px "Fira Sans"', '500 17px "Fira Sans"', '600 17px "Fira Sans"', '700 17px "Fira Sans"'];
+  // The first screen's own words as the sample, so only the subsets this
+  // page draws are fetched: an invented sample pulled every Cyrillic file
+  // onto the English page, at the highest priority, ahead of the phone.
+  var first = document.querySelector('.hero-txt');
+  var sample = (first && first.textContent.replace(/\s+/g, ' ')) || 'Aa';
+  var faces = ['italic 800 40px Tektur', '400 17px "Fira Sans"'];
   var fonts = document.fonts ? Promise.all(faces.map(function (f) { return document.fonts.load(f, sample); })) : Promise.resolve();
+  var w = document.getElementById('hero3d'), vid = document.getElementById('heroVid');
   var hero = new Promise(function (done) {
-    var w = document.getElementById('hero3d');
     if (!w) return done();
-    var ok = function () { return w.classList.contains('ready') || w.classList.contains('nogl'); };
-    if (ok()) return done();
-    new MutationObserver(function (m, o) { if (ok()) { o.disconnect(); done(); } }).observe(w, { attributes: true, attributeFilter: ['class'] });
+    var check = function () {
+      if (w.classList.contains('nogl') && vid && !vid.poster && vid.dataset.poster) vid.poster = vid.dataset.poster;
+      return w.classList.contains('ready') || w.classList.contains('nogl');
+    };
+    if (check()) return done();
+    new MutationObserver(function (m, o) { if (check()) { o.disconnect(); done(); } }).observe(w, { attributes: true, attributeFilter: ['class'] });
   });
+  function posters() {
+    var vs = [].slice.call(document.querySelectorAll('.mv video[data-poster]'));
+    var set = function (v) { if (!v.poster) v.poster = v.dataset.poster; };
+    if (!('IntersectionObserver' in window)) return vs.forEach(set);
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { set(e.target); io.unobserve(e.target); } }); }, { rootMargin: '900px 0px' });
+    vs.forEach(function (v) { io.observe(v); });
+  }
   function leave() {
     if (gone) return; gone = true;
     root.classList.remove('loading');
     el.classList.add('out');
     dispatchEvent(new Event('journey:reveal'));
+    posters();
     setTimeout(function () { el.remove(); }, 400);
   }
   function atRest() {
