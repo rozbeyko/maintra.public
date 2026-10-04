@@ -48,6 +48,8 @@ Exact prices are localized and shown in-app at checkout. Subscriptions are manag
 - [Delete Account](https://maintra.me/delete-account.html) — account deletion instructions
 - [Press kit](https://maintra.me/press-en) — logos, screenshots, ready-to-use copy and a fact sheet; free to use in editorial coverage
 - [Прескіт](https://maintra.me/press) — the same press kit in Ukrainian
+- [The road to Maintra 2.0](https://maintra.me/journey-en) — how the 2.0 redesign came about: what was wrong with 1.x, the inspiration, 29 sketches of one screen, the new design language, motion and logo
+- [Шлях Maintra 2.0](https://maintra.me/journey) — the same story in Ukrainian
 
 ## Contact
 

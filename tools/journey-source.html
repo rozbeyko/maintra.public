@@ -1,0 +1,589 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Шлях Maintra 2.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700&family=Tektur:wdth,wght@75..100,400..900&display=swap">
+<style>
+/* Layout: one long garage wall. Narrow reading column for words, full-bleed strips for screens. Dark only, like the app's night garage. */
+:root{
+  --bg:#0B0B0A; --surface:#151513; --surface2:#1C1B19; --line:#23211E; --edge:#3A3732;
+  --text:#ECE4D6; --muted:#8F897E; --dim:#6A665E;
+  --gold:#F4B223; --gold-deep:#9A6700; --red:#EE4F37; --amber:#F0A33A; --green:#8CC084;
+  --display:Tektur,'Arial Narrow',sans-serif; --body:'Fira Sans','Helvetica Neue',sans-serif;
+  --cut:14px; --col:min(720px,100%);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--gold)}
+.wall{position:fixed;inset:0;background:url(i/doodle.webp) center/520px repeat;opacity:.05;pointer-events:none;z-index:0}
+main{position:relative;z-index:1;padding-inline:20px;padding-block:0 80px}
+.col{max-width:var(--col);margin-inline:auto}
+.wide{max-width:1180px;margin-inline:auto}
+
+.eyebrow{font-family:var(--display);font-stretch:78%;font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.eyebrow b{color:var(--gold);font-weight:700}
+h1,h2,h3{font-family:var(--display);font-stretch:78%;font-weight:800;font-style:italic;text-transform:uppercase;line-height:.92;margin:0;text-wrap:balance;letter-spacing:.005em}
+h1{font-size:clamp(34px,8.6vw,74px)}
+h1 .l{display:block;white-space:nowrap}
+h2{font-size:clamp(36px,6.4vw,64px)}
+h3{font-size:24px;line-height:1}
+.g{color:var(--gold)}
+p{margin:0;max-width:62ch;text-wrap:pretty}
+.lede{font-size:clamp(18px,2.2vw,21px);color:var(--text)}
+.muted{color:var(--muted)}
+.small{font-size:14px;line-height:1.5;color:var(--muted)}
+
+/* hero */
+.hero{padding-block:40px 30px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:center;gap:10px;min-height:min(100svh,880px)}
+.hero-txt{display:grid;gap:26px;align-content:center}
+.hero h1{font-size:clamp(34px,5.2vw,64px)}
+.hero-3d{position:relative;height:min(82svh,760px);min-height:520px;touch-action:pan-y}
+.hero-3d::before{content:"";position:absolute;inset:8% 10%;background:radial-gradient(closest-side,rgba(244,178,35,.10),rgba(244,178,35,0));pointer-events:none}
+.hero-3d canvas{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity .8s ease}
+.hero-3d.ready canvas{opacity:1}
+.hero-fallback{position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none}
+.hero-3d.nogl .hero-fallback{position:relative;width:min(300px,70%);height:auto;opacity:1;margin:auto;top:50%;transform:translateY(-50%) rotate(-3deg);border:10px solid #2a2826;border-radius:44px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.hero-3d.nogl .hero-fallback video{width:100%;display:block}
+.mrules{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-bottom:22px}
+.mrules div{background:var(--surface);padding:18px;display:grid;gap:8px;align-content:start}
+.mrules .k{font-family:var(--display);font-stretch:78%;font-weight:700;font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.mrules p{font-size:14px;line-height:1.45;color:var(--muted)}
+.motion{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px 16px}
+.mv{margin:0;display:grid;gap:10px;align-content:start}
+.mv video{width:100%;aspect-ratio:560/1212;border-radius:18px;border:1px solid var(--edge);background:var(--surface);display:block;object-fit:cover}
+.mv figcaption{font-size:13px;line-height:1.45;color:var(--muted)}
+.mv figcaption b{display:block;font-family:var(--display);font-stretch:78%;font-weight:700;font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--text);margin-bottom:2px}
+.mark{display:flex;align-items:center;gap:12px}
+.mark svg{display:block;overflow:visible}
+.newmark{margin:auto;display:grid;place-items:center;padding:30px 10px}
+.newmark svg{max-width:100%;height:auto;overflow:visible}
+.mark span{font-family:var(--display);font-stretch:78%;font-weight:800;font-style:italic;font-size:22px;letter-spacing:.06em}
+.ticks{display:flex;gap:6px}
+.ticks i{width:44px;height:6px;background:var(--gold);transform:skewX(-24deg)}
+.ticks i+i{width:18px;opacity:.55}
+
+/* section heads */
+section{padding-block:64px 8px}
+.head{display:grid;gap:14px;margin-bottom:30px}
+.hazard{height:8px;margin-block:0 22px;background:repeating-linear-gradient(-56deg,var(--gold) 0 10px,transparent 10px 20px);opacity:.85;max-width:220px}
+
+/* phones */
+.phones{display:flex;gap:18px;overflow-x:auto;padding-bottom:14px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.phones::-webkit-scrollbar{height:6px}.phones::-webkit-scrollbar-thumb{background:var(--edge)}
+.ph{flex:0 0 auto;width:min(240px,62vw);scroll-snap-align:start;display:grid;gap:10px;margin:0}
+.ph img{border-radius:18px;border:1px solid var(--edge);background:var(--surface)}
+.ph figcaption{font-size:14px;line-height:1.45;color:var(--muted)}
+.ph figcaption b{display:block;font-family:var(--display);font-stretch:78%;font-weight:700;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--text);margin-bottom:2px}
+
+.era{display:grid;gap:18px;margin-bottom:40px}
+.era-tag{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-stretch:78%;font-weight:700;font-size:15px;letter-spacing:.12em;text-transform:uppercase}
+.oct{width:12px;height:12px;flex:0 0 auto;clip-path:polygon(29% 0,71% 0,100% 29%,100% 71%,71% 100%,29% 100%,0 71%,0 29%);background:var(--gold)}
+.quote{border-left:3px solid var(--red);padding:6px 0 6px 18px;font-style:italic;color:var(--text)}
+
+/* principles */
+.grid4{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.plate{background:var(--surface);padding:22px 22px 20px;clip-path:polygon(var(--cut) 0,100% 0,100% 100%,0 100%,0 var(--cut));display:grid;gap:8px;align-content:start;min-width:0}
+.plate .num{font-family:var(--display);font-stretch:78%;font-weight:700;font-size:13px;letter-spacing:.14em;color:var(--gold)}
+.plate p{font-size:15px;line-height:1.5;color:var(--muted)}
+
+/* references */
+.refs{display:grid;gap:6px}
+.ref{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:0;background:var(--surface);clip-path:polygon(var(--cut) 0,100% 0,100% 100%,0 100%,0 var(--cut))}
+.ref .txt{padding:26px 26px 24px;display:grid;gap:12px;align-content:start;min-width:0}
+.ref .txt ul{margin:0;padding:0;list-style:none;display:grid;gap:6px}
+.ref .txt li{display:flex;gap:10px;font-size:15px;line-height:1.45;color:var(--muted)}
+.ref .txt li::before{content:"";flex:0 0 auto;width:9px;height:9px;margin-top:7px;background:var(--gold);clip-path:polygon(29% 0,71% 0,100% 29%,100% 71%,71% 100%,29% 100%,0 71%,0 29%)}
+.ref .src{font-family:var(--display);font-stretch:78%;font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.ref .pics{display:flex;gap:8px;padding:18px;align-items:center;justify-content:center;background:var(--surface2);min-width:0}
+.ref .pics img{width:calc(50% - 4px);max-width:200px;border-radius:12px;border:1px solid var(--edge)}
+.ref.full{grid-template-columns:1fr}
+.ref.full .txt ul{display:block;columns:2;column-gap:32px}
+.ref.full .txt li{break-inside:avoid;margin-bottom:6px}
+.ref .els{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:18px;background:var(--surface2)}
+.ref .els figure{margin:0;display:grid;grid-template-rows:1fr auto;gap:8px;min-width:0}
+.ref .els figure.w2{grid-column:span 2}
+.ref .pics.three img{width:calc(33.333% - 6px)}
+.ref .els figure.w3{grid-column:1/-1}
+.ref .els .frs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.ref .els .frs img{height:auto}
+.ref .els img{width:100%;height:100%;object-fit:contain;align-self:center;display:block}
+.ref .els picture{display:block;align-self:center}
+.ref .els figcaption{font-family:var(--display);font-stretch:78%;font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.ref .pics img.solo{width:100%;max-width:340px;border-radius:0;border:0}
+
+/* iterations strip */
+.strip{display:flex;gap:14px;overflow-x:auto;padding:4px 0 16px;scroll-snap-type:x proximity}
+.strip::-webkit-scrollbar{height:6px}.strip::-webkit-scrollbar-thumb{background:var(--edge)}
+.it{flex:0 0 auto;width:min(210px,56vw);margin:0;display:grid;gap:10px;scroll-snap-align:start}
+.it img{border-radius:14px;border:1px solid var(--edge)}
+.it figcaption{display:grid;gap:3px}
+.it .v{font-family:var(--display);font-stretch:78%;font-weight:800;font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.it .t{font-size:14px;line-height:1.4;color:var(--text)}
+.it .n{font-size:13px;line-height:1.4;color:var(--muted)}
+.rail{display:flex;align-items:center;gap:10px;margin:2px 0 14px;font-size:13px;color:var(--dim)}
+.rail i{flex:1;height:1px;background:var(--line)}
+
+/* language specimen */
+.spec{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6px}
+.spec .plate{padding:24px}
+.type-a{font-family:var(--display);font-stretch:78%;font-weight:800;font-style:italic;font-size:54px;line-height:.9;text-transform:uppercase}
+.type-b{font-family:var(--body);font-size:20px;line-height:1.35}
+.btns{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.btn{height:46px;padding:0 26px;display:inline-flex;align-items:center;background:var(--gold);color:var(--bg);font-weight:700;font-size:15px;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%)}
+.btn.o{background:var(--edge);color:var(--text);position:relative}
+.btn.o::before{content:"";position:absolute;inset:1.5px 2px;background:var(--bg);clip-path:inherit}
+.btn.o span{position:relative}
+.dots{display:grid;gap:10px}
+.dot{display:flex;align-items:center;gap:12px;font-size:15px}
+.dot .oct{width:13px;height:13px}
+.dot em{font-style:normal;margin-left:auto;font-size:14px;font-variant-numeric:tabular-nums}
+.bar{display:flex;gap:3px;margin-top:4px}
+.bar i{flex:1;height:7px;background:#2A2825;transform:skewX(-24deg)}
+.bar i.f{background:var(--gold)}
+.swatches{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.sw{display:grid;gap:6px;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.sw i{height:44px;border:1px solid var(--edge)}
+
+/* logo */
+.logo-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr) minmax(0,1fr);gap:6px;align-items:stretch}
+.logo-row figure{margin:0;background:var(--surface);display:grid;grid-template-rows:1fr auto;gap:12px;padding:18px;min-width:0}
+.logo-row figure img{margin:auto;max-height:260px;object-fit:contain}
+.logo-row figcaption{font-size:14px;line-height:1.45;color:var(--muted)}
+.logo-row figcaption b{color:var(--text);font-weight:600}
+.logo-why{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-top:6px}
+.logo-why div{background:var(--surface);padding:18px;display:grid;gap:8px;align-content:start}
+.logo-why .k{font-family:var(--display);font-stretch:78%;font-weight:700;font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.logo-why p{font-size:14px;line-height:1.45;color:var(--muted)}
+.boards{display:grid;gap:6px;margin-top:6px}
+.boards figure{margin:0;background:var(--surface);padding:10px;overflow-x:auto}
+.boards img{min-width:640px;width:100%}
+.boards figcaption{font-size:13px;color:var(--muted);padding:8px 4px 2px}
+.arrow{font-family:var(--display);font-weight:800;color:var(--gold)}
+
+/* before after */
+.pair{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:18px;align-items:center;margin-bottom:34px;max-width:620px;margin-inline:auto}
+.pair figure{margin:0;display:grid;gap:10px}
+.pair img{border-radius:18px;border:1px solid var(--edge)}
+.pair figcaption{font-family:var(--display);font-stretch:78%;font-weight:700;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:center}
+.pair figure.after figcaption{color:var(--gold)}
+.pair .vs{font-family:var(--display);font-stretch:78%;font-weight:800;font-style:italic;font-size:30px;color:var(--dim)}
+.pair-note{text-align:center;max-width:52ch;margin:-14px auto 38px;font-size:15px;color:var(--muted)}
+
+/* store */
+.sub{font-family:var(--display);font-stretch:78%;font-weight:800;font-style:italic;text-transform:uppercase;font-size:clamp(24px,4vw,34px);line-height:1;margin:0;color:var(--text)}
+.tgrid{display:grid;grid-template-columns:minmax(0,1.7fr) repeat(4,minmax(0,1fr));gap:22px 16px;align-items:start}
+.tgrid figure{margin:0;display:grid;gap:10px}
+.tgrid img{border-radius:16px;border:1px solid var(--edge)}
+.tgrid .tpick{grid-row:span 2}
+.tgrid figcaption{font-size:13px;line-height:1.4;color:var(--muted)}
+.tgrid figcaption b{display:block;font-family:var(--display);font-stretch:78%;font-weight:700;font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--text)}
+.tgrid figcaption i{font-style:normal;color:var(--gold);font-size:12px;letter-spacing:.1em;margin-left:4px}
+.themes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 22px}
+.tset{display:grid;gap:10px;margin:0}
+.tpair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tpair img{border-radius:16px;border:1px solid var(--edge)}
+.tl{font-family:var(--display);font-stretch:78%;font-weight:700;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:center}
+.store{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.store img{border:1px solid var(--line)}
+.ipad{margin-top:10px;border:1px solid var(--line)}
+
+footer{padding-block:70px 20px;display:grid;gap:14px;justify-items:start}
+
+
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr;min-height:0;padding-block:48px 10px}
+  .hero-3d{height:68svh;min-height:460px;margin-inline:-20px}
+  .hero h1{font-size:clamp(30px,8.6vw,74px)}
+  .mrules{grid-template-columns:1fr 1fr}
+  .motion{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;padding-bottom:12px;margin-inline:-20px;padding-inline:20px}
+  .mv{flex:0 0 62vw;scroll-snap-align:start}
+  .themes{grid-template-columns:1fr}
+  .tgrid{grid-template-columns:1fr 1fr}
+  .tgrid .tpick{grid-row:auto;grid-column:1/-1;max-width:260px;justify-self:center}
+  body{font-size:16px}
+  .grid4,.spec{grid-template-columns:1fr}
+  .ref{grid-template-columns:1fr}
+  .ref.full .txt ul{columns:1}
+  .ref .els{grid-template-columns:1fr 1fr}
+  .ref .els figure:first-child{grid-column:span 2}
+  .ref .els figure:first-child img{aspect-ratio:2/1;object-fit:cover}
+  .ref .els figure.w2,.ref .els figure.fr{grid-column:span 2}
+  .ref .els .frs{grid-template-columns:1fr 1fr}
+  .logo-row{grid-template-columns:1fr}
+  .logo-why{grid-template-columns:1fr 1fr}
+  .store{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pair{gap:10px}
+  .pair .vs{font-size:20px}
+  .swatches{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .type-a{font-size:44px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .it img,.ph img{transition:transform .25s ease}
+  .it:hover img,.ph:hover img{transform:translateY(-4px)}
+}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+</style>
+
+<div class="wall" aria-hidden="true"></div>
+<main>
+
+<header class="hero wide">
+  <div class="hero-txt">
+  <div class="mark"><svg aria-hidden="true" class="" viewBox="0 0 100 57.69" width="54" height="31.2" style="display: block; flex-shrink: 0; overflow: visible; "><path d="M26.10,0.00 L35.15,0.00 L35.15,57.69 L26.10,57.69 Z" fill="#8F897E"></path><path d="M52.20,0.00 L61.25,0.00 L61.25,57.69 L52.20,57.69 Z" fill="#8F897E"></path><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" fill="#F4B223"></path><clipPath id="mtlg1"><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" fill="#000"></path></clipPath><g clip-path="url(#mtlg1)"><path d="M2.40,57.69 L18.80,57.69 L37.55,0.00 L21.15,0.00 Z" fill="#9A6700"></path><path d="M28.50,57.69 L44.90,57.69 L63.65,0.00 L47.24,0.00 Z" fill="#9A6700"></path><path d="M54.60,57.69 L71.00,57.69 L89.75,0.00 L73.34,0.00 Z" fill="#9A6700"></path></g><path d="M0.00,57.69 L16.40,57.69 L35.15,0.00 L18.75,0.00 Z" fill="#ECE4D6"></path><path d="M26.10,57.69 L42.50,57.69 L61.25,0.00 L44.84,0.00 Z" fill="#ECE4D6"></path><path d="M52.20,57.69 L68.60,57.69 L87.35,0.00 L70.94,0.00 Z" fill="#F4B223"></path></svg><span>MAINTRA</span></div>
+  <div class="ticks" aria-hidden="true"><i></i><i></i></div>
+  <h1><span class="l">Переосмислити все.</span><span class="l g">Зберегти коріння.</span></h1>
+  <p class="lede">Як Maintra прийшла від першої версії до 2.0. Що мене не влаштовувало, де я брав натхнення, які ідеї не вижили і з чого склалась нова мова дизайну.</p>
+  </div>
+  <div class="hero-3d" id="hero3d" role="img" aria-label="Maintra 2.0 на телефоні: гараж, меню плюса, свайп між авто і полароїд, що стає шапкою">
+    <canvas aria-hidden="true"></canvas>
+    <div class="hero-fallback" aria-hidden="true"><video id="heroVid" src="i/hero.mp4" poster="i/hero-poster.webp" muted loop playsinline preload="auto"></video></div>
+  </div>
+</header>
+
+<section class="col" id="start">
+  <div class="hazard" aria-hidden="true"></div>
+  <div class="head">
+    <span class="eyebrow"><b>01</b> Початок</span>
+    <h2>Три Maintra<br><span class="g">до 2.0</span></h2>
+    <p>Maintra з'явилась, бо я постійно забував, яку оливу, скільки і коли заливав у свою VW Jetta. Ексельки, паперові чеки, чати з GPT теж постійно губились. Далі застосунок ріс разом із фічами, і кожна нова фіча діставала собі місце на екрані.</p>
+  </div>
+
+  <div class="era">
+    <span class="era-tag"><i class="oct"></i>Перша версія</span>
+    <div class="phones">
+      <figure class="ph"><img src="i/old-garage.webp" alt="Перша версія Maintra: гараж з однією карткою авто" loading="lazy"><figcaption><b>Гараж</b>Картка авто, кнопка «додати» і золота шестерня з мандалою в навбарі.</figcaption></figure>
+      <figure class="ph"><img src="i/old-car.webp" alt="Перша версія Maintra: екран авто зі списком сервісів" loading="lazy"><figcaption><b>Авто</b>Список робіт, вкладки, ціни. Чисто, але дефолтно і без власного стилю.</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="era">
+    <span class="era-tag"><i class="oct"></i>1.5</span>
+    <div class="phones">
+      <figure class="ph"><img src="i/v15-garage.webp" alt="Maintra 1.5: гараж з двома авто, документами і шинами" loading="lazy"><figcaption><b>Гараж</b>Два авто, план, документи, шини. Все потрібне, але все однакової ваги.</figcaption></figure>
+      <figure class="ph"><img src="i/v15-car.webp" alt="Maintra 1.5: екран авто з вішлистом і олива-фільтрами" loading="lazy"><figcaption><b>Авто</b>Вішлист, полиця, інтервали. Кнопок більше, ніж відповідей.</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="era">
+    <span class="era-tag"><i class="oct"></i>1.6, перед редизайном</span>
+    <div class="phones">
+      <figure class="ph"><img src="i/now-garage.webp" alt="Maintra 1.6: гараж з полароїдом і лічильником пробігу" loading="lazy"><figcaption><b>Гараж</b>З'явився полароїд. І ще здоров'я, сервіс, вішлист, витрати, наступні роботи.</figcaption></figure>
+      <figure class="ph"><img src="i/now-car.webp" alt="Maintra 1.6: екран авто" loading="lazy"><figcaption><b>Авто</b>Історія робіт уже головна, але тоне серед плашок.</figcaption></figure>
+      <figure class="ph"><img src="i/now-plan.webp" alt="Maintra 1.6: план обслуговування" loading="lazy"><figcaption><b>План</b>AI-план робить свою справу, а виглядає як усе інше. Плюс згенеровані AI іконки, які помічає кожен і каже «слоп, фу».</figcaption></figure>
+    </div>
+    <p class="quote">Користувачі писали прямо: перевантажено, і виглядає як AI slop. Це і стало стартом.</p>
+  </div>
+</section>
+
+<section class="col" id="rules">
+  <div class="hazard" aria-hidden="true"></div>
+  <div class="head">
+    <span class="eyebrow"><b>02</b> Що мало лишитись</span>
+    <h2>Шість правил<br><span class="g">до першого наброску</span></h2>
+  </div>
+  <div class="grid4">
+    <div class="plate"><span class="num">01</span><h3>Історія авто в центрі</h3><p>Таймлайн обслуговування і є застосунок. Нові фічі не мають виштовхувати його з екрана.</p></div>
+    <div class="plate"><span class="num">02</span><h3>Гараж, а не блокнот</h3><p>Фото авто висить на стіні, жовтий малярний скотч, наліпки на коробках із запчастинами.</p></div>
+    <div class="plate"><span class="num">03</span><h3>Полароїд лишається</h3><p>Перші 1000+ користувачів отримали свою рамку. Її не можна було просто викинути.</p></div>
+    <div class="plate"><span class="num">04</span><h3>Відповіді, не кнопки</h3><p>Краще щільний екран з цифрами, ніж екран з кнопками і картинками.</p></div>
+    <div class="plate"><span class="num">05</span><h3>Нічого не викидати</h3><p>Усі наявні фічі лишаються. Те, що потрібно часто, на відстані одного тапу.</p></div>
+    <div class="plate"><span class="num">06</span><h3>Екран під себе</h3><p>Користувач сам вирішує, що буде на екранах: які блоки під полароїдом, що в куті, яка рамка.</p></div>
+  </div>
+</section>
+
+<section class="wide" id="refs">
+  <div class="col">
+    <div class="hazard" aria-hidden="true"></div>
+    <div class="head">
+      <span class="eyebrow"><b>03</b> Звідки натхнення</span>
+      <h2>Ігри, студії<br><span class="g">і справжній бокс</span></h2>
+      <p>Я збирав мудборди, дивився на ігри й інтерфейси, які люблю. Брав відчуття жанру, а не конкретну гру. Нижче перші наброски і проби пера, які з цього вийшли. Сирі, як є, без поліровки.</p>
+    </div>
+  </div>
+  <div class="refs">
+    <article class="ref">
+      <div class="txt">
+        <span class="src">Gran Turismo · Forza · Need for Speed · DiRT · WRC</span>
+        <h3>Рейсінг-ігри</h3>
+        <ul>
+          <li>Гараж як колекція: кожне авто має свою сторінку, клас і стан.</li>
+          <li>Стан по вузлах: двигун, гальма, шини, рідини, кузов.</li>
+          <li>Спокійні меню, де кожна дія приємна, як звук механіки.</li>
+        </ul>
+      </div>
+      <div class="pics three"><img src="i/x-card.webp" alt="Набросок: авто як колекційна картка з класом і станом по вузлах" loading="lazy"><img src="i/x-game-garage.webp" alt="Набросок v4: гараж як у гоночній грі" loading="lazy"><img src="i/x-pit-rating.webp" alt="Набросок v5: рейтинг серед власників Pajero" loading="lazy"></div>
+    </article>
+    <article class="ref">
+      <div class="txt">
+        <span class="src">Embark Studios · ARC Raiders · The Finals</span>
+        <h3>Індустріальний UI</h3>
+        <ul>
+          <li>Вузький шрифт для назв і цифр, як на табличках та маркуванні.</li>
+          <li>Зрізані кути замість заокруглень.</li>
+          <li>Темний фон і один яскравий колір, який означає «натисни тут».</li>
+        </ul>
+      </div>
+      <div class="pics"><img src="i/x-v12-garage.webp" alt="Набросок v12: чорне, золото, шестикутники" loading="lazy"><img src="i/x-v19-garage-menu.webp" alt="Набросок v19: вішлист, документи і шини як меню гри" loading="lazy"></div>
+    </article>
+    <article class="ref">
+      <div class="txt">
+        <span class="src">Apple HIG · iOS 26 Liquid Glass</span>
+        <h3>Нативне відчуття</h3>
+        <ul>
+          <li>Матове скло для панелей, які пливуть над контентом.</li>
+          <li>Один-два шрифти, чітка ієрархія, великі цілі для пальця.</li>
+          <li>Темна і світла тема з першого дня.</li>
+        </ul>
+      </div>
+      <div class="pics"><img src="i/x-premium-garage.webp" alt="Набросок v2: преміальний гараж" loading="lazy"><img src="i/x-v24-garage-open.webp" alt="Набросок v24: скляний трей над навбаром" loading="lazy"></div>
+    </article>
+    <article class="ref full">
+      <div class="txt">
+        <span class="src">Свій бокс · Pajero 2008</span>
+        <h3>Справжній гараж</h3>
+        <ul>
+          <li>Шпалери з дрібних інструментів були в застосунку й раніше. Лишили, бо це вже впізнаваний фон Maintra.</li>
+          <li>Полароїд теж був. Тепер на ньому тільки фото, пробіг і найближча робота. Рамку можна обрати: класична, вугільна, дудл для перших 1000 користувачів, плюс рамки, які вже є в застосунку. Колекція далі поповнюватиметься.</li>
+          <li>Іконки з одного аркуша для всього застосунку: прямі лінії, восьмикутники, зрізані кути.</li>
+          <li>3D-модель кожної автівки майже нереальна: тисячі моделей, років, комплектацій і тюнінгу. Тому в центрі реальне фото саме твого авто.</li>
+        </ul>
+      </div>
+      <div class="els">
+        <figure><img src="i/doodle.webp" alt="Шпалери з дрібних інструментів" loading="lazy"><figcaption>Фон · був і лишився</figcaption></figure>
+        <figure><img src="i/el-polaroid-old.webp" alt="Полароїд у попередній версії" loading="lazy"><figcaption>Полароїд · було</figcaption></figure>
+        <figure><img src="i/el-polaroid.webp" alt="Полароїд у 2.0" loading="lazy"><figcaption>Полароїд · стало</figcaption></figure>
+        <figure class="fr"><img src="i/el-frames.webp" alt="Рамки полароїда: класична, вугільна, дудл" loading="lazy"><figcaption>Рамки</figcaption></figure>
+        <figure class="w2"><picture><source media="(max-width:760px)" srcset="i/el-icons-m.webp"><img src="i/el-icons.webp" alt="Іконки речей і категорій" loading="lazy"></picture><figcaption>Іконки · один аркуш</figcaption></figure>
+        <figure class="w3"><div class="frs"><img src="i/fr-rust.webp" alt="Рамка: метал з заклепками" loading="lazy"><img src="i/fr-topo.webp" alt="Рамка: топографічна карта" loading="lazy"><img src="i/fr-pearl.webp" alt="Рамка: перламутр" loading="lazy"><img src="i/fr-carbon.webp" alt="Рамка: білий карбон" loading="lazy"></div></figure>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="wide" id="iterations">
+  <div class="col">
+    <div class="hazard" aria-hidden="true"></div>
+    <div class="head">
+      <span class="eyebrow"><b>04</b> Наброски</span>
+      <h2>Один екран,<br><span class="g">29 спроб</span></h2>
+      <p>Головний екран гаража я переробляв найчастіше. Ось частина шляху, від першого підходу до майже фіналу. Гортайте вбік.</p>
+    </div>
+  </div>
+  <div class="rail" aria-hidden="true"><span>Початок</span><i></i><span>Фінал</span></div>
+  <div class="strip" tabindex="0" aria-label="Ітерації головного екрана">
+    <figure class="it"><img src="i/x-main.webp" alt="Перший підхід" loading="lazy"><figcaption><span class="v">Старт</span><span class="t">Цех</span><span class="n">Прибрати зайве, лишити суть.</span></figcaption></figure>
+    <figure class="it"><img src="i/x-premium-garage.webp" alt="v2" loading="lazy"><figcaption><span class="v">v2</span><span class="t">Преміальний гараж</span><span class="n">Скло, Apple, спокій.</span></figcaption></figure>
+    <figure class="it"><img src="i/x-garage-bay.webp" alt="v3" loading="lazy"><figcaption><span class="v">v3</span><span class="t">Справжній бокс</span><span class="n">Лампа над авто, табличка на воротах.</span></figcaption></figure>
+    <figure class="it"><img src="i/x-game-garage.webp" alt="v4" loading="lazy"><figcaption><span class="v">v4</span><span class="t">Гараж як у грі</span><span class="n">Шоурум, клас B, стан по вузлах.</span></figcaption></figure>
+    <figure class="it"><img src="i/x-pit-garage.webp" alt="v5" loading="lazy"><figcaption><span class="v">v5</span><span class="t">Піт-стоп</span><span class="n">Схема авто з балами по системах.</span></figcaption></figure>
+    <figure class="it"><img src="i/x-pad-garage.webp" alt="v6" loading="lazy"><figcaption><span class="v">v6</span><span class="t">Енергія гри</span><span class="n">Той самий настрій на весь застосунок.</span></figcaption></figure>
+    <figure class="it"><img src="i/x-v8-garage.webp" alt="v8" loading="lazy"><figcaption><span class="v">v8</span><span class="t">Авто як картка</span><span class="n">Колекційна картка зі спеками і класом.</span></figcaption></figure>
+    <figure class="it"><img src="i/x-v9-garage.webp" alt="v9" loading="lazy"><figcaption><span class="v">v9</span><span class="t">Полароїд повертається</span><span class="n">Гра поверх, але фото знову на стіні.</span></figcaption></figure>
+    <figure class="it"><img src="i/x-v12-garage.webp" alt="v12" loading="lazy"><figcaption><span class="v">v12</span><span class="t">Чорне і золото</span><span class="n">Шестикутники, гоночний HUD.</span></figcaption></figure>
+    <figure class="it"><img src="i/x-v13-dark.webp" alt="v13" loading="lazy"><figcaption><span class="v">v13</span><span class="t">Забрати все зайве</span><span class="n">Матовий чорний, жовтий тільки для акценту.</span></figcaption></figure>
+    <figure class="it"><img src="i/x-v19-garage-menu.webp" alt="v19" loading="lazy"><figcaption><span class="v">v19</span><span class="t">Меню як у грі</span><span class="n">Вішлист, документи, шини, полиця.</span></figcaption></figure>
+    <figure class="it"><img src="i/x-v24-garage-open.webp" alt="v24" loading="lazy"><figcaption><span class="v">v24</span><span class="t">Один зріз для всього</span><span class="n">Скляний трей, контраст повернувся.</span></figcaption></figure>
+    <figure class="it"><img src="i/x-v26-garage.webp" alt="v26" loading="lazy"><figcaption><span class="v">v26</span><span class="t">Одна мова</span><span class="n">Ті самі правила на кожному екрані.</span></figcaption></figure>
+    <figure class="it"><img src="i/x-v29-garage.webp" alt="v29" loading="lazy"><figcaption><span class="v">v29</span><span class="t">Майже фінал</span><span class="n">Ледь нахилений полароїд, рамки, тихий вішлист.</span></figcaption></figure>
+  </div>
+  <p class="small col" style="margin-top:6px">Що не вижило: рейтинг серед інших власників, картки-колекції, шестикутники і великий HUD. Що лишилось від ігор: клас і стан авто, меню-смуга, жовтий як головна дія.</p>
+</section>
+
+<section class="col" id="language">
+  <div class="hazard" aria-hidden="true"></div>
+  <div class="head">
+    <span class="eyebrow"><b>05</b> Мова дизайну</span>
+    <h2>Зріз, восьмикутник<br><span class="g">і жовтий для дії</span></h2>
+    <p>Спочатку я взяв Barlow, той самий, що в ARC Raiders. Потім перейшов на Tektur: його зрізані кути збігаються з картками, кнопками й іконками. Для тексту Fira Sans. Статуси замість кружечків стали восьмикутниками. Жовтий лише там, де треба натиснути або глянути першим.</p>
+  </div>
+  <div class="spec">
+    <div class="plate">
+      <span class="num">ШРИФТ</span>
+      <div class="type-a">228 477 <span class="g">KM</span></div>
+      <div class="type-b">Tektur для назв і цифр, Fira Sans для всього, що читаєш.</div>
+    </div>
+    <div class="plate">
+      <span class="num">КНОПКИ</span>
+      <div class="btns"><span class="btn">Зберегти</span><span class="btn o"><span>Пізніше</span></span></div>
+      <p>Той самий скіс на кнопках, чипах і вкладках, той самий зріз на кутах карток.</p>
+    </div>
+    <div class="plate">
+      <span class="num">СТАТУСИ</span>
+      <div class="dots">
+        <div class="dot"><i class="oct" style="background:var(--red)"></i>Патрубок охолодження<em style="color:var(--red)">5 днів</em></div>
+        <div class="dot"><i class="oct" style="background:var(--amber)"></i>Повітряний фільтр<em style="color:var(--amber)">900 км</em></div>
+        <div class="dot"><i class="oct" style="background:var(--green)"></i>Олива + фільтри<em style="color:var(--green)">4 023 км</em></div>
+      </div>
+    </div>
+    <div class="plate">
+      <span class="num">ЗДОРОВ'Я 71</span>
+      <div class="bar" aria-label="Здоров'я 71 зі 100">
+        <i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+      <p>Скошені сегменти, як шкала на приладці.</p>
+    </div>
+  </div>
+  <div class="swatches" style="margin-top:6px">
+    <div class="sw"><i style="background:#0B0B0A"></i>Фон #0B0B0A</div>
+    <div class="sw"><i style="background:#151513"></i>Плашка #151513</div>
+    <div class="sw"><i style="background:#ECE4D6"></i>Текст #ECE4D6</div>
+    <div class="sw"><i style="background:#8F897E"></i>Другорядне #8F897E</div>
+    <div class="sw"><i style="background:#F4B223"></i>Дія #F4B223</div>
+  </div>
+</section>
+
+<section class="wide" id="motion">
+  <div class="col">
+    <div class="hazard" aria-hidden="true"></div>
+    <div class="head">
+      <span class="eyebrow"><b>06</b> Рух</span>
+      <h2>Спокійно,<br><span class="g">поки не час</span></h2>
+      <p>Анімація тут частина мови, а не прикраса. Вона показує, звідки взялась річ і куди пішла: полароїд стає шапкою, плашки їдуть з-під пальця, штамп ставиться, коли роботу закрито. Усе коротше за 320 мс, крім Моменту.</p>
+    </div>
+  </div>
+  <div class="mrules">
+    <div><span class="k">Спокійно за замовчуванням</span><p>До 320 мс. Приходить швидко, йде ще швидше.</p></div>
+    <div><span class="k">Ближче до пальця першим</span><p>Меню розкривається знизу вгору, з кроком 40 мс.</p></div>
+    <div><span class="k">З-за краю, не з повітря</span><p>Плашки виїжджають справа і ніколи не проявляються на місці.</p></div>
+    <div><span class="k">Гучно тільки в Моменті</span><p>Відскок, масштаб і вібрація лише тоді, коли закрив роботу.</p></div>
+  </div>
+  <div class="motion">
+    <figure class="mv"><video data-src="i/m-add-local.mp4" poster="i/m-add-local.webp" muted loop playsinline preload="none" aria-label="+ меню"></video><figcaption><b>+ меню</b>Плашки виїжджають з-за правого краю, ближня до пальця перша. Плюс повертається в хрестик.</figcaption></figure>
+    <figure class="mv"><video data-src="i/m-next-car.mp4" poster="i/m-next-car.webp" muted loop playsinline preload="none" aria-label="Свайп по гаражу"></video><figcaption><b>Свайп по гаражу</b>Полароїд іде за пальцем і сідає на місце пружиною. Наприкінці місце для ще однієї машини.</figcaption></figure>
+    <figure class="mv"><video data-src="i/m-hero.mp4" poster="i/m-hero.webp" muted loop playsinline preload="none" aria-label="Полароїд у шапку"></video><figcaption><b>Полароїд у шапку</b>Фото з гаража стає шапкою екрана авто, а не відкривається з нуля.</figcaption></figure>
+    <figure class="mv"><video data-src="i/m-push.mp4" poster="i/m-push.webp" muted loop playsinline preload="none" aria-label="З гаража в авто"></video><figcaption><b>З гаража в авто</b>Екран авто заїжджає збоку і так само повертається, гараж лишається під ним.</figcaption></figure>
+    <figure class="mv"><video data-src="i/m-moment.mp4" poster="i/m-moment.webp" muted loop playsinline preload="none" aria-label="Момент"></video><figcaption><b>Момент</b>Роботу закрито: штамп SERVICED, потім +8 до здоров'я. Єдине місце, де анімація гучна.</figcaption></figure>
+    <figure class="mv"><video data-src="i/m-plan-gen.mp4" poster="i/m-plan-gen.webp" muted loop playsinline preload="none" aria-label="AI пише план"></video><figcaption><b>AI пише план</b>Видно, що саме зараз робиться і скільки ще чекати.</figcaption></figure>
+    <figure class="mv"><video data-src="i/m-save.mp4" poster="i/m-save.webp" muted loop playsinline preload="none" aria-label="Витрату збережено"></video><figcaption><b>Витрату збережено</b>Лист закривається, запис лягає в список, де його й шукатимеш.</figcaption></figure>
+    <figure class="mv"><video data-src="i/m-tabs.mp4" poster="i/m-tabs.webp" muted loop playsinline preload="none" aria-label="Вкладки авто"></video><figcaption><b>Вкладки авто</b>Сервіси, план, пальне, гроші. Шапка лишається, міняється тільки зміст.</figcaption></figure>
+  </div>
+  <p class="small col" style="margin-top:14px">З увімкненим «Зменшити рух» у системі все те саме, але без руху: прості проявлення або миттєва зміна.</p>
+</section>
+
+<section class="wide" id="logo">
+  <div class="col">
+    <div class="hazard" aria-hidden="true"></div>
+    <div class="head">
+      <span class="eyebrow"><b>07</b> Логотип</span>
+      <h2>Від мандали<br><span class="g">до штриха</span></h2>
+      <p>Назва складена з maintenance і tracker, а звучить як «мантра». Звідси стара шестерня з мандалою всередині. У нову мову вона не лягала: круглий, детальний знак серед зрізаних форм. Перебрав усе: шестерні, одометри, значки з ігор, гаражні ритуали. На це пішла не одна безсонна ніч, а коли я все ж спав, мені снилися логотипи.</p>
+    </div>
+  </div>
+  <div class="logo-row">
+    <figure><img src="i/logo-old.webp" alt="Старий логотип: шестерня з мандалою" loading="lazy"><figcaption><b>Було.</b> Шестерня і мандала.</figcaption></figure>
+    <figure><img src="i/logo-sketch.webp" alt="Ескізи нового логотипа в блокноті" loading="lazy"><figcaption><b>Блокнот.</b> Пошук ритму з трьох похилих штрихів.</figcaption></figure>
+    <figure><div class="newmark" role="img" aria-label="Новий знак Maintra"><svg aria-hidden="true" class="" viewBox="0 0 100 57.69" width="220" height="126.9" style="display: block; flex-shrink: 0; overflow: visible; "><path d="M26.10,0.00 L35.15,0.00 L35.15,57.69 L26.10,57.69 Z" fill="#8F897E"></path><path d="M52.20,0.00 L61.25,0.00 L61.25,57.69 L52.20,57.69 Z" fill="#8F897E"></path><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" fill="#F4B223"></path><clipPath id="mtlg3"><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" fill="#000"></path></clipPath><g clip-path="url(#mtlg3)"><path d="M2.40,57.69 L18.80,57.69 L37.55,0.00 L21.15,0.00 Z" fill="#9A6700"></path><path d="M28.50,57.69 L44.90,57.69 L63.65,0.00 L47.24,0.00 Z" fill="#9A6700"></path><path d="M54.60,57.69 L71.00,57.69 L89.75,0.00 L73.34,0.00 Z" fill="#9A6700"></path></g><path d="M0.00,57.69 L16.40,57.69 L35.15,0.00 L18.75,0.00 Z" fill="#ECE4D6"></path><path d="M26.10,57.69 L42.50,57.69 L61.25,0.00 L44.84,0.00 Z" fill="#ECE4D6"></path><path d="M52.20,57.69 L68.60,57.69 L87.35,0.00 L70.94,0.00 Z" fill="#F4B223"></path></svg></div><figcaption><b>Стало.</b> M і t з трьох скошених штрихів.</figcaption></figure>
+  </div>
+  <div class="logo-why">
+    <div><span class="k">Дві літери</span><p>M і t одразу: maintenance tracker в одному знаку.</p></div>
+    <div><span class="k">Пружина</span><p>Похилі штрихи читаються як пружина амортизатора. Це про машину, а не про абстракцію.</p></div>
+    <div><span class="k">Простір для руху</span><p>Штрихи можуть стискатись і відбивати, як підвіска на ямі. Готова анімація для запуску, синхронізації й завантаження.</p></div>
+    <div><span class="k">Мова 2.0</span><p>Ті самі скошені лінії й зрізи, що в кнопках, картках, іконках і шрифті Tektur.</p></div>
+  </div>
+</section>
+
+<section class="wide" id="compare">
+  <div class="col">
+    <div class="hazard" aria-hidden="true"></div>
+    <div class="head">
+      <span class="eyebrow"><b>08</b> До і після</span>
+      <h2>1.6 проти 2.0</h2>
+      <p>Ті самі дані, той самий Pajero. Різниця в тому, що екран тепер відповідає на питання, а не перелічує все.</p>
+    </div>
+  </div>
+  <div class="pair">
+    <figure><img src="i/now-garage.webp" alt="Гараж у версії 1.6" loading="lazy"><figcaption>1.6 · Гараж</figcaption></figure>
+    <span class="vs" aria-hidden="true">→</span>
+    <figure class="after"><img src="i/new-garage-dark.webp" alt="Гараж у версії 2.0" loading="lazy"><figcaption>2.0 · Гараж</figcaption></figure>
+  </div>
+  <p class="pair-note">Полароїд більший, під ним одна цифра: скільки до заміни оливи. Далі тільки найтерміновіше. Вішлист, документи, шини і полиця переїхали в смугу внизу.</p>
+  <div class="pair">
+    <figure><img src="i/now-car.webp" alt="Екран авто у версії 1.6" loading="lazy"><figcaption>1.6 · Авто</figcaption></figure>
+    <span class="vs" aria-hidden="true">→</span>
+    <figure class="after"><img src="i/new-services.webp" alt="Екран авто у версії 2.0" loading="lazy"><figcaption>2.0 · Авто</figcaption></figure>
+  </div>
+  <p class="pair-note">Роботи згруповані по візитах на СТО, з сумою за візит. Зроблене і куплене на полицю розділені.</p>
+  <div class="pair">
+    <figure><img src="i/now-plan.webp" alt="План у версії 1.6" loading="lazy"><figcaption>1.6 · План</figcaption></figure>
+    <span class="vs" aria-hidden="true">→</span>
+    <figure class="after"><img src="i/new-plan-dark.webp" alt="План у версії 2.0" loading="lazy"><figcaption>2.0 · План</figcaption></figure>
+  </div>
+  <p class="pair-note">Прострочене, скоро і пізніше. Кожен рядок каже, коли і чому. Менше іконок і тексту, стриманіші кольори, більше повітря.</p>
+</section>
+
+<section class="wide" id="now">
+  <div class="col">
+    <div class="hazard" aria-hidden="true"></div>
+    <div class="head">
+      <span class="eyebrow"><b>09</b> Куди дійшли</span>
+      <h2>Maintra 2.0</h2>
+      <p>Темна і світла теми, класичний вигляд гаража, телефон і планшет, офлайн-мапа зі статистикою поїздок, сейф для документів, шини. Скріншоти для сторів уже готові дванадцятьма мовами.</p>
+    </div>
+  </div>
+  <div class="store">
+    <img src="i/store-main.webp" alt="Скріншот стору: Service book on autopilot" loading="lazy">
+    <img src="i/store-ios-2.webp" alt="Скріншот стору: 50+ інструментів" loading="lazy">
+    <img src="i/store-ios-5.webp" alt="Скріншот стору: офлайн-навігація" loading="lazy">
+    <img src="i/store-ios-9.webp" alt="Скріншот стору: налаштування гаража" loading="lazy">
+  </div>
+  <img class="ipad" src="i/store-ipad-1.webp" alt="Скріншот стору для iPad" loading="lazy">
+  <div class="phones" style="margin-top:22px">
+    <figure class="ph"><img src="i/new-trip-result.webp" alt="Підсумок поїздки" loading="lazy"><figcaption><b>Після поїздки</b>Швидкість, час, найшвидша ділянка. Трек не покидає телефон.</figcaption></figure>
+    <figure class="ph"><img src="i/new-tyres.webp" alt="Шини" loading="lazy"><figcaption><b>Шини</b>Протектор по кожному колесу, вік, ротація.</figcaption></figure>
+    <figure class="ph"><img src="i/new-docs.webp" alt="Документи" loading="lazy"><figcaption><b>Документи</b>Шифруються на телефоні ще до завантаження.</figcaption></figure>
+  </div>
+</section>
+
+<section class="wide" id="theme">
+  <div class="col">
+    <div class="hazard" aria-hidden="true"></div>
+    <div class="head">
+      <span class="eyebrow"><b>10</b> Під себе</span>
+      <h2>Темна, світла<br><span class="g">або як у телефоні</span></h2>
+      <p>Тему обираєш у профілі: темна, світла або за системою. Правила ті самі, змінюється тільки світло. Гараж теж можна перемкнути: полароїд з фото або класичний список карток. А далі власні теми, нижче.</p>
+    </div>
+  </div>
+  <div class="themes">
+    <div class="tset"><div class="tpair"><img src="i/new-garage-dark.webp" alt="Гараж, темна тема" loading="lazy"><img src="i/new-garage-light.webp" alt="Гараж, світла тема" loading="lazy"></div><span class="tl">Гараж</span></div>
+    <div class="tset"><div class="tpair"><img src="i/new-plan-dark.webp" alt="План, темна тема" loading="lazy"><img src="i/new-plan-light.webp" alt="План, світла тема" loading="lazy"></div><span class="tl">План</span></div>
+    <div class="tset"><div class="tpair"><img src="i/new-money-dark.webp" alt="Витрати, темна тема" loading="lazy"><img src="i/new-money-light.webp" alt="Витрати, світла тема" loading="lazy"></div><span class="tl">Витрати</span></div>
+    <div class="tset"><div class="tpair"><img src="i/new-classic-dark.webp" alt="Класичний гараж, темна тема" loading="lazy"><img src="i/new-classic-light.webp" alt="Класичний гараж, світла тема" loading="lazy"></div><span class="tl">Класичний гараж</span></div>
+  </div>
+  <div class="col" style="margin-top:56px">
+    <div class="head">
+      <h3 class="sub">Теми на вибір</h3>
+      <p>Три безкоштовні і чотири в Pro. Тема змінює тільки фон і акцент. Текст, іконки і статуси лишаються: червоне прострочене, бурштинове скоро, зелене все гаразд. Будь-яку можна приміряти на хвилину, а Red light може вмикатись сам після заходу сонця.</p>
+    </div>
+  </div>
+  <div class="tgrid">
+    <figure class="tpick"><img src="i/th-picker.webp" alt="Екран вибору теми" loading="lazy"><figcaption><b>Вибір теми</b>Профіль → Вигляд</figcaption></figure>
+    <figure><img src="i/new-garage-dark.webp" alt="Тема Garage" loading="lazy"><figcaption><b>Garage</b>Темна, знайома</figcaption></figure>
+    <figure><img src="i/new-garage-light.webp" alt="Тема Workshop" loading="lazy"><figcaption><b>Workshop</b>Світла, на день</figcaption></figure>
+    <figure><img src="i/th-red.webp" alt="Тема Red light" loading="lazy"><figcaption><b>Red light</b>Червоний акцент на ніч</figcaption></figure>
+    <figure><img src="i/th-field.webp" alt="Тема Field" loading="lazy"><figcaption><b>Field <i>Pro</i></b>Олива і тан, камуфляж на +</figcaption></figure>
+    <figure><img src="i/th-blueprint.webp" alt="Тема Blueprint" loading="lazy"><figcaption><b>Blueprint <i>Pro</i></b>Креслення, блакитні лінії</figcaption></figure>
+    <figure><img src="i/th-logbook.webp" alt="Тема Logbook" loading="lazy"><figcaption><b>Logbook <i>Pro</i></b>Стара сервісна книжка, синє чорнило</figcaption></figure>
+    <figure><img src="i/th-rose.webp" alt="Тема Rose, ніч" loading="lazy"><figcaption><b>Rose <i>Pro</i></b>Сливова вночі</figcaption></figure>
+    <figure><img src="i/th-rose-day.webp" alt="Тема Rose, день" loading="lazy"><figcaption><b>Rose <i>Pro</i></b>Рожева вдень</figcaption></figure>
+  </div>
+</section>
+
+<footer class="col">
+  <div class="mark"><svg aria-hidden="true" class="" viewBox="0 0 100 57.69" width="40" height="23.1" style="display: block; flex-shrink: 0; overflow: visible; "><path d="M26.10,0.00 L35.15,0.00 L35.15,57.69 L26.10,57.69 Z" fill="#8F897E"></path><path d="M52.20,0.00 L61.25,0.00 L61.25,57.69 L52.20,57.69 Z" fill="#8F897E"></path><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" fill="#F4B223"></path><clipPath id="mtlg2"><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" fill="#000"></path></clipPath><g clip-path="url(#mtlg2)"><path d="M2.40,57.69 L18.80,57.69 L37.55,0.00 L21.15,0.00 Z" fill="#9A6700"></path><path d="M28.50,57.69 L44.90,57.69 L63.65,0.00 L47.24,0.00 Z" fill="#9A6700"></path><path d="M54.60,57.69 L71.00,57.69 L89.75,0.00 L73.34,0.00 Z" fill="#9A6700"></path></g><path d="M0.00,57.69 L16.40,57.69 L35.15,0.00 L18.75,0.00 Z" fill="#ECE4D6"></path><path d="M26.10,57.69 L42.50,57.69 L61.25,0.00 L44.84,0.00 Z" fill="#ECE4D6"></path><path d="M52.20,57.69 L68.60,57.69 L87.35,0.00 L70.94,0.00 Z" fill="#F4B223"></path></svg><span>MAINTRA</span></div>
+  <p class="small">Смарт-трекер обслуговування для твого гаража. <a href="https://maintra.me">maintra.me</a></p>
+</footer>
+</main>
+<script type="module" src="i/hero3d.js"></script>
+<script>
+// motion clips: load and play only while on screen
+(function(){var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var vs=[].slice.call(document.querySelectorAll('.mv video'));
+if(!('IntersectionObserver' in window)){vs.forEach(function(v){v.src=v.dataset.src;if(!reduce)v.play().catch(function(){})});return}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;
+ if(e.isIntersecting){if(!v.src){v.src=v.dataset.src}if(!reduce){v.play().catch(function(){})}}else{v.pause()}})},{rootMargin:'200px 0px'});
+vs.forEach(function(v){io.observe(v);v.addEventListener('click',function(){if(v.paused)v.play().catch(function(){});else v.pause()})});})();
+</script>
+
+
+</body></html>
