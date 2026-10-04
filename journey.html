@@ -4,6 +4,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<script>document.documentElement.classList.add('js','loading')</script>
 <title>Шлях Maintra 2.0</title>
 <meta name="description" content="Як Maintra прийшла від першої версії до 2.0: що не влаштовувало, звідки натхнення, які ідеї не вижили і з чого склалась нова мова дизайну.">
 <meta name="theme-color" content="#0B0B0A">
@@ -20,6 +21,16 @@
 <meta property="og:image" content="https://maintra.me/assets/press/maintra-feature-1024x500.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="modulepreload" href="assets/journey/hero3d.js?v=1a7bb98f">
+<link rel="modulepreload" href="assets/journey/three.module.min.js">
+<link rel="modulepreload" href="assets/journey/RoomEnvironment.js">
+<link rel="preload" href="assets/journey/hero-poster.webp" as="image" crossorigin="anonymous" fetchpriority="high">
+<link rel="preload" href="assets/journey/fonts/tektur-400-900-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/journey/fonts/tektur-400-900-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/journey/fonts/firasans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/journey/fonts/firasans-400-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/journey/fonts/firasans-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/journey/fonts/firasans-700-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 /* cyrillic-ext */
 @font-face {
@@ -434,9 +445,36 @@ footer{padding-block:70px 20px;display:grid;gap:14px;justify-items:start}
 .lang a:hover{color:var(--text)}
 .lang a[aria-current]{color:var(--gold)}
 .lang span{color:var(--dim)}
+
+/* loader (site only): the mark's spring from the Logo artifact, R16-Motion,
+   "Loading · 2.4 s a cycle", keyframes copied as drawn. Only with JS, so a
+   visitor without it gets the page, not a cover that never lifts. */
+.loader{display:none}
+html.js .loader{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:var(--bg);transition:opacity .35s ease}
+html.js .loader.out{opacity:0;pointer-events:none}
+html.loading{overflow:hidden}
+.loader svg{width:min(120px,30vw);height:auto;overflow:visible}
+.loader .ld{animation:mtLoad 2400ms linear infinite both}
+.loader .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@keyframes mtLoad{0%{transform:translateX(0px);animation-timing-function:cubic-bezier(.45,0,.55,1)}46%{transform:translateX(calc(var(--dx)*-0.26px));animation-timing-function:cubic-bezier(.6,0,.9,.4)}53%{transform:translateX(calc(var(--dx)*0.42px));animation-timing-function:cubic-bezier(.2,.7,.4,1)}62%{transform:translateX(calc(var(--dx)*-0.14px));animation-timing-function:ease-in-out}70%{transform:translateX(calc(var(--dx)*0.06px));animation-timing-function:ease-in-out}77%{transform:translateX(calc(var(--dx)*-0.02px))}83%,100%{transform:translateX(0px)}}
+@media (prefers-reduced-motion:reduce){.loader .ld{animation:none}}
 </style>
 </head>
 <body>
+<div class="loader" id="loader" role="status"><svg viewBox="0 0 100 100" aria-hidden="true">
+<g class="ld" style="--dx:-11.48"><path d="M28.97,24.61 L36.93,24.61 L36.93,75.39 L28.97,75.39 Z" fill="#8F897E"/></g>
+<g class="ld" style="--dx:-34.45"><path d="M51.93,24.61 L59.90,24.61 L59.90,75.39 L51.93,75.39 Z" fill="#8F897E"/></g>
+<path d="M14.14,34.77 L94.00,34.77 L90.93,44.23 L11.07,44.23 Z" fill="#F4B223"/>
+<clipPath id="ldBar"><path d="M14.14,34.77 L94.00,34.77 L90.93,44.23 L11.07,44.23 Z"/></clipPath>
+<g clip-path="url(#ldBar)">
+<g class="ld" style="--dx:0"><path d="M8.40,75.39 L22.83,75.39 L39.33,24.61 L24.90,24.61 Z" fill="#9A6700"/></g>
+<g class="ld" style="--dx:-22.97"><path d="M31.37,75.39 L45.80,75.39 L62.30,24.61 L47.86,24.61 Z" fill="#9A6700"/></g>
+<g class="ld" style="--dx:-45.93"><path d="M54.33,75.39 L68.77,75.39 L85.26,24.61 L70.83,24.61 Z" fill="#9A6700"/></g>
+</g>
+<g class="ld" style="--dx:0"><path d="M6.00,75.39 L20.43,75.39 L36.93,24.61 L22.50,24.61 Z" fill="#ECE4D6"/></g>
+<g class="ld" style="--dx:-22.97"><path d="M28.97,75.39 L43.40,75.39 L59.90,24.61 L45.46,24.61 Z" fill="#ECE4D6"/></g>
+<g class="ld" style="--dx:-45.93"><path d="M51.93,75.39 L66.37,75.39 L82.86,24.61 L68.43,24.61 Z" fill="#F4B223"/></g>
+</svg><span class="sr">Завантаження</span></div>
 <div class="wall" aria-hidden="true"></div>
 <main>
 <nav class="lang" aria-label="Мова"><a href="/journey" lang="uk" hreflang="uk" aria-current="page">UA</a><span aria-hidden="true">/</span><a href="/journey-en" lang="en" hreflang="en">EN</a></nav>
@@ -450,7 +488,7 @@ footer{padding-block:70px 20px;display:grid;gap:14px;justify-items:start}
   </div>
   <div class="hero-3d" id="hero3d" role="img" aria-label="Maintra 2.0 на телефоні: гараж, меню плюса, свайп між авто і полароїд, що стає шапкою">
     <canvas aria-hidden="true"></canvas>
-    <div class="hero-fallback" aria-hidden="true"><video id="heroVid" src="assets/journey/hero.mp4" poster="assets/journey/hero-poster.webp" muted loop playsinline preload="auto"></video></div>
+    <div class="hero-fallback" aria-hidden="true"><video id="heroVid" src="assets/journey/hero.mp4" poster="assets/journey/hero-poster.webp" muted loop playsinline preload="none"></video></div>
   </div>
 </header>
 
@@ -787,7 +825,7 @@ footer{padding-block:70px 20px;display:grid;gap:14px;justify-items:start}
   <p class="small">Смарт-трекер обслуговування для твого гаража. <a href="https://maintra.me">maintra.me</a></p>
 </footer>
 </main>
-<script type="module" src="assets/journey/hero3d.js?v=4536b12d"></script>
+<script type="module" src="assets/journey/hero3d.js?v=1a7bb98f"></script>
 <script>
 // motion clips: load and play only while on screen
 (function(){var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -799,5 +837,38 @@ vs.forEach(function(v){io.observe(v);v.addEventListener('click',function(){if(v.
 </script>
 
 
+<script>
+(function(){
+  var root = document.documentElement, el = document.getElementById('loader');
+  if (!el) return;
+  var CYCLE = 2400, SNAP = 0.46 * CYCLE, REST = 0.83 * CYCLE, CAP = 8000, gone = false;
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var sample = 'AaZz09 \u0410\u044f\u0407\u0457\u0490\u0491';
+  var faces = ['italic 800 40px Tektur', '700 40px Tektur', '400 17px "Fira Sans"', '500 17px "Fira Sans"', '600 17px "Fira Sans"', '700 17px "Fira Sans"'];
+  var fonts = document.fonts ? Promise.all(faces.map(function (f) { return document.fonts.load(f, sample); })) : Promise.resolve();
+  var hero = new Promise(function (done) {
+    var w = document.getElementById('hero3d');
+    if (!w) return done();
+    var ok = function () { return w.classList.contains('ready') || w.classList.contains('nogl'); };
+    if (ok()) return done();
+    new MutationObserver(function (m, o) { if (ok()) { o.disconnect(); done(); } }).observe(w, { attributes: true, attributeFilter: ['class'] });
+  });
+  function leave() {
+    if (gone) return; gone = true;
+    root.classList.remove('loading');
+    el.classList.add('out');
+    dispatchEvent(new Event('journey:reveal'));
+    setTimeout(function () { el.remove(); }, 400);
+  }
+  function atRest() {
+    if (reduce) return leave();
+    var a = el.querySelector('.ld').getAnimations ? el.querySelector('.ld').getAnimations()[0] : null;
+    var t = a && a.currentTime != null ? a.currentTime % CYCLE : 0;
+    if (t >= SNAP && t < REST) setTimeout(leave, REST - t); else leave();
+  }
+  Promise.all([fonts, hero]).then(atRest, atRest);
+  setTimeout(leave, CAP);
+})();
+</script>
 </body>
 </html>

@@ -166,6 +166,7 @@ async function init() {
 
   // ---- loop ----
   let visible = true, start = performance.now();
+  addEventListener('journey:reveal', () => { start = performance.now(); try { vid.currentTime = 0; } catch (e) {} });
   new IntersectionObserver(es => { visible = es[0].isIntersecting; if (visible) loop(); }, { threshold: 0 }).observe(wrap);
   const ease = t => 1 - Math.pow(1 - t, 3);
   function frame(now) {

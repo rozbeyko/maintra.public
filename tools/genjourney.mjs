@@ -46,14 +46,25 @@ const fonts = read('tools/journey-fonts.css');
 // artifact root. Resolve it next to the script instead so the page can live
 // anywhere. Idempotent, and re-applied when a fresh copy comes from the design.
 const heroPath = join(SITE, ASSETS, 'hero3d.js');
+// The intro (the phone swinging in, the plates landing) is timed from init,
+// which now happens under the loader; restart it, and the screen video, when
+// the loader leaves, or the visitor arrives to an intro that already played.
+const REVEAL = "addEventListener('journey:reveal', () => { start = performance.now(); try { vid.currentTime = 0; } catch (e) {} });";
 const hero = readFileSync(heroPath, 'utf8');
-const heroFixed = hero.replace(
+let heroFixed = hero.replace(
   "loadAsync('i/hero-poster.webp')",
   "loadAsync(new URL('hero-poster.webp', import.meta.url).href)",
 );
+if (!heroFixed.includes(REVEAL)) {
+  heroFixed = heroFixed.replace(
+    'let visible = true, start = performance.now();',
+    `let visible = true, start = performance.now();\n  ${REVEAL}`,
+  );
+}
 if (!heroFixed.includes("new URL('hero-poster.webp', import.meta.url)")) {
   throw new Error('hero3d.js: the poster load moved, update the patch above');
 }
+if (!heroFixed.includes(REVEAL)) throw new Error('hero3d.js: the intro clock moved, update the reveal patch above');
 if (heroFixed !== hero) writeFileSync(heroPath, heroFixed, 'utf8');
 
 const toAssets = (s) => s.replace(/(["(])i\//g, `$1${ASSETS}/`);
@@ -66,9 +77,34 @@ const start = source.indexOf('<div class="wall"');
 const end = source.lastIndexOf('</body>');
 if (start < 0 || end < 0) throw new Error('page body not found in the source');
 
+const HERO_JS = `${ASSETS}/hero3d.js?v=${hash(`${ASSETS}/hero3d.js`)}`;
+// The hero video is 1 MB and preload="auto" pulled it in parallel with the 3D
+// code the loader waits for, on every connection. hero3d.js calls play() once
+// the phone is up, which loads it then, after what the first screen needs.
+const HERO_VIDEO_AUTO = 'id="heroVid" src="assets/journey/hero.mp4" poster="assets/journey/hero-poster.webp" muted loop playsinline preload="auto"';
 const body = toAssets(source.slice(start, end))
-  .replace(`src="${ASSETS}/hero3d.js"`, `src="${ASSETS}/hero3d.js?v=${hash(`${ASSETS}/hero3d.js`)}"`);
+  .replace(`src="${ASSETS}/hero3d.js"`, `src="${HERO_JS}"`)
+  .replace(HERO_VIDEO_AUTO, HERO_VIDEO_AUTO.replace('preload="auto"', 'preload="none"'));
 if (/["(]i\//.test(body)) throw new Error('an i/ path survived the rewrite');
+if (!body.includes('id="heroVid"') || body.includes(HERO_VIDEO_AUTO)) {
+  throw new Error('the hero video markup moved, update HERO_VIDEO_AUTO');
+}
+
+// What the loader waits for, requested from the head instead of whenever the
+// parser reaches it: the 3D code (exact URLs, or the preload is wasted), the
+// screen texture (crossorigin, because three.js loads it in cors mode and a
+// mismatched preload is fetched twice), and the fonts this language draws.
+const preloads = (lang) => {
+  const fontFiles = ['tektur-400-900', 'firasans-400', 'firasans-700']
+    .flatMap((f) => (lang === 'uk' ? [`${f}-latin`, `${f}-cyrillic`] : [`${f}-latin`]));
+  return [
+    `<link rel="modulepreload" href="${HERO_JS}">`,
+    `<link rel="modulepreload" href="${ASSETS}/three.module.min.js">`,
+    `<link rel="modulepreload" href="${ASSETS}/RoomEnvironment.js">`,
+    `<link rel="preload" href="${ASSETS}/hero-poster.webp" as="image" crossorigin="anonymous" fetchpriority="high">`,
+    ...fontFiles.map((f) => `<link rel="preload" href="${ASSETS}/fonts/${f}.woff2" as="font" type="font/woff2" crossorigin>`),
+  ].join('\n');
+};
 
 const SWITCH_CSS = `
 /* language switch (site only, not in the design) */
@@ -77,7 +113,77 @@ const SWITCH_CSS = `
 .lang a:hover{color:var(--text)}
 .lang a[aria-current]{color:var(--gold)}
 .lang span{color:var(--dim)}
+
+/* loader (site only): the mark's spring from the Logo artifact, R16-Motion,
+   "Loading · 2.4 s a cycle", keyframes copied as drawn. Only with JS, so a
+   visitor without it gets the page, not a cover that never lifts. */
+.loader{display:none}
+html.js .loader{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:var(--bg);transition:opacity .35s ease}
+html.js .loader.out{opacity:0;pointer-events:none}
+html.loading{overflow:hidden}
+.loader svg{width:min(120px,30vw);height:auto;overflow:visible}
+.loader .ld{animation:mtLoad 2400ms linear infinite both}
+.loader .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@keyframes mtLoad{0%{transform:translateX(0px);animation-timing-function:cubic-bezier(.45,0,.55,1)}46%{transform:translateX(calc(var(--dx)*-0.26px));animation-timing-function:cubic-bezier(.6,0,.9,.4)}53%{transform:translateX(calc(var(--dx)*0.42px));animation-timing-function:cubic-bezier(.2,.7,.4,1)}62%{transform:translateX(calc(var(--dx)*-0.14px));animation-timing-function:ease-in-out}70%{transform:translateX(calc(var(--dx)*0.06px));animation-timing-function:ease-in-out}77%{transform:translateX(calc(var(--dx)*-0.02px))}83%,100%{transform:translateX(0px)}}
+@media (prefers-reduced-motion:reduce){.loader .ld{animation:none}}
 `;
+
+// The R16 mark, loading variant, as the board draws it.
+const LOADER_SVG = `<svg viewBox="0 0 100 100" aria-hidden="true">
+<g class="ld" style="--dx:-11.48"><path d="M28.97,24.61 L36.93,24.61 L36.93,75.39 L28.97,75.39 Z" fill="#8F897E"/></g>
+<g class="ld" style="--dx:-34.45"><path d="M51.93,24.61 L59.90,24.61 L59.90,75.39 L51.93,75.39 Z" fill="#8F897E"/></g>
+<path d="M14.14,34.77 L94.00,34.77 L90.93,44.23 L11.07,44.23 Z" fill="#F4B223"/>
+<clipPath id="ldBar"><path d="M14.14,34.77 L94.00,34.77 L90.93,44.23 L11.07,44.23 Z"/></clipPath>
+<g clip-path="url(#ldBar)">
+<g class="ld" style="--dx:0"><path d="M8.40,75.39 L22.83,75.39 L39.33,24.61 L24.90,24.61 Z" fill="#9A6700"/></g>
+<g class="ld" style="--dx:-22.97"><path d="M31.37,75.39 L45.80,75.39 L62.30,24.61 L47.86,24.61 Z" fill="#9A6700"/></g>
+<g class="ld" style="--dx:-45.93"><path d="M54.33,75.39 L68.77,75.39 L85.26,24.61 L70.83,24.61 Z" fill="#9A6700"/></g>
+</g>
+<g class="ld" style="--dx:0"><path d="M6.00,75.39 L20.43,75.39 L36.93,24.61 L22.50,24.61 Z" fill="#ECE4D6"/></g>
+<g class="ld" style="--dx:-22.97"><path d="M28.97,75.39 L43.40,75.39 L59.90,24.61 L45.46,24.61 Z" fill="#ECE4D6"/></g>
+<g class="ld" style="--dx:-45.93"><path d="M51.93,75.39 L66.37,75.39 L82.86,24.61 L68.43,24.61 Z" fill="#F4B223"/></g>
+</svg>`;
+
+// Lift the cover once the page can be shown as designed: the fonts in, and
+// the 3D hero drawn (hero3d.js marks #hero3d .ready, or .nogl when it falls
+// back to the video). Never mid-bounce: the snap and the two bounces (46-83%
+// of the cycle) are the fast part, so a cover that fades then reads as a cut;
+// ready inside them waits for the rest. Ready during the slow pull leaves at
+// once, which is what a warm cache sees, so a return visit is not held for a
+// whole cycle. Capped, so a slow or broken network still gets the page.
+const LOADER_JS = `<script>
+(function(){
+  var root = document.documentElement, el = document.getElementById('loader');
+  if (!el) return;
+  var CYCLE = 2400, SNAP = 0.46 * CYCLE, REST = 0.83 * CYCLE, CAP = 8000, gone = false;
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var sample = 'AaZz09 \\u0410\\u044f\\u0407\\u0457\\u0490\\u0491';
+  var faces = ['italic 800 40px Tektur', '700 40px Tektur', '400 17px "Fira Sans"', '500 17px "Fira Sans"', '600 17px "Fira Sans"', '700 17px "Fira Sans"'];
+  var fonts = document.fonts ? Promise.all(faces.map(function (f) { return document.fonts.load(f, sample); })) : Promise.resolve();
+  var hero = new Promise(function (done) {
+    var w = document.getElementById('hero3d');
+    if (!w) return done();
+    var ok = function () { return w.classList.contains('ready') || w.classList.contains('nogl'); };
+    if (ok()) return done();
+    new MutationObserver(function (m, o) { if (ok()) { o.disconnect(); done(); } }).observe(w, { attributes: true, attributeFilter: ['class'] });
+  });
+  function leave() {
+    if (gone) return; gone = true;
+    root.classList.remove('loading');
+    el.classList.add('out');
+    dispatchEvent(new Event('journey:reveal'));
+    setTimeout(function () { el.remove(); }, 400);
+  }
+  function atRest() {
+    if (reduce) return leave();
+    var a = el.querySelector('.ld').getAnimations ? el.querySelector('.ld').getAnimations()[0] : null;
+    var t = a && a.currentTime != null ? a.currentTime % CYCLE : 0;
+    if (t >= SNAP && t < REST) setTimeout(leave, REST - t); else leave();
+  }
+  Promise.all([fonts, hero]).then(atRest, atRest);
+  setTimeout(leave, CAP);
+})();
+</script>`;
 
 const PAGES = {
   uk: {
@@ -87,6 +193,7 @@ const PAGES = {
     title: 'Шлях Maintra 2.0',
     description: 'Як Maintra прийшла від першої версії до 2.0: що не влаштовувало, звідки натхнення, які ідеї не вижили і з чого склалась нова мова дизайну.',
     switchLabel: 'Мова',
+    loading: 'Завантаження',
   },
   en: {
     file: 'journey-en.html',
@@ -95,6 +202,7 @@ const PAGES = {
     title: 'The road to Maintra 2.0',
     description: "How Maintra got from its first version to 2.0: what bothered me, where the inspiration came from, which ideas didn't survive, and what the new design language is made of.",
     switchLabel: 'Language',
+    loading: 'Loading',
   },
 };
 
@@ -112,6 +220,7 @@ function page(lang, content) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<script>document.documentElement.classList.add('js','loading')</script>
 <title>${p.title}</title>
 <meta name="description" content="${p.description}">
 <meta name="theme-color" content="#0B0B0A">
@@ -128,12 +237,15 @@ function page(lang, content) {
 <meta property="og:image" content="https://maintra.me/assets/press/maintra-feature-1024x500.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="assets/favicon.png">
+${preloads(lang)}
 <style>
 ${fonts}</style>
 <style>${pageCss}${SWITCH_CSS}</style>
 </head>
 <body>
-${content.replace('<main>', `<main>\n${langSwitch}`)}</body>
+<div class="loader" id="loader" role="status">${LOADER_SVG}<span class="sr">${p.loading}</span></div>
+${content.replace('<main>', `<main>\n${langSwitch}`)}${LOADER_JS}
+</body>
 </html>
 `;
 }
