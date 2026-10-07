@@ -39,14 +39,17 @@
     if (L.indexOf(c) >= 0) { if (go(c)) return; break; }
   }
   if (!window.fetch) { done(); return; }
-  var t = setTimeout(done, 1500);
+  // an answer after the page is up is ignored: no switching under someone reading
+  var late = false;
+  var t = setTimeout(function () { late = true; done(); }, 1500);
   fetch('/cdn-cgi/trace', { cache: 'no-store' }).then(function (r) { return r.ok ? r.text() : ''; }).then(function (s) {
+    if (late) return;
     var m = /(?:^|\n)loc=([A-Z]{2})/.exec(s);
     if (!(m && go(C[m[1]]))) { clearTimeout(t); done(); }
   }).catch(function () { clearTimeout(t); done(); });
 })();
 </script>
-<link rel="modulepreload" href="/assets/home/home.js?v=3c7df79a">
+<link rel="modulepreload" href="/assets/home/home.js?v=04259b32">
 <link rel="modulepreload" href="/assets/home/stage.js?v=c12b03ea">
 <link rel="modulepreload" href="/assets/home/player.js?v=4104dfe0">
 <link rel="modulepreload" href="/assets/journey/three.module.min.js">
@@ -57,8 +60,8 @@
 <link rel="preload" href="/assets/journey/fonts/firasans-600-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/home/fonts.css?v=3a8a3f95">
 
-<link rel="stylesheet" href="/assets/home/home.css?v=71d91a72">
-<script type="module" src="/assets/home/home.js?v=3c7df79a"></script>
+<link rel="stylesheet" href="/assets/home/home.css?v=e3494c54">
+<script type="module" src="/assets/home/home.js?v=04259b32"></script>
 <script>setTimeout(function () { document.documentElement.classList.remove('loading'); }, 7000);</script>
 <noscript><style>html.loading .loader{display:none}</style></noscript>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"MobileApplication","name":"Maintra","url":"https://maintra.me/","description":"Maintra 2.0 arrives in October: a new garage, offline maps that count your kilometres, OBD scans, a link for your mechanic, 11 languages. The service book for people who look after their own cars. Try the app right on the page.","inLanguage":"en","operatingSystem":"iOS, Android","applicationCategory":"UtilitiesApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"Kyrylo Rozbeiko"},"downloadUrl":["https://apps.apple.com/app/maintra/id6775876731","https://play.google.com/store/apps/details?id=com.maintra.app"]}</script>

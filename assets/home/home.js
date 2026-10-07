@@ -283,8 +283,9 @@ async function boot() {
   });
 
   // ---- what the main phone shows
+  // asked for less motion: the phone holds still on the garage until tapped
   const heroLoop = () => {
-    if (!inHero || player.autoplaying) return;
+    if (reduce || !inHero || player.autoplaying) return;
     player.play(HERO, { loop: true });
   };
   setInterval(() => {

@@ -417,8 +417,10 @@ html.loading body { overflow: hidden; }
   padding: 8px 0 14px;
   display: flex;
   justify-content: center;
-  background: linear-gradient(180deg, var(--bg) 0, var(--bg) 88%, rgba(11,11,10,0));
+  background: var(--bg);
 }
+/* the chapters slide under the phone: gone by the time they reach it */
+.tour-stage::after { content: ''; position: absolute; inset-inline: 0; top: 100%; height: 40px; background: linear-gradient(var(--bg), rgba(11,11,10,0)); pointer-events: none; }
 .tour-stage .slot { height: 100%; }
 .tour-text { position: relative; z-index: 1; }
 .ch { min-height: 78svh; padding: 6vh 0 10vh; display: flex; flex-direction: column; gap: clamp(14px, 2vh, 24px); }
@@ -483,6 +485,7 @@ html.loading body { overflow: hidden; }
 @media (min-width: 760px) {
   .tour-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: clamp(28px, 4vw, 120px); }
   .tour-stage { grid-column: 1; grid-row: 1; top: calc(var(--nav) + 12px); height: calc(100svh - var(--nav) - 24px); max-height: 1600px; background: none; padding: 0; align-items: center; }
+  .tour-stage::after { display: none; }
   .tour-text { grid-column: 2; grid-row: 1; }
   .ch { min-height: 96svh; justify-content: center; padding: 10vh 0; }
 }
@@ -608,7 +611,7 @@ html.loading body { overflow: hidden; }
 }
 .maker-in { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(40px, 6vw, 160px); align-items: center; }
 .maker-copy { display: flex; flex-direction: column; gap: clamp(16px, 2.4vh, 28px); max-width: 860px; }
-.maker-copy > p { color: var(--text2); max-width: 54ch; font-size: clamp(16px, .32vw + 12px, 21px); }
+.maker-copy > p:not([class]) { color: var(--text2); max-width: 54ch; font-size: clamp(16px, .32vw + 12px, 21px); }
 .q { margin: 8px 0 0; padding: 4px 0 4px 22px; border-inline-start: 2px solid var(--edge); }
 [dir='rtl'] .q { padding: 4px 22px 4px 0; }
 .q p { font: 500 clamp(19px, .7vw + 12px, 32px)/1.35 var(--sans); color: var(--text); max-width: 34ch; }
@@ -642,7 +645,14 @@ html.loading body { overflow: hidden; }
   font-variant-numeric: tabular-nums;
 }
 .maker-pol { max-width: 760px; width: 100%; justify-self: center; }
-@media (min-width: 900px) { .maker-in { grid-template-columns: minmax(0, .82fr) minmax(0, 1fr); } }
+/* one column: the name and the title first, then the photo, then the story */
+@media (max-width: 759.98px) {
+  .maker-in { gap: clamp(16px, 2.4vh, 28px); }
+  .maker-copy { display: contents; }
+  .maker-copy > .label, .maker-copy > .h2 { order: -1; }
+  .maker-pol { margin: 18px 0 26px; max-width: 520px; }
+}
+@media (min-width: 760px) { .maker-in { grid-template-columns: minmax(0, .82fr) minmax(0, 1fr); } }
 @media (min-width: 2000px) { .maker-in { grid-template-columns: minmax(0, .7fr) minmax(0, 1fr); max-width: 2600px; } }
 
 /* --------------------------------------------------------------- plans */
@@ -770,7 +780,7 @@ html:not(.loading) .kicker .film { animation: filmin 280ms cubic-bezier(.3,.7,.4
   .tile h3 { font-size: 34px; }
   .tile p { font-size: 24px; }
   .maker-copy { max-width: 1200px; }
-  .maker-copy > p { font-size: 28px; }
+  .maker-copy > p:not([class]) { font-size: 28px; }
   .q p { font-size: 42px; }
   .plan-name { font-size: 96px; }
   .qa summary { font-size: 34px; min-height: 90px; }

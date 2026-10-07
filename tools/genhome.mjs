@@ -165,8 +165,11 @@ const LANGPICK = (codes) => `<script>
     if (L.indexOf(c) >= 0) { if (go(c)) return; break; }
   }
   if (!window.fetch) { done(); return; }
-  var t = setTimeout(done, 1500);
+  // an answer after the page is up is ignored: no switching under someone reading
+  var late = false;
+  var t = setTimeout(function () { late = true; done(); }, 1500);
   fetch('/cdn-cgi/trace', { cache: 'no-store' }).then(function (r) { return r.ok ? r.text() : ''; }).then(function (s) {
+    if (late) return;
     var m = /(?:^|\\n)loc=([A-Z]{2})/.exec(s);
     if (!(m && go(C[m[1]]))) { clearTimeout(t); done(); }
   }).catch(function () { clearTimeout(t); done(); });
