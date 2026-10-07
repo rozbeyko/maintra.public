@@ -4,7 +4,7 @@
 
 import { Stage } from './stage.js?v=36fdbb8a';
 import { Player, loadIndex, prefetch } from './player.js?v=4104dfe0';
-import { Room } from './room.js?v=a5c426b9';
+import { Room } from './room.js?v=c84e5b5f';
 
 const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
