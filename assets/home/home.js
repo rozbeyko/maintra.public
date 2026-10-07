@@ -2,8 +2,9 @@
 // tour as the page scrolls, and follows the tour's chapters there; a second
 // phone, the friend's, joins it on wide screens when you lend the car.
 
-import { Stage } from './stage.js?v=619f66c7';
+import { Stage } from './stage.js?v=36fdbb8a';
 import { Player, loadIndex, prefetch } from './player.js?v=4104dfe0';
+import { Room } from './room.js?v=bf3ec4bd';
 
 const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
@@ -41,6 +42,39 @@ document.addEventListener('keydown', (e) => {
     langBtn.focus();
   }
 });
+// ------------------------------------------------------------------ theme
+// Light or dark: the visitor's choice, remembered, else the system's. The
+// head script set it before the first paint; this keeps the switch, the
+// browser's bar colour and the 3D garage (it listens for maintra-theme) in step.
+const themeBtn = $('.theme-btn');
+const themeMeta = $('meta[name="theme-color"]');
+let themeChosen = false;
+try {
+  themeChosen = !!localStorage.getItem('maintra.theme');
+} catch (e) {}
+const applyTheme = (t) => {
+  root.dataset.theme = t;
+  themeMeta.setAttribute('content', t === 'light' ? '#EEEAE2' : '#0B0B0A');
+  if (themeBtn) themeBtn.setAttribute('aria-label', t === 'light' ? themeBtn.dataset.toDark : themeBtn.dataset.toLight);
+  dispatchEvent(new CustomEvent('maintra-theme', { detail: t }));
+};
+const switchTheme = (t) => {
+  if (document.startViewTransition && !reduce) document.startViewTransition(() => applyTheme(t));
+  else applyTheme(t);
+};
+applyTheme(root.dataset.theme === 'light' ? 'light' : 'dark');
+themeBtn?.addEventListener('click', () => {
+  const t = root.dataset.theme === 'light' ? 'dark' : 'light';
+  themeChosen = true;
+  try {
+    localStorage.setItem('maintra.theme', t);
+  } catch (e) {}
+  switchTheme(t);
+});
+matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
+  if (!themeChosen) switchTheme(e.matches ? 'light' : 'dark');
+});
+
 // a chosen language is remembered, so the next visit to / goes straight there
 for (const a of $$('[data-lang]')) {
   a.addEventListener('click', () => {
@@ -212,12 +246,9 @@ async function boot() {
     const b = p.el.getBoundingClientRect();
     cut[i] = b.left < 8 || b.right > innerWidth - 8;
   });
-  const dust = stage.dust(() => {
-    if (introAt === null) return null;
-    const H = box(heroSlot);
-    return { x: H.x, y: Math.max(H.y, holdY()) - H.h * 0.1, w: H.w * 2.6, h: H.h * 1.25, o: (1 - inOut(flight())) * intro() };
-  });
-  void dust;
+  // the garage round the hero phone: lamp, wall, its shadow (room.js)
+  const navH = parseFloat(getComputedStyle(root).getPropertyValue('--nav')) || 64;
+  new Room(stage, { hero: $('.hero'), slot: heroSlot, phone, fit, reduce, nav: navH });
   const intro = () => (introAt === null ? 0 : reduce ? 1 : outCubic(Math.min(1, (performance.now() - introAt) / 1700)));
 
   phone.follow = (time) => {

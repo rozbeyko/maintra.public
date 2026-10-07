@@ -34,6 +34,21 @@
   --paper: #F3EFE6;
   --ink: #1B1A17;
   --accent: var(--gold);
+  /* gold as a line or as text (underlines, current marks, numbers) */
+  --accent-line: var(--accent);
+  --glass: rgba(11, 11, 10, .72);
+  --glass-menu: rgba(21, 21, 19, .9);
+  --sheen: rgba(255, 255, 255, .06);
+  --hover: rgba(255, 255, 255, .04);
+  --drop: rgba(0, 0, 0, .6);
+  --dot: rgba(255, 255, 255, .9);
+  --dot-ring: rgba(255, 255, 255, .14);
+  --plate: rgba(21, 21, 19, .92);
+  --pol-shadow: 0 34px 70px rgba(0, 0, 0, .75), 0 2px 4px rgba(0, 0, 0, .3);
+  --lg-stem: #8F897E;
+  --lg-ink: #ECE4D6;
+  --lg-gold: #F4B223;
+  --lg-shade: #9A6700;
   --display: Tektur, 'Arial Narrow', sans-serif;
   --sans: 'Fira Sans', 'Helvetica Neue', Arial, sans-serif;
   --nav: 64px;
@@ -43,6 +58,40 @@
   --ease: cubic-bezier(.2, .8, .2, 1);
   --sec: clamp(88px, 14vh, 240px);
   color-scheme: dark;
+}
+/* Light: the app's own light theme ("paper"), token for token
+   (tools/home/src/tokens.json). Gold stays the fill; as a line or text it
+   goes darker, the way the app does it, to stay readable on paper. */
+:root[data-theme='light'] {
+  --bg: #EEEAE2;
+  --surface: #F8F6F1;
+  --card: #E2DDD3;
+  --hair: #D6D0C4;
+  --edge: #BDB5A7;
+  --control: #8C867C;
+  --track: #D9D3C7;
+  --text: #1A1814;
+  --text2: #666056;
+  --muted: #837D73;
+  --gold: #EBA817;
+  --gold-hi: #F4B223;
+  --amber: #8B5300;
+  --red: #B3311C;
+  --green: #2F6D37;
+  --vip: #6D3FD8;
+  --accent-line: color-mix(in oklab, var(--accent) 52%, #2b1d00);
+  --glass: rgba(238, 234, 226, .8);
+  --glass-menu: rgba(248, 246, 241, .95);
+  --sheen: rgba(255, 255, 255, .55);
+  --hover: rgba(26, 24, 20, .05);
+  --drop: rgba(60, 50, 35, .22);
+  --dot: rgba(26, 24, 20, .85);
+  --dot-ring: rgba(26, 24, 20, .12);
+  --plate: rgba(248, 246, 241, .95);
+  --pol-shadow: 0 30px 60px rgba(60, 50, 35, .3), 0 2px 4px rgba(60, 50, 35, .22);
+  --lg-stem: #8C867C;
+  --lg-ink: #1A1814;
+  color-scheme: light;
 }
 
 :lang(ar) {
@@ -84,13 +133,15 @@ body {
 img { max-width: 100%; }
 a { color: inherit; }
 button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--accent-line); outline-offset: 3px; }
 [id] { scroll-margin-top: calc(var(--nav) + 16px); }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .skip { position: fixed; z-index: 200; inset-inline-start: 12px; top: -60px; padding: 10px 16px; background: var(--accent); color: var(--on-gold); font-weight: 700; text-decoration: none; transition: top .2s; }
 .skip:focus { top: 12px; }
 
-/* grain over everything, the page is a photo of a garage, not a vector */
+/* grain over everything, the page is a photo of a garage, not a vector
+   (dark grain on paper) */
+:root[data-theme='light'] body::after { filter: invert(1); opacity: .035; }
 body::after {
   content: '';
   position: fixed;
@@ -208,10 +259,10 @@ html.loading body { overflow: hidden; }
   transition: background .3s, box-shadow .3s;
 }
 .top.solid {
-  background: linear-gradient(115deg, rgba(255,255,255,.06), rgba(255,255,255,.02) 40%, rgba(255,255,255,.035)), rgba(11,11,10,.72);
+  background: linear-gradient(115deg, var(--sheen), transparent 40%, color-mix(in srgb, var(--sheen) 60%, transparent)), var(--glass);
   -webkit-backdrop-filter: blur(18px) saturate(160%);
   backdrop-filter: blur(18px) saturate(160%);
-  box-shadow: inset 0 -1px 0 var(--hair), inset 0 1px 0 rgba(255,255,255,.06);
+  box-shadow: inset 0 -1px 0 var(--hair), inset 0 1px 0 var(--sheen);
 }
 .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text); flex: none; min-height: 44px; }
 .brand .mt { height: 22px; width: auto; overflow: visible; }
@@ -231,7 +282,7 @@ html.loading body { overflow: hidden; }
   transition: color .2s;
 }
 .top-nav a:hover, .top-nav a[aria-current] { color: var(--text); }
-.top-nav a[aria-current]::after { content: ''; position: absolute; inset-inline: 0; bottom: 8px; height: 2px; background: var(--accent); transform: skewX(-24deg); }
+.top-nav a[aria-current]::after { content: ''; position: absolute; inset-inline: 0; bottom: 8px; height: 2px; background: var(--accent-line); transform: skewX(-24deg); }
 .lang { position: relative; margin-inline-start: auto; }
 .lang-btn {
   display: flex;
@@ -248,6 +299,12 @@ html.loading body { overflow: hidden; }
 }
 .lang-btn:hover, .lang-btn[aria-expanded='true'] { color: var(--text); }
 .lang-btn .i { font-size: 18px; }
+/* the theme switch: a sun to go light, a moon to go dark */
+.theme-btn { display: grid; place-items: center; width: 44px; height: 44px; color: var(--text2); transition: color .2s; }
+.theme-btn:hover { color: var(--text); }
+.theme-btn .i { grid-area: 1 / 1; font-size: 19px; }
+.theme-btn .moon, :root[data-theme='light'] .theme-btn .i:not(.moon) { display: none; }
+:root[data-theme='light'] .theme-btn .moon { display: block; }
 .lang-menu {
   position: absolute;
   inset-inline-end: 0;
@@ -256,17 +313,17 @@ html.loading body { overflow: hidden; }
   margin: 0;
   padding: 8px 0;
   list-style: none;
-  background: linear-gradient(115deg, rgba(255,255,255,.08), rgba(255,255,255,.03) 40%, rgba(255,255,255,.05)), rgba(21,21,19,.9);
+  background: linear-gradient(115deg, var(--sheen), transparent 40%, color-mix(in srgb, var(--sheen) 70%, transparent)), var(--glass-menu);
   -webkit-backdrop-filter: blur(22px) saturate(160%);
   backdrop-filter: blur(22px) saturate(160%);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.14), 0 24px 48px rgba(0,0,0,.6);
+  box-shadow: inset 0 1px 0 var(--sheen), 0 24px 48px var(--drop);
   clip-path: polygon(var(--cut) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cut));
 }
 .lang-menu[hidden] { display: none; }
 .lang-menu a { display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 20px; font: 500 16px/1 system-ui, var(--sans); color: var(--text2); text-decoration: none; }
-.lang-menu a:hover { color: var(--text); background: rgba(255,255,255,.04); }
+.lang-menu a:hover { color: var(--text); background: var(--hover); }
 .lang-menu a[aria-current] { color: var(--text); }
-.lang-menu a[aria-current]::after { content: ''; margin-inline-start: auto; width: 9px; height: 9px; background: var(--accent); clip-path: polygon(29% 0, 71% 0, 100% 29%, 100% 71%, 71% 100%, 29% 100%, 0 71%, 0 29%); }
+.lang-menu a[aria-current]::after { content: ''; margin-inline-start: auto; width: 9px; height: 9px; background: var(--accent-line); clip-path: polygon(29% 0, 71% 0, 100% 29%, 100% 71%, 71% 100%, 29% 100%, 0 71%, 0 29%); }
 .lang-menu .code { width: 26px; font: 700 12px/1 var(--display); font-stretch: 78%; letter-spacing: .1em; color: var(--muted); text-transform: uppercase; }
 .top-get { display: none; }
 @media (min-width: 560px) { .top-get { display: inline-flex; } }
@@ -278,6 +335,8 @@ html.loading body { overflow: hidden; }
    instead of hiding them. The wall sits at 0, the copy at 1. */
 .hero { position: relative; min-height: 100svh; padding-top: var(--nav); display: flex; flex-direction: column; }
 .hero-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+/* with WebGL the garage is drawn in 3D (room.js); these layers are the fallback */
+html.room .hero-bg > * { display: none; }
 .hero-bg .wall {
   position: absolute;
   inset: 0;
@@ -294,19 +353,11 @@ html.loading body { overflow: hidden; }
   height: 120vh;
   background: radial-gradient(ellipse 50% 50% at 50% 30%, rgba(255, 214, 150, .12), rgba(255, 200, 120, .04) 45%, transparent 70%);
 }
-.hero-bg .beam {
-  position: absolute;
-  inset-inline-start: 54%;
-  top: -10vh;
-  width: 40vw;
-  height: 110vh;
-  background: linear-gradient(180deg, rgba(255, 220, 160, .07), transparent 80%);
-  clip-path: polygon(42% 0, 58% 0, 100% 100%, 0 100%);
-  filter: blur(20px);
-}
 .hero-in {
   position: relative;
-  z-index: 1;
+  /* over the 3D layer (40): the garage wall is drawn there, behind the copy;
+     the phone's column lets the taps through to the phone itself */
+  z-index: 45;
   flex: 1;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -328,6 +379,8 @@ html.loading body { overflow: hidden; }
 .h1-in { display: block; }
 .hero .lede { max-width: 36ch; }
 .note { font-size: clamp(14px, .2vw + 11.5px, 17px); line-height: 1.5; color: var(--text2); max-width: 52ch; }
+.hero-phone { pointer-events: none; }
+.hero-phone .cue { pointer-events: auto; }
 .hero-phone { position: relative; height: min(72svh, 1060px); min-height: 440px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
 .slot { height: 100%; aspect-ratio: 414 / 868; max-width: 100%; }
 .hero-phone .slot { height: calc(100% - 48px); }
@@ -342,7 +395,7 @@ html.loading body { overflow: hidden; }
   text-decoration: none;
 }
 .cue:hover { color: var(--text); }
-.cue-dot { width: 14px; height: 14px; border-radius: 50%; background: rgba(255,255,255,.9); box-shadow: 0 0 0 5px rgba(255,255,255,.14); animation: tap 1.8s var(--ease) infinite; }
+.cue-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--dot); box-shadow: 0 0 0 5px var(--dot-ring); animation: tap 1.8s var(--ease) infinite; }
 @keyframes tap { 0%, 100% { transform: scale(1); opacity: .9; } 45% { transform: scale(.78); opacity: 1; } 70% { transform: scale(1.12); opacity: .35; } }
 .hero-spec { display: none; }
 .spec { list-style: none; margin: 18px 0 0; padding: 0; border-top: 1px solid var(--hair); }
@@ -376,8 +429,8 @@ html.loading body { overflow: hidden; }
 .dev-plate {
   width: 190px;
   padding: 12px 16px 14px;
-  background: rgba(21, 21, 19, .92);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 18px 36px rgba(0,0,0,.55);
+  background: var(--plate);
+  box-shadow: inset 0 1px 0 var(--sheen), 0 18px 36px var(--drop);
   clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
   color: var(--text);
   font-family: var(--sans);
@@ -440,7 +493,7 @@ html.loading body { overflow: hidden; }
   background: var(--bg);
 }
 /* the chapters slide under the phone: gone by the time they reach it */
-.tour-stage::after { content: ''; position: absolute; inset-inline: 0; top: 100%; height: 40px; background: linear-gradient(var(--bg), rgba(11,11,10,0)); pointer-events: none; }
+.tour-stage::after { content: ''; position: absolute; inset-inline: 0; top: 100%; height: 40px; background: linear-gradient(var(--bg), transparent); pointer-events: none; }
 .tour-stage .slot { height: 100%; }
 .tour-text { position: relative; z-index: 1; }
 .ch { min-height: 78svh; padding: 6vh 0 10vh; display: flex; flex-direction: column; gap: clamp(14px, 2vh, 24px); }
@@ -476,9 +529,9 @@ html.loading body { overflow: hidden; }
 [dir='rtl'] .steps button::after { transform: rotate(-135deg); }
 .steps button:hover { color: var(--text); }
 .steps button[aria-current='true'] { color: var(--text); }
-.steps button[aria-current='true']::before { color: var(--accent); }
+.steps button[aria-current='true']::before { color: var(--accent-line); }
 .steps button[aria-current='true']::after { opacity: 0; }
-.steps button[aria-current='true'] { box-shadow: inset 0 -2px 0 -0px var(--accent); }
+.steps button[aria-current='true'] { box-shadow: inset 0 -2px 0 -0px var(--accent-line); }
 .steps-label { margin-top: 10px; font: 600 12px/1 var(--display); font-stretch: 78%; letter-spacing: .14em; text-transform: uppercase; color: var(--text2); }
 .steps.swatches, .steps.langs { display: flex; flex-wrap: wrap; gap: 8px; border: 0; counter-reset: none; }
 .steps.swatches li, .steps.langs li { counter-increment: none; }
@@ -501,11 +554,11 @@ html.loading body { overflow: hidden; }
 .steps.swatches button[aria-current='true'], .steps.langs button[aria-current='true'] { background: var(--accent); box-shadow: none; }
 .hint { display: flex; align-items: center; gap: 10px; margin-top: 4px; font-size: clamp(14px, .2vw + 11.5px, 17px); color: var(--text2); }
 .hint b { font: 700 12px/1 var(--display); font-stretch: 78%; letter-spacing: .14em; text-transform: uppercase; color: var(--text); }
-.hint-dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,.9); box-shadow: 0 0 0 4px rgba(255,255,255,.12); animation: tap 1.8s var(--ease) infinite; }
+.hint-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--dot); box-shadow: 0 0 0 4px var(--dot-ring); animation: tap 1.8s var(--ease) infinite; }
 @media (min-width: 760px) {
   .tour-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: clamp(28px, 4vw, 120px); }
   .tour-head { grid-column: 1 / -1; grid-row: 1; z-index: 45; padding: 0; margin-bottom: clamp(32px, 6vh, 96px); pointer-events: none; }
-  .tour-head .h2 { text-shadow: 0 2px 22px rgba(11, 11, 10, .9), 0 0 3px rgba(11, 11, 10, .7); }
+  .tour-head .h2 { text-shadow: 0 2px 22px color-mix(in srgb, var(--bg) 90%, transparent), 0 0 3px color-mix(in srgb, var(--bg) 70%, transparent); }
   .tour-stage { grid-column: 2; grid-row: 2; top: calc(var(--nav) + 12px); height: calc(100svh - var(--nav) - 24px); max-height: 1600px; background: none; padding: 0; align-items: center; }
   .tour-stage::after { display: none; }
   .tour-text { grid-column: 1; grid-row: 2; }
@@ -541,7 +594,7 @@ html.loading body { overflow: hidden; }
 .tour-index a em { margin-inline-start: auto; font-size: .7em; }
 .tour-index a:hover { color: var(--text); }
 .tour-index a[aria-current='true'] { color: var(--text); }
-.tour-index a[aria-current='true']::before { content: ''; position: absolute; inset-inline-start: -16px; top: 50%; width: 6px; height: 22px; margin-top: -11px; background: var(--accent); transform: skewX(-18deg); }
+.tour-index a[aria-current='true']::before { content: ''; position: absolute; inset-inline-start: -16px; top: 50%; width: 6px; height: 22px; margin-top: -11px; background: var(--accent-line); transform: skewX(-18deg); }
 :lang(ar) .tour-index a, :lang(ar) .ch-n, :lang(ar) .steps-label, :lang(ar) .hint b { letter-spacing: 0; }
 
 /* --------------------------------------------------------------- the phone */
@@ -619,12 +672,13 @@ html.loading body { overflow: hidden; }
 .tile .ico .i { stroke-width: 1.6; }
 .tile h3 { margin: auto 0 0; font: 600 clamp(18px, .5vw + 13px, 26px)/1.2 var(--sans); color: var(--text); }
 .tile p { font-size: clamp(15px, .22vw + 12.4px, 18px); line-height: 1.5; color: var(--text2); max-width: 44ch; }
-.tile::before { content: ''; position: absolute; inset: 0 0 auto 0; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: 0 50%; transition: transform .4s var(--ease); }
+.tile::before { content: ''; position: absolute; inset: 0 0 auto 0; height: 2px; background: var(--accent-line); transform: scaleX(0); transform-origin: 0 50%; transition: transform .4s var(--ease); }
 [dir='rtl'] .tile::before { transform-origin: 100% 50%; }
 .tile:hover::before { transform: scaleX(1); }
 
 /* --------------------------------------------------------------- maker */
 .maker { position: relative; isolation: isolate; padding: var(--sec) var(--gutter) 0; }
+:root[data-theme='light'] .maker::before, :root[data-theme='light'] .hero-bg .wall { filter: invert(1) grayscale(1); opacity: .07; }
 .maker::before {
   content: '';
   position: absolute;
@@ -645,13 +699,13 @@ html.loading body { overflow: hidden; }
 :lang(ar) .sign, :lang(ja) .sign, :lang(ko) .sign, :lang(zh) .sign { font-style: normal; }
 .more { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font: 700 clamp(14px, .2vw + 11px, 17px)/1 var(--display); font-stretch: 78%; letter-spacing: .1em; text-transform: uppercase; color: var(--text); text-decoration: none; }
 .more .i { font-size: 1.2em; color: var(--text2); }
-.more:hover { color: var(--accent); }
+.more:hover { color: var(--accent-line); }
 .pol {
   position: relative;
   margin: 0;
   padding: 3.2% 3.2% 0;
   background: var(--paper);
-  box-shadow: 0 34px 70px rgba(0,0,0,.75), 0 2px 4px rgba(0,0,0,.3);
+  box-shadow: var(--pol-shadow);
   transform: rotate(-1.2deg);
   transition: transform .6s var(--ease);
 }
@@ -814,3 +868,12 @@ html:not(.loading) .kicker .film { animation: filmin 280ms cubic-bezier(.3,.7,.4
   .foot-links a, .foot-langs a { font-size: 20px; }
   .dev-plate { transform-origin: 50% 50%; }
 }
+
+/* ------------------------------------------------------- light, details */
+/* stamps glow in the dark; on paper they are just printed */
+:root[data-theme='light'] .film, :root[data-theme='light'] .ch-n em, :root[data-theme='light'] .tour-index em { text-shadow: none; }
+:root[data-theme='light'] .film, :root[data-theme='light'] .ch-n em, :root[data-theme='light'] .tour-index em { color: #C24E00; }
+/* a print on paper needs its edge */
+:root[data-theme='light'] .pol { outline: 1px solid rgba(60, 50, 35, .1); }
+/* the switch itself: one soft crossfade, no colour transitions to sit through */
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: .45s; }

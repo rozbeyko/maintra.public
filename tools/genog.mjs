@@ -30,11 +30,12 @@ const browser = await chromium.launch({ args: ['--use-gl=angle', '--use-angle=sw
 for (const code of codes) {
   // reduced motion: the phone stands still on the garage, no autoplay
   const page = await browser.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 2, reducedMotion: 'reduce' });
-  await page.addInitScript(() => { try { localStorage.setItem('maintra.lang', 'stay'); } catch (e) {} });
+  // the cards are the night garage, whatever the machine prefers
+  await page.addInitScript(() => { try { localStorage.setItem('maintra.lang', 'stay'); localStorage.setItem('maintra.theme', 'dark'); } catch (e) {} });
   await page.goto(`${base}${code === 'en' ? '/' : `/${code}/`}`);
   await page.addStyleTag({ content: `
     html { scroll-behavior: auto !important; }
-    .skip, .top-nav, .lang, .top-get, .lede, .stores, .note, .cue, .hero-spec, .facts, .ticker, .loader { display: none !important; }
+    .skip, .top-nav, .lang, .theme-btn, .top-get, .lede, .stores, .note, .cue, .hero-spec, .facts, .ticker, .loader { display: none !important; }
     .top { background: none !important; border: 0 !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
     .hero { min-height: 630px !important; height: 630px !important; padding: 0 !important; }
     .hero-in { height: 630px !important; min-height: 0 !important; padding: 64px 56px 0 64px !important; grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr) !important; align-items: center !important; }

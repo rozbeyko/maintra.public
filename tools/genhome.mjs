@@ -97,7 +97,7 @@ const stampImports = (file, deps) => {
   writeFileSync(join(SITE, file), src, 'utf8');
 };
 stampImports('assets/home/stage.js', ['css3d.js']);
-stampImports('assets/home/home.js', ['stage.js', 'player.js']);
+stampImports('assets/home/home.js', ['stage.js', 'player.js', 'room.js']);
 
 const asset = (p) => `/${p}?v=${hashFile(p)}`;
 
@@ -117,23 +117,23 @@ const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, 
 let logoN = 0;
 const logo = () => {
   const id = `mtc${++logoN}`;
-  return `<svg class="mt" viewBox="0 0 100 57.69" aria-hidden="true"><path d="M26.10,0.00 L35.15,0.00 L35.15,57.69 L26.10,57.69 Z" fill="#8F897E"/><path d="M52.20,0.00 L61.25,0.00 L61.25,57.69 L52.20,57.69 Z" fill="#8F897E"/><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" fill="#F4B223"/><clipPath id="${id}"><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z"/></clipPath><g clip-path="url(#${id})"><path d="M2.40,57.69 L18.80,57.69 L37.55,0.00 L21.15,0.00 Z" fill="#9A6700"/><path d="M28.50,57.69 L44.90,57.69 L63.65,0.00 L47.24,0.00 Z" fill="#9A6700"/><path d="M54.60,57.69 L71.00,57.69 L89.75,0.00 L73.34,0.00 Z" fill="#9A6700"/></g><path d="M0.00,57.69 L16.40,57.69 L35.15,0.00 L18.75,0.00 Z" fill="#ECE4D6"/><path d="M26.10,57.69 L42.50,57.69 L61.25,0.00 L44.84,0.00 Z" fill="#ECE4D6"/><path d="M52.20,57.69 L68.60,57.69 L87.35,0.00 L70.94,0.00 Z" fill="#F4B223"/></svg>`;
+  return `<svg class="mt" viewBox="0 0 100 57.69" aria-hidden="true"><path d="M26.10,0.00 L35.15,0.00 L35.15,57.69 L26.10,57.69 Z" style="fill:var(--lg-stem)"/><path d="M52.20,0.00 L61.25,0.00 L61.25,57.69 L52.20,57.69 Z" style="fill:var(--lg-stem)"/><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" style="fill:var(--lg-gold)"/><clipPath id="${id}"><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z"/></clipPath><g clip-path="url(#${id})"><path d="M2.40,57.69 L18.80,57.69 L37.55,0.00 L21.15,0.00 Z" style="fill:var(--lg-shade)"/><path d="M28.50,57.69 L44.90,57.69 L63.65,0.00 L47.24,0.00 Z" style="fill:var(--lg-shade)"/><path d="M54.60,57.69 L71.00,57.69 L89.75,0.00 L73.34,0.00 Z" style="fill:var(--lg-shade)"/></g><path d="M0.00,57.69 L16.40,57.69 L35.15,0.00 L18.75,0.00 Z" style="fill:var(--lg-ink)"/><path d="M26.10,57.69 L42.50,57.69 L61.25,0.00 L44.84,0.00 Z" style="fill:var(--lg-ink)"/><path d="M52.20,57.69 L68.60,57.69 L87.35,0.00 L70.94,0.00 Z" style="fill:var(--lg-gold)"/></svg>`;
 };
 
 // The loading spring, the same one the journey page uses (Logo artifact, R16-Motion).
 const LOADER = `<svg viewBox="0 0 100 100" aria-hidden="true">
-<g class="ld" style="--dx:-11.48"><path d="M28.97,24.61 L36.93,24.61 L36.93,75.39 L28.97,75.39 Z" fill="#8F897E"/></g>
-<g class="ld" style="--dx:-34.45"><path d="M51.93,24.61 L59.90,24.61 L59.90,75.39 L51.93,75.39 Z" fill="#8F897E"/></g>
-<path d="M14.14,34.77 L94.00,34.77 L90.93,44.23 L11.07,44.23 Z" fill="#F4B223"/>
+<g class="ld" style="--dx:-11.48"><path d="M28.97,24.61 L36.93,24.61 L36.93,75.39 L28.97,75.39 Z" style="fill:var(--lg-stem)"/></g>
+<g class="ld" style="--dx:-34.45"><path d="M51.93,24.61 L59.90,24.61 L59.90,75.39 L51.93,75.39 Z" style="fill:var(--lg-stem)"/></g>
+<path d="M14.14,34.77 L94.00,34.77 L90.93,44.23 L11.07,44.23 Z" style="fill:var(--lg-gold)"/>
 <clipPath id="ldBar"><path d="M14.14,34.77 L94.00,34.77 L90.93,44.23 L11.07,44.23 Z"/></clipPath>
 <g clip-path="url(#ldBar)">
-<g class="ld" style="--dx:0"><path d="M8.40,75.39 L22.83,75.39 L39.33,24.61 L24.90,24.61 Z" fill="#9A6700"/></g>
-<g class="ld" style="--dx:-22.97"><path d="M31.37,75.39 L45.80,75.39 L62.30,24.61 L47.86,24.61 Z" fill="#9A6700"/></g>
-<g class="ld" style="--dx:-45.93"><path d="M54.33,75.39 L68.77,75.39 L85.26,24.61 L70.83,24.61 Z" fill="#9A6700"/></g>
+<g class="ld" style="--dx:0"><path d="M8.40,75.39 L22.83,75.39 L39.33,24.61 L24.90,24.61 Z" style="fill:var(--lg-shade)"/></g>
+<g class="ld" style="--dx:-22.97"><path d="M31.37,75.39 L45.80,75.39 L62.30,24.61 L47.86,24.61 Z" style="fill:var(--lg-shade)"/></g>
+<g class="ld" style="--dx:-45.93"><path d="M54.33,75.39 L68.77,75.39 L85.26,24.61 L70.83,24.61 Z" style="fill:var(--lg-shade)"/></g>
 </g>
-<g class="ld" style="--dx:0"><path d="M6.00,75.39 L20.43,75.39 L36.93,24.61 L22.50,24.61 Z" fill="#ECE4D6"/></g>
-<g class="ld" style="--dx:-22.97"><path d="M28.97,75.39 L43.40,75.39 L59.90,24.61 L45.46,24.61 Z" fill="#ECE4D6"/></g>
-<g class="ld" style="--dx:-45.93"><path d="M51.93,75.39 L66.37,75.39 L82.86,24.61 L68.43,24.61 Z" fill="#F4B223"/></g>
+<g class="ld" style="--dx:0"><path d="M6.00,75.39 L20.43,75.39 L36.93,24.61 L22.50,24.61 Z" style="fill:var(--lg-ink)"/></g>
+<g class="ld" style="--dx:-22.97"><path d="M28.97,75.39 L43.40,75.39 L59.90,24.61 L45.46,24.61 Z" style="fill:var(--lg-ink)"/></g>
+<g class="ld" style="--dx:-45.93"><path d="M51.93,75.39 L66.37,75.39 L82.86,24.61 L68.43,24.61 Z" style="fill:var(--lg-gold)"/></g>
 </svg>`;
 
 const APPLE = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>';
@@ -188,6 +188,18 @@ const LANGPICK = (codes) => `<script>
 })();
 </script>`;
 
+// The theme, before anything is drawn: the visitor's own choice, else the
+// system's. Dark is the default without JavaScript.
+const THEMEPICK = `<script>
+(function () {
+  var t = null;
+  try { t = localStorage.getItem('maintra.theme'); } catch (e) {}
+  if (t !== 'light' && t !== 'dark') t = window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', t);
+  if (t === 'light') document.querySelector('meta[name="theme-color"]').setAttribute('content', '#EEEAE2');
+})();
+</script>`;
+
 const ARABIC_FONTS = `<style>
 @font-face{font-family:'Noto Kufi Arabic';font-style:normal;font-weight:700;font-display:swap;src:url(${asset('assets/home/fonts/noto-kufi-arabic-arabic-700-normal.woff2')}) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
 @font-face{font-family:'Noto Kufi Arabic';font-style:normal;font-weight:800;font-display:swap;src:url(${asset('assets/home/fonts/noto-kufi-arabic-arabic-800-normal.woff2')}) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
@@ -205,6 +217,7 @@ const preloads = (l) => {
   return [
     `<link rel="modulepreload" href="${asset('assets/home/home.js')}">`,
     `<link rel="modulepreload" href="${asset('assets/home/stage.js')}">`,
+    `<link rel="modulepreload" href="${asset('assets/home/room.js')}">`,
     `<link rel="modulepreload" href="${asset('assets/home/player.js')}">`,
     `<link rel="modulepreload" href="/assets/journey/three.module.min.js">`,
     `<link rel="preload" href="/assets/home/b/index.json?v=${BOARDS_V}" as="fetch" crossorigin="anonymous">`,
@@ -243,6 +256,7 @@ for (const l of built) {
       ...built.map((x) => `<link rel="alternate" hreflang="${htmlLang(x)}" href="${ORIGIN}${pathOf(x.code)}">`),
       `<link rel="alternate" hreflang="x-default" href="${ORIGIN}/">`,
     ].join('\n'),
+    themepick: THEMEPICK,
     langpick: l.code === 'en' ? LANGPICK(built.map((x) => x.code)) : '',
     ogimage: ogImage(l.code),
     preloads: preloads(l),

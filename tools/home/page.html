@@ -20,6 +20,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="{{v:ogimage}}">
 <meta name="theme-color" content="#0B0B0A">
+{{v:themepick}}
 <link rel="icon" type="image/png" href="/assets/favicon.png">
 {{v:langpick}}
 {{v:preloads}}
@@ -47,13 +48,14 @@
     <button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="{{nav.lang}}">{{icon:globe}}<span>{{v:langcode}}</span></button>
     <ul class="lang-menu" id="lang-menu" hidden>{{v:langmenu}}</ul>
   </div>
+  <button class="theme-btn" type="button" data-to-light="{{nav.to_light}}" data-to-dark="{{nav.to_dark}}" aria-label="{{nav.to_light}}">{{icon:sun}}<svg class="i moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3.5L5.5 5.5 3.5 10v4l2 4.5 4.5 2h4l4.5-2 2-4.5-5 .5-4.5-2-1.5-4z"></path></svg></button>
   <a class="btn btn-line btn-sm top-get" href="#get">{{nav.get}}</a>
 </header>
 
 <main id="main">
 
 <section class="hero" aria-labelledby="hero-title">
-  <div class="hero-bg" aria-hidden="true"><div class="wall"></div><div class="lamp"></div><div class="beam"></div></div>
+  <div class="hero-bg" aria-hidden="true"><div class="wall"></div><div class="lamp"></div></div>
   <div class="hero-in">
     <div class="hero-copy">
       <p class="kicker"><span class="label">{{hero.kicker}}</span><span class="film">{{hero.stamp}}</span></p>

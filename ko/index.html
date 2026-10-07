@@ -23,18 +23,28 @@
 <meta property="og:title" content="Maintra 2.0 · 10월 업데이트 예정">
 <meta property="og:description" content="내 차를 직접 챙기는 사람을 위한 정비 수첩, 첫 화면부터 새로 만들었어요. 이 페이지에서 바로 써 보세요.">
 <meta property="og:url" content="https://maintra.me/ko/">
-<meta property="og:image" content="https://maintra.me/assets/home/og/ko.jpg?v=e7edfdef">
+<meta property="og:image" content="https://maintra.me/assets/home/og/ko.jpg?v=751b0a3f">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Maintra 2.0 · 10월 업데이트 예정">
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://maintra.me/assets/home/og/ko.jpg?v=e7edfdef">
+<meta name="twitter:image" content="https://maintra.me/assets/home/og/ko.jpg?v=751b0a3f">
 <meta name="theme-color" content="#0B0B0A">
+<script>
+(function () {
+  var t = null;
+  try { t = localStorage.getItem('maintra.theme'); } catch (e) {}
+  if (t !== 'light' && t !== 'dark') t = window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', t);
+  if (t === 'light') document.querySelector('meta[name="theme-color"]').setAttribute('content', '#EEEAE2');
+})();
+</script>
 <link rel="icon" type="image/png" href="/assets/favicon.png">
 
-<link rel="modulepreload" href="/assets/home/home.js?v=852f6f0e">
-<link rel="modulepreload" href="/assets/home/stage.js?v=619f66c7">
+<link rel="modulepreload" href="/assets/home/home.js?v=1d0fedbc">
+<link rel="modulepreload" href="/assets/home/stage.js?v=36fdbb8a">
+<link rel="modulepreload" href="/assets/home/room.js?v=bf3ec4bd">
 <link rel="modulepreload" href="/assets/home/player.js?v=4104dfe0">
 <link rel="modulepreload" href="/assets/journey/three.module.min.js">
 <link rel="preload" href="/assets/home/b/index.json?v=4b0612bf" as="fetch" crossorigin="anonymous">
@@ -44,8 +54,8 @@
 <link rel="preload" href="/assets/journey/fonts/firasans-600-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/home/fonts.css?v=3a8a3f95">
 
-<link rel="stylesheet" href="/assets/home/home.css?v=c9b60917">
-<script type="module" src="/assets/home/home.js?v=852f6f0e"></script>
+<link rel="stylesheet" href="/assets/home/home.css?v=3d92810e">
+<script type="module" src="/assets/home/home.js?v=1d0fedbc"></script>
 <script>setTimeout(function () { document.documentElement.classList.remove('loading'); }, 7000);</script>
 <noscript><style>html.loading .loader{display:none}</style></noscript>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"MobileApplication","name":"Maintra","url":"https://maintra.me/ko/","description":"Maintra 2.0이 10월에 나와요. 새로워진 차고, 주행거리를 세어 주는 오프라인 지도, 빌려주고 함께 쓰고 이력째 파는 기능, 11개 언어. 내 차를 직접 챙기는 사람을 위한 정비 수첩이에요. 이 페이지에서 바로 앱을 써 보세요.","inLanguage":"ko","operatingSystem":"iOS, Android","applicationCategory":"UtilitiesApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"Kyrylo Rozbeiko"},"downloadUrl":["https://apps.apple.com/app/maintra/id6775876731","https://play.google.com/store/apps/details?id=com.maintra.app"]}</script>
@@ -53,22 +63,22 @@
 <body>
 <a class="skip" href="#main">본문으로 건너뛰기</a>
 <div class="loader" id="loader" role="status"><svg viewBox="0 0 100 100" aria-hidden="true">
-<g class="ld" style="--dx:-11.48"><path d="M28.97,24.61 L36.93,24.61 L36.93,75.39 L28.97,75.39 Z" fill="#8F897E"/></g>
-<g class="ld" style="--dx:-34.45"><path d="M51.93,24.61 L59.90,24.61 L59.90,75.39 L51.93,75.39 Z" fill="#8F897E"/></g>
-<path d="M14.14,34.77 L94.00,34.77 L90.93,44.23 L11.07,44.23 Z" fill="#F4B223"/>
+<g class="ld" style="--dx:-11.48"><path d="M28.97,24.61 L36.93,24.61 L36.93,75.39 L28.97,75.39 Z" style="fill:var(--lg-stem)"/></g>
+<g class="ld" style="--dx:-34.45"><path d="M51.93,24.61 L59.90,24.61 L59.90,75.39 L51.93,75.39 Z" style="fill:var(--lg-stem)"/></g>
+<path d="M14.14,34.77 L94.00,34.77 L90.93,44.23 L11.07,44.23 Z" style="fill:var(--lg-gold)"/>
 <clipPath id="ldBar"><path d="M14.14,34.77 L94.00,34.77 L90.93,44.23 L11.07,44.23 Z"/></clipPath>
 <g clip-path="url(#ldBar)">
-<g class="ld" style="--dx:0"><path d="M8.40,75.39 L22.83,75.39 L39.33,24.61 L24.90,24.61 Z" fill="#9A6700"/></g>
-<g class="ld" style="--dx:-22.97"><path d="M31.37,75.39 L45.80,75.39 L62.30,24.61 L47.86,24.61 Z" fill="#9A6700"/></g>
-<g class="ld" style="--dx:-45.93"><path d="M54.33,75.39 L68.77,75.39 L85.26,24.61 L70.83,24.61 Z" fill="#9A6700"/></g>
+<g class="ld" style="--dx:0"><path d="M8.40,75.39 L22.83,75.39 L39.33,24.61 L24.90,24.61 Z" style="fill:var(--lg-shade)"/></g>
+<g class="ld" style="--dx:-22.97"><path d="M31.37,75.39 L45.80,75.39 L62.30,24.61 L47.86,24.61 Z" style="fill:var(--lg-shade)"/></g>
+<g class="ld" style="--dx:-45.93"><path d="M54.33,75.39 L68.77,75.39 L85.26,24.61 L70.83,24.61 Z" style="fill:var(--lg-shade)"/></g>
 </g>
-<g class="ld" style="--dx:0"><path d="M6.00,75.39 L20.43,75.39 L36.93,24.61 L22.50,24.61 Z" fill="#ECE4D6"/></g>
-<g class="ld" style="--dx:-22.97"><path d="M28.97,75.39 L43.40,75.39 L59.90,24.61 L45.46,24.61 Z" fill="#ECE4D6"/></g>
-<g class="ld" style="--dx:-45.93"><path d="M51.93,75.39 L66.37,75.39 L82.86,24.61 L68.43,24.61 Z" fill="#F4B223"/></g>
+<g class="ld" style="--dx:0"><path d="M6.00,75.39 L20.43,75.39 L36.93,24.61 L22.50,24.61 Z" style="fill:var(--lg-ink)"/></g>
+<g class="ld" style="--dx:-22.97"><path d="M28.97,75.39 L43.40,75.39 L59.90,24.61 L45.46,24.61 Z" style="fill:var(--lg-ink)"/></g>
+<g class="ld" style="--dx:-45.93"><path d="M51.93,75.39 L66.37,75.39 L82.86,24.61 L68.43,24.61 Z" style="fill:var(--lg-gold)"/></g>
 </svg><span class="sr">불러오는 중</span></div>
 
 <header class="top" id="top">
-  <a class="brand" href="/ko/" aria-label="Maintra"><svg class="mt" viewBox="0 0 100 57.69" aria-hidden="true"><path d="M26.10,0.00 L35.15,0.00 L35.15,57.69 L26.10,57.69 Z" fill="#8F897E"/><path d="M52.20,0.00 L61.25,0.00 L61.25,57.69 L52.20,57.69 Z" fill="#8F897E"/><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" fill="#F4B223"/><clipPath id="mtc1"><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z"/></clipPath><g clip-path="url(#mtc1)"><path d="M2.40,57.69 L18.80,57.69 L37.55,0.00 L21.15,0.00 Z" fill="#9A6700"/><path d="M28.50,57.69 L44.90,57.69 L63.65,0.00 L47.24,0.00 Z" fill="#9A6700"/><path d="M54.60,57.69 L71.00,57.69 L89.75,0.00 L73.34,0.00 Z" fill="#9A6700"/></g><path d="M0.00,57.69 L16.40,57.69 L35.15,0.00 L18.75,0.00 Z" fill="#ECE4D6"/><path d="M26.10,57.69 L42.50,57.69 L61.25,0.00 L44.84,0.00 Z" fill="#ECE4D6"/><path d="M52.20,57.69 L68.60,57.69 L87.35,0.00 L70.94,0.00 Z" fill="#F4B223"/></svg><span class="word">Maintra</span></a>
+  <a class="brand" href="/ko/" aria-label="Maintra"><svg class="mt" viewBox="0 0 100 57.69" aria-hidden="true"><path d="M26.10,0.00 L35.15,0.00 L35.15,57.69 L26.10,57.69 Z" style="fill:var(--lg-stem)"/><path d="M52.20,0.00 L61.25,0.00 L61.25,57.69 L52.20,57.69 Z" style="fill:var(--lg-stem)"/><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" style="fill:var(--lg-gold)"/><clipPath id="mtc1"><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z"/></clipPath><g clip-path="url(#mtc1)"><path d="M2.40,57.69 L18.80,57.69 L37.55,0.00 L21.15,0.00 Z" style="fill:var(--lg-shade)"/><path d="M28.50,57.69 L44.90,57.69 L63.65,0.00 L47.24,0.00 Z" style="fill:var(--lg-shade)"/><path d="M54.60,57.69 L71.00,57.69 L89.75,0.00 L73.34,0.00 Z" style="fill:var(--lg-shade)"/></g><path d="M0.00,57.69 L16.40,57.69 L35.15,0.00 L18.75,0.00 Z" style="fill:var(--lg-ink)"/><path d="M26.10,57.69 L42.50,57.69 L61.25,0.00 L44.84,0.00 Z" style="fill:var(--lg-ink)"/><path d="M52.20,57.69 L68.60,57.69 L87.35,0.00 L70.94,0.00 Z" style="fill:var(--lg-gold)"/></svg><span class="word">Maintra</span></a>
   <nav class="top-nav" aria-label="Maintra">
     <a href="#tour">써 보기</a>
     <a href="#why">써 볼 만한 이유</a>
@@ -79,13 +89,14 @@
     <button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="언어"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 3.5h7l5 5v7l-5 5h-7l-5-5v-7z"></path><path d="M3.5 12h17M12 3.5L8.5 12l3.5 8.5M12 3.5l3.5 8.5-3.5 8.5"></path></svg><span>KO</span></button>
     <ul class="lang-menu" id="lang-menu" hidden><li><a href="/" hreflang="en" lang="en" data-lang="en"><span class="code">en</span>English</a></li><li><a href="/uk/" hreflang="uk" lang="uk" data-lang="uk"><span class="code">uk</span>Українська</a></li><li><a href="/pl/" hreflang="pl" lang="pl" data-lang="pl"><span class="code">pl</span>Polski</a></li><li><a href="/fr/" hreflang="fr" lang="fr" data-lang="fr"><span class="code">fr</span>Français</a></li><li><a href="/it/" hreflang="it" lang="it" data-lang="it"><span class="code">it</span>Italiano</a></li><li><a href="/es/" hreflang="es" lang="es" data-lang="es"><span class="code">es</span>Español</a></li><li><a href="/de/" hreflang="de" lang="de" data-lang="de"><span class="code">de</span>Deutsch</a></li><li><a href="/ar/" hreflang="ar" lang="ar" dir="rtl" data-lang="ar"><span class="code">ar</span>العربية</a></li><li><a href="/ko/" hreflang="ko" lang="ko" data-lang="ko" aria-current="true"><span class="code">ko</span>한국어</a></li><li><a href="/ja/" hreflang="ja" lang="ja" data-lang="ja"><span class="code">ja</span>日本語</a></li><li><a href="/zh/" hreflang="zh-Hans" lang="zh-Hans" data-lang="zh"><span class="code">zh</span>简体中文</a></li></ul>
   </div>
+  <button class="theme-btn" type="button" data-to-light="밝은 테마로 바꾸기" data-to-dark="어두운 테마로 바꾸기" aria-label="밝은 테마로 바꾸기"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 8.5h7v7h-7z"></path><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"></path></svg><svg class="i moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3.5L5.5 5.5 3.5 10v4l2 4.5 4.5 2h4l4.5-2 2-4.5-5 .5-4.5-2-1.5-4z"></path></svg></button>
   <a class="btn btn-line btn-sm top-get" href="#get">앱 받기</a>
 </header>
 
 <main id="main">
 
 <section class="hero" aria-labelledby="hero-title">
-  <div class="hero-bg" aria-hidden="true"><div class="wall"></div><div class="lamp"></div><div class="beam"></div></div>
+  <div class="hero-bg" aria-hidden="true"><div class="wall"></div><div class="lamp"></div></div>
   <div class="hero-in">
     <div class="hero-copy">
       <p class="kicker"><span class="label">Maintra 2.0</span><span class="film">10 2026</span></p>
@@ -358,7 +369,7 @@
 
 <footer class="foot">
   <div class="foot-in">
-    <div class="foot-brand"><a class="brand" href="/ko/" aria-label="Maintra"><svg class="mt" viewBox="0 0 100 57.69" aria-hidden="true"><path d="M26.10,0.00 L35.15,0.00 L35.15,57.69 L26.10,57.69 Z" fill="#8F897E"/><path d="M52.20,0.00 L61.25,0.00 L61.25,57.69 L52.20,57.69 Z" fill="#8F897E"/><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" fill="#F4B223"/><clipPath id="mtc2"><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z"/></clipPath><g clip-path="url(#mtc2)"><path d="M2.40,57.69 L18.80,57.69 L37.55,0.00 L21.15,0.00 Z" fill="#9A6700"/><path d="M28.50,57.69 L44.90,57.69 L63.65,0.00 L47.24,0.00 Z" fill="#9A6700"/><path d="M54.60,57.69 L71.00,57.69 L89.75,0.00 L73.34,0.00 Z" fill="#9A6700"/></g><path d="M0.00,57.69 L16.40,57.69 L35.15,0.00 L18.75,0.00 Z" fill="#ECE4D6"/><path d="M26.10,57.69 L42.50,57.69 L61.25,0.00 L44.84,0.00 Z" fill="#ECE4D6"/><path d="M52.20,57.69 L68.60,57.69 L87.35,0.00 L70.94,0.00 Z" fill="#F4B223"/></svg><span class="word">Maintra</span></a><p>내 차고를 위한 똑똑한 정비 기록 앱.</p></div>
+    <div class="foot-brand"><a class="brand" href="/ko/" aria-label="Maintra"><svg class="mt" viewBox="0 0 100 57.69" aria-hidden="true"><path d="M26.10,0.00 L35.15,0.00 L35.15,57.69 L26.10,57.69 Z" style="fill:var(--lg-stem)"/><path d="M52.20,0.00 L61.25,0.00 L61.25,57.69 L52.20,57.69 Z" style="fill:var(--lg-stem)"/><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" style="fill:var(--lg-gold)"/><clipPath id="mtc2"><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z"/></clipPath><g clip-path="url(#mtc2)"><path d="M2.40,57.69 L18.80,57.69 L37.55,0.00 L21.15,0.00 Z" style="fill:var(--lg-shade)"/><path d="M28.50,57.69 L44.90,57.69 L63.65,0.00 L47.24,0.00 Z" style="fill:var(--lg-shade)"/><path d="M54.60,57.69 L71.00,57.69 L89.75,0.00 L73.34,0.00 Z" style="fill:var(--lg-shade)"/></g><path d="M0.00,57.69 L16.40,57.69 L35.15,0.00 L18.75,0.00 Z" style="fill:var(--lg-ink)"/><path d="M26.10,57.69 L42.50,57.69 L61.25,0.00 L44.84,0.00 Z" style="fill:var(--lg-ink)"/><path d="M52.20,57.69 L68.60,57.69 L87.35,0.00 L70.94,0.00 Z" style="fill:var(--lg-gold)"/></svg><span class="word">Maintra</span></a><p>내 차고를 위한 똑똑한 정비 기록 앱.</p></div>
     <nav class="foot-links" aria-label="Maintra">
       <a href="/about.html">소개</a>
       <a href="/faq.html">자주 묻는 질문</a>

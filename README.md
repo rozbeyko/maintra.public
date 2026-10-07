@@ -58,6 +58,7 @@ node tools/genhome.mjs .     # always, after any change to the template, copy or
 | Look | `assets/home/home.css` (the 2.0 tokens are at the top) |
 | Page logic | `assets/home/home.js`: hero autoplay, scroll, chapters, language pick |
 | 3D | `assets/home/stage.js`: the phone and laptop models (three.js r169) |
+| The hero's garage | `assets/home/room.js`: the wall, the light from above, the window by day, the phone's shadow |
 | The app on the screen | `assets/home/player.js` plays `assets/home/b/`, the design boards |
 | Design sources | `tools/home/src/`: the boards, committed verbatim; re-sync steps in `tools/genboards.mjs` |
 | Share cards | `assets/home/og/<code>.jpg`, the hero rendered at 1200×630 by `tools/genog.mjs` (needs Playwright) |
@@ -86,6 +87,18 @@ How the pieces fit:
   Simplified. The phone's app screens stay in English except in the languages
   chapter, which shows the app in other languages; hints that name a button
   quote it in English for that reason.
+- **Light and dark.** The page follows the system until the visitor presses
+  the sun or moon in the header; the choice is remembered (localStorage
+  `maintra.theme`) and set by a head script before the first paint. The
+  colours are the app's own tokens: `:root` is dark, `:root[data-theme='light']`
+  is the app's light theme. The phone keeps showing the dark app either way.
+- **The garage.** The hero is a room drawn in the same three.js layer as the
+  phone, before it, with a camera that scrolls with the page: a wall with the
+  tools painted on it, lit at night by a light above the page (its beam and
+  the dust in it show, the fixture doesn't) and by day by the sun through a
+  window, which throws the frame's shadow and the phone's. Switching the theme
+  switches the garage between night and day. Without WebGL the CSS layers in
+  `.hero-bg` stand in.
 - **Share cards.** Each language page links its own 1200×630 card. After a
   headline or hero change, re-render them: start a local server, run
   `node tools/genog.mjs`, then `node tools/genhome.mjs .` for the new hashes.

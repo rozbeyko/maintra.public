@@ -114,6 +114,9 @@ export class Stage {
     this.reduce = reduce;
     this.devices = [];
     this.extras = [];
+    // drawn first, each with its own camera: the hero's garage (room.js)
+    this.backdrops = [];
+    this.PHONE = PHONE;
     this.raf = 0;
     const root = (this.root = document.createElement('div'));
     root.className = 'stage';
@@ -127,6 +130,10 @@ export class Stage {
         r.outputColorSpace = THREE.SRGBColorSpace;
         r.toneMapping = THREE.ACESFilmicToneMapping;
         r.toneMappingExposure = 1.05;
+        // soft shadows, for the garage wall; nothing in the phone's own scene casts any
+        r.shadowMap.enabled = true;
+        r.shadowMap.type = THREE.VSMShadowMap;
+        r.autoClear = false;
         r.domElement.className = 'stage-gl';
         r.domElement.setAttribute('aria-hidden', 'true');
         root.appendChild(r.domElement);
@@ -218,7 +225,13 @@ export class Stage {
     let live = false;
     for (const d of this.devices) live = d.update(dt, t) || live;
     for (const x of this.extras) live = x.update(dt, t) || live;
-    if (this.gl) this.gl.render(this.scene, this.camera);
+    if (this.gl) {
+      const r = this.gl;
+      r.clear();
+      for (const b of this.backdrops) b.render(r);
+      r.clearDepth();
+      r.render(this.scene, this.camera);
+    }
     this.css.render(this.scene, this.camera);
     if (live && !document.hidden) this.raf = requestAnimationFrame(this.frame);
   }
