@@ -4,7 +4,7 @@
 
 import { Stage } from './stage.js?v=36fdbb8a';
 import { Player, loadIndex, prefetch } from './player.js?v=4104dfe0';
-import { Room } from './room.js?v=bf3ec4bd';
+import { Room } from './room.js?v=fe021ce6';
 
 const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
@@ -261,7 +261,8 @@ async function boot() {
     const m = reduce ? 0 : 1;
     const px = stage.pointer.sx, py = stage.pointer.sy;
     const spin = reduce ? 0 : spinDir * 0.16 * (1 - outCubic(clamp01((performance.now() - spinAt) / 700)));
-    const heroRy = -side * 0.34 + px * 0.26 * m;
+    // turned towards the copy, the way the reader reads
+    const heroRy = side * 0.34 + px * 0.26 * m;
     const tourRy = px * 0.1 * m + spin;
     return {
       x: mix(H.x, T.x, f),

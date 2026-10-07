@@ -135,8 +135,8 @@ const CONE_FRAG = /* glsl */ `
     // sides fade to nothing, so the beam has no edge to draw
     float facing = abs(dot(normalize(vNormalV), normalize(-vViewPos)));
     float body = pow(facing, 2.2);
-    // brightest under the shade, gone before it reaches the floor
-    float fall = pow(1.0 - vT, 1.7) * smoothstep(0.0, 0.05, vT);
+    // even down its length, gone before it reaches the floor
+    float fall = smoothstep(0.0, 0.1, vT) * (1.0 - smoothstep(0.62, 1.0, vT));
     // haze drifting through it
     float haze = 0.62 + 0.55 * noise(vWorld * 0.0045 + vec3(0.0, uTime * 0.035, uTime * 0.02))
                       + 0.25 * noise(vWorld * 0.013 + vec3(uTime * 0.05, 0.0, 0.0));
@@ -170,9 +170,6 @@ export class Room {
     this.amb = new THREE.HemisphereLight(0xfff2e0, 0x2a2520, 0.3);
     scene.add(this.amb);
 
-    // the lamp's light on the wall behind the phone: a warm scallop
-    this.lampLight = new THREE.SpotLight(0xffd3a0, 0, 0, 0.72, 1, 1.25);
-    scene.add(this.lampLight, this.lampLight.target);
 
     // the key: above and in front of the viewer, out of sight. It is what
     // throws the phone's shadow onto the wall at night.
@@ -198,6 +195,47 @@ export class Room {
 
     // the wall
     this.wallMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.94, metalness: 0 });
+    // The beam's light on the wall is worked out in the wall's own shader: the
+    // same wedge as the beam in the air (apex, angle), soft at its edges,
+    // fading towards the floor, falling on the paint so the tools show.
+    this.wallU = {
+      uApex: { value: new THREE.Vector2() },
+      uTan: { value: 0.3 },
+      uLen: { value: 1000 },
+      uOn: { value: 0 },
+      uSway: { value: 0 },
+      uColor: { value: new THREE.Color(1.3, 1.0, 0.66) },
+    };
+    this.wallMat.onBeforeCompile = (sh) => {
+      Object.assign(sh.uniforms, this.wallU);
+      sh.vertexShader = sh.vertexShader
+        .replace('#include <common>', '#include <common>\nvarying vec3 vWallPos;')
+        .replace('#include <worldpos_vertex>', '#include <worldpos_vertex>\nvWallPos = (modelMatrix * vec4(transformed, 1.0)).xyz;');
+      sh.fragmentShader = sh.fragmentShader
+        .replace(
+          '#include <common>',
+          `#include <common>
+          varying vec3 vWallPos;
+          uniform vec2 uApex;
+          uniform float uTan;
+          uniform float uLen;
+          uniform float uOn;
+          uniform float uSway;
+          uniform vec3 uColor;`,
+        )
+        .replace(
+          '#include <emissivemap_fragment>',
+          `#include <emissivemap_fragment>
+          {
+            vec2 rel = vWallPos.xy - uApex;
+            float down = max(-rel.y, 0.0);
+            float across = abs(rel.x + down * uSway) / max(down * uTan, 1.0);
+            float beam = (1.0 - smoothstep(0.42, 1.05, across)) * (0.72 + 0.28 * (1.0 - across * across));
+            float fall = 1.0 - smoothstep(0.55, 1.0, down / uLen);
+            totalEmissiveRadiance += diffuseColor.rgb * uColor * (beam * fall * uOn);
+          }`,
+        );
+    };
     this.wall = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), this.wallMat);
     this.wall.receiveShadow = true;
     scene.add(this.wall);
@@ -244,6 +282,8 @@ export class Room {
       fragmentShader: CONE_FRAG,
       transparent: true,
       depthWrite: false,
+      // the beam is air: the wall it reaches must not cut its back half off
+      depthTest: false,
       blending: THREE.AdditiveBlending,
       side: THREE.DoubleSide,
     });
@@ -255,7 +295,7 @@ export class Room {
   // dust in the beam, in the phone's scene: some of it floats in front of the
   // phone, and the phone hides what is behind it
   buildDust() {
-    const N = (this.N = 220);
+    const N = (this.N = 300);
     this.dpos = new Float32Array(N * 3);
     this.dcol = new Float32Array(N * 3);
     this.dseed = Array.from({ length: N }, () => [Math.random(), Math.random(), Math.random(), Math.random()]);
@@ -343,38 +383,36 @@ export class Room {
       this.wallMat.map.repeat.set(wallW / tile, wallH / tileH);
     }
 
-    // the light: above the page, over the phone and between it and the
-    // wall, so it washes the wall behind the phone. Placed by where it would
-    // be on screen, then pushed back to its depth.
-    const zL = (this.zL = zW * 0.3);
-    const kL = (this.kL = (D - zL) / D); // world units per screen pixel at that depth
-    const Rs = clamp(slot.h * 0.085, 36, 120);
-    const R = (this.R = Rs * kL);
-    // on a phone the copy sits above the phone: the light comes from just
-    // over the phone then, and the copy keeps a dark wall
+    // the light: far above the page, over the phone. The beam in the air and
+    // the light it puts on the wall share one apex and one angle, so they
+    // read as one cone with straight edges, already as wide as the phone
+    // where it comes in at the top of the page. (On a phone the copy sits
+    // above the phone: the light starts just over the phone there, and the
+    // copy keeps a dark wall.)
+    const HALF = (this.HALF = 0.27);
     const top = slot.y - slot.h / 2;
-    const bulbS = this.narrow ? Math.max(0, top - slot.h * 0.3) : -Rs * 1.4;
-    const bx = W(slot.x) * kL, by = Y(bulbS) * kL;
-    const cy = Y(-Rs * 6) * kL;
-    this.pivot.position.set(bx, cy, zL);
-
-    // the beam, from the light to just short of the floor
-    const L = (this.L = Math.max(200, (this.heroH - bulbS) * kL * 0.98));
-    const r0 = R * 0.9, r1 = r0 + L * Math.tan(0.36);
-    const cone = new THREE.CylinderGeometry(r0, r1, L, 72, 24, true);
+    const srcS = this.narrow ? Math.max(0, top - slot.h * 0.3) : -(slot.h * 0.25) / Math.tan(HALF);
+    this.srcS = srcS;
+    // the beam hangs halfway to the wall: some of its air is in front of the phone
+    const zL = (this.zL = zW * 0.5);
+    const kL = (this.kL = (D - zL) / D);
+    const bx = W(slot.x) * kL, by = Y(srcS) * kL;
+    this.pivot.position.set(bx, by, zL);
+    const L = (this.L = Math.max(200, (this.heroH - srcS) * kL));
+    const cone = new THREE.CylinderGeometry(2 * kL, L * Math.tan(HALF), L, 72, 32, true);
     cone.translate(0, -L / 2, 0);
     this.cone.geometry.dispose();
     this.cone.geometry = cone;
-    this.cone.position.set(0, by - cy, 0);
+    this.cone.position.set(0, 0, 0);
     this.coneMat.uniforms.uLen.value = L;
     this.cone.visible = !this.narrow;
-
-    // the lamp's light: from the bulb, washing the wall from just under it
+    // the same wedge on the wall, at the wall's depth
+    const kW = k;
+    const wu = this.wallU;
+    wu.uApex.value.set(W(slot.x) * kW, Y(srcS) * kW);
+    wu.uTan.value = Math.tan(HALF) * (this.narrow ? 1.6 : 1);
+    wu.uLen.value = (this.heroH - srcS) * kW;
     this.bulbU = { x: bx, y: by, z: zL };
-    this.lampLight.position.set(bx, by, zL);
-    this.lampLight.target.position.set(bx, by - slot.h * (this.narrow ? 0.85 : 1.15) * kL, zW);
-    this.lampLight.intensity = 0;
-    this.lampLight.target.updateMatrixWorld();
 
     // the key: high above and in front, slightly to the side of the copy
     const side = document.documentElement.dir === 'rtl' ? 1 : -1;
@@ -454,10 +492,10 @@ export class Room {
     const sway = this.reduce ? 0 : Math.sin(t * 0.55) * 0.012 + Math.sin(t * 1.27 + 1.3) * 0.004;
     this.pivot.rotation.z = sway;
     this.coneMat.uniforms.uTime.value = t;
-    this.coneMat.uniforms.uOn.value = on * 0.2;
+    this.coneMat.uniforms.uOn.value = on * 0.13;
     this.cone.visible = !this.narrow && on > 0.005;
-    const lit = clamp(this.ph / 700, 0.6, 2.4);
-    this.lampLight.intensity = on * 4.2e4 * lit;
+    this.wallU.uOn.value = on;
+    this.wallU.uSway.value = -sway;
     this.key.intensity = 0;
     this.sun.intensity = this.sunOn * 3.4;
     this.amb.intensity = 0.4 + this.sunOn * 3.5;
@@ -493,36 +531,39 @@ export class Room {
     this.dust.visible = show;
     if (!show) return;
     const s = this.s;
-    const R = this.R, L = this.L;
-    // the beam in the phone's scene: the lamp's position, scrolled
-    const ax = this.bulbU.x, ay = this.bulbU.y + this.d * this.kL, az = this.bulbU.z;
-    const tilt = this.pivot.rotation.z;
-    const ph = this.ph;
+    const vw = s.vw, vh = s.vh, D = s.D;
+    const tan = Math.tan(this.HALF), sway = this.pivot.rotation.z;
+    // all down the part of the beam that shows, from the top of the page to
+    // the floor: worked out on screen, then put at each mote's depth
+    const y0 = Math.max(0, this.srcS), y1 = this.heroH * 0.96;
     for (let i = 0; i < this.N; i++) {
       const [a, b, c2, e] = this.dseed[i];
-      // down the beam, slowly; round it, lazily
-      const u = (a + t * (0.004 + e * 0.006)) % 1;
-      const along = 0.04 + u * 0.8;
-      const rad = (R * 0.9 + along * L * Math.tan(0.36)) * Math.sqrt(b) * 0.92;
-      const ang = c2 * Math.PI * 2 + t * (0.05 + e * 0.08) * (i % 2 ? 1 : -1);
-      const x = ax + Math.cos(ang) * rad + Math.sin(t * 0.7 + i) * 6 - along * L * tilt;
-      const y = ay - along * L;
-      const z = az + Math.sin(ang) * rad * 0.8;
-      this.dpos[i * 3] = x;
-      this.dpos[i * 3 + 1] = y;
+      // drifting down, slowly, each at its own pace; swaying a little
+      const Y = y0 + ((a + t * (0.004 + e * 0.007)) % 1) * (y1 - y0);
+      const down = Y - this.srcS;
+      const half = down * tan * 0.92;
+      const off = b * 2 - 1;
+      const X = this.pxU + off * half + Math.sin(t * (0.25 + e * 0.4) + i) * 10 - down * sway;
+      // some in front of the phone, most behind it, in the beam's air
+      const z = this.zL + (c2 * 2 - 1) * half * 0.85;
+      const k = (D - z) / D;
+      this.dpos[i * 3] = (X - vw / 2) * k;
+      this.dpos[i * 3 + 1] = (vh / 2 - (Y - this.d)) * k;
       this.dpos[i * 3 + 2] = z;
-      // bright near the shade and the middle of the beam, twinkling as they turn
-      const core = 1 - Math.sqrt(b) * 0.7;
-      const tw = 0.55 + 0.45 * Math.sin(t * (1.2 + e * 2.3) + i * 1.7);
-      const v = on * core * tw * Math.pow(1 - along, 1.2) * 0.9;
+      // dimmer towards the beam's edges and the floor; twinkling as they turn
+      const edge = 1 - off * off;
+      const floor = 1 - Math.max(0, (Y - y0) / (y1 - y0) - 0.7) / 0.3;
+      const tw = 0.5 + 0.5 * Math.sin(t * (0.9 + e * 2.1) + i * 1.7);
+      const v = on * edge * floor * tw * 0.85;
       this.dcol[i * 3] = v;
       this.dcol[i * 3 + 1] = v * 0.86;
       this.dcol[i * 3 + 2] = v * 0.62;
     }
-    this.dust.material.size = clamp(ph / 120, 4, 12);
+    // point sizes are world units seen from the camera's distance: this makes
+    // a mote a few pixels across on screen, larger as it floats nearer
+    this.dust.material.size = (clamp(this.ph / 110, 4, 10) * D) / (vh / 2);
     this.dust.geometry.attributes.position.needsUpdate = true;
     this.dust.geometry.attributes.color.needsUpdate = true;
-    void s;
   }
 
   // ------------------------------------------------- drawn before the phone
