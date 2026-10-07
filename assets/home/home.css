@@ -690,7 +690,11 @@ html.room .hero-bg > * { display: none; }
 .mp a { color: inherit; text-decoration: none; cursor: pointer; }
 .mp a:not([data-go]) { cursor: default; }
 .mp img { max-width: none; }
-.mp-stage { position: absolute; inset: 0; overflow: hidden; }
+/* The app's glass (a blurred backdrop, cut to a slanted plate by clip-path)
+   inside a 3D-transformed screen: Chrome drops the clip and paints the
+   blurred backdrop as a plain rectangle. A no-op filter makes the screen its
+   own flat layer, where the glass is cut as designed. */
+.mp-stage { position: absolute; inset: 0; overflow: hidden; filter: blur(0); }
 .mp-layer { position: absolute; inset: 0; overflow: hidden; background: #0B0B0A; }
 .mp-scroll { position: absolute; inset: 0; overflow: hidden; }
 /* a tall screen scrolls first, then hands the scroll back to the page: never a trap */
