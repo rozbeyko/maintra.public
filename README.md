@@ -39,9 +39,11 @@ committed, and the generators are plain Node scripts with no dependencies.
 
 ## The homepage (2.0)
 
-"Update coming this October". A three.js phone runs the real 2.0 screens in
-the hero, then flies into an eight-chapter tour where every screen can be
-pressed, with the copy explaining each feature next to it. Below the tour:
+"Update coming this October". Two three.js phones. The hero's is a still
+picture of the app in a garage at night (or by day, in the light theme)
+that leans with the mouse. The tour's comes in as you scroll to it and is
+the app to press: eight chapters, the copy explaining each feature next to
+it, and left alone it walks through the chapter's steps by itself. Below the tour:
 why it is worth it, who makes it, plans, questions, get the app.
 
 **Never hand-edit `index.html` or the language folders.** They are output:
@@ -56,7 +58,7 @@ node tools/genhome.mjs .     # always, after any change to the template, copy or
 | Page structure | `tools/home/page.html` (`{{key}}` = a string from the dictionary) |
 | Copy | `tools/home/i18n/<code>.json`, one per language, same keys as `en.json` |
 | Look | `assets/home/home.css` (the 2.0 tokens are at the top) |
-| Page logic | `assets/home/home.js`: hero autoplay, scroll, chapters, language pick |
+| Page logic | `assets/home/home.js`: the two phones, chapters and their autoplay, menu, theme |
 | 3D | `assets/home/stage.js`: the phone and laptop models (three.js r169) |
 | The hero's garage | `assets/home/room.js`: the wall, the light from above, the window by day, the phone's shadow |
 | The app on the screen | `assets/home/player.js` plays `assets/home/b/`, the design boards |

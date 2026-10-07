@@ -15,8 +15,6 @@ const rtl = root.dir === 'rtl';
 const side = rtl ? 1 : -1; // where the extra devices stand, towards the index
 
 const clamp01 = (v) => (v < 0 ? 0 : v > 1 ? 1 : v);
-const mix = (a, b, t) => a + (b - a) * t;
-const inOut = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 const outCubic = (t) => 1 - Math.pow(1 - t, 3);
 
 // ------------------------------------------------------------ header, menu
@@ -190,17 +188,19 @@ let stickTop = 0;
 const measure = () => (stickTop = parseFloat(getComputedStyle(tourStage).top) || 0);
 addEventListener('resize', measure);
 measure();
-// The hero phone scrolls with the page until it reaches the middle of the
-// screen, holds there while the hero leaves, and glides into the tour as the
-// tour's phone column arrives. flight() is that glide: 0 in the hero, 1 once
-// the tour phone has stuck in place.
-const holdY = () => innerHeight * (innerWidth < 900 ? 0.55 : 0.5) + 16;
-function flight() {
-  const H = heroSlot.getBoundingClientRect();
-  const s0 = H.top + H.height / 2 + scrollY - holdY();
-  const s1 = tourStage.getBoundingClientRect().top + scrollY - stickTop;
-  return s1 > s0 ? clamp01((scrollY - Math.max(0, s0)) / (s1 - Math.max(0, s0))) : 1;
-}
+// Two phones. The hero's stays in the hero, a still picture of the app that
+// leans with the mouse; it scrolls away with the page. The tour's comes in
+// with the tour's phone column and is the app to press: it follows the
+// chapters, answers taps and the step buttons, and when left alone walks
+// through the chapter's steps by itself.
+// arrival(): how far the tour phone has come in, 0 while its column is below
+// the screen, 1 once the column has stuck in place.
+const arrival = () => {
+  const S = tourStage.getBoundingClientRect();
+  return clamp01(1 - (S.top - stickTop) / (innerHeight * 0.75));
+};
+// the tour is on screen: its column has come in and has not yet left
+const tourShown = () => arrival() > 0.3 && tourStage.getBoundingClientRect().bottom > innerHeight * 0.25;
 
 const chapters = $$('.ch');
 // The hand-over chapter shows the friend's phone beside the main one, when
@@ -212,7 +212,7 @@ let active = null;
 const ASPECT = 414 / 868;
 const EXTRA_RY = 0.24;
 function duoLayout() {
-  if (active !== 'keys' || flight() <= 0.98) return null;
+  if (active !== 'keys' || arrival() < 0.98) return null;
   const S = box(tourStage);
   const T = fit(box(tourSlot));
   const avail = S.w * 0.98;
@@ -241,33 +241,73 @@ for (const b of $$('.steps [data-board]')) {
 let spinAt = -1e9;
 let spinDir = 1;
 
-const HERO = [
-  ['d/Main', 2400],
-  ['d/Add', 1500],
-  ['d/Photo-Pick', 1200],
-  ['d/Photo-Camera', 1700],
-  ['d/Photo-Reading', 2900],
-  ['d/Photo-Review', 1900],
-  ['d/AI-Review', 2100],
-  ['d/Moment', 2700],
-  ['d/Main', 1900],
-  ['d/Car-Services', 1900],
-  ['d/Car-Plan', 2100],
-  ['d/Car-Money', 1900],
-];
-
 async function boot() {
   await loadIndex(cfg.boards);
   const stage = new Stage({ reduce });
-  const phone = stage.phone();
-  phone.el.setAttribute('role', 'application');
-  phone.el.setAttribute('aria-label', cfg.t.phone);
-  const glare = document.createElement('div');
-  glare.className = 'mp-glare';
   let introAt = null;
   let lastUser = -1e9;
-  let inHero = true;
+  const glares = [];
+  const glass = (dev) => {
+    const g = document.createElement('div');
+    g.className = 'mp-glare';
+    dev.el.appendChild(g);
+    glares.push(g);
+  };
 
+  // ---- the hero phone: the garage screen, still; plates round it, the
+  // garage behind it (room.js). Nothing to press: the tour's phone is that.
+  const heroPhone = stage.phone();
+  heroPhone.el.classList.add('dev-still');
+  // (three's CSS3DObject sets pointer-events on the element itself)
+  heroPhone.el.style.pointerEvents = 'none';
+  heroPhone.el.setAttribute('aria-hidden', 'true');
+  const heroPlayer = new Player(heroPhone.el, { reduce });
+  glass(heroPhone);
+  const t = cfg.t;
+  const bar = (on, n = 20) => Array.from({ length: n }, (_, i) => `<span${i < on ? ' class="on"' : ''}></span>`).join('');
+  const plates = [
+    stage.plate(heroPhone, `<span class="pl">${t.plate_oil}</span><span class="pv">4 023<small>km</small></span><span class="pbar">${bar(12)}</span>`, { x: 345 * side, y: 250, z: 130 }),
+    stage.plate(heroPhone, `<span class="oct"></span><span class="pt">${t.plate_hose}</span><span class="ps">${t.plate_late}</span>`, { x: -300 * side, y: -20, z: 170, cls: 'late' }),
+    stage.plate(heroPhone, `<span class="pl">${t.plate_health}</span><span class="pv">71</span><span class="pbar">${bar(14)}</span>`, { x: 335 * side, y: -280, z: 80 }),
+  ];
+  for (const p of plates) p.el.style.opacity = '0';
+  // a plate the screen edge would cut stays away (checked with the clock below)
+  const cut = plates.map(() => false);
+  const measure = () => plates.forEach((p, i) => {
+    const b = p.el.getBoundingClientRect();
+    cut[i] = b.left < 8 || b.right > innerWidth - 8;
+  });
+  const navH = parseFloat(getComputedStyle(root).getPropertyValue('--nav')) || 64;
+  new Room(stage, { hero: $('.hero'), slot: heroSlot, phone: heroPhone, fit, reduce, nav: navH });
+  const intro = () => (introAt === null ? 0 : reduce ? 1 : outCubic(Math.min(1, (performance.now() - introAt) / 1700)));
+
+  heroPhone.follow = (time) => {
+    if (introAt === null) return null;
+    const H = fit(box(heroSlot));
+    const ie = intro();
+    const m = reduce ? 0 : 1;
+    const px = stage.pointer.sx, py = stage.pointer.sy;
+    const shown = H.y + H.h / 2 > -60 && H.y - H.h / 2 < innerHeight + 60;
+    return {
+      x: H.x,
+      y: H.y + Math.sin(time * 0.9) * 7 * m + (1 - ie) * 80,
+      h: H.h,
+      z: 0,
+      rx: 0.05 + py * 0.12 * m,
+      // turned towards the copy, the way the reader reads
+      ry: side * 0.34 + px * 0.26 * m + (1 - ie) * 1.3 * side,
+      rz: Math.sin(time * 0.6) * 0.014 * m,
+      o: ie,
+      // it rides the page: quick to follow the scroll, so it stays on it
+      k: 30,
+      live: !reduce && shown,
+    };
+  };
+
+  // ---- the tour phone: the app to press
+  const phone = stage.phone();
+  phone.el.setAttribute('role', 'application');
+  phone.el.setAttribute('aria-label', t.phone);
   const player = new Player(phone.el, {
     reduce,
     onchange: (id) => {
@@ -281,67 +321,45 @@ async function boot() {
       lastUser = performance.now();
     },
   });
-  phone.el.appendChild(glare);
+  glass(phone);
 
-  // ---- the hero phone: plates, dust, an intro, the hand that works the app
-  const t = cfg.t;
-  const bar = (on, n = 20) => Array.from({ length: n }, (_, i) => `<span${i < on ? ' class="on"' : ''}></span>`).join('');
-  const plates = [
-    stage.plate(phone, `<span class="pl">${t.plate_oil}</span><span class="pv">4 023<small>km</small></span><span class="pbar">${bar(12)}</span>`, { x: 345 * side, y: 250, z: 130 }),
-    stage.plate(phone, `<span class="oct"></span><span class="pt">${t.plate_hose}</span><span class="ps">${t.plate_late}</span>`, { x: -300 * side, y: -20, z: 170, cls: 'late' }),
-    stage.plate(phone, `<span class="pl">${t.plate_health}</span><span class="pv">71</span><span class="pbar">${bar(14)}</span>`, { x: 335 * side, y: -280, z: 80 }),
-  ];
-  for (const p of plates) p.el.style.opacity = '0';
-  // a plate the screen edge would cut stays away (checked with the clock below)
-  const cut = plates.map(() => false);
-  const measure = () => plates.forEach((p, i) => {
-    const b = p.el.getBoundingClientRect();
-    cut[i] = b.left < 8 || b.right > innerWidth - 8;
-  });
-  // the garage round the hero phone: lamp, wall, its shadow (room.js)
-  const navH = parseFloat(getComputedStyle(root).getPropertyValue('--nav')) || 64;
-  new Room(stage, { hero: $('.hero'), slot: heroSlot, phone, fit, reduce, nav: navH });
-  const intro = () => (introAt === null ? 0 : reduce ? 1 : outCubic(Math.min(1, (performance.now() - introAt) / 1700)));
-
-  phone.follow = (time) => {
+  phone.follow = () => {
     if (introAt === null) return null;
-    const H = fit(box(heroSlot));
-    H.y = Math.max(H.y, holdY());
     const T = tourTarget();
-    const f = inOut(flight());
-    const ie = intro();
+    // coming in, it stands up into place: from further back, lower, leaning
+    // away, to upright as its column sticks
+    const a = arrival();
+    const e = outCubic(a);
     const m = reduce ? 0 : 1;
     const px = stage.pointer.sx, py = stage.pointer.sy;
     const spin = reduce ? 0 : spinDir * 0.16 * (1 - outCubic(clamp01((performance.now() - spinAt) / 700)));
-    // turned towards the copy, the way the reader reads
-    const heroRy = side * 0.34 + px * 0.26 * m;
-    const tourRy = px * 0.1 * m + spin;
     return {
-      x: mix(H.x, T.x, f),
-      y: mix(H.y, T.y, f) + Math.sin(time * 0.9) * 7 * m * (1 - f) + (1 - ie) * 80,
-      h: mix(H.h, T.h, f),
-      z: T.z * f,
-      rx: mix(0.05 + py * 0.12 * m, 0.015 + py * 0.05 * m, f),
-      ry: mix(heroRy, tourRy, f) + (1 - ie) * 1.3 * side,
-      rz: mix(Math.sin(time * 0.6) * 0.014 * m, 0, f),
-      o: ie,
+      x: T.x,
+      y: T.y + (1 - e) * T.h * 0.16 * m,
+      h: T.h,
+      z: (T.z || 0) - (1 - e) * T.h * 0.4 * m,
+      rx: 0.015 + py * 0.05 * m - (1 - e) * 0.55 * m,
+      ry: px * 0.1 * m + spin - (1 - e) * side * 0.3 * m,
+      rz: 0,
+      // solid all the way: it comes in from below the screen, no fading
+      // (a see-through phone shows its own back through the glass)
+      o: 1,
       k: 16,
-      // the hero phone breathes; in the tour it holds still for reading
-      live: !reduce && (f < 0.999 || ie < 1 || performance.now() - spinAt < 800),
+      live: !reduce && ((a > 0 && a < 0.999) || performance.now() - spinAt < 800),
     };
   };
 
-  // the plates live with the hero, and leave as the phone flies on
+  // the plates live with the hero phone; the glass catches the lamp as the
+  // phones turn
   stage.extras.push({
     update() {
       const room = heroSlot.parentElement.clientWidth > heroSlot.clientWidth * 1.9;
-      const show = introAt !== null && room ? (1 - clamp01(flight() * 2.2)) * intro() : 0;
+      const show = introAt !== null && room ? intro() : 0;
       plates.forEach((p, i) => {
         const a = cut[i] ? 0 : clamp01(intro() * 1.6 - 0.4 - i * 0.18);
         p.el.style.opacity = String(Math.round(show * a * 100) / 100);
       });
-      // the glass catches the lamp as the phone turns
-      glare.style.backgroundPosition = `${50 + stage.pointer.sx * 40}% 0`;
+      for (const g of glares) g.style.backgroundPosition = `${50 + stage.pointer.sx * 40}% 0`;
       return false;
     },
   });
@@ -374,41 +392,19 @@ async function boot() {
     };
   }
 
-  // ---- what the main phone shows
-  // asked for less motion: the phone holds still on the garage until tapped
-  const heroLoop = () => {
-    if (reduce || !inHero || player.autoplaying) return;
-    player.play(HERO, { loop: true });
-  };
-  setInterval(() => {
-    const f = flight();
-    const was = inHero;
-    if (f < 0.45) measure();
-    inHero = f < 0.45;
-    if (inHero && !was) {
-      active = null;
-      setIndex(null);
-      root.style.removeProperty('--accent');
-      player.go('d/Main', 'swap');
-    }
-    if (!inHero && was) {
-      player.stop();
-      pick();
-    }
-    if (inHero && !player.autoplaying && performance.now() - lastUser > 9000) heroLoop();
-    stage.wake();
-  }, 400);
-
+  // ---- the chapters
   function setIndex(ch) {
     for (const a of $$('.tour-index a')) {
       if (a.dataset.ch === ch) a.setAttribute('aria-current', 'true');
       else a.removeAttribute('aria-current');
     }
   }
+  let chapterAt = 0;
   function setChapter(ch) {
     if (ch === active) return;
     const prev = chapters.findIndex((c) => c.dataset.ch === active);
     active = ch;
+    chapterAt = performance.now();
     setIndex(ch);
     const el = chapters.find((c) => c.dataset.ch === ch);
     if (!el) return;
@@ -426,14 +422,14 @@ async function boot() {
   let queued = false;
   const pick = () => {
     queued = false;
-    if (flight() < 0.45) return;
+    if (!tourShown()) return;
     const line = innerHeight * (innerWidth < 900 ? 0.76 : 0.5);
     let best = null;
     for (const c of chapters) {
       const r = c.getBoundingClientRect();
       if (r.top <= line) best = c;
     }
-    // still landing: the phone shows the first chapter, not the hero's last screen
+    // just come in: the first chapter
     setChapter((best || chapters[0]).dataset.ch);
   };
   addEventListener('scroll', () => {
@@ -442,6 +438,38 @@ async function boot() {
       requestAnimationFrame(pick);
     }
   }, { passive: true });
+
+  // Left alone, the phone works through the chapter's steps the way a hand
+  // would, tapping the way from one screen to the next, and goes round
+  // again. A tap on the phone or a step button hands it over to the visitor;
+  // it picks up again after a while left alone. ("Make it yours" plays
+  // nothing by itself: its steps recolour the page.)
+  const stepsOf = (ch) => {
+    const el = chapters.find((c) => c.dataset.ch === ch);
+    return el ? $$('.steps:not(.swatches):not(.langs) [data-board]', el).map((b) => b.dataset.board) : [];
+  };
+  const autoChapter = () => {
+    if (reduce || !active || active === 'yours' || player.autoplaying) return;
+    const ids = stepsOf(active);
+    if (ids.length < 2) return;
+    const i = ids.indexOf(player.id);
+    const order = i >= 0 ? ids.slice(i + 1).concat(ids.slice(0, i + 1)) : ids;
+    player.play(order.map((id) => [id, 2600]), { loop: true });
+  };
+  setInterval(() => {
+    const now = performance.now();
+    if (heroSlot.getBoundingClientRect().bottom > 0) measure();
+    if (!tourShown()) {
+      // gone from the tour: it starts over when it comes back
+      if (active !== null) {
+        player.stop();
+        active = null;
+        setIndex(null);
+        root.style.removeProperty('--accent');
+      }
+    } else if (!player.autoplaying && now - lastUser > 9000 && now - chapterAt > 2200) autoChapter();
+    stage.wake();
+  }, 400);
 
   // steps and the chapter index drive the phone
   for (const b of $$('.steps [data-board]')) {
@@ -457,14 +485,14 @@ async function boot() {
   for (const a of $$('.tour-index a')) a.addEventListener('click', () => setChapter(a.dataset.ch));
 
   // ---- go
-  await player.go('d/Main', 'none');
-  prefetch(HERO.map((s) => s[0]).concat(chapters.map((c) => c.dataset.start)));
+  await Promise.all([heroPlayer.go('d/Main', 'none'), player.go('d/Main', 'none')]);
+  prefetch(chapters.map((c) => c.dataset.start));
   stage.wake();
   return {
     reveal() {
       introAt = performance.now();
+      pick();
       stage.wake();
-      setTimeout(heroLoop, reduce ? 400 : 1900);
     },
   };
 }
