@@ -44,7 +44,7 @@ export const prefetch = (ids) => ids.forEach((id) => index && index[id] && fetch
 // Tabs of the car, the garage under its sheets and menus, the bottom bar's
 // sections, the map tab, the theme and language versions of the garage.
 const FAMILIES = {
-  garage: ['d/Main', 'd/Main-SE', 'd/Add', 'd/Empty-Garage', 'd/State-New-Car', 'd/Whats-New', 'd/Rate-Prompt',
+  garage: ['d/Main', 'd/Main-SE', 'l/Light-Garage', 'd/Add', 'd/Empty-Garage', 'd/State-New-Car', 'd/Whats-New', 'd/Rate-Prompt',
     'd/Odometer-Update', 'd/Sync-Sheet', 'd/State-Offline', 'd/State-Scans-Out', 'd/State-AI-Offline',
     'd/State-Scan-Failed', 'd/Photo-Pick', 'd/Photo-Reading', 'd/Photo-Review', 'd/Photo-Review-Odo',
     'd/Photo-Review-Part', 'd/Photo-Unclear', 'd/Voice-Hold', 'd/Voice-Listen', 'd/Voice-Review',
@@ -58,7 +58,9 @@ const FAMILIES = {
     'd/Car-Services-Scrolled', 'd/Car-Services-Add', 'd/Car-Plan-Add', 'd/Car-Fuel-Add', 'd/Car-Money-Add',
     'd/Fuel-Empty', 'd/Money-Empty', 'd/Chat-Locked', 'd/Chat-Limit', 'd/Chat-Clear', 'd/State-Plan-Generating',
     'd/Plan-Rebuild', 'd/Plan-Better', 'd/Notify-Permission', 'd/Fuel-Rate', 'd/Fine-Paid', 'd/Plan-From-Reminder',
-    'd/Plan-Large-Text', 'd/Plan-Done'],
+    'd/Plan-Large-Text', 'd/Plan-Done', 'l/Light-Car-Services', 'l/Light-Car-Plan', 'l/Light-Car-Fuel',
+    'l/Light-Car-Money', 'l/Light-Car-Chat', 'n/Field-Car', 'n/Field-Plan', 'n/Red-Plan', 'n/Blue-Car', 'n/Log-Plan',
+    'n/Log-Money', 'n/Rose-Car', 'n/Rose-Plan', 'n/Rose-Day-Plan', 'n/Rose-Day-Money'],
   wish: ['d/Wishlist', 'd/Wishlist-Alerts', 'd/Wish-Bought', 'd/Wish-Reveal', 'd/Wish-Share'],
   paywall: ['d/Paywall-Pro', 'd/Paywall-VIP', 'd/Paywall-Current'],
   tyreAge: ['d/Tyre-Made-Month', 'd/Tyre-Made-DOT'],
@@ -76,12 +78,15 @@ const FAMILIES = {
 };
 const familyOf = new Map();
 for (const [f, ids] of Object.entries(FAMILIES)) for (const id of ids) if (!familyOf.has(id)) familyOf.set(id, f);
-// The garage's looks are still the garage.
+// The garage's looks, themes and languages are still the garage.
+const GARAGE = new Set(['garage', 'garageLook', 'themes', 'langs']);
+const group = (id) => {
+  const f = familyOf.get(id);
+  return f && GARAGE.has(f) ? 'garage' : f;
+};
 const same = (a, b) => {
-  const fa = familyOf.get(a), fb = familyOf.get(b);
-  if (!fa || !fb) return false;
-  const g = (f) => (f === 'garageLook' ? 'garage' : f);
-  return g(fa) === g(fb);
+  const fa = group(a);
+  return !!fa && fa === group(b);
 };
 
 // Screens that only exist while something happens: the app moves on by itself.
@@ -157,24 +162,26 @@ export class Player {
         else if (cur.id === id) how = 'none';
         else if (at >= 0) how = 'back';
         else if (same(cur.id, id)) how = 'fade';
-        else if (familyOf.get(id) === 'garage' || familyOf.get(id) === 'garageLook') how = 'home';
+        else if (group(id) === 'garage') how = 'home';
         else if (html.slice(0, 6000).includes('aria-label="Close"')) how = 'up';
         else how = 'push';
       }
       const layer = this.layer(id, html);
       const old = this.stageEl.lastElementChild;
       let enterHow = how;
+      let scroll = 0;
       if (how === 'back') {
         enterHow = (this.stack[this.stack.length - 1] || {}).how || 'push';
         this.stack.length = at + 1;
         const entry = this.stack[at];
         entry.layer = layer;
-        layer.firstChild.scrollTop = entry.scroll || 0;
+        scroll = entry.scroll || 0;
       } else if (how === 'fade' || how === 'none') {
         if (cur && cur.id !== id) this.stack[this.stack.length - 1] = { id, how: cur.how, layer };
         else if (!cur) this.stack.push({ id, how: 'none', layer });
         else cur.layer = layer;
-      } else if (how === 'home' || how === 'reset') {
+      } else if (how === 'home' || how === 'swap') {
+        // home: back to the garage from anywhere; swap: a fresh start elsewhere
         this.stack = [{ id, how: 'none', layer }];
       } else {
         if (cur && old) cur.scroll = old.firstChild.scrollTop;
@@ -182,9 +189,11 @@ export class Player {
         if (this.stack.length > 14) this.stack.splice(1, 1);
       }
       this.stageEl.appendChild(layer);
+      if (scroll) layer.firstChild.scrollTop = scroll;
       this.paintChrome(html);
       await this.transition(old, layer, how, enterHow);
-      if (old && old !== layer) old.remove();
+      // anything left from an interrupted transition goes too
+      for (const l of [...this.stageEl.children]) if (l !== layer) l.remove();
       this.enhance(id, layer, how);
       if (this.onchange) this.onchange(id);
       const auto = AUTO_NEXT[id];
@@ -394,6 +403,7 @@ export class Player {
   stop() {
     this.autoplaying = false;
     this.autoRun = null;
+    clearTimeout(this.timer);
     const f = this.fx.querySelector('.mp-finger');
     if (f) f.remove();
   }

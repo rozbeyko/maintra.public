@@ -12,7 +12,7 @@
 
 import * as THREE from '../journey/three.module.min.js';
 import { RoomEnvironment } from '../journey/RoomEnvironment.js';
-import { CSS3DRenderer, CSS3DObject } from './css3d.js';
+import { CSS3DRenderer, CSS3DObject } from './css3d.js?v=c7b4a8c7';
 
 const FOV = 26;
 
@@ -61,7 +61,6 @@ class Device {
     this.materials = materials;
     this.cur = null;
     this.follow = null;
-    this.extras = [];
     this.shownOpacity = -1;
   }
 
@@ -73,19 +72,25 @@ class Device {
       this.cur = null;
       return false;
     }
+    let moving = true;
     if (!this.cur || tg.snap) this.cur = { ...tg };
     else {
       const c = this.cur;
       const kp = tg.k || 14;
+      let left = 0;
       for (const key of KEYS) {
         const k = key === 'o' ? 7 : key[0] === 'r' ? kp * 0.7 : kp;
         c[key] = damp(c[key], tg[key], s.reduce ? 60 : k, dt);
+        // what is still to travel, in pixels (a turn of 1/400 rad is about one)
+        const gap = Math.abs(c[key] - tg[key]) * (key[0] === 'r' ? 400 : key === 'o' ? 200 : 1);
+        if (gap > left) left = gap;
       }
+      moving = left > 0.3;
     }
     const c = this.cur;
     const on = c.o > 0.01 && c.y + c.h > -c.h * 0.2 && c.y - c.h < s.vh + c.h * 0.2;
     this.group.visible = on;
-    if (!on) return false;
+    if (!on) return moving && c.o > 0.01;
     this.group.position.set(c.x - s.vw / 2, s.vh / 2 - c.y, c.z);
     this.group.scale.setScalar(c.h / this.height);
     this.group.rotation.set(c.rx, c.ry, c.rz);
@@ -98,9 +103,9 @@ class Device {
         m.opacity = o * (m.userData.base ?? 1);
         m.depthWrite = o >= 1;
       }
-      for (const x of this.extras) x.fade && x.fade(o);
     }
-    return true;
+    // keep drawing while it travels or breathes; a phone at rest costs nothing
+    return moving || !!tg.live;
   }
 }
 
@@ -184,7 +189,7 @@ export class Stage {
     if (this.gl) {
       // a fixed budget of device pixels: a 5K ultrawide gets a softer canvas,
       // never a slower one. The screens are DOM and stay sharp regardless.
-      const budget = 9.5e6;
+      const budget = 7e6;
       const pr = Math.max(0.7, Math.min(devicePixelRatio || 1, 2, Math.sqrt(budget / (vw * vh))));
       this.gl.setPixelRatio(pr);
       this.gl.setSize(vw, vh, false);
@@ -350,17 +355,17 @@ export class Stage {
 
   // ------------------------------------------------- things beside a phone
   // DOM plates that float round a device, in the device's own coordinates.
+  // Their opacity is the caller's to run: they come and go with the hero.
   plate(device, html, { x, y, z, cls = '' }) {
     const el = document.createElement('div');
     el.className = `dev-plate ${cls}`;
+    el.setAttribute('aria-hidden', 'true');
     el.innerHTML = html;
     const obj = new CSS3DObject(el);
     obj.position.set(x, y, z);
-    obj.element.style.pointerEvents = 'none';
+    el.style.pointerEvents = 'none';
     device.group.add(obj);
-    const p = { el, obj, base: { x, y, z }, k: 0, fade: (o) => (el.style.opacity = o * (p.k ?? 1)) };
-    device.extras.push(p);
-    return p;
+    return { el, obj };
   }
 
   // Dust in the lamp's light, round the hero phone.

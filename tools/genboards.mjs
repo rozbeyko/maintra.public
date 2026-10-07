@@ -9,6 +9,8 @@
  *
  *   d/  "Maintra 2.0 · Dark"          https://claude.ai/artifact/9jfuaXi5kX6S3kQmzhbuX1
  *   n/  "Maintra 2.0 · New features"  https://claude.ai/artifact/KdmELimVXiRjXCUiYBDtyv
+ *   l/  "Maintra 2.0 · Light"         https://claude.ai/artifact/MUb7CPQaQbLTLwdYbb87jd
+ *       (only the garage, the car's tabs and the Moment: the Workshop theme)
  *
  * Their project/*.dc.html files are committed verbatim under tools/home/src/
  * (one folder per canvas, because both canvases have a Main.dc.html), and
@@ -36,7 +38,7 @@ import { createHash } from 'node:crypto';
 import { join } from 'node:path';
 
 const SITE = process.argv[2] ?? '.';
-const SETS = ['d', 'n'];
+const SETS = ['d', 'n', 'l'];
 const SRC = 'tools/home/src';
 const OUT = 'assets/home/b';
 const IMG = '/assets/home/img/';
@@ -49,10 +51,60 @@ const BLOBS = {
   c776edb9454dbf3a574c8dc453027b8b: 'doodle.webp',
   ab101e75945e0ae32d548f2fcd8beed0: 'doodle.webp',
   fcbced0ca8139aa6830666011eae7577: 'camo.webp',
+  '899702607086bacab024dbb04402aebb': 'paj.webp',
+  '46dc6f74153312c8cd252af61e4e157b': 'doodle.webp',
 };
 
 // Boards that are canvas runtimes or presentation sheets, not app screens.
 const SKIP = new Set(['d/Brand', 'd/Icons', 'd/System', 'd/Splash', 'd/Motion-Voice', 'd/Date-Pick-Spec']);
+
+// The themes were drawn as stills, without links. Wire the picker's cards to
+// each theme's garage, and each theme's garage, car, plan and money screens to
+// one another, so the demo walks through a theme like through the default one.
+// name on the picker card: [garage, car, plan, money]
+const THEMES = {
+  Garage: ['d/Main'],
+  Workshop: ['l/Light-Garage', 'l/Light-Car-Services', 'l/Light-Car-Plan', 'l/Light-Car-Money'],
+  'Red light': ['n/Red-Garage', null, 'n/Red-Plan'],
+  Field: ['n/Field-Garage', 'n/Field-Car', 'n/Field-Plan'],
+  Blueprint: ['n/Blue-Garage', 'n/Blue-Car'],
+  Logbook: ['n/Log-Garage', null, 'n/Log-Plan', 'n/Log-Money'],
+  Rose: ['n/Rose-Garage', 'n/Rose-Car', 'n/Rose-Plan'],
+  'Rose by day': ['n/Rose-Day-Garage', null, 'n/Rose-Day-Plan', 'n/Rose-Day-Money'],
+};
+
+// Give an <a href="#"> with this aria-label, or with this text, somewhere to go.
+function wire(html, { labels = {}, texts = {} }) {
+  for (const [label, to] of Object.entries(labels)) {
+    if (!to) continue;
+    html = html.replace(new RegExp(`<a href="#"((?: (?!data-go)[a-z-]+="[^"]*")* aria-label="${label}")`, 'g'), `<a href="#" data-go="${to}"$1`);
+  }
+  for (const [text, to] of Object.entries(texts)) {
+    if (!to) continue;
+    html = html.replace(new RegExp(`<a href="#"((?: (?!data-go)[a-z-]+="[^"]*")*)>${text}(?=<)`, 'g'), `<a href="#" data-go="${to}"$1>${text}`);
+  }
+  return html;
+}
+
+const EXTRA = {};
+for (const [, [garage, car, plan, money]] of Object.entries(THEMES)) {
+  if (garage.startsWith('d/') || garage.startsWith('l/')) continue; // these have their own links
+  EXTRA[garage] = { labels: { 'Open Paj': car || plan, '12 in the plan, 5 late. Most urgent below. Open the plan': plan || car } };
+  for (const screen of [car, plan, money].filter(Boolean)) {
+    EXTRA[screen] = {
+      labels: { 'Back to garage': garage, 'Paj, show the photo': car || garage },
+      texts: { Services: car, Plan: plan, Money: money },
+    };
+  }
+}
+function wirePicker(html) {
+  return html.replace(/<button aria-pressed="(true|false)"([\s\S]*?)<\/button>/g, (m, pressed, rest) => {
+    const name = (rest.match(/font-weight: 600; font-size: 14px; color: #[0-9A-Fa-f]{6}; white-space: nowrap;">([^<]+)</) || [])[1];
+    const to = name && THEMES[name] && THEMES[name][0];
+    if (!to) return m;
+    return `<button data-go="${to}" aria-pressed="${pressed}"${rest}</button>`;
+  });
+}
 
 const sha = (s) => createHash('sha256').update(s).digest('hex').slice(0, 10);
 
@@ -99,6 +151,12 @@ for (const bd of boards) {
     links.add(to);
     return `href="#" data-go="${to}"`;
   });
+  if (EXTRA[bd.id]) html = wire(html, EXTRA[bd.id]);
+  if (bd.id === 'n/Theme-Picker') html = wirePicker(html);
+  for (const m of html.matchAll(/data-go="([^"]+)"/g)) {
+    if (!ids.has(m[1])) throw new Error(`${bd.id}: wired to ${m[1]}, which is not a board`);
+    links.add(m[1]);
+  }
   // Newlines between tags only cost bytes; the boards have no <pre>.
   html = html.replace(/>\s*\n\s*</g, '><');
   if (/\/_blob\/|\.dc\.html/.test(html)) throw new Error(`${bd.id}: a canvas path survived the rewrite`);
@@ -111,5 +169,11 @@ for (const blob of new Set(Object.values(BLOBS))) {
 }
 
 writeFileSync(join(SITE, OUT, 'index.json'), JSON.stringify(index) + '\n', 'utf8');
-console.log(`${boards.length} boards -> ${OUT}/ (${Object.keys(index).filter((k) => k.startsWith('d/')).length} dark, ${Object.keys(index).filter((k) => k.startsWith('n/')).length} new features)`);
-if (problems.length) console.log(`inert links:\n  ${problems.join('\n  ')}`);
+const count = (set) => Object.keys(index).filter((k) => k.startsWith(`${set}/`)).length;
+console.log(`${boards.length} boards -> ${OUT}/ (${count('d')} dark, ${count('n')} new features, ${count('l')} light)`);
+// The light canvas is only here for the Workshop theme, so most of its links
+// lead out of what was copied; count those, list the rest.
+const light = problems.filter((p) => p.startsWith('l/'));
+const other = [...new Set(problems.filter((p) => !p.startsWith('l/')))];
+if (light.length) console.log(`${light.length} links from the light boards lead outside the Workshop screens and are inert`);
+if (other.length) console.log(`inert links:\n  ${other.join('\n  ')}`);
