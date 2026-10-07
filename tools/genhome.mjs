@@ -144,7 +144,7 @@ const stores = (d) =>
   `<a class="btn btn-line store" data-store="android" href="${STORES.android}" rel="noopener">${PLAY}<span><small>${esc(d['store.play_small'])}</small>Google Play</span></a>`;
 
 const ticker = (d) => {
-  const items = ['spec.map', 'spec.obd', 'spec.keys', 'spec.mech', 'spec.sheet', 'spec.notice', 'spec.voice', 'spec.themes', 'spec.langs'];
+  const items = ['spec.map', 'spec.keys', 'spec.sheet', 'spec.notice', 'spec.voice', 'spec.themes', 'spec.langs'];
   const once = items.map((k) => `<span>${esc(d[k])}</span><i></i>`).join('');
   return once + once;
 };

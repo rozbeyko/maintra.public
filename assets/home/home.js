@@ -1,6 +1,6 @@
 // The landing page: one phone that plays the app in the hero, flies into the
 // tour as the page scrolls, and follows the tour's chapters there; a second
-// phone for lending and a laptop for the mechanic join it on wide screens.
+// phone, the friend's, joins it on wide screens when you lend the car.
 
 import { Stage } from './stage.js?v=619f66c7';
 import { Player, loadIndex, prefetch } from './player.js?v=4104dfe0';
@@ -135,7 +135,7 @@ const chapters = $$('.ch');
 // The chapter with a companion device, when the tour column has room for two.
 let active = null;
 const duoOf = () => {
-  if (active !== 'keys' && active !== 'mech') return null;
+  if (active !== 'keys') return null;
   const S = tourStage.getBoundingClientRect();
   const T = fit(box(tourSlot));
   return flight() > 0.98 && S.width >= ((T.h * 414) / 868) * 2.1 ? active : null;
@@ -145,9 +145,7 @@ function tourTarget() {
   const duo = duoOf();
   if (!duo) return { ...T, z: 0 };
   const S = box(tourStage);
-  return duo === 'mech'
-    ? { ...T, x: S.x - side * S.w * 0.27, h: T.h * 0.84, z: T.h * 0.05 }
-    : { ...T, x: S.x - side * S.w * 0.19, h: T.h * 0.94, z: 0 };
+  return { ...T, x: S.x - side * S.w * 0.19, h: T.h * 0.94, z: 0 };
 }
 const byBoard = new Map();
 for (const b of $$('.steps [data-board]')) {
@@ -264,9 +262,10 @@ async function boot() {
     },
   });
 
-  // ---- the second phone (lending) and the laptop (the mechanic's side)
+  // ---- the second phone (lending)
   // On a wide screen the tour column takes two devices: the main phone steps
-  // aside and the friend's phone, or the mechanic's laptop, stands next to it.
+  // aside and the friend's phone stands next to it. (The stage can build a
+  // laptop too, for the mechanic's side, which comes with 2.1.)
   const extra = (kind, chapter, board, at) => {
     const dev = kind === 'laptop' ? stage.laptop() : stage.phone();
     const p = new Player(dev.el, kind === 'laptop' ? { w: 1280, h: 800, chrome: false, reduce } : { reduce });
@@ -283,10 +282,6 @@ async function boot() {
     return dev;
   };
   extra('phone', 'keys', 'n/Lend-Guest', (S, T) => ({ x: S.x + side * S.w * 0.2, y: T.y + T.h * 0.03, h: T.h * 0.86, z: -T.h * 0.16, rx: 0.03, ry: -side * 0.24 + stage.pointer.sx * 0.06, rz: 0 }));
-  extra('laptop', 'mech', 'n/Mech-Desktop', (S, T) => {
-    const w = Math.min(S.w * 0.6, T.h * 1.25);
-    return { x: S.x + side * S.w * 0.17, y: T.y + T.h * 0.05, h: (w * 860) / 1332, z: -T.h * 0.18, rx: 0.1, ry: -side * 0.16 + stage.pointer.sx * 0.05, rz: 0 };
-  });
 
   // ---- what the main phone shows
   // asked for less motion: the phone holds still on the garage until tapped

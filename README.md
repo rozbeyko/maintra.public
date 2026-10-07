@@ -40,7 +40,7 @@ committed, and the generators are plain Node scripts with no dependencies.
 ## The homepage (2.0)
 
 "Update coming this October". A three.js phone runs the real 2.0 screens in
-the hero, then flies into a ten-chapter tour where every screen can be
+the hero, then flies into an eight-chapter tour where every screen can be
 pressed, with the copy explaining each feature next to it. Below the tour:
 why it is worth it, who makes it, plans, questions, get the app.
 

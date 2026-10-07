@@ -27,9 +27,7 @@ The whole app is redesigned from the first screen. Existing records stay where t
 
 - **New garage** — the car as a photo in a polaroid with the odometer stamped on it, and only what is late or due soon underneath.
 - **Offline maps and trips** — download a region once and navigate without signal; each trip adds its kilometres to the odometer so the maintenance plan stays accurate. The track stays on the phone.
-- **OBD scans** — with a cheap OBD adapter: trouble codes, freeze frame and live data, explained in plain words, kept in the car's history, compared before and after a fix.
 - **Lend, share, sell** — lend the car with guest access (the guest's fuel and kilometre entries are kept apart), drive it together with a partner, or transfer it to a buyer together with its full service history.
-- **A link for the mechanic** — the mechanic opens what is due, the owner's notes, fluids and part numbers in a browser, with no app and no account, and can send back a record of the work that the owner accepts or rejects.
 - **The car sheet** — oil specs, filter numbers and tyre sizes on one page; values filled in by AI are marked as such.
 - **Snap or say it** — photograph a receipt in any language and AI turns it into records you check line by line before saving; or hold + and describe the job by voice. Siri and Apple Watch for quick entries.
 - **Tyres by age** — tread per wheel, rotation, and the tyre's age read from the DOT code.

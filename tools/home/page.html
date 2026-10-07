@@ -70,15 +70,13 @@
       <p class="label" id="spec-title">{{spec.title}}</p>
       <ol class="spec">
         <li><span class="pn">MAP·01</span><span>{{spec.map}}</span></li>
-        <li><span class="pn">OBD·02</span><span>{{spec.obd}}</span></li>
-        <li><span class="pn">KEY·03</span><span>{{spec.keys}}</span></li>
-        <li><span class="pn">MEC·04</span><span>{{spec.mech}}</span></li>
-        <li><span class="pn">SHT·05</span><span>{{spec.sheet}}</span></li>
-        <li><span class="pn">NTF·06</span><span>{{spec.notice}}</span></li>
-        <li><span class="pn">VOX·07</span><span>{{spec.voice}}</span></li>
-        <li><span class="pn">THM·08</span><span>{{spec.themes}}</span></li>
-        <li><span class="pn">LNG·09</span><span>{{spec.langs}}</span></li>
-        <li><span class="pn">GRG·10</span><span>{{spec.look}}</span></li>
+        <li><span class="pn">KEY·02</span><span>{{spec.keys}}</span></li>
+        <li><span class="pn">SHT·03</span><span>{{spec.sheet}}</span></li>
+        <li><span class="pn">NTF·04</span><span>{{spec.notice}}</span></li>
+        <li><span class="pn">VOX·05</span><span>{{spec.voice}}</span></li>
+        <li><span class="pn">THM·06</span><span>{{spec.themes}}</span></li>
+        <li><span class="pn">LNG·07</span><span>{{spec.langs}}</span></li>
+        <li><span class="pn">GRG·08</span><span>{{spec.look}}</span></li>
       </ol>
     </aside>
   </div>
@@ -106,11 +104,9 @@
         <li><a href="#ch-plan" data-ch="plan"><span class="n">03</span><span class="t">{{ch.plan.name}}</span></a></li>
         <li><a href="#ch-money" data-ch="money"><span class="n">04</span><span class="t">{{ch.money.name}}</span></a></li>
         <li><a href="#ch-map" data-ch="map"><span class="n">05</span><span class="t">{{ch.map.name}}</span><em>{{tour.new}}</em></a></li>
-        <li><a href="#ch-obd" data-ch="obd"><span class="n">06</span><span class="t">{{ch.obd.name}}</span><em>{{tour.new}}</em></a></li>
-        <li><a href="#ch-keys" data-ch="keys"><span class="n">07</span><span class="t">{{ch.keys.name}}</span><em>{{tour.new}}</em></a></li>
-        <li><a href="#ch-mech" data-ch="mech"><span class="n">08</span><span class="t">{{ch.mech.name}}</span><em>{{tour.new}}</em></a></li>
-        <li><a href="#ch-tyres" data-ch="tyres"><span class="n">09</span><span class="t">{{ch.tyres.name}}</span></a></li>
-        <li><a href="#ch-yours" data-ch="yours"><span class="n">10</span><span class="t">{{ch.yours.name}}</span><em>{{tour.new}}</em></a></li>
+        <li><a href="#ch-keys" data-ch="keys"><span class="n">06</span><span class="t">{{ch.keys.name}}</span><em>{{tour.new}}</em></a></li>
+        <li><a href="#ch-tyres" data-ch="tyres"><span class="n">07</span><span class="t">{{ch.tyres.name}}</span></a></li>
+        <li><a href="#ch-yours" data-ch="yours"><span class="n">08</span><span class="t">{{ch.yours.name}}</span><em>{{tour.new}}</em></a></li>
       </ol>
     </nav>
     <div class="tour-stage">
@@ -184,22 +180,8 @@
         <p class="hint"><span class="hint-dot" aria-hidden="true"></span><b>{{tour.try}}</b> {{ch.map.hint}}</p>
       </article>
 
-      <article class="ch" id="ch-obd" data-ch="obd" data-start="n/Scans">
-        <p class="ch-n"><span>06</span>{{ch.obd.name}}<em>{{tour.new}}</em></p>
-        <h3 class="h3">{{ch.obd.title}}</h3>
-        <p class="ch-body">{{ch.obd.body}}</p>
-        <ol class="steps">
-          <li><button type="button" data-board="n/Scans">{{ch.obd.s1}}</button></li>
-          <li><button type="button" data-board="n/Scan-Running">{{ch.obd.s2}}</button></li>
-          <li><button type="button" data-board="n/Scan-Detail">{{ch.obd.s3}}</button></li>
-          <li><button type="button" data-board="n/Scan-Code">{{ch.obd.s4}}</button></li>
-          <li><button type="button" data-board="n/Scan-Compare">{{ch.obd.s5}}</button></li>
-        </ol>
-        <p class="hint"><span class="hint-dot" aria-hidden="true"></span><b>{{tour.try}}</b> {{ch.obd.hint}}</p>
-      </article>
-
       <article class="ch" id="ch-keys" data-ch="keys" data-start="n/Main" data-second="n/Lend-Guest">
-        <p class="ch-n"><span>07</span>{{ch.keys.name}}<em>{{tour.new}}</em></p>
+        <p class="ch-n"><span>06</span>{{ch.keys.name}}<em>{{tour.new}}</em></p>
         <h3 class="h3">{{ch.keys.title}}</h3>
         <p class="ch-body">{{ch.keys.body}}</p>
         <ol class="steps">
@@ -212,22 +194,8 @@
         <p class="hint"><span class="hint-dot" aria-hidden="true"></span><b>{{tour.try}}</b> {{ch.keys.hint}}</p>
       </article>
 
-      <article class="ch" id="ch-mech" data-ch="mech" data-start="n/Mech-Share" data-desk="n/Mech-Desktop">
-        <p class="ch-n"><span>08</span>{{ch.mech.name}}<em>{{tour.new}}</em></p>
-        <h3 class="h3">{{ch.mech.title}}</h3>
-        <p class="ch-body">{{ch.mech.body}}</p>
-        <ol class="steps">
-          <li><button type="button" data-board="n/Mech-Share">{{ch.mech.s1}}</button></li>
-          <li><button type="button" data-board="n/Mech-Web">{{ch.mech.s2}}</button></li>
-          <li><button type="button" data-board="n/Mech-In">{{ch.mech.s3}}</button></li>
-          <li><button type="button" data-board="n/Car-Sheet">{{ch.mech.s4}}</button></li>
-          <li><button type="button" data-board="n/Sheet-AI">{{ch.mech.s5}}</button></li>
-        </ol>
-        <p class="hint"><span class="hint-dot" aria-hidden="true"></span><b>{{tour.try}}</b> {{ch.mech.hint}}</p>
-      </article>
-
       <article class="ch" id="ch-tyres" data-ch="tyres" data-start="d/Tyres">
-        <p class="ch-n"><span>09</span>{{ch.tyres.name}}</p>
+        <p class="ch-n"><span>07</span>{{ch.tyres.name}}</p>
         <h3 class="h3">{{ch.tyres.title}}</h3>
         <p class="ch-body">{{ch.tyres.body}}</p>
         <ol class="steps">
@@ -235,12 +203,14 @@
           <li><button type="button" data-board="d/Tyre-Set">{{ch.tyres.s2}}</button></li>
           <li><button type="button" data-board="d/Tyre-Made-DOT">{{ch.tyres.s3}}</button></li>
           <li><button type="button" data-board="d/Docs">{{ch.tyres.s4}}</button></li>
+          <li><button type="button" data-board="n/Car-Sheet">{{ch.tyres.s5}}</button></li>
+          <li><button type="button" data-board="n/Sheet-AI">{{ch.tyres.s6}}</button></li>
         </ol>
         <p class="hint"><span class="hint-dot" aria-hidden="true"></span><b>{{tour.try}}</b> {{ch.tyres.hint}}</p>
       </article>
 
       <article class="ch" id="ch-yours" data-ch="yours" data-start="n/Theme-Picker">
-        <p class="ch-n"><span>10</span>{{ch.yours.name}}<em>{{tour.new}}</em></p>
+        <p class="ch-n"><span>08</span>{{ch.yours.name}}<em>{{tour.new}}</em></p>
         <h3 class="h3">{{ch.yours.title}}</h3>
         <p class="ch-body">{{ch.yours.body}}</p>
         <p class="steps-label">{{ch.yours.themes}}</p>
