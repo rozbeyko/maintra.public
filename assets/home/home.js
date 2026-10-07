@@ -347,7 +347,8 @@ async function boot() {
       const r = c.getBoundingClientRect();
       if (r.top <= line) best = c;
     }
-    if (best) setChapter(best.dataset.ch);
+    // still landing: the phone shows the first chapter, not the hero's last screen
+    setChapter((best || chapters[0]).dataset.ch);
   };
   addEventListener('scroll', () => {
     if (!queued) {

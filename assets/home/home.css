@@ -273,8 +273,11 @@ html.loading body { overflow: hidden; }
 @media (min-width: 1100px) { .top-nav { display: flex; } }
 
 /* ----------------------------------------------------------------- hero */
-.hero { position: relative; isolation: isolate; min-height: 100svh; padding-top: var(--nav); display: flex; flex-direction: column; }
-.hero-bg { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+/* The hero is not its own stacking context: the facts band has to rise above
+   the 3D stage (40) like the ticker, so the phone flies behind both bands
+   instead of hiding them. The wall sits at 0, the copy at 1. */
+.hero { position: relative; min-height: 100svh; padding-top: var(--nav); display: flex; flex-direction: column; }
+.hero-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
 .hero-bg .wall {
   position: absolute;
   inset: 0;
@@ -302,6 +305,8 @@ html.loading body { overflow: hidden; }
   filter: blur(20px);
 }
 .hero-in {
+  position: relative;
+  z-index: 1;
   flex: 1;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -344,6 +349,9 @@ html.loading body { overflow: hidden; }
 .spec li { display: flex; align-items: baseline; gap: 18px; padding: 13px 0; border-bottom: 1px solid var(--hair); font-weight: 500; font-size: clamp(15px, .3vw + 11px, 20px); }
 .spec .pn { flex: none; width: 5.4em; font: 600 .7em/1 var(--display); font-stretch: 78%; letter-spacing: .12em; color: var(--muted); font-variant-numeric: tabular-nums; }
 .facts {
+  position: relative;
+  z-index: 45;
+  background: var(--bg);
   list-style: none;
   margin: 0;
   padding: 18px var(--gutter) 22px;
@@ -387,7 +395,7 @@ html.loading body { overflow: hidden; }
 .dev-plate.late .ps { font: 500 13px/1.3 var(--sans); color: var(--red); }
 
 /* -------------------------------------------------------------- ticker */
-.ticker { overflow: hidden; border-block: 1px solid var(--hair); padding: clamp(14px, 2vh, 26px) 0; }
+.ticker { position: relative; z-index: 45; background: var(--bg); overflow: hidden; border-block: 1px solid var(--hair); padding: clamp(14px, 2vh, 26px) 0; }
 .ticker-track { display: flex; align-items: center; width: max-content; animation: tick 70s linear infinite; }
 .ticker:hover .ticker-track { animation-play-state: paused; }
 .ticker-track span {
@@ -408,12 +416,18 @@ html.loading body { overflow: hidden; }
 
 /* ------------------------------------------------------------ sections */
 .sec-head { display: flex; flex-direction: column; gap: clamp(14px, 2.2vh, 28px); padding: 0 var(--gutter); max-width: calc(1500px + var(--gutter) * 2); }
-.sec-head .h2 { max-width: 18ch; }
+.sec-head .h2 { max-width: 18ch; text-wrap: balance; }
 
 /* ----------------------------------------------------------------- tour */
 .tour { position: relative; padding-top: var(--sec); }
-.tour-head { margin-bottom: clamp(32px, 6vh, 96px); }
+/* On the way from the hero the phone should only ever pass the two bands,
+   never text someone is reading. Phones: it docks first and the title arrives
+   under it. Tablets: it stays on the right, where the hero had it. Wide: the
+   title sits beside its path, and rides in front of it where they could meet. */
 .tour-grid { display: grid; grid-template-columns: minmax(0, 1fr); padding: 0 var(--gutter); }
+.tour-head { position: relative; z-index: 1; order: 1; padding: 8px 0 0; margin-bottom: 0; }
+.tour-stage { order: 0; }
+.tour-text { order: 2; }
 .tour-index { display: none; }
 .tour-stage {
   position: sticky;
@@ -490,14 +504,16 @@ html.loading body { overflow: hidden; }
 .hint-dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,.9); box-shadow: 0 0 0 4px rgba(255,255,255,.12); animation: tap 1.8s var(--ease) infinite; }
 @media (min-width: 760px) {
   .tour-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: clamp(28px, 4vw, 120px); }
-  .tour-stage { grid-column: 1; grid-row: 1; top: calc(var(--nav) + 12px); height: calc(100svh - var(--nav) - 24px); max-height: 1600px; background: none; padding: 0; align-items: center; }
+  .tour-head { grid-column: 1 / -1; grid-row: 1; z-index: 45; padding: 0; margin-bottom: clamp(32px, 6vh, 96px); pointer-events: none; }
+  .tour-head .h2 { text-shadow: 0 2px 22px rgba(11, 11, 10, .9), 0 0 3px rgba(11, 11, 10, .7); }
+  .tour-stage { grid-column: 2; grid-row: 2; top: calc(var(--nav) + 12px); height: calc(100svh - var(--nav) - 24px); max-height: 1600px; background: none; padding: 0; align-items: center; }
   .tour-stage::after { display: none; }
-  .tour-text { grid-column: 2; grid-row: 1; }
+  .tour-text { grid-column: 1; grid-row: 2; }
   .ch { min-height: 96svh; justify-content: center; padding: 10vh 0; }
 }
 @media (min-width: 1280px) {
   .tour-grid { grid-template-columns: minmax(180px, 250px) minmax(0, 1.15fr) minmax(400px, .9fr); }
-  .tour-index { display: block; grid-column: 1; grid-row: 1; position: sticky; top: calc(var(--nav) + 12vh); align-self: start; }
+  .tour-index { display: block; grid-column: 1; grid-row: 2; position: sticky; top: calc(var(--nav) + 12vh); align-self: start; }
   .tour-stage { grid-column: 2; }
   .tour-text { grid-column: 3; }
 }
