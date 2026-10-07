@@ -600,6 +600,13 @@ export class Room {
     cam.position.copy(sc.position);
     cam.setViewOffset(s.vw, s.vh, 0, this.d, s.vw, s.vh);
     cam.updateProjectionMatrix();
+    // the garage is the hero's and stops where the hero stops: nothing of it
+    // (the wall's dark edge, the beam's end) shows under the bands below
+    const top = Math.max(0, -this.d), bottom = Math.min(s.vh, this.heroH - this.d);
+    if (bottom <= top) return;
+    r.setScissor(0, s.vh - bottom, s.vw, bottom - top);
+    r.setScissorTest(true);
     r.render(this.scene, cam);
+    r.setScissorTest(false);
   }
 }
