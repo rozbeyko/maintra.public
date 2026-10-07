@@ -379,8 +379,10 @@ html.room .hero-bg > * { display: none; }
 .h1-in { display: block; }
 .hero .lede { max-width: 36ch; }
 .note { font-size: clamp(14px, .2vw + 11.5px, 17px); line-height: 1.5; color: var(--text2); max-width: 52ch; }
-.hero-phone { pointer-events: none; }
-.hero-phone .cue { pointer-events: auto; }
+/* the copy is over the 3D layer, the phone under it: only what is pressable
+   in the copy takes the pointer, everything else lets it through to the phone */
+.hero-in, .hero-phone { pointer-events: none; }
+.hero-copy, .hero-spec, .hero-phone .cue { pointer-events: auto; }
 .hero-phone { position: relative; height: min(72svh, 1060px); min-height: 440px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
 .slot { height: 100%; aspect-ratio: 414 / 868; max-width: 100%; }
 .hero-phone .slot { height: calc(100% - 48px); }
