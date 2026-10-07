@@ -1,0 +1,1402 @@
+{
+ "v": 3,
+ "attachments": {},
+ "boards": {
+  "Car-Inherited.dc.html": {
+   "h": 844,
+   "page": "handover",
+   "title": "Paj · in the new owner’s garage",
+   "w": 390,
+   "x": 1880,
+   "y": 3900
+  },
+  "Car-Lent.dc.html": {
+   "h": 844,
+   "page": "handover",
+   "title": "Paj · lent, his entries kept apart",
+   "w": 390,
+   "x": 1410,
+   "y": 1300
+  },
+  "Car-Shared.dc.html": {
+   "h": 844,
+   "page": "handover",
+   "title": "Paj · driven together",
+   "w": 390,
+   "x": 1880,
+   "y": 2600
+  },
+  "Handover.dc.html": {
+   "h": 844,
+   "page": "handover",
+   "title": "Hand over · three ways",
+   "w": 390,
+   "x": 470,
+   "y": 0
+  },
+  "Invite-QR.dc.html": {
+   "h": 844,
+   "page": "handover",
+   "title": "Invite · QR in person, link for later",
+   "w": 390,
+   "x": 470,
+   "y": 1300
+  },
+  "Lend-Guest.dc.html": {
+   "h": 844,
+   "page": "handover",
+   "title": "Lend · on their phone",
+   "w": 390,
+   "x": 940,
+   "y": 1300
+  },
+  "Lend-Return.dc.html": {
+   "h": 844,
+   "page": "handover",
+   "title": "Lend · the debrief, accept his entries",
+   "w": 390,
+   "x": 1880,
+   "y": 1300
+  },
+  "Lend-Setup.dc.html": {
+   "h": 930,
+   "page": "handover",
+   "title": "Lend · setup",
+   "w": 390,
+   "x": 0,
+   "y": 1300
+  },
+  "Main.dc.html": {
+   "h": 844,
+   "page": "handover",
+   "title": "Paj · with the Keys button",
+   "w": 390,
+   "x": 0,
+   "y": 0
+  },
+  "Share-People.dc.html": {
+   "h": 844,
+   "page": "handover",
+   "title": "Drivers of Paj",
+   "w": 390,
+   "x": 2350,
+   "y": 2600
+  },
+  "Share-Setup.dc.html": {
+   "h": 844,
+   "page": "handover",
+   "title": "Together · setup",
+   "w": 390,
+   "x": 0,
+   "y": 2600
+  },
+  "Transfer-Buyer.dc.html": {
+   "h": 844,
+   "page": "handover",
+   "title": "For good · on the new owner’s phone",
+   "w": 390,
+   "x": 1410,
+   "y": 3900
+  },
+  "Transfer-Confirm.dc.html": {
+   "h": 844,
+   "page": "handover",
+   "title": "For good · confirm",
+   "w": 390,
+   "x": 470,
+   "y": 3900
+  },
+  "Transfer-Pending.dc.html": {
+   "h": 844,
+   "page": "handover",
+   "title": "For good · waiting",
+   "w": 390,
+   "x": 940,
+   "y": 3900
+  },
+  "Transfer-What.dc.html": {
+   "h": 880,
+   "page": "handover",
+   "title": "For good · what goes",
+   "w": 390,
+   "x": 0,
+   "y": 3900
+  },
+  "Invite-Contact.dc.html": {
+   "x": 470,
+   "y": 2600,
+   "w": 390,
+   "h": 844,
+   "title": "Invite · by email, reveals nothing",
+   "page": "handover"
+  },
+  "Invite-Contact-New.dc.html": {
+   "x": 940,
+   "y": 2600,
+   "w": 390,
+   "h": 844,
+   "title": "Invite · by phone, plus your own link",
+   "page": "handover"
+  },
+  "Shared-With-You.dc.html": {
+   "x": 1410,
+   "y": 2600,
+   "w": 390,
+   "h": 844,
+   "title": "Shared with you · their inbox",
+   "page": "handover"
+  },
+  "Web-Transfer.dc.html": {
+   "x": 0,
+   "y": 5200,
+   "w": 390,
+   "h": 2140,
+   "title": "Web · the transfer link, phone",
+   "page": "handover"
+  },
+  "Web-Transfer-Desktop.dc.html": {
+   "x": 470,
+   "y": 5200,
+   "w": 1280,
+   "h": 1240,
+   "title": "Web · the transfer link, desktop",
+   "page": "handover"
+  },
+  "Map.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Map · the tab, map view",
+   "page": "map"
+  },
+  "Map-Route.dc.html": {
+   "x": 0,
+   "y": 1300,
+   "w": 390,
+   "h": 844,
+   "title": "Map · route, Maintra leads, Waze as an option",
+   "page": "map"
+  },
+  "Map-Trip.dc.html": {
+   "x": 470,
+   "y": 1300,
+   "w": 390,
+   "h": 844,
+   "title": "Map · navigating, turns and voice",
+   "page": "map"
+  },
+  "Trip-End.dc.html": {
+   "x": 1410,
+   "y": 1300,
+   "w": 390,
+   "h": 844,
+   "title": "Map · trip over, km to the odometer",
+   "page": "map"
+  },
+  "Map-Setup.dc.html": {
+   "x": 0,
+   "y": 2600,
+   "w": 390,
+   "h": 844,
+   "title": "Map · first open, nothing downloaded",
+   "page": "map"
+  },
+  "Map-Regions.dc.html": {
+   "x": 470,
+   "y": 2600,
+   "w": 390,
+   "h": 844,
+   "title": "Map · regions to download",
+   "page": "map"
+  },
+  "Map-Permission.dc.html": {
+   "x": 940,
+   "y": 2600,
+   "w": 390,
+   "h": 844,
+   "title": "Map · asking for location, before the system prompt",
+   "page": "map"
+  },
+  "Map-Privacy.dc.html": {
+   "x": 1410,
+   "y": 2600,
+   "w": 390,
+   "h": 980,
+   "title": "Map · settings and what it keeps",
+   "page": "map"
+  },
+  "Map-Places.dc.html": {
+   "x": 470,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Map · the tab, Places view with deals",
+   "page": "map"
+  },
+  "Map-Open-In.dc.html": {
+   "x": 1880,
+   "y": 2600,
+   "w": 390,
+   "h": 844,
+   "title": "Map · other nav apps, off by default",
+   "page": "map"
+  },
+  "Share-In.dc.html": {
+   "x": 1410,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Map · a place shared in from another app",
+   "page": "map"
+  },
+  "Map-Free.dc.html": {
+   "x": 940,
+   "y": 1300,
+   "w": 390,
+   "h": 844,
+   "title": "Map · free drive, no route",
+   "page": "map"
+  },
+  "Map-Place.dc.html": {
+   "x": 940,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Map · a saved place tapped on the map",
+   "page": "map"
+  },
+  "Sheet-Entry.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Paj · the sheet opens from under the name",
+   "page": "sheet"
+  },
+  "Car-Sheet.dc.html": {
+   "x": 470,
+   "y": 0,
+   "w": 390,
+   "h": 1340,
+   "title": "Paj · the sheet: fluids, part numbers, sizes",
+   "page": "sheet"
+  },
+  "Sheet-AI.dc.html": {
+   "x": 940,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Sheet · filling gaps with AI, marked",
+   "page": "sheet"
+  },
+  "Sheet-Item.dc.html": {
+   "x": 1410,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Sheet · one line and where it comes from",
+   "page": "sheet"
+  },
+  "Mech-Share.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 390,
+   "h": 960,
+   "title": "Mechanic · what they get to see",
+   "page": "mechanic"
+  },
+  "Mech-Web.dc.html": {
+   "x": 470,
+   "y": 0,
+   "w": 390,
+   "h": 1800,
+   "title": "Mechanic · the page they open, no app",
+   "page": "mechanic"
+  },
+  "Mech-In.dc.html": {
+   "x": 940,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Mechanic · their record arrives, you decide",
+   "page": "mechanic"
+  },
+  "Route-Check.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Smart · a long route checks the car first",
+   "page": "smart"
+  },
+  "Fuel-Notice.dc.html": {
+   "x": 470,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Smart · fuel use goes up",
+   "page": "smart"
+  },
+  "Record-Warranty.dc.html": {
+   "x": 940,
+   "y": 0,
+   "w": 390,
+   "h": 1194,
+   "title": "Smart · warranty on the record",
+   "page": "smart"
+  },
+  "Notify-Smart.dc.html": {
+   "x": 1410,
+   "y": 0,
+   "w": 1000,
+   "h": 924,
+   "title": "Smart · what they say and when",
+   "page": "smart"
+  },
+  "Mech-Desktop.dc.html": {
+   "x": 1410,
+   "y": 0,
+   "w": 1280,
+   "h": 1300,
+   "title": "Mechanic · the work order on the shop computer",
+   "page": "mechanic"
+  },
+  "Scans.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Paj · Services › Scans",
+   "page": "obd"
+  },
+  "Scan-Adapter.dc.html": {
+   "x": 470,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Scans · pairing an adapter, first time",
+   "page": "obd"
+  },
+  "Scan-Running.dc.html": {
+   "x": 940,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Scans · reading the car",
+   "page": "obd"
+  },
+  "Scan-Detail.dc.html": {
+   "x": 1410,
+   "y": 0,
+   "w": 390,
+   "h": 1470,
+   "title": "Scans · one saved scan",
+   "page": "obd"
+  },
+  "Scan-Code.dc.html": {
+   "x": 1880,
+   "y": 0,
+   "w": 390,
+   "h": 1260,
+   "title": "Scans · one code, decoded",
+   "page": "obd"
+  },
+  "Scan-Compare.dc.html": {
+   "x": 2350,
+   "y": 0,
+   "w": 390,
+   "h": 1060,
+   "title": "Scans · two scans side by side",
+   "page": "obd"
+  },
+  "Scan-Agent.dc.html": {
+   "x": 2820,
+   "y": 0,
+   "w": 390,
+   "h": 900,
+   "title": "Scans · the scan agent, its own space",
+   "page": "obd"
+  },
+  "Scans-Empty.dc.html": {
+   "x": 0,
+   "y": 1800,
+   "w": 390,
+   "h": 844,
+   "title": "Scans · none yet",
+   "page": "obd"
+  },
+  "Adapter-Settings.dc.html": {
+   "x": 470,
+   "y": 1800,
+   "w": 390,
+   "h": 844,
+   "title": "Scans · Maintra OBD, always plugged in",
+   "page": "obd"
+  },
+  "Scan-Wrong-Car.dc.html": {
+   "x": 940,
+   "y": 1800,
+   "w": 390,
+   "h": 844,
+   "title": "Scans · the VIN doesn’t match",
+   "page": "obd"
+  },
+  "Services-With-Scans.dc.html": {
+   "x": 1410,
+   "y": 1800,
+   "w": 390,
+   "h": 844,
+   "title": "Services · scans sit in the timeline",
+   "page": "obd"
+  },
+  "Scan-Share.dc.html": {
+   "x": 1880,
+   "y": 1800,
+   "w": 390,
+   "h": 844,
+   "title": "Scans · share a scan",
+   "page": "obd"
+  },
+  "Scan-Fixed.dc.html": {
+   "x": 2350,
+   "y": 1800,
+   "w": 390,
+   "h": 844,
+   "title": "Scans · after the fix",
+   "page": "obd"
+  },
+  "Map-Weak-GPS.dc.html": {
+   "x": 0,
+   "y": 3900,
+   "w": 390,
+   "h": 844,
+   "title": "Map · GPS lost mid-trip",
+   "page": "map"
+  },
+  "Map-Reroute.dc.html": {
+   "x": 470,
+   "y": 3900,
+   "w": 390,
+   "h": 844,
+   "title": "Map · off the route, working out a new one",
+   "page": "map"
+  },
+  "Map-Region-Edge.dc.html": {
+   "x": 940,
+   "y": 3900,
+   "w": 390,
+   "h": 844,
+   "title": "Map · the route runs off the downloaded region",
+   "page": "map"
+  },
+  "Trip-Background.dc.html": {
+   "x": 1410,
+   "y": 3900,
+   "w": 1000,
+   "h": 924,
+   "title": "Map · the trip while the screen is off",
+   "page": "map"
+  },
+  "Invite-QR-Together.dc.html": {
+   "x": 2820,
+   "y": 2600,
+   "w": 390,
+   "h": 844,
+   "title": "Invite · QR, Together",
+   "page": "handover"
+  },
+  "Mech-Link-Closed.dc.html": {
+   "x": 0,
+   "y": 2200,
+   "w": 390,
+   "h": 844,
+   "title": "Mechanic · a used link, closed",
+   "page": "mechanic"
+  },
+  "Mech-Desktop-Sent.dc.html": {
+   "x": 470,
+   "y": 2200,
+   "w": 1280,
+   "h": 840,
+   "title": "Mechanic · sent, the page goes read-only",
+   "page": "mechanic"
+  },
+  "Scan-Tests.dc.html": {
+   "x": 2820,
+   "y": 1800,
+   "w": 390,
+   "h": 1030,
+   "title": "Scans · self-tests and permanent codes",
+   "page": "obd"
+  },
+  "Park-Ask.dc.html": {
+   "x": 0,
+   "y": 5200,
+   "w": 390,
+   "h": 844,
+   "title": "Map · after a trip, remember the spot?",
+   "page": "map"
+  },
+  "Map-Parked.dc.html": {
+   "x": 470,
+   "y": 5200,
+   "w": 390,
+   "h": 844,
+   "title": "Map · where Paj is parked, phone only",
+   "page": "map"
+  },
+  "Drive-Detect.dc.html": {
+   "x": 940,
+   "y": 5200,
+   "w": 1000,
+   "h": 924,
+   "title": "Map · driving noticed, start counting?",
+   "page": "map"
+  },
+  "Theme-Picker.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 390,
+   "h": 1070,
+   "title": "Themes · free and Pro, picked in Look",
+   "page": "themes"
+  },
+  "Field-Garage.dc.html": {
+   "x": 0,
+   "y": 1500,
+   "w": 390,
+   "h": 844,
+   "title": "Field · garage",
+   "page": "themes"
+  },
+  "Field-Car.dc.html": {
+   "x": 470,
+   "y": 1500,
+   "w": 390,
+   "h": 844,
+   "title": "Field · the car",
+   "page": "themes"
+  },
+  "Field-Plan.dc.html": {
+   "x": 940,
+   "y": 1500,
+   "w": 390,
+   "h": 844,
+   "title": "Field · plan",
+   "page": "themes"
+  },
+  "Field-Map.dc.html": {
+   "x": 1410,
+   "y": 1500,
+   "w": 390,
+   "h": 844,
+   "title": "Field · map",
+   "page": "themes"
+  },
+  "Field-Scan.dc.html": {
+   "x": 1880,
+   "y": 1500,
+   "w": 390,
+   "h": 1470,
+   "title": "Field · a saved scan",
+   "page": "themes"
+  },
+  "Red-Garage.dc.html": {
+   "x": 0,
+   "y": 3300,
+   "w": 390,
+   "h": 844,
+   "title": "Red light · garage",
+   "page": "themes"
+  },
+  "Red-Plan.dc.html": {
+   "x": 470,
+   "y": 3300,
+   "w": 390,
+   "h": 844,
+   "title": "Red light · plan",
+   "page": "themes"
+  },
+  "Red-Trip.dc.html": {
+   "x": 940,
+   "y": 3300,
+   "w": 390,
+   "h": 844,
+   "title": "Red light · navigating at night",
+   "page": "themes"
+  },
+  "Red-Scan.dc.html": {
+   "x": 1410,
+   "y": 3300,
+   "w": 390,
+   "h": 1470,
+   "title": "Red light · a saved scan",
+   "page": "themes"
+  },
+  "Blue-Garage.dc.html": {
+   "x": 0,
+   "y": 5100,
+   "w": 390,
+   "h": 844,
+   "title": "Blueprint · garage",
+   "page": "themes"
+  },
+  "Blue-Car.dc.html": {
+   "x": 470,
+   "y": 5100,
+   "w": 390,
+   "h": 844,
+   "title": "Blueprint · the car",
+   "page": "themes"
+  },
+  "Blue-Scan.dc.html": {
+   "x": 940,
+   "y": 5100,
+   "w": 390,
+   "h": 1470,
+   "title": "Blueprint · a saved scan",
+   "page": "themes"
+  },
+  "Log-Garage.dc.html": {
+   "x": 0,
+   "y": 6900,
+   "w": 390,
+   "h": 844,
+   "title": "Logbook · garage",
+   "page": "themes"
+  },
+  "Log-Plan.dc.html": {
+   "x": 470,
+   "y": 6900,
+   "w": 390,
+   "h": 844,
+   "title": "Logbook · plan",
+   "page": "themes"
+  },
+  "Log-Money.dc.html": {
+   "x": 940,
+   "y": 6900,
+   "w": 390,
+   "h": 1460,
+   "title": "Logbook · money",
+   "page": "themes"
+  },
+  "Lang-English.dc.html": {
+   "x": 0,
+   "y": 1300,
+   "w": 390,
+   "h": 844,
+   "title": "Plan · English",
+   "page": "lang"
+  },
+  "Lang-German.dc.html": {
+   "x": 470,
+   "y": 1300,
+   "w": 390,
+   "h": 844,
+   "title": "Plan · Deutsch",
+   "page": "lang"
+  },
+  "Lang-Arabic.dc.html": {
+   "x": 940,
+   "y": 1300,
+   "w": 390,
+   "h": 844,
+   "title": "Plan · العربية",
+   "page": "lang"
+  },
+  "Lang-English-Garage.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Garage · English",
+   "page": "lang"
+  },
+  "Lang-German-Garage.dc.html": {
+   "x": 470,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Garage · Deutsch",
+   "page": "lang"
+  },
+  "Lang-Arabic-Garage.dc.html": {
+   "x": 940,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Garage · العربية",
+   "page": "lang"
+  },
+  "Lang-Korean-Garage.dc.html": {
+   "x": 1410,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Garage · 한국어",
+   "page": "lang"
+  },
+  "Lang-Japanese-Garage.dc.html": {
+   "x": 1880,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Garage · 日本語",
+   "page": "lang"
+  },
+  "Lang-Chinese-Garage.dc.html": {
+   "x": 2350,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "title": "Garage · 简体中文",
+   "page": "lang"
+  },
+  "Lang-Korean.dc.html": {
+   "x": 1410,
+   "y": 1300,
+   "w": 390,
+   "h": 844,
+   "title": "Plan · 한국어",
+   "page": "lang"
+  },
+  "Lang-Japanese.dc.html": {
+   "x": 1880,
+   "y": 1300,
+   "w": 390,
+   "h": 844,
+   "title": "Plan · 日本語",
+   "page": "lang"
+  },
+  "Lang-Chinese.dc.html": {
+   "x": 2350,
+   "y": 1300,
+   "w": 390,
+   "h": 844,
+   "title": "Plan · 简体中文",
+   "page": "lang"
+  },
+  "Lang-English-Record.dc.html": {
+   "x": 0,
+   "y": 2600,
+   "w": 390,
+   "h": 844,
+   "title": "A record · English",
+   "page": "lang"
+  },
+  "Lang-German-Record.dc.html": {
+   "x": 470,
+   "y": 2600,
+   "w": 390,
+   "h": 844,
+   "title": "A record · Deutsch",
+   "page": "lang"
+  },
+  "Lang-Arabic-Record.dc.html": {
+   "x": 940,
+   "y": 2600,
+   "w": 390,
+   "h": 844,
+   "title": "A record · العربية",
+   "page": "lang"
+  },
+  "Lang-Korean-Record.dc.html": {
+   "x": 1410,
+   "y": 2600,
+   "w": 390,
+   "h": 844,
+   "title": "A record · 한국어",
+   "page": "lang"
+  },
+  "Lang-Japanese-Record.dc.html": {
+   "x": 1880,
+   "y": 2600,
+   "w": 390,
+   "h": 844,
+   "title": "A record · 日本語",
+   "page": "lang"
+  },
+  "Lang-Chinese-Record.dc.html": {
+   "x": 2350,
+   "y": 2600,
+   "w": 390,
+   "h": 844,
+   "title": "A record · 简体中文",
+   "page": "lang"
+  },
+  "Rose-Garage.dc.html": {
+   "x": 0,
+   "y": 8700,
+   "w": 390,
+   "h": 844,
+   "title": "Rose · garage, dark",
+   "page": "themes"
+  },
+  "Rose-Car.dc.html": {
+   "x": 470,
+   "y": 8700,
+   "w": 390,
+   "h": 844,
+   "title": "Rose · the car, dark",
+   "page": "themes"
+  },
+  "Rose-Plan.dc.html": {
+   "x": 940,
+   "y": 8700,
+   "w": 390,
+   "h": 844,
+   "title": "Rose · plan, dark",
+   "page": "themes"
+  },
+  "Rose-Day-Garage.dc.html": {
+   "x": 1410,
+   "y": 8700,
+   "w": 390,
+   "h": 844,
+   "title": "Rose · garage, day",
+   "page": "themes"
+  },
+  "Rose-Day-Plan.dc.html": {
+   "x": 1880,
+   "y": 8700,
+   "w": 390,
+   "h": 844,
+   "title": "Rose · plan, day",
+   "page": "themes"
+  },
+  "Rose-Day-Money.dc.html": {
+   "x": 2350,
+   "y": 8700,
+   "w": 390,
+   "h": 1460,
+   "title": "Rose · money, day",
+   "page": "themes"
+  },
+  "Trip-Result.dc.html": {
+   "x": 0,
+   "y": 6800,
+   "w": 390,
+   "h": 1520,
+   "title": "Trip · the result, speeds and the fastest stretch",
+   "page": "map"
+  },
+  "Trip-Share.dc.html": {
+   "x": 470,
+   "y": 6800,
+   "w": 390,
+   "h": 844,
+   "title": "Trip · a card to share, the line without the map",
+   "page": "map"
+  },
+  "Trips-Kept.dc.html": {
+   "x": 940,
+   "y": 6800,
+   "w": 390,
+   "h": 844,
+   "title": "Trips · the ones you kept, on this phone only",
+   "page": "map"
+  },
+  "Route-Draw.dc.html": {
+   "x": 470,
+   "y": 8700,
+   "w": 390,
+   "h": 844,
+   "title": "Route · a rough sketch, the map finds the roads",
+   "page": "map"
+  },
+  "Route-Offroad.dc.html": {
+   "x": 940,
+   "y": 8700,
+   "w": 390,
+   "h": 844,
+   "title": "Route · drawn off road, a line with no road under it",
+   "page": "map"
+  },
+  "Route-Points.dc.html": {
+   "x": 1410,
+   "y": 8700,
+   "w": 390,
+   "h": 844,
+   "title": "Route · points dropped on the map, in your order",
+   "page": "map"
+  },
+  "Route-Save.dc.html": {
+   "x": 1880,
+   "y": 8700,
+   "w": 390,
+   "h": 844,
+   "title": "Route · name it and keep it in Places",
+   "page": "map"
+  },
+  "Map-Search.dc.html": {
+   "x": 0,
+   "y": 8700,
+   "w": 390,
+   "h": 844,
+   "title": "Map · tap Where to?, two more ways to make a route",
+   "page": "map"
+  },
+  "Map-Trip-Speed.dc.html": {
+   "x": 0,
+   "y": 10200,
+   "w": 390,
+   "h": 844,
+   "title": "Map · navigating, your speed and the limit",
+   "page": "map"
+  },
+  "Map-Trip-3D.dc.html": {
+   "x": 470,
+   "y": 10200,
+   "w": 390,
+   "h": 844,
+   "title": "Map · navigating in 3D, the map follows the car",
+   "page": "map"
+  },
+  "Map-Trip-Over.dc.html": {
+   "x": 940,
+   "y": 10200,
+   "w": 390,
+   "h": 844,
+   "title": "Map · over the limit, red frame and a tone",
+   "page": "map"
+  },
+  "Map-Display.dc.html": {
+   "x": 1410,
+   "y": 10200,
+   "w": 390,
+   "h": 1360,
+   "title": "Map · what the map shows, view and speed",
+   "page": "map"
+  }
+ },
+ "createdOnFiles": {
+  "at": "2026-09-29T09:17:15Z",
+  "v": 1
+ },
+ "designSystems": [
+  {
+   "artifact": "https://claude.ai/artifact/U6tgS91FNiiC1Shf7upJ5h",
+   "copiedAt": "2026-09-29T09:17:15Z",
+   "namespace": "maintra",
+   "title": "Maintra Design System",
+   "version": null
+  }
+ ],
+ "launch": {
+  "view": "canvas"
+ },
+ "notes": {
+  "n_row0": {
+   "kind": "title1",
+   "maxW": 860,
+   "page": "handover",
+   "text": "Hand over · from the car",
+   "w": 240,
+   "x": 0,
+   "y": -300
+  },
+  "n_row1": {
+   "kind": "title1",
+   "maxW": 2270,
+   "page": "handover",
+   "text": "Lend it",
+   "w": 240,
+   "x": 0,
+   "y": 1000
+  },
+  "n_row2": {
+   "kind": "title1",
+   "maxW": 3210,
+   "page": "handover",
+   "text": "Drive it together",
+   "w": 240,
+   "x": 0,
+   "y": 2300
+  },
+  "n_row3": {
+   "kind": "title1",
+   "maxW": 2270,
+   "page": "handover",
+   "text": "Hand over for good",
+   "w": 240,
+   "x": 0,
+   "y": 3600
+  },
+  "n_row4": {
+   "kind": "title1",
+   "maxW": 1670,
+   "page": "handover",
+   "text": "The link, without Maintra",
+   "w": 240,
+   "x": 0,
+   "y": 4900
+  },
+  "m_row0": {
+   "kind": "title1",
+   "maxW": 1800,
+   "page": "map",
+   "text": "Map and Places, one tab",
+   "w": 240,
+   "x": 0,
+   "y": -300
+  },
+  "m_row1": {
+   "kind": "title1",
+   "maxW": 1800,
+   "page": "map",
+   "text": "Maintra leads the way",
+   "w": 240,
+   "x": 0,
+   "y": 1000
+  },
+  "m_row2": {
+   "kind": "title1",
+   "maxW": 2270,
+   "page": "map",
+   "text": "First run and settings",
+   "w": 240,
+   "x": 0,
+   "y": 2300
+  },
+  "sheet_row0": {
+   "kind": "title1",
+   "maxW": 1800,
+   "page": "sheet",
+   "text": "The car sheet",
+   "w": 240,
+   "x": 0,
+   "y": -300
+  },
+  "mechanic_row0": {
+   "kind": "title1",
+   "maxW": 2610,
+   "page": "mechanic",
+   "text": "Show it to the mechanic",
+   "w": 240,
+   "x": 0,
+   "y": -300
+  },
+  "smart_row0": {
+   "kind": "title1",
+   "maxW": 2410,
+   "page": "smart",
+   "text": "Smart notices",
+   "w": 240,
+   "x": 0,
+   "y": -300
+  },
+  "obd_row0": {
+   "kind": "title1",
+   "maxW": 3210,
+   "page": "obd",
+   "text": "OBD scans · inside Services",
+   "w": 240,
+   "x": 0,
+   "y": -300
+  },
+  "obd_row1": {
+   "kind": "title1",
+   "maxW": 3210,
+   "page": "obd",
+   "text": "Around a scan",
+   "w": 240,
+   "x": 0,
+   "y": 1500
+  },
+  "m_row3": {
+   "kind": "title1",
+   "maxW": 2410,
+   "page": "map",
+   "text": "When things go sideways",
+   "w": 240,
+   "x": 0,
+   "y": 3600
+  },
+  "mechanic_row1": {
+   "kind": "title1",
+   "maxW": 1670,
+   "page": "mechanic",
+   "text": "After it’s sent",
+   "w": 240,
+   "x": 0,
+   "y": 1900
+  },
+  "m_row4": {
+   "kind": "title1",
+   "maxW": 1860,
+   "page": "map",
+   "text": "Parking and driving without a trip",
+   "w": 240,
+   "x": 0,
+   "y": 4900
+  },
+  "themes_row0": {
+   "kind": "title1",
+   "maxW": 860,
+   "page": "themes",
+   "text": "Picking a theme",
+   "w": 240,
+   "x": 0,
+   "y": -300
+  },
+  "themes_row1": {
+   "kind": "title1",
+   "maxW": 2270,
+   "page": "themes",
+   "text": "Field · Pro · tan buttons, camo only on +",
+   "w": 240,
+   "x": 0,
+   "y": 1200
+  },
+  "themes_row2": {
+   "kind": "title1",
+   "maxW": 1800,
+   "page": "themes",
+   "text": "Red light · free",
+   "w": 240,
+   "x": 0,
+   "y": 3000
+  },
+  "themes_row3": {
+   "kind": "title1",
+   "maxW": 1330,
+   "page": "themes",
+   "text": "Blueprint · Pro",
+   "w": 240,
+   "x": 0,
+   "y": 4800
+  },
+  "themes_row4": {
+   "kind": "title1",
+   "maxW": 1330,
+   "page": "themes",
+   "text": "Logbook · Pro",
+   "w": 240,
+   "x": 0,
+   "y": 6600
+  },
+  "lang_row0": {
+   "kind": "title1",
+   "maxW": 2740,
+   "page": "lang",
+   "text": "Garage · six languages",
+   "w": 240,
+   "x": 0,
+   "y": -300
+  },
+  "lang_row1": {
+   "kind": "title1",
+   "maxW": 2740,
+   "page": "lang",
+   "text": "Plan · six languages",
+   "w": 240,
+   "x": 0,
+   "y": 1000
+  },
+  "lang_row2": {
+   "kind": "title1",
+   "maxW": 2740,
+   "page": "lang",
+   "text": "A record · six languages",
+   "w": 240,
+   "x": 0,
+   "y": 2300
+  },
+  "themes_row5": {
+   "kind": "title1",
+   "maxW": 2740,
+   "page": "themes",
+   "text": "Rose · Pro · plum at night, blush by day",
+   "w": 240,
+   "x": 0,
+   "y": 8400
+  },
+  "m_row5": {
+   "kind": "title1",
+   "maxW": 1330,
+   "page": "map",
+   "text": "After the trip: time, speeds, the fastest stretch",
+   "w": 240,
+   "x": 0,
+   "y": 6500
+  },
+  "m_row6": {
+   "kind": "title1",
+   "maxW": 2270,
+   "page": "map",
+   "text": "Your own route: draw it or drop points",
+   "w": 240,
+   "x": 0,
+   "y": 8400
+  },
+  "m_row7": {
+   "kind": "title1",
+   "maxW": 1800,
+   "page": "map",
+   "text": "While driving: speed, 3D, what the map shows",
+   "w": 240,
+   "x": 0,
+   "y": 9900
+  }
+ },
+ "order": [
+  "Main.dc.html",
+  "Handover.dc.html",
+  "Lend-Setup.dc.html",
+  "Invite-QR.dc.html",
+  "Lend-Guest.dc.html",
+  "Car-Lent.dc.html",
+  "Lend-Return.dc.html",
+  "Share-Setup.dc.html",
+  "Car-Shared.dc.html",
+  "Share-People.dc.html",
+  "Transfer-What.dc.html",
+  "Transfer-Confirm.dc.html",
+  "Transfer-Pending.dc.html",
+  "Transfer-Buyer.dc.html",
+  "Car-Inherited.dc.html",
+  "Invite-Contact.dc.html",
+  "Invite-Contact-New.dc.html",
+  "Shared-With-You.dc.html",
+  "Web-Transfer.dc.html",
+  "Web-Transfer-Desktop.dc.html",
+  "Map.dc.html",
+  "Map-Route.dc.html",
+  "Map-Trip.dc.html",
+  "Trip-End.dc.html",
+  "Map-Setup.dc.html",
+  "Map-Regions.dc.html",
+  "Map-Permission.dc.html",
+  "Map-Privacy.dc.html",
+  "Map-Places.dc.html",
+  "Map-Open-In.dc.html",
+  "Share-In.dc.html",
+  "Map-Free.dc.html",
+  "Map-Place.dc.html",
+  "Sheet-Entry.dc.html",
+  "Car-Sheet.dc.html",
+  "Sheet-AI.dc.html",
+  "Sheet-Item.dc.html",
+  "Mech-Share.dc.html",
+  "Mech-Web.dc.html",
+  "Mech-In.dc.html",
+  "Route-Check.dc.html",
+  "Fuel-Notice.dc.html",
+  "Record-Warranty.dc.html",
+  "Notify-Smart.dc.html",
+  "Mech-Desktop.dc.html",
+  "Scans.dc.html",
+  "Scan-Adapter.dc.html",
+  "Scan-Running.dc.html",
+  "Scan-Detail.dc.html",
+  "Scan-Code.dc.html",
+  "Scan-Compare.dc.html",
+  "Scan-Agent.dc.html",
+  "Scans-Empty.dc.html",
+  "Adapter-Settings.dc.html",
+  "Scan-Wrong-Car.dc.html",
+  "Services-With-Scans.dc.html",
+  "Scan-Share.dc.html",
+  "Scan-Fixed.dc.html",
+  "Map-Weak-GPS.dc.html",
+  "Map-Reroute.dc.html",
+  "Map-Region-Edge.dc.html",
+  "Trip-Background.dc.html",
+  "Invite-QR-Together.dc.html",
+  "Mech-Link-Closed.dc.html",
+  "Mech-Desktop-Sent.dc.html",
+  "Scan-Tests.dc.html",
+  "Park-Ask.dc.html",
+  "Map-Parked.dc.html",
+  "Drive-Detect.dc.html",
+  "Theme-Picker.dc.html",
+  "Field-Garage.dc.html",
+  "Field-Car.dc.html",
+  "Field-Plan.dc.html",
+  "Field-Map.dc.html",
+  "Field-Scan.dc.html",
+  "Red-Garage.dc.html",
+  "Red-Plan.dc.html",
+  "Red-Trip.dc.html",
+  "Red-Scan.dc.html",
+  "Blue-Garage.dc.html",
+  "Blue-Car.dc.html",
+  "Blue-Scan.dc.html",
+  "Log-Garage.dc.html",
+  "Log-Plan.dc.html",
+  "Log-Money.dc.html",
+  "Lang-English.dc.html",
+  "Lang-German.dc.html",
+  "Lang-Arabic.dc.html",
+  "Lang-English-Garage.dc.html",
+  "Lang-German-Garage.dc.html",
+  "Lang-Arabic-Garage.dc.html",
+  "Lang-Korean-Garage.dc.html",
+  "Lang-Japanese-Garage.dc.html",
+  "Lang-Chinese-Garage.dc.html",
+  "Lang-Korean.dc.html",
+  "Lang-Japanese.dc.html",
+  "Lang-Chinese.dc.html",
+  "Lang-English-Record.dc.html",
+  "Lang-German-Record.dc.html",
+  "Lang-Arabic-Record.dc.html",
+  "Lang-Korean-Record.dc.html",
+  "Lang-Japanese-Record.dc.html",
+  "Lang-Chinese-Record.dc.html",
+  "Rose-Garage.dc.html",
+  "Rose-Car.dc.html",
+  "Rose-Plan.dc.html",
+  "Rose-Day-Garage.dc.html",
+  "Rose-Day-Plan.dc.html",
+  "Rose-Day-Money.dc.html",
+  "Trip-Result.dc.html",
+  "Trip-Share.dc.html",
+  "Trips-Kept.dc.html",
+  "Map-Search.dc.html",
+  "Route-Draw.dc.html",
+  "Route-Offroad.dc.html",
+  "Route-Points.dc.html",
+  "Route-Save.dc.html",
+  "Map-Trip-Speed.dc.html",
+  "Map-Trip-3D.dc.html",
+  "Map-Trip-Over.dc.html",
+  "Map-Display.dc.html"
+ ],
+ "pages": [
+  {
+   "id": "handover",
+   "name": "Hand over a car"
+  },
+  {
+   "id": "map",
+   "name": "Offline map"
+  },
+  {
+   "id": "sheet",
+   "name": "Car sheet"
+  },
+  {
+   "id": "mechanic",
+   "name": "For the mechanic"
+  },
+  {
+   "id": "smart",
+   "name": "Smart notices"
+  },
+  {
+   "id": "obd",
+   "name": "OBD scans"
+  },
+  {
+   "id": "themes",
+   "name": "Themes"
+  },
+  {
+   "id": "lang",
+   "name": "Languages"
+  }
+ ],
+ "title": "Maintra 2.0 · New features"
+}

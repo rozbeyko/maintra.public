@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Splash</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700&amp;family=Tektur:wdth,wght@75..100,400..900&amp;display=swap">
+<style>
+html,body{overflow:hidden}
+body{margin:0;background:#0B0B0A;font-family:'Fira Sans','Helvetica Neue',sans-serif;color:#ECE4D6}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-align:left}
+a{color:inherit;text-decoration:none}
+
+@keyframes mtRod{0%{transform:scaleX(0)}3%{transform:scaleX(0);animation-timing-function:cubic-bezier(.3,0,.1,1)}14%{transform:scaleX(1)}100%{transform:scaleX(1)}}
+@keyframes mtGrow{0%,11%{transform:scaleY(0)}11%{animation-timing-function:cubic-bezier(.2,1.4,.4,1)}24%{transform:scaleY(1)}100%{transform:scaleY(1)}}
+@keyframes mtRelease{0%,27%{transform:translateX(calc(var(--dx)*1px))}27%{animation-timing-function:cubic-bezier(.2,.9,.3,1)}44%{transform:translateX(calc(var(--dx)*-0.12px));animation-timing-function:ease-in-out}53%{transform:translateX(calc(var(--dx)*0.05px));animation-timing-function:ease-in-out}60%{transform:translateX(calc(var(--dx)*-0.018px))}66%,100%{transform:translateX(0px)}}
+@keyframes mtBackIn{0%,28%{transform:scaleY(0)}28%{animation-timing-function:cubic-bezier(.2,.9,.3,1)}38%,100%{transform:scaleY(1)}}
+@keyframes mtTgold{0%,52%{fill:#ECE4D6}60%,100%{fill:#F4B223}}
+@keyframes mtTgoldL{0%,52%{fill:#1B1A17}60%,100%{fill:#EBA817}}
+@keyframes mtGlow2{0%,56%{opacity:0}63%{opacity:1}100%{opacity:0.2}}
+@keyframes mtOut{0%,94%{opacity:1}100%{opacity:0}}
+@keyframes mtFadeIn{0%,55%{opacity:0}65%,94%{opacity:1}100%{opacity:0}}
+@keyframes mtLoad{0%{transform:translateX(0px);animation-timing-function:cubic-bezier(.45,0,.55,1)}46%{transform:translateX(calc(var(--dx)*-0.26px));animation-timing-function:cubic-bezier(.6,0,.9,.4)}53%{transform:translateX(calc(var(--dx)*0.42px));animation-timing-function:cubic-bezier(.2,.7,.4,1)}62%{transform:translateX(calc(var(--dx)*-0.14px));animation-timing-function:ease-in-out}70%{transform:translateX(calc(var(--dx)*0.06px));animation-timing-function:ease-in-out}77%{transform:translateX(calc(var(--dx)*-0.02px))}83%,100%{transform:translateX(0px)}}
+
+@keyframes mtPop{0%,15%{transform:scaleY(0)}15%{animation-timing-function:cubic-bezier(.25,.8,.4,1)}24%{transform:scaleY(1.2)}29%{transform:scaleY(.93);animation-timing-function:ease-in-out}33%{transform:scaleY(1.03)}37%,100%{transform:scaleY(1)}}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #0B0B0A; position: relative; overflow: hidden; font-family: 'Fira Sans','Helvetica Neue',sans-serif; color: #ECE4D6;">
+<div style="position: absolute; inset: 0; background: #0B0B0A; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px;"><svg viewBox="0 0 100 100" width="210" height="210" aria-hidden="true" style="display: block; overflow: visible; animation: mtOut 2800ms linear infinite both;"><g style="--dx:-11.48; animation: mtRelease 2800ms linear infinite both;"><g style="transform-box: view-box; transform-origin: 0px 39.50px; animation: mtBackIn 2800ms linear infinite both; animation-delay: 0ms;"><path d="M28.97,24.61 L36.93,24.61 L36.93,75.39 L28.97,75.39 Z" fill="#8F897E" /></g></g><g style="--dx:-34.45; animation: mtRelease 2800ms linear infinite both;"><g style="transform-box: view-box; transform-origin: 0px 39.50px; animation: mtBackIn 2800ms linear infinite both; animation-delay: 0ms;"><path d="M51.93,24.61 L59.90,24.61 L59.90,75.39 L51.93,75.39 Z" fill="#8F897E" /></g></g><g style="transform-box: view-box; transform-origin: 11.07px 39.50px; animation: mtRod 2800ms linear infinite both;"><path d="M14.14,34.77 L94.00,34.77 L90.93,44.23 L11.07,44.23 Z" fill="#F4B223" /></g><clipPath id="cSPd"><path d="M14.14,34.77 L94.00,34.77 L90.93,44.23 L11.07,44.23 Z" fill="#000" /></clipPath><g clip-path="url(#cSPd)"><g style="--dx:0.00; animation: mtRelease 2800ms linear infinite both;"><g style="transform-box: view-box; transform-origin: 0px 39.50px; animation: mtGrow 2800ms linear infinite both; animation-delay: 0ms;"><path d="M8.40,75.39 L22.83,75.39 L39.33,24.61 L24.90,24.61 Z" fill="#9A6700" /></g></g><g style="--dx:-22.97; animation: mtRelease 2800ms linear infinite both;"><g style="transform-box: view-box; transform-origin: 0px 39.50px; animation: mtGrow 2800ms linear infinite both; animation-delay: 0ms;"><path d="M31.37,75.39 L45.80,75.39 L62.30,24.61 L47.86,24.61 Z" fill="#9A6700" /></g></g><g style="--dx:-45.93; animation: mtRelease 2800ms linear infinite both;"><g style="transform-box: view-box; transform-origin: 0px 39.50px; animation: mtGrow 2800ms linear infinite both; animation-delay: 0ms;"><path d="M54.33,75.39 L68.77,75.39 L85.26,24.61 L70.83,24.61 Z" fill="#9A6700" /></g></g></g><g style="--dx:0.00; animation: mtRelease 2800ms linear infinite both;"><g style="transform-box: view-box; transform-origin: 0px 39.50px; animation: mtGrow 2800ms linear infinite both; animation-delay: 0ms;"><path d="M6.00,75.39 L20.43,75.39 L36.93,24.61 L22.50,24.61 Z" fill="#ECE4D6" /></g></g><g style="--dx:-22.97; animation: mtRelease 2800ms linear infinite both;"><g style="transform-box: view-box; transform-origin: 0px 39.50px; animation: mtGrow 2800ms linear infinite both; animation-delay: 0ms;"><path d="M28.97,75.39 L43.40,75.39 L59.90,24.61 L45.46,24.61 Z" fill="#ECE4D6" /></g></g><g style="--dx:-45.93; animation: mtRelease 2800ms linear infinite both;"><g style="transform-box: view-box; transform-origin: 0px 39.50px; animation: mtGrow 2800ms linear infinite both; animation-delay: 0ms;"><path d="M51.93,75.39 L66.37,75.39 L82.86,24.61 L68.43,24.61 Z" fill="#F4B223" style="animation: mtTgold 2800ms linear infinite both;"/></g></g><g style="--dx:-45.93; animation: mtRelease 2800ms linear infinite both;"><g style="transform-box: view-box; transform-origin: 0px 39.50px; animation: mtGrow 2800ms linear infinite both; animation-delay: 0ms;"><g style="animation: mtGlow2 2800ms linear infinite both; filter: drop-shadow(0 0 2px rgba(255,200,110,.8)) drop-shadow(0 0 8px rgba(244,178,35,.5));"><path d="M51.93,75.39 L66.37,75.39 L82.86,24.61 L68.43,24.61 Z" fill="#F4B223" /></g></g></g></svg><span style="font-family: Tektur,'Arial Narrow',sans-serif; font-stretch: 78%; font-weight: 600; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #8F897E; animation: mtFadeIn 2800ms linear infinite both;">Smart maintenance tracker</span></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

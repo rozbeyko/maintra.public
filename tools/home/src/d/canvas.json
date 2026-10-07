@@ -1,0 +1,2233 @@
+{
+ "attachments": {},
+ "boards": {
+  "AI-Entry.dc.html": {
+   "h": 844,
+   "page": "add",
+   "title": "AI entry",
+   "w": 390,
+   "x": 2350,
+   "y": 0
+  },
+  "AI-Reading.dc.html": {
+   "h": 844,
+   "page": "add",
+   "title": "AI reading",
+   "w": 390,
+   "x": 2820,
+   "y": 0
+  },
+  "AI-Review.dc.html": {
+   "h": 1060,
+   "page": "add",
+   "title": "Check the records",
+   "w": 390,
+   "x": 3290,
+   "y": 0
+  },
+  "Add-Car-Filled.dc.html": {
+   "h": 1730,
+   "page": "add",
+   "title": "Add a car, VIN decoded",
+   "w": 390,
+   "x": 470,
+   "y": 0
+  },
+  "Add-Car-Keyboard.dc.html": {
+   "h": 844,
+   "page": "keys",
+   "title": "Caps keyboard: VIN",
+   "w": 390,
+   "x": 1410,
+   "y": 0
+  },
+  "Add-Car-Make.dc.html": {
+   "h": 844,
+   "page": "add",
+   "title": "Pick a make",
+   "w": 390,
+   "x": 940,
+   "y": 0
+  },
+  "Add-Car.dc.html": {
+   "h": 1730,
+   "page": "add",
+   "title": "Add a car",
+   "w": 390,
+   "x": 0,
+   "y": 0
+  },
+  "Add-Charge.dc.html": {
+   "h": 960,
+   "page": "add",
+   "title": "Add charge",
+   "w": 390,
+   "x": 7190,
+   "y": 0
+  },
+  "Add-Expense-Fine.dc.html": {
+   "h": 1180,
+   "page": "add",
+   "title": "Add expense: a fine to pay",
+   "w": 390,
+   "x": 4700,
+   "y": 0
+  },
+  "Add-Expense-Keypad.dc.html": {
+   "h": 844,
+   "page": "keys",
+   "title": "Decimal pad: amount",
+   "w": 390,
+   "x": 0,
+   "y": 0
+  },
+  "Add-Expense.dc.html": {
+   "h": 1000,
+   "page": "add",
+   "title": "Add expense",
+   "w": 390,
+   "x": 4230,
+   "y": 0
+  },
+  "Add-Fuel.dc.html": {
+   "h": 1140,
+   "page": "add",
+   "title": "Add fuel",
+   "w": 390,
+   "x": 3760,
+   "y": 0
+  },
+  "Add-Service-Rates.dc.html": {
+   "h": 1100,
+   "page": "add",
+   "title": "Exchange rate",
+   "w": 390,
+   "x": 1880,
+   "y": 0
+  },
+  "Add-Service.dc.html": {
+   "h": 1100,
+   "page": "add",
+   "title": "Add a record",
+   "w": 390,
+   "x": 1410,
+   "y": 0
+  },
+  "Add.dc.html": {
+   "h": 844,
+   "page": "garage",
+   "title": "Add menu",
+   "w": 390,
+   "x": 3760,
+   "y": 0
+  },
+  "Car-Chat.dc.html": {
+   "h": 844,
+   "page": "car",
+   "title": "Car: chat",
+   "w": 390,
+   "x": 3290,
+   "y": 0
+  },
+  "Car-Edit.dc.html": {
+   "h": 1480,
+   "page": "car",
+   "title": "Edit car",
+   "w": 390,
+   "x": 6580,
+   "y": 0
+  },
+  "Car-Fuel.dc.html": {
+   "h": 844,
+   "page": "car",
+   "title": "Car: fuel",
+   "w": 390,
+   "x": 1880,
+   "y": 0
+  },
+  "Car-Money-Add.dc.html": {
+   "h": 844,
+   "page": "car",
+   "title": "Car: money, add an expense",
+   "w": 390,
+   "x": 2820,
+   "y": 0
+  },
+  "Car-Money.dc.html": {
+   "h": 1460,
+   "page": "car",
+   "title": "Car: money",
+   "w": 390,
+   "x": 2350,
+   "y": 0
+  },
+  "Car-Picker.dc.html": {
+   "h": 844,
+   "page": "add",
+   "title": "Which car?",
+   "w": 390,
+   "x": 6250,
+   "y": 0
+  },
+  "Car-Plan.dc.html": {
+   "h": 844,
+   "page": "car",
+   "title": "Car: plan",
+   "w": 390,
+   "x": 1410,
+   "y": 0
+  },
+  "Car-Services-Add.dc.html": {
+   "h": 844,
+   "page": "car",
+   "title": "Car: services, add",
+   "w": 390,
+   "x": 940,
+   "y": 0
+  },
+  "Car-Services-Scrolled.dc.html": {
+   "h": 844,
+   "page": "car",
+   "title": "Car: services, scrolled",
+   "w": 390,
+   "x": 4230,
+   "y": 0
+  },
+  "Car-Services.dc.html": {
+   "h": 844,
+   "page": "car",
+   "title": "Car: services",
+   "w": 390,
+   "x": 0,
+   "y": 0
+  },
+  "Car-Shelf.dc.html": {
+   "h": 844,
+   "page": "car",
+   "title": "Car: on the shelf",
+   "w": 390,
+   "x": 470,
+   "y": 0
+  },
+  "Car-Sold.dc.html": {
+   "h": 844,
+   "page": "car",
+   "title": "Mark as sold",
+   "w": 390,
+   "x": 7050,
+   "y": 0
+  },
+  "Chat-Locked.dc.html": {
+   "h": 844,
+   "page": "car",
+   "title": "Chat, not on VIP",
+   "w": 390,
+   "x": 2820,
+   "y": 1600
+  },
+  "Delete-Account.dc.html": {
+   "h": 844,
+   "page": "tabs",
+   "title": "Delete account",
+   "w": 390,
+   "x": 5170,
+   "y": 0
+  },
+  "Doc-Add.dc.html": {
+   "h": 844,
+   "page": "items",
+   "title": "Add document",
+   "w": 390,
+   "x": 7050,
+   "y": 0
+  },
+  "Doc-Menu.dc.html": {
+   "h": 844,
+   "page": "items",
+   "title": "Document actions",
+   "w": 390,
+   "x": 0,
+   "y": 964
+  },
+  "Doc-View.dc.html": {
+   "h": 844,
+   "page": "items",
+   "title": "Document",
+   "w": 390,
+   "x": 7520,
+   "y": 0
+  },
+  "Docs.dc.html": {
+   "h": 844,
+   "page": "items",
+   "title": "Docs",
+   "w": 390,
+   "x": 940,
+   "y": 0
+  },
+  "Empty-Garage.dc.html": {
+   "h": 844,
+   "page": "onboarding",
+   "title": "Empty garage, first launch",
+   "w": 390,
+   "x": 6580,
+   "y": 0
+  },
+  "Export.dc.html": {
+   "h": 844,
+   "page": "tabs",
+   "title": "Export",
+   "w": 390,
+   "x": 4700,
+   "y": 0
+  },
+  "Feedback.dc.html": {
+   "h": 844,
+   "page": "tabs",
+   "title": "Feedback",
+   "w": 390,
+   "x": 2820,
+   "y": 0
+  },
+  "Frames.dc.html": {
+   "h": 844,
+   "page": "garage",
+   "title": "Frames",
+   "w": 390,
+   "x": 3290,
+   "y": 0
+  },
+  "Fuel-Rate.dc.html": {
+   "h": 844,
+   "page": "car",
+   "title": "Rate the fuel",
+   "w": 390,
+   "x": 1880,
+   "y": 1600
+  },
+  "Garage-Charcoal.dc.html": {
+   "h": 844,
+   "page": "garage",
+   "title": "Garage · Charcoal frame",
+   "w": 390,
+   "x": 0,
+   "y": 1380
+  },
+  "Garage-Clean.dc.html": {
+   "h": 844,
+   "page": "garage",
+   "title": "Garage, nothing added",
+   "w": 390,
+   "x": 1880,
+   "y": 0
+  },
+  "Garage-Custom.dc.html": {
+   "h": 844,
+   "page": "garage",
+   "title": "Garage, your blocks",
+   "w": 390,
+   "x": 1410,
+   "y": 0
+  },
+  "Garage-Edit.dc.html": {
+   "h": 960,
+   "page": "garage",
+   "title": "Edit garage",
+   "w": 390,
+   "x": 2820,
+   "y": 0
+  },
+  "Garage-Fines.dc.html": {
+   "h": 844,
+   "page": "garage",
+   "title": "Garage, fines block on",
+   "w": 390,
+   "x": 5170,
+   "y": 0
+  },
+  "Garage-List.dc.html": {
+   "h": 844,
+   "page": "garage",
+   "title": "Garage list",
+   "w": 390,
+   "x": 2350,
+   "y": 0
+  },
+  "Garage-Next-Car-Free.dc.html": {
+   "h": 844,
+   "page": "garage",
+   "title": "Garage: after the last car, Free",
+   "w": 390,
+   "x": 4700,
+   "y": 0
+  },
+  "Garage-Next-Car.dc.html": {
+   "h": 844,
+   "page": "garage",
+   "title": "Garage: after the last car",
+   "w": 390,
+   "x": 4230,
+   "y": 0
+  },
+  "Garage-Night.dc.html": {
+   "h": 844,
+   "page": "garage",
+   "title": "Garage · Night frame · VIP",
+   "w": 390,
+   "x": 470,
+   "y": 1380
+  },
+  "Garage-Swap.dc.html": {
+   "h": 844,
+   "page": "garage",
+   "title": "Garage, health in the corner",
+   "w": 390,
+   "x": 940,
+   "y": 0
+  },
+  "Garage-Tray.dc.html": {
+   "h": 844,
+   "page": "garage",
+   "title": "Garage, tray hidden",
+   "w": 390,
+   "x": 470,
+   "y": 0
+  },
+  "Icons.dc.html": {
+   "h": 1560,
+   "page": "foundations",
+   "title": "Icons",
+   "w": 1440,
+   "x": 1520,
+   "y": 0
+  },
+  "Import-Preview.dc.html": {
+   "h": 1400,
+   "page": "tabs",
+   "title": "Import: check before saving",
+   "w": 390,
+   "x": 4230,
+   "y": 0
+  },
+  "Import.dc.html": {
+   "h": 844,
+   "page": "tabs",
+   "title": "Import history",
+   "w": 390,
+   "x": 3760,
+   "y": 0
+  },
+  "Main.dc.html": {
+   "h": 844,
+   "page": "garage",
+   "title": "Garage",
+   "w": 390,
+   "x": 0,
+   "y": 0
+  },
+  "Moment.dc.html": {
+   "h": 844,
+   "page": "car",
+   "title": "Moment",
+   "w": 390,
+   "x": 3760,
+   "y": 0
+  },
+  "Motion-Voice.dc.html": {
+   "h": 844,
+   "is_interactive": true,
+   "page": "voice",
+   "title": "Motion: voice",
+   "w": 390,
+   "x": 3290,
+   "y": 0
+  },
+  "Notify-All.dc.html": {
+   "h": 924,
+   "page": "outside",
+   "title": "Notifications",
+   "w": 1000,
+   "x": 2600,
+   "y": 0
+  },
+  "Notify-Fines.dc.html": {
+   "h": 924,
+   "page": "add",
+   "title": "Reminders: fines",
+   "w": 1000,
+   "x": 5170,
+   "y": 0
+  },
+  "Notify-Permission.dc.html": {
+   "h": 844,
+   "page": "car",
+   "title": "Turn reminders on?",
+   "w": 390,
+   "x": 2350,
+   "y": 1600
+  },
+  "Odometer-Lower.dc.html": {
+   "h": 844,
+   "page": "add",
+   "title": "Odometer lower than the car",
+   "w": 390,
+   "x": 6720,
+   "y": 0
+  },
+  "Odometer-Update.dc.html": {
+   "h": 844,
+   "page": "keys",
+   "title": "Number pad: odometer",
+   "w": 390,
+   "x": 470,
+   "y": 0
+  },
+  "PDF-Report.dc.html": {
+   "h": 962,
+   "page": "tabs",
+   "title": "PDF service report · receipts appendix, slips and A4",
+   "w": 2340,
+   "x": 6580,
+   "y": 0
+  },
+  "Paywall-Limit.dc.html": {
+   "h": 844,
+   "page": "plans",
+   "title": "Paywall · car limit",
+   "w": 390,
+   "x": 940,
+   "y": 0
+  },
+  "Paywall-Pro.dc.html": {
+   "h": 844,
+   "page": "plans",
+   "title": "Paywall · Pro",
+   "w": 390,
+   "x": 0,
+   "y": 0
+  },
+  "Paywall-VIP.dc.html": {
+   "h": 844,
+   "page": "plans",
+   "title": "Paywall · VIP",
+   "w": 390,
+   "x": 470,
+   "y": 0
+  },
+  "Places.dc.html": {
+   "h": 844,
+   "page": "tabs",
+   "title": "Places",
+   "w": 390,
+   "x": 0,
+   "y": 0
+  },
+  "Plan-Add-Other.dc.html": {
+   "h": 1000,
+   "page": "car",
+   "title": "Add to my plan: something else",
+   "w": 390,
+   "x": 470,
+   "y": 1600
+  },
+  "Plan-Add.dc.html": {
+   "h": 844,
+   "page": "car",
+   "title": "Add to my plan: regular service",
+   "w": 390,
+   "x": 0,
+   "y": 1600
+  },
+  "Plan-Better.dc.html": {
+   "h": 844,
+   "page": "car",
+   "title": "A better AI plan",
+   "w": 390,
+   "x": 940,
+   "y": 1600
+  },
+  "Plan-Done.dc.html": {
+   "h": 844,
+   "page": "car",
+   "title": "Mark as done",
+   "w": 390,
+   "x": 6110,
+   "y": 0
+  },
+  "Plan-Item.dc.html": {
+   "h": 844,
+   "page": "car",
+   "title": "Plan item",
+   "w": 390,
+   "x": 5640,
+   "y": 0
+  },
+  "Profile.dc.html": {
+   "h": 2260,
+   "page": "tabs",
+   "title": "Profile and settings",
+   "w": 390,
+   "x": 470,
+   "y": 0
+  },
+  "Rate-Prompt.dc.html": {
+   "h": 844,
+   "page": "tabs",
+   "title": "Rate prompt",
+   "w": 390,
+   "x": 3290,
+   "y": 0
+  },
+  "Record-Edit.dc.html": {
+   "h": 844,
+   "page": "car",
+   "title": "Edit record",
+   "w": 390,
+   "x": 5170,
+   "y": 0
+  },
+  "Record.dc.html": {
+   "h": 844,
+   "page": "car",
+   "title": "Service record",
+   "w": 390,
+   "x": 4700,
+   "y": 0
+  },
+  "Reset-Password.dc.html": {
+   "h": 844,
+   "page": "onboarding",
+   "title": "Reset password",
+   "w": 390,
+   "x": 1880,
+   "y": 0
+  },
+  "Settings-Country.dc.html": {
+   "h": 1000,
+   "page": "tabs",
+   "title": "Country",
+   "w": 390,
+   "x": 1410,
+   "y": 0
+  },
+  "Settings-Currency.dc.html": {
+   "h": 960,
+   "page": "tabs",
+   "title": "Currency",
+   "w": 390,
+   "x": 1880,
+   "y": 0
+  },
+  "Settings-Language.dc.html": {
+   "h": 844,
+   "page": "tabs",
+   "title": "Language",
+   "w": 390,
+   "x": 940,
+   "y": 0
+  },
+  "Setup-1.dc.html": {
+   "h": 844,
+   "page": "onboarding",
+   "title": "Setup 1 / 9",
+   "w": 390,
+   "x": 2350,
+   "y": 0
+  },
+  "Setup-2.dc.html": {
+   "h": 844,
+   "page": "onboarding",
+   "title": "Setup 2 / 9",
+   "w": 390,
+   "x": 2820,
+   "y": 0
+  },
+  "Setup-3.dc.html": {
+   "h": 844,
+   "page": "onboarding",
+   "title": "Setup 3 / 9",
+   "w": 390,
+   "x": 3290,
+   "y": 0
+  },
+  "Setup-4.dc.html": {
+   "h": 844,
+   "page": "onboarding",
+   "title": "Setup 4 / 9",
+   "w": 390,
+   "x": 3760,
+   "y": 0
+  },
+  "Setup-5.dc.html": {
+   "h": 844,
+   "page": "onboarding",
+   "title": "Setup 6 / 9",
+   "w": 390,
+   "x": 4700,
+   "y": 0
+  },
+  "Setup-6.dc.html": {
+   "h": 844,
+   "page": "onboarding",
+   "title": "Setup 7 / 9",
+   "w": 390,
+   "x": 5170,
+   "y": 0
+  },
+  "Setup-7.dc.html": {
+   "h": 844,
+   "page": "onboarding",
+   "title": "Setup 8 / 9",
+   "w": 390,
+   "x": 5640,
+   "y": 0
+  },
+  "Setup-8.dc.html": {
+   "h": 844,
+   "page": "onboarding",
+   "title": "Setup 9 / 9",
+   "w": 390,
+   "x": 6110,
+   "y": 0
+  },
+  "Sign-In-Keyboard.dc.html": {
+   "h": 844,
+   "page": "keys",
+   "title": "Email keyboard",
+   "w": 390,
+   "x": 940,
+   "y": 0
+  },
+  "Sign-In.dc.html": {
+   "h": 844,
+   "page": "onboarding",
+   "title": "Sign in",
+   "w": 390,
+   "x": 940,
+   "y": 0
+  },
+  "Sign-Up.dc.html": {
+   "h": 844,
+   "page": "onboarding",
+   "title": "Create account",
+   "w": 390,
+   "x": 1410,
+   "y": 0
+  },
+  "Siri-Ask.dc.html": {
+   "h": 844,
+   "page": "voice",
+   "title": "Siri: confirm",
+   "w": 390,
+   "x": 2350,
+   "y": 0
+  },
+  "Siri-Done.dc.html": {
+   "h": 844,
+   "page": "voice",
+   "title": "Siri: saved",
+   "w": 390,
+   "x": 2820,
+   "y": 0
+  },
+  "State-New-Car.dc.html": {
+   "h": 844,
+   "page": "states",
+   "title": "New car",
+   "w": 390,
+   "x": 0,
+   "y": 0
+  },
+  "State-Offline.dc.html": {
+   "h": 844,
+   "page": "states",
+   "title": "Offline",
+   "w": 390,
+   "x": 470,
+   "y": 0
+  },
+  "State-Plan-Generating.dc.html": {
+   "h": 844,
+   "page": "states",
+   "title": "Plan generating",
+   "w": 390,
+   "x": 2820,
+   "y": 0
+  },
+  "State-Scan-Failed.dc.html": {
+   "h": 844,
+   "page": "states",
+   "title": "Scan failed",
+   "w": 390,
+   "x": 1410,
+   "y": 0
+  },
+  "State-Scans-Out.dc.html": {
+   "h": 844,
+   "page": "states",
+   "title": "Scans used up",
+   "w": 390,
+   "x": 940,
+   "y": 0
+  },
+  "State-Vault-Locked.dc.html": {
+   "h": 844,
+   "page": "states",
+   "title": "Vault locked",
+   "w": 390,
+   "x": 1880,
+   "y": 0
+  },
+  "State-Wishlist-Empty.dc.html": {
+   "h": 844,
+   "page": "states",
+   "title": "Empty wishlist",
+   "w": 390,
+   "x": 2350,
+   "y": 0
+  },
+  "System.dc.html": {
+   "h": 1240,
+   "page": "foundations",
+   "title": "Design language · dark",
+   "w": 1440,
+   "x": 0,
+   "y": 0
+  },
+  "Tread-Check.dc.html": {
+   "h": 844,
+   "page": "items",
+   "title": "Tread check",
+   "w": 390,
+   "x": 4230,
+   "y": 0
+  },
+  "Tyre-Photos.dc.html": {
+   "h": 844,
+   "page": "items",
+   "title": "Tyre photos",
+   "w": 390,
+   "x": 5170,
+   "y": 0
+  },
+  "Tyre-Report.dc.html": {
+   "h": 844,
+   "page": "items",
+   "title": "Set report",
+   "w": 390,
+   "x": 5640,
+   "y": 0
+  },
+  "Tyre-Rotate.dc.html": {
+   "h": 844,
+   "page": "items",
+   "title": "Rotate",
+   "w": 390,
+   "x": 4700,
+   "y": 0
+  },
+  "Tyre-Set-Add.dc.html": {
+   "h": 844,
+   "page": "items",
+   "title": "New tyre set",
+   "w": 390,
+   "x": 3290,
+   "y": 0
+  },
+  "Tyre-Set.dc.html": {
+   "h": 844,
+   "page": "items",
+   "title": "Tyre set · on the car",
+   "w": 390,
+   "x": 1880,
+   "y": 0
+  },
+  "Tyre-Swap.dc.html": {
+   "h": 844,
+   "page": "items",
+   "title": "Swap sets",
+   "w": 390,
+   "x": 3760,
+   "y": 0
+  },
+  "Tyre.dc.html": {
+   "h": 844,
+   "page": "items",
+   "title": "One tyre",
+   "w": 390,
+   "x": 2820,
+   "y": 0
+  },
+  "Tyres.dc.html": {
+   "h": 844,
+   "page": "items",
+   "title": "Tyres",
+   "w": 390,
+   "x": 1410,
+   "y": 0
+  },
+  "Usage.dc.html": {
+   "h": 1000,
+   "page": "tabs",
+   "title": "Usage",
+   "w": 390,
+   "x": 2350,
+   "y": 0
+  },
+  "Vault-Recovery.dc.html": {
+   "h": 844,
+   "page": "items",
+   "title": "Vault: recovery code",
+   "w": 390,
+   "x": 6580,
+   "y": 0
+  },
+  "Vault-Setup.dc.html": {
+   "h": 844,
+   "page": "items",
+   "title": "Vault: passphrase",
+   "w": 390,
+   "x": 6110,
+   "y": 0
+  },
+  "Vault-Start-Over.dc.html": {
+   "h": 844,
+   "page": "items",
+   "title": "Vault: start over",
+   "w": 390,
+   "x": 470,
+   "y": 964
+  },
+  "Visits-Select.dc.html": {
+   "h": 844,
+   "page": "car",
+   "title": "Group or separate visits",
+   "w": 390,
+   "x": 1410,
+   "y": 1600
+  },
+  "Voice-Hold.dc.html": {
+   "h": 844,
+   "page": "voice",
+   "title": "Voice: holding +",
+   "w": 390,
+   "x": 0,
+   "y": 0
+  },
+  "Voice-Listen.dc.html": {
+   "h": 844,
+   "page": "voice",
+   "title": "Voice: listening, from the menu",
+   "w": 390,
+   "x": 470,
+   "y": 0
+  },
+  "Voice-Result.dc.html": {
+   "h": 1000,
+   "page": "voice",
+   "title": "Voice: fuel form, prefilled",
+   "w": 390,
+   "x": 1880,
+   "y": 0
+  },
+  "Voice-Review-Parking.dc.html": {
+   "h": 844,
+   "page": "voice",
+   "title": "Voice: heard an expense",
+   "w": 390,
+   "x": 1410,
+   "y": 0
+  },
+  "Voice-Review.dc.html": {
+   "h": 844,
+   "page": "voice",
+   "title": "Voice: heard it",
+   "w": 390,
+   "x": 940,
+   "y": 0
+  },
+  "Welcome.dc.html": {
+   "h": 844,
+   "page": "onboarding",
+   "title": "Welcome",
+   "w": 390,
+   "x": 470,
+   "y": 0
+  },
+  "Whats-New.dc.html": {
+   "h": 844,
+   "page": "onboarding",
+   "title": "What’s new",
+   "w": 390,
+   "x": 7050,
+   "y": 0
+  },
+  "Widgets-Android.dc.html": {
+   "h": 980,
+   "page": "outside",
+   "title": "Widgets · Android",
+   "w": 1100,
+   "x": 1420,
+   "y": 0
+  },
+  "Widgets-iOS.dc.html": {
+   "h": 964,
+   "page": "outside",
+   "title": "Widgets · iOS",
+   "w": 1340,
+   "x": 0,
+   "y": 0
+  },
+  "Wish-Add.dc.html": {
+   "h": 960,
+   "page": "items",
+   "title": "Add a wish",
+   "w": 390,
+   "x": 940,
+   "y": 964
+  },
+  "Wish-Guest.dc.html": {
+   "h": 844,
+   "page": "items",
+   "title": "Shared wishlist, guest view",
+   "w": 390,
+   "x": 1880,
+   "y": 964
+  },
+  "Wish-Reveal.dc.html": {
+   "h": 844,
+   "page": "items",
+   "title": "See who booked it?",
+   "w": 390,
+   "x": 2350,
+   "y": 964
+  },
+  "Wish-Share.dc.html": {
+   "h": 844,
+   "page": "items",
+   "title": "Share the wishlist",
+   "w": 390,
+   "x": 1410,
+   "y": 964
+  },
+  "Wishlist-Alerts.dc.html": {
+   "h": 844,
+   "page": "items",
+   "title": "Wishlist alerts",
+   "w": 390,
+   "x": 470,
+   "y": 0
+  },
+  "Wishlist.dc.html": {
+   "h": 844,
+   "page": "items",
+   "title": "Wishlist",
+   "w": 390,
+   "x": 0,
+   "y": 0
+  },
+  "Stats-Money.dc.html": {
+   "h": 1450,
+   "page": "tabs",
+   "title": "Stats · money",
+   "w": 390,
+   "x": 0,
+   "y": 2380
+  },
+  "Stats-Driving.dc.html": {
+   "h": 1310,
+   "page": "tabs",
+   "title": "Stats · driving",
+   "w": 390,
+   "x": 470,
+   "y": 2380
+  },
+  "Stats-Fuel.dc.html": {
+   "h": 1500,
+   "page": "tabs",
+   "title": "Stats · fuel",
+   "w": 390,
+   "x": 940,
+   "y": 2380
+  },
+  "Stats-Care.dc.html": {
+   "h": 1520,
+   "page": "tabs",
+   "title": "Stats · care",
+   "w": 390,
+   "x": 1410,
+   "y": 2380
+  },
+  "Stats-Garage.dc.html": {
+   "h": 1350,
+   "page": "tabs",
+   "title": "Stats · garage",
+   "w": 390,
+   "x": 1880,
+   "y": 2380
+  },
+  "Stats-Year.dc.html": {
+   "h": 844,
+   "page": "tabs",
+   "title": "Stats · your year (December)",
+   "w": 390,
+   "x": 2350,
+   "y": 2380
+  },
+  "Money-Expenses.dc.html": {
+   "h": 1000,
+   "page": "car",
+   "title": "Other expenses",
+   "w": 390,
+   "x": 0,
+   "y": 3020
+  },
+  "Fine-Paid.dc.html": {
+   "h": 844,
+   "page": "car",
+   "title": "Fine paid?",
+   "w": 390,
+   "x": 470,
+   "y": 3020
+  },
+  "Garage-Search.dc.html": {
+   "h": 844,
+   "page": "garage",
+   "title": "Search and sort",
+   "w": 390,
+   "x": 0,
+   "y": 2644
+  },
+  "Garage-Classic.dc.html": {
+   "h": 844,
+   "page": "garage",
+   "title": "Garage · classic layout",
+   "w": 390,
+   "x": 470,
+   "y": 2644
+  },
+  "Receipt-View.dc.html": {
+   "h": 844,
+   "page": "items",
+   "title": "Receipt, full screen",
+   "w": 390,
+   "x": 0,
+   "y": 2344
+  },
+  "Places-Shops.dc.html": {
+   "h": 844,
+   "page": "tabs",
+   "title": "Places · shops",
+   "w": 390,
+   "x": 0,
+   "y": 4320
+  },
+  "Place-Detail.dc.html": {
+   "h": 1180,
+   "page": "tabs",
+   "title": "Place",
+   "w": 390,
+   "x": 470,
+   "y": 4320
+  },
+  "Place-Edit.dc.html": {
+   "h": 1100,
+   "page": "tabs",
+   "title": "New place",
+   "w": 390,
+   "x": 940,
+   "y": 4320
+  },
+  "Place-Card.dc.html": {
+   "h": 844,
+   "page": "tabs",
+   "title": "Loyalty card",
+   "w": 390,
+   "x": 1410,
+   "y": 4320
+  },
+  "Doc-Reminders.dc.html": {
+   "h": 844,
+   "page": "tabs",
+   "title": "Document reminders",
+   "w": 390,
+   "x": 0,
+   "y": 5920
+  },
+  "Sign-Out.dc.html": {
+   "h": 844,
+   "page": "tabs",
+   "title": "Sign out?",
+   "w": 390,
+   "x": 470,
+   "y": 5920
+  },
+  "Place-Picker.dc.html": {
+   "h": 844,
+   "page": "add",
+   "title": "Where was it done?",
+   "w": 390,
+   "x": 0,
+   "y": 2060
+  },
+  "Paywall-No-Price.dc.html": {
+   "h": 844,
+   "page": "plans",
+   "title": "Paywall · price unavailable",
+   "w": 390,
+   "x": 0,
+   "y": 1264
+  },
+  "Paywall-Done.dc.html": {
+   "h": 844,
+   "page": "plans",
+   "title": "Paywall · you’re on Pro",
+   "w": 390,
+   "x": 470,
+   "y": 1264
+  },
+  "Places-Empty.dc.html": {
+   "h": 844,
+   "page": "states",
+   "title": "Places · empty",
+   "w": 390,
+   "x": 0,
+   "y": 1264
+  },
+  "Stats-Empty.dc.html": {
+   "h": 844,
+   "page": "states",
+   "title": "Stats · not enough yet",
+   "w": 390,
+   "x": 470,
+   "y": 1264
+  },
+  "Fuel-Empty.dc.html": {
+   "h": 844,
+   "page": "states",
+   "title": "Fuel · empty",
+   "w": 390,
+   "x": 940,
+   "y": 1264
+  },
+  "Money-Empty.dc.html": {
+   "h": 844,
+   "page": "states",
+   "title": "Money · empty",
+   "w": 390,
+   "x": 1410,
+   "y": 1264
+  },
+  "Record-Delete.dc.html": {
+   "h": 844,
+   "page": "states",
+   "title": "Delete record?",
+   "w": 390,
+   "x": 0,
+   "y": 2528
+  },
+  "Car-Delete.dc.html": {
+   "h": 844,
+   "page": "states",
+   "title": "Delete car?",
+   "w": 390,
+   "x": 470,
+   "y": 2528
+  },
+  "Place-Delete.dc.html": {
+   "h": 844,
+   "page": "states",
+   "title": "Delete place?",
+   "w": 390,
+   "x": 940,
+   "y": 2528
+  },
+  "Sync-Sheet.dc.html": {
+   "h": 844,
+   "page": "states",
+   "title": "Sync",
+   "w": 390,
+   "x": 0,
+   "y": 3792
+  },
+  "Plan-From-Reminder.dc.html": {
+   "h": 844,
+   "page": "states",
+   "title": "Plan · opened from a reminder",
+   "w": 390,
+   "x": 470,
+   "y": 3792
+  },
+  "Chat-Limit.dc.html": {
+   "h": 844,
+   "page": "states",
+   "title": "Chat · out for today",
+   "w": 390,
+   "x": 940,
+   "y": 3792
+  },
+  "Chat-Clear.dc.html": {
+   "h": 844,
+   "page": "states",
+   "title": "Chat · clear?",
+   "w": 390,
+   "x": 1410,
+   "y": 3792
+  },
+  "Main-SE.dc.html": {
+   "h": 667,
+   "page": "states",
+   "title": "Garage · iPhone SE",
+   "w": 375,
+   "x": 0,
+   "y": 5056
+  },
+  "Plan-Large-Text.dc.html": {
+   "h": 844,
+   "page": "states",
+   "title": "Plan · largest text",
+   "w": 390,
+   "x": 455,
+   "y": 5056
+  },
+  "Add-Service-Items.dc.html": {
+   "h": 1100,
+   "page": "add",
+   "title": "Add a record · two items",
+   "w": 390,
+   "x": 0,
+   "y": 3144
+  },
+  "Add-Service-Part.dc.html": {
+   "h": 1100,
+   "page": "add",
+   "title": "Add a record · part bought",
+   "w": 390,
+   "x": 470,
+   "y": 3144
+  },
+  "Add-Service-Fitted.dc.html": {
+   "h": 1100,
+   "page": "add",
+   "title": "Fitting a part from the shelf",
+   "w": 390,
+   "x": 940,
+   "y": 3144
+  },
+  "AI-Review-Odometer.dc.html": {
+   "h": 1060,
+   "page": "add",
+   "title": "Check the records · mileage flagged",
+   "w": 390,
+   "x": 1410,
+   "y": 3144
+  },
+  "Record-Imported.dc.html": {
+   "h": 844,
+   "page": "car",
+   "title": "Record · imported, no saved rate",
+   "w": 390,
+   "x": 0,
+   "y": 4260
+  },
+  "Wish-Bought.dc.html": {
+   "h": 844,
+   "page": "items",
+   "title": "Bought it?",
+   "w": 390,
+   "x": 0,
+   "y": 3428
+  },
+  "Tyre-Sidewall.dc.html": {
+   "h": 844,
+   "page": "items",
+   "title": "Read the sidewall",
+   "w": 390,
+   "x": 470,
+   "y": 3428
+  },
+  "Tyre-Assess.dc.html": {
+   "h": 844,
+   "page": "items",
+   "title": "Look with AI",
+   "w": 390,
+   "x": 940,
+   "y": 3428
+  },
+  "Doc-Broken.dc.html": {
+   "h": 844,
+   "page": "items",
+   "title": "Docs · can’t be opened",
+   "w": 390,
+   "x": 1410,
+   "y": 3428
+  },
+  "Docs-Confirm-Code.dc.html": {
+   "h": 844,
+   "page": "items",
+   "title": "Docs · confirm the recovery code",
+   "w": 390,
+   "x": 1880,
+   "y": 3428
+  },
+  "Vault-Passphrase.dc.html": {
+   "h": 844,
+   "page": "items",
+   "title": "Change passphrase",
+   "w": 390,
+   "x": 2350,
+   "y": 3428
+  },
+  "Paywall-Current.dc.html": {
+   "h": 844,
+   "page": "plans",
+   "title": "Paywall · already on Pro",
+   "w": 390,
+   "x": 0,
+   "y": 2348
+  },
+  "Tyre-Made-Month.dc.html": {
+   "h": 844,
+   "page": "items",
+   "title": "Tyre age · month and year",
+   "w": 390,
+   "x": 2820,
+   "y": 3428
+  },
+  "Tyre-Made-DOT.dc.html": {
+   "h": 844,
+   "page": "items",
+   "title": "Tyre age · DOT code",
+   "w": 390,
+   "x": 3290,
+   "y": 3428
+  },
+  "Splash.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "page": "onboarding",
+   "title": "Splash · launch animation",
+   "is_interactive": true
+  },
+  "Brand.dc.html": {
+   "x": 0,
+   "y": 1980,
+   "w": 2040,
+   "h": 1880,
+   "page": "foundations",
+   "title": "Brand · the mark",
+   "is_interactive": true
+  },
+  "Garage-Plate.dc.html": {
+   "h": 844,
+   "page": "garage",
+   "title": "Garage · Plate frame · VIP",
+   "w": 390,
+   "x": 940,
+   "y": 1380
+  },
+  "Setup-Voice.dc.html": {
+   "x": 4230,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "page": "onboarding",
+   "title": "Setup 5 / 9 · say it"
+  },
+  "VIN-Scan.dc.html": {
+   "x": 470,
+   "y": 2060,
+   "w": 390,
+   "h": 844,
+   "page": "add",
+   "title": "Scan the VIN · camera"
+  },
+  "VIN-Scan-Read.dc.html": {
+   "x": 940,
+   "y": 2060,
+   "w": 390,
+   "h": 844,
+   "page": "add",
+   "title": "Scan the VIN · read back"
+  },
+  "Tyre-Set-Stored.dc.html": {
+   "x": 2350,
+   "y": 0,
+   "w": 390,
+   "h": 844,
+   "page": "items",
+   "title": "Tyre set · in storage"
+  },
+  "Record-Receipt.dc.html": {
+   "h": 1010,
+   "page": "car",
+   "title": "Record · receipt kept, R-40",
+   "w": 390,
+   "x": 7520,
+   "y": 0
+  },
+  "Record-Receipt-Free.dc.html": {
+   "h": 880,
+   "page": "car",
+   "title": "Record · receipt not kept, Free",
+   "w": 390,
+   "x": 7990,
+   "y": 0
+  },
+  "Export-PDF.dc.html": {
+   "h": 844,
+   "page": "tabs",
+   "title": "PDF report · options",
+   "w": 390,
+   "x": 5640,
+   "y": 0
+  },
+  "Export-PDF-Free.dc.html": {
+   "h": 844,
+   "page": "tabs",
+   "title": "PDF report · options, Free",
+   "w": 390,
+   "x": 6110,
+   "y": 0
+  },
+  "Voice-Mic-Off.dc.html": {
+   "h": 844,
+   "page": "voice",
+   "title": "Voice · microphone off",
+   "w": 390,
+   "x": 0,
+   "y": 1380
+  },
+  "Voice-Nothing.dc.html": {
+   "h": 844,
+   "page": "voice",
+   "title": "Voice · nothing heard",
+   "w": 390,
+   "x": 470,
+   "y": 1380
+  },
+  "Voice-Unclear.dc.html": {
+   "h": 844,
+   "page": "voice",
+   "title": "Voice · not sure what it is",
+   "w": 390,
+   "x": 940,
+   "y": 1380
+  },
+  "VIN-Scan-Glare.dc.html": {
+   "h": 844,
+   "page": "add",
+   "title": "VIN · glare, can’t read",
+   "w": 390,
+   "x": 1410,
+   "y": 2060
+  },
+  "VIN-No-Match.dc.html": {
+   "h": 844,
+   "page": "add",
+   "title": "VIN · frame number, no match",
+   "w": 390,
+   "x": 1880,
+   "y": 2060
+  },
+  "State-AI-Offline.dc.html": {
+   "h": 844,
+   "page": "states",
+   "title": "Offline · AI reads it later",
+   "w": 390,
+   "x": 1880,
+   "y": 3792
+  },
+  "Photo-Pick.dc.html": {
+   "x": 0,
+   "y": 4600,
+   "w": 390,
+   "h": 844,
+   "title": "Photo · take or choose",
+   "page": "add"
+  },
+  "Photo-Camera.dc.html": {
+   "x": 470,
+   "y": 4600,
+   "w": 390,
+   "h": 844,
+   "title": "Photo · camera, receipt found",
+   "page": "add"
+  },
+  "Photo-Reading.dc.html": {
+   "x": 940,
+   "y": 4600,
+   "w": 390,
+   "h": 844,
+   "title": "Photo · AI working out what it is",
+   "page": "add"
+  },
+  "Photo-Review.dc.html": {
+   "x": 1410,
+   "y": 4600,
+   "w": 390,
+   "h": 844,
+   "title": "Photo · a receipt goes to Service",
+   "page": "add"
+  },
+  "Photo-Review-Odo.dc.html": {
+   "x": 1880,
+   "y": 4600,
+   "w": 390,
+   "h": 844,
+   "title": "Photo · the dashboard updates the odometer",
+   "page": "add"
+  },
+  "Photo-Review-Part.dc.html": {
+   "x": 2350,
+   "y": 4600,
+   "w": 390,
+   "h": 844,
+   "title": "Photo · a part goes on the shelf",
+   "page": "add"
+  },
+  "Photo-Unclear.dc.html": {
+   "x": 2820,
+   "y": 4600,
+   "w": 390,
+   "h": 844,
+   "title": "Photo · can’t tell what it is",
+   "page": "add"
+  },
+  "Car-Plan-Add.dc.html": {
+   "x": 0,
+   "y": 5800,
+   "w": 390,
+   "h": 844,
+   "title": "Car: plan, add",
+   "page": "add"
+  },
+  "Car-Fuel-Add.dc.html": {
+   "x": 470,
+   "y": 5800,
+   "w": 390,
+   "h": 844,
+   "title": "Car: fuel, add",
+   "page": "add"
+  },
+  "Plan-Rebuild.dc.html": {
+   "x": 940,
+   "y": 5800,
+   "w": 390,
+   "h": 844,
+   "title": "Plan · rebuild with AI",
+   "page": "add"
+  },
+  "AI-Service-Empty.dc.html": {
+   "x": 0,
+   "y": 7000,
+   "w": 390,
+   "h": 844,
+   "title": "Service with AI · empty",
+   "page": "add"
+  },
+  "AI-Service.dc.html": {
+   "x": 470,
+   "y": 7000,
+   "w": 390,
+   "h": 844,
+   "title": "Service with AI · text, photos, receipt kept",
+   "page": "add"
+  },
+  "AI-Fuel.dc.html": {
+   "x": 940,
+   "y": 7000,
+   "w": 390,
+   "h": 844,
+   "title": "Fuel with AI",
+   "page": "add"
+  },
+  "AI-Expense.dc.html": {
+   "x": 1410,
+   "y": 7000,
+   "w": 390,
+   "h": 844,
+   "title": "Expense with AI",
+   "page": "add"
+  },
+  "Date-Pick.dc.html": {
+   "h": 844,
+   "page": "add",
+   "title": "Date · pick a day",
+   "w": 390,
+   "x": 2350,
+   "y": 2060
+  },
+  "Date-Pick-Month.dc.html": {
+   "h": 844,
+   "page": "add",
+   "title": "Date · month and year",
+   "w": 390,
+   "x": 2820,
+   "y": 2060
+  },
+  "Date-Pick-Year.dc.html": {
+   "h": 844,
+   "page": "add",
+   "title": "Date · bought on, year first",
+   "w": 390,
+   "x": 3290,
+   "y": 2060
+  },
+  "Date-Pick-Spec.dc.html": {
+   "h": 1220,
+   "page": "add",
+   "title": "Date picker · spec",
+   "w": 1040,
+   "x": 3760,
+   "y": 2060
+  }
+ },
+ "createdOnFiles": {
+  "at": "2026-09-24T08:34:53Z",
+  "v": 1
+ },
+ "designSystems": [],
+ "launch": {
+  "page": "garage",
+  "view": "canvas"
+ },
+ "notes": {
+  "n_add_d": {
+   "kind": "title1",
+   "maxW": 7580,
+   "page": "add",
+   "text": "Add flows · dark",
+   "w": 240,
+   "x": 0,
+   "y": -300
+  },
+  "n_car_d": {
+   "kind": "title1",
+   "maxW": 7440,
+   "page": "car",
+   "text": "Car · dark",
+   "w": 240,
+   "x": 0,
+   "y": -300
+  },
+  "n_frames": {
+   "kind": "title1",
+   "maxW": 1330,
+   "page": "garage",
+   "text": "Frames on the garage",
+   "w": 240,
+   "x": 0,
+   "y": 1080
+  },
+  "n_garage_d": {
+   "kind": "title1",
+   "maxW": 5560,
+   "page": "garage",
+   "text": "Garage · dark",
+   "w": 240,
+   "x": 0,
+   "y": -300
+  },
+  "n_items_d": {
+   "kind": "title1",
+   "maxW": 7910,
+   "page": "items",
+   "text": "Wishlist · Docs · Tyres · dark",
+   "w": 240,
+   "x": 0,
+   "y": -300
+  },
+  "n_keys_d": {
+   "kind": "title1",
+   "maxW": 1800,
+   "page": "keys",
+   "text": "Keyboards · dark",
+   "w": 240,
+   "x": 0,
+   "y": -300
+  },
+  "n_lang": {
+   "kind": "title1",
+   "maxW": 2960,
+   "page": "foundations",
+   "text": "Design language",
+   "w": 240,
+   "x": 0,
+   "y": -300
+  },
+  "n_ob_d": {
+   "kind": "title1",
+   "maxW": 7440,
+   "page": "onboarding",
+   "text": "First run · dark",
+   "w": 240,
+   "x": 0,
+   "y": -300
+  },
+  "n_out": {
+   "kind": "title1",
+   "maxW": 4860,
+   "page": "outside",
+   "text": "Widgets · notifications · tablet",
+   "w": 240,
+   "x": 0,
+   "y": -300
+  },
+  "n_pl_d": {
+   "kind": "title1",
+   "maxW": 1330,
+   "page": "plans",
+   "text": "Plans · dark",
+   "w": 240,
+   "x": 0,
+   "y": -300
+  },
+  "n_states_d": {
+   "kind": "title1",
+   "maxW": 3210,
+   "page": "states",
+   "text": "Empty and error states · dark",
+   "w": 240,
+   "x": 0,
+   "y": -300
+  },
+  "n_tabs_d": {
+   "kind": "title1",
+   "maxW": 7170,
+   "page": "tabs",
+   "text": "Places · Stats · Profile · dark",
+   "w": 240,
+   "x": 0,
+   "y": -300
+  },
+  "n_v_d": {
+   "kind": "title1",
+   "maxW": 3680,
+   "page": "voice",
+   "text": "Say it · phone · dark",
+   "w": 240,
+   "x": 0,
+   "y": -300
+  },
+  "n_stats5_d": {
+   "kind": "title1",
+   "maxW": 2740,
+   "page": "tabs",
+   "text": "Stats · five sections · dark",
+   "w": 240,
+   "x": 0,
+   "y": 2080
+  },
+  "n12_0_d": {
+   "kind": "title1",
+   "maxW": 1330,
+   "page": "car",
+   "text": "Money · all expenses and fines",
+   "w": 240,
+   "x": 0,
+   "y": 2720
+  },
+  "n12_1_d": {
+   "kind": "title1",
+   "maxW": 1330,
+   "page": "garage",
+   "text": "Search and the Classic layout",
+   "w": 240,
+   "x": 0,
+   "y": 2344
+  },
+  "n12_2_d": {
+   "kind": "title1",
+   "maxW": 1330,
+   "page": "items",
+   "text": "Receipt viewer",
+   "w": 240,
+   "x": 0,
+   "y": 2044
+  },
+  "n12_3_d": {
+   "kind": "title1",
+   "maxW": 1800,
+   "page": "tabs",
+   "text": "Places",
+   "w": 240,
+   "x": 0,
+   "y": 4020
+  },
+  "n12_4_d": {
+   "kind": "title1",
+   "maxW": 1330,
+   "page": "tabs",
+   "text": "Profile · more",
+   "w": 240,
+   "x": 0,
+   "y": 5620
+  },
+  "n12_5_d": {
+   "kind": "title1",
+   "maxW": 1330,
+   "page": "add",
+   "text": "Pickers and VIN scan",
+   "w": 240,
+   "x": 0,
+   "y": 1760
+  },
+  "n12_6_d": {
+   "kind": "title1",
+   "maxW": 1330,
+   "page": "plans",
+   "text": "Paywall states",
+   "w": 240,
+   "x": 0,
+   "y": 964
+  },
+  "n12_7_d": {
+   "kind": "title1",
+   "maxW": 1800,
+   "page": "states",
+   "text": "Empty",
+   "w": 240,
+   "x": 0,
+   "y": 964
+  },
+  "n12_8_d": {
+   "kind": "title1",
+   "maxW": 1330,
+   "page": "states",
+   "text": "Delete",
+   "w": 240,
+   "x": 0,
+   "y": 2228
+  },
+  "n12_9_d": {
+   "kind": "title1",
+   "maxW": 1800,
+   "page": "states",
+   "text": "Sync, reminders, chat",
+   "w": 240,
+   "x": 0,
+   "y": 3492
+  },
+  "n12_10_d": {
+   "kind": "title1",
+   "maxW": 1330,
+   "page": "states",
+   "text": "Small phone and large text",
+   "w": 240,
+   "x": 0,
+   "y": 4756
+  },
+  "n_brand": {
+   "kind": "title1",
+   "page": "foundations",
+   "text": "Brand · the mark",
+   "x": 0,
+   "y": 1680,
+   "w": 240,
+   "maxW": 2040
+  },
+  "n_v_err": {
+   "kind": "title1",
+   "maxW": 1330,
+   "page": "voice",
+   "text": "When voice goes wrong",
+   "w": 240,
+   "x": 0,
+   "y": 1120
+  },
+  "n_addai_0": {
+   "kind": "title1",
+   "maxW": 3210,
+   "page": "add",
+   "text": "Photo from the + · AI decides what it is",
+   "w": 240,
+   "x": 0,
+   "y": 4300
+  },
+  "n_addai_1": {
+   "kind": "title1",
+   "maxW": 1330,
+   "page": "add",
+   "text": "The + inside a car · by hand or with AI",
+   "w": 240,
+   "x": 0,
+   "y": 5500
+  },
+  "n_addai_2": {
+   "kind": "title1",
+   "maxW": 1800,
+   "page": "add",
+   "text": "With AI · text and photos",
+   "w": 240,
+   "x": 0,
+   "y": 6700
+  }
+ },
+ "order": [
+  "Splash.dc.html",
+  "System.dc.html",
+  "Main.dc.html",
+  "Garage-Tray.dc.html",
+  "Garage-Swap.dc.html",
+  "Garage-Custom.dc.html",
+  "Garage-Clean.dc.html",
+  "Garage-List.dc.html",
+  "Garage-Edit.dc.html",
+  "Frames.dc.html",
+  "Add.dc.html",
+  "Garage-Next-Car.dc.html",
+  "Garage-Next-Car-Free.dc.html",
+  "Garage-Fines.dc.html",
+  "Car-Services.dc.html",
+  "Car-Shelf.dc.html",
+  "Car-Plan.dc.html",
+  "Car-Fuel.dc.html",
+  "Car-Money.dc.html",
+  "Car-Money-Add.dc.html",
+  "Car-Chat.dc.html",
+  "Moment.dc.html",
+  "Wishlist.dc.html",
+  "Wishlist-Alerts.dc.html",
+  "Docs.dc.html",
+  "Tyres.dc.html",
+  "Tyre-Set.dc.html",
+  "Tyre-Set-Stored.dc.html",
+  "Tyre.dc.html",
+  "Places.dc.html",
+  "Profile.dc.html",
+  "State-New-Car.dc.html",
+  "State-Offline.dc.html",
+  "State-Scans-Out.dc.html",
+  "State-Scan-Failed.dc.html",
+  "State-Vault-Locked.dc.html",
+  "State-Wishlist-Empty.dc.html",
+  "State-Plan-Generating.dc.html",
+  "Car-Services-Scrolled.dc.html",
+  "Record.dc.html",
+  "Record-Edit.dc.html",
+  "Plan-Item.dc.html",
+  "Plan-Done.dc.html",
+  "Empty-Garage.dc.html",
+  "Whats-New.dc.html",
+  "Add-Car.dc.html",
+  "Add-Car-Filled.dc.html",
+  "VIN-Scan.dc.html",
+  "VIN-Scan-Read.dc.html",
+  "Add-Car-Make.dc.html",
+  "Add-Service.dc.html",
+  "Add-Service-Rates.dc.html",
+  "AI-Entry.dc.html",
+  "AI-Reading.dc.html",
+  "AI-Review.dc.html",
+  "Add-Fuel.dc.html",
+  "Add-Expense.dc.html",
+  "Add-Expense-Fine.dc.html",
+  "Notify-Fines.dc.html",
+  "Add-Expense-Keypad.dc.html",
+  "Odometer-Update.dc.html",
+  "Sign-In-Keyboard.dc.html",
+  "Add-Car-Keyboard.dc.html",
+  "Welcome.dc.html",
+  "Sign-Up.dc.html",
+  "Setup-1.dc.html",
+  "Setup-2.dc.html",
+  "Setup-3.dc.html",
+  "Setup-4.dc.html",
+  "Setup-Voice.dc.html",
+  "Setup-5.dc.html",
+  "Setup-6.dc.html",
+  "Setup-7.dc.html",
+  "Setup-8.dc.html",
+  "Paywall-Pro.dc.html",
+  "Paywall-VIP.dc.html",
+  "Paywall-Limit.dc.html",
+  "Sign-In.dc.html",
+  "Reset-Password.dc.html",
+  "Car-Services-Add.dc.html",
+  "Garage-Charcoal.dc.html",
+  "Garage-Night.dc.html",
+  "Garage-Plate.dc.html",
+  "Voice-Hold.dc.html",
+  "Voice-Review.dc.html",
+  "Voice-Review-Parking.dc.html",
+  "Voice-Result.dc.html",
+  "Siri-Ask.dc.html",
+  "Siri-Done.dc.html",
+  "Motion-Voice.dc.html",
+  "Voice-Listen.dc.html",
+  "Icons.dc.html",
+  "Settings-Language.dc.html",
+  "Settings-Country.dc.html",
+  "Settings-Currency.dc.html",
+  "Usage.dc.html",
+  "Feedback.dc.html",
+  "Rate-Prompt.dc.html",
+  "Import.dc.html",
+  "Import-Preview.dc.html",
+  "Export.dc.html",
+  "Delete-Account.dc.html",
+  "PDF-Report.dc.html",
+  "Car-Edit.dc.html",
+  "Car-Sold.dc.html",
+  "Plan-Add.dc.html",
+  "Plan-Add-Other.dc.html",
+  "Plan-Better.dc.html",
+  "Car-Picker.dc.html",
+  "Odometer-Lower.dc.html",
+  "Visits-Select.dc.html",
+  "Fuel-Rate.dc.html",
+  "Add-Charge.dc.html",
+  "Widgets-iOS.dc.html",
+  "Widgets-Android.dc.html",
+  "Notify-All.dc.html",
+  "Notify-Permission.dc.html",
+  "Chat-Locked.dc.html",
+  "Tyre-Set-Add.dc.html",
+  "Tyre-Swap.dc.html",
+  "Tread-Check.dc.html",
+  "Tyre-Rotate.dc.html",
+  "Tyre-Photos.dc.html",
+  "Tyre-Report.dc.html",
+  "Vault-Setup.dc.html",
+  "Vault-Recovery.dc.html",
+  "Doc-Add.dc.html",
+  "Doc-View.dc.html",
+  "Doc-Menu.dc.html",
+  "Vault-Start-Over.dc.html",
+  "Wish-Add.dc.html",
+  "Wish-Share.dc.html",
+  "Wish-Guest.dc.html",
+  "Wish-Reveal.dc.html",
+  "Stats-Money.dc.html",
+  "Stats-Driving.dc.html",
+  "Stats-Fuel.dc.html",
+  "Stats-Care.dc.html",
+  "Stats-Garage.dc.html",
+  "Stats-Year.dc.html",
+  "Money-Expenses.dc.html",
+  "Fine-Paid.dc.html",
+  "Garage-Search.dc.html",
+  "Garage-Classic.dc.html",
+  "Receipt-View.dc.html",
+  "Places-Shops.dc.html",
+  "Place-Detail.dc.html",
+  "Place-Edit.dc.html",
+  "Place-Card.dc.html",
+  "Doc-Reminders.dc.html",
+  "Sign-Out.dc.html",
+  "Place-Picker.dc.html",
+  "Paywall-No-Price.dc.html",
+  "Paywall-Done.dc.html",
+  "Places-Empty.dc.html",
+  "Stats-Empty.dc.html",
+  "Fuel-Empty.dc.html",
+  "Money-Empty.dc.html",
+  "Record-Delete.dc.html",
+  "Car-Delete.dc.html",
+  "Place-Delete.dc.html",
+  "Sync-Sheet.dc.html",
+  "Plan-From-Reminder.dc.html",
+  "Chat-Limit.dc.html",
+  "Chat-Clear.dc.html",
+  "Main-SE.dc.html",
+  "Plan-Large-Text.dc.html",
+  "Add-Service-Items.dc.html",
+  "Add-Service-Part.dc.html",
+  "Add-Service-Fitted.dc.html",
+  "AI-Review-Odometer.dc.html",
+  "Record-Imported.dc.html",
+  "Wish-Bought.dc.html",
+  "Tyre-Sidewall.dc.html",
+  "Tyre-Assess.dc.html",
+  "Doc-Broken.dc.html",
+  "Docs-Confirm-Code.dc.html",
+  "Vault-Passphrase.dc.html",
+  "Paywall-Current.dc.html",
+  "Tyre-Made-Month.dc.html",
+  "Tyre-Made-DOT.dc.html",
+  "Brand.dc.html",
+  "Record-Receipt.dc.html",
+  "Record-Receipt-Free.dc.html",
+  "Export-PDF.dc.html",
+  "Export-PDF-Free.dc.html",
+  "Voice-Mic-Off.dc.html",
+  "Voice-Nothing.dc.html",
+  "Voice-Unclear.dc.html",
+  "VIN-Scan-Glare.dc.html",
+  "VIN-No-Match.dc.html",
+  "State-AI-Offline.dc.html",
+  "Photo-Pick.dc.html",
+  "Photo-Camera.dc.html",
+  "Photo-Reading.dc.html",
+  "Photo-Review.dc.html",
+  "Photo-Review-Odo.dc.html",
+  "Photo-Review-Part.dc.html",
+  "Photo-Unclear.dc.html",
+  "Car-Plan-Add.dc.html",
+  "Car-Fuel-Add.dc.html",
+  "Plan-Rebuild.dc.html",
+  "AI-Service-Empty.dc.html",
+  "AI-Service.dc.html",
+  "AI-Fuel.dc.html",
+  "AI-Expense.dc.html",
+  "Date-Pick.dc.html",
+  "Date-Pick-Month.dc.html",
+  "Date-Pick-Year.dc.html",
+  "Date-Pick-Spec.dc.html"
+ ],
+ "pages": [
+  {
+   "id": "foundations",
+   "name": "Foundations"
+  },
+  {
+   "id": "garage",
+   "name": "Garage"
+  },
+  {
+   "id": "voice",
+   "name": "Voice, watch, Siri"
+  },
+  {
+   "id": "onboarding",
+   "name": "First run"
+  },
+  {
+   "id": "plans",
+   "name": "Plans and paywall"
+  },
+  {
+   "id": "car",
+   "name": "Car"
+  },
+  {
+   "id": "add",
+   "name": "Add flows"
+  },
+  {
+   "id": "keys",
+   "name": "Keyboards and keypads"
+  },
+  {
+   "id": "items",
+   "name": "Wishlist · Docs · Tyres"
+  },
+  {
+   "id": "tabs",
+   "name": "Places · Stats · Profile"
+  },
+  {
+   "id": "states",
+   "name": "Empty and error states"
+  },
+  {
+   "id": "outside",
+   "name": "Widgets, notifications, tablet"
+  }
+ ],
+ "title": "Maintra 2.0 · Dark",
+ "v": 3
+}
