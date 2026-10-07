@@ -2,7 +2,7 @@
 // tour as the page scrolls, and follows the tour's chapters there; a second
 // phone for lending and a laptop for the mechanic join it on wide screens.
 
-import { Stage } from './stage.js?v=c12b03ea';
+import { Stage } from './stage.js?v=619f66c7';
 import { Player, loadIndex, prefetch } from './player.js?v=4104dfe0';
 
 const $ = (s, el = document) => el.querySelector(s);
@@ -204,10 +204,16 @@ async function boot() {
   const bar = (on, n = 20) => Array.from({ length: n }, (_, i) => `<span${i < on ? ' class="on"' : ''}></span>`).join('');
   const plates = [
     stage.plate(phone, `<span class="pl">${t.plate_oil}</span><span class="pv">4 023<small>km</small></span><span class="pbar">${bar(12)}</span>`, { x: 345 * side, y: 250, z: 130 }),
-    stage.plate(phone, `<span class="oct"></span><span class="pt">${t.plate_hose}</span><span class="ps">${t.plate_late}</span>`, { x: -360 * side, y: -20, z: 170, cls: 'late' }),
+    stage.plate(phone, `<span class="oct"></span><span class="pt">${t.plate_hose}</span><span class="ps">${t.plate_late}</span>`, { x: -300 * side, y: -20, z: 170, cls: 'late' }),
     stage.plate(phone, `<span class="pl">${t.plate_health}</span><span class="pv">71</span><span class="pbar">${bar(14)}</span>`, { x: 335 * side, y: -280, z: 80 }),
   ];
   for (const p of plates) p.el.style.opacity = '0';
+  // a plate the screen edge would cut stays away (checked with the clock below)
+  const cut = plates.map(() => false);
+  const measure = () => plates.forEach((p, i) => {
+    const b = p.el.getBoundingClientRect();
+    cut[i] = b.left < 8 || b.right > innerWidth - 8;
+  });
   const dust = stage.dust(() => {
     if (introAt === null) return null;
     const H = box(heroSlot);
@@ -249,7 +255,7 @@ async function boot() {
       const room = heroSlot.parentElement.clientWidth > heroSlot.clientWidth * 1.9;
       const show = introAt !== null && room ? (1 - clamp01(flight() * 2.2)) * intro() : 0;
       plates.forEach((p, i) => {
-        const a = clamp01(intro() * 1.6 - 0.4 - i * 0.18);
+        const a = cut[i] ? 0 : clamp01(intro() * 1.6 - 0.4 - i * 0.18);
         p.el.style.opacity = String(Math.round(show * a * 100) / 100);
       });
       // the glass catches the lamp as the phone turns
@@ -291,6 +297,7 @@ async function boot() {
   setInterval(() => {
     const f = flight();
     const was = inHero;
+    if (f < 0.45) measure();
     inHero = f < 0.45;
     if (inHero && !was) {
       active = null;

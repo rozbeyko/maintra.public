@@ -2,7 +2,7 @@
 
 > AI-powered vehicle maintenance tracker for Android and iPhone. A "smart digital service book" that logs service history, fuel-ups, and generates a personalized maintenance plan for each vehicle using Anthropic Claude.
 
-Maintra is a mobile app for Android and iPhone (free to start, Pro and VIP subscriptions available) that helps car owners stay on top of vehicle maintenance. It is offline-first, has no ads, no location tracking, and is available in English, Ukrainian, Polish, French, Italian, and Spanish.
+Maintra is a mobile app for Android and iPhone (free to start, Pro and VIP subscriptions available) that helps car owners stay on top of vehicle maintenance. It is offline-first, has no ads, no location tracking, and is available in English, Ukrainian, Polish, French, Italian, and Spanish. Maintra 2.0 (October 2026) adds German, Arabic, Korean, Japanese and Simplified Chinese.
 
 **Get the app (Android):** https://play.google.com/store/apps/details?id=com.maintra.app
 **Get the app (iPhone):** https://apps.apple.com/app/maintra/id6775876731
@@ -20,6 +20,22 @@ Maintra is a mobile app for Android and iPhone (free to start, Pro and VIP subsc
 - **AI service entry** — Describe a service in plain text → structured entry with date, mileage, line items, total. 1 free/Pro (one-time), 15/month on VIP.
 - **Offline-first** — All data stored locally (SQLite). Syncs to Supabase when online. AI features require connection.
 - **No tracking** — No analytics, no location, no third-party trackers, no ads.
+
+## New in Maintra 2.0 (October 2026, a free update)
+
+The whole app is redesigned from the first screen. Existing records stay where they are; the update arrives through the App Store and Google Play like any other.
+
+- **New garage** — the car as a photo in a polaroid with the odometer stamped on it, and only what is late or due soon underneath.
+- **Offline maps and trips** — download a region once and navigate without signal; each trip adds its kilometres to the odometer so the maintenance plan stays accurate. The track stays on the phone.
+- **OBD scans** — with a cheap OBD adapter: trouble codes, freeze frame and live data, explained in plain words, kept in the car's history, compared before and after a fix.
+- **Lend, share, sell** — lend the car with guest access (the guest's fuel and kilometre entries are kept apart), drive it together with a partner, or transfer it to a buyer together with its full service history.
+- **A link for the mechanic** — the mechanic opens what is due, the owner's notes, fluids and part numbers in a browser, with no app and no account, and can send back a record of the work that the owner accepts or rejects.
+- **The car sheet** — oil specs, filter numbers and tyre sizes on one page; values filled in by AI are marked as such.
+- **Snap or say it** — photograph a receipt in any language and AI turns it into records you check line by line before saving; or hold + and describe the job by voice. Siri and Apple Watch for quick entries.
+- **Tyres by age** — tread per wheel, rotation, and the tyre's age read from the DOT code.
+- **Encrypted documents** — insurance and registration encrypted on the phone before upload, with a key only the owner holds.
+- **Themes** — Garage (dark), Workshop (light), Red light for night driving, Field, Blueprint, Logbook and Rose.
+- **11 languages**, right-to-left included, plus layouts for tablets.
 
 ## Subscription tiers
 
@@ -39,7 +55,7 @@ Exact prices are localized and shown in-app at checkout. Subscriptions are manag
 
 ## Key pages
 
-- [Home](https://maintra.me/) — overview, features, pricing
+- [Home](https://maintra.me/) — Maintra 2.0: the app running on a 3D phone you can click through, every feature explained, plans, FAQ. Also in [Українська](https://maintra.me/uk/), [Polski](https://maintra.me/pl/), [Français](https://maintra.me/fr/), [Italiano](https://maintra.me/it/), [Español](https://maintra.me/es/), [Deutsch](https://maintra.me/de/), [العربية](https://maintra.me/ar/), [한국어](https://maintra.me/ko/), [日本語](https://maintra.me/ja/) and [简体中文](https://maintra.me/zh/)
 - [FAQ](https://maintra.me/faq.html) — common questions about features, AI, subscriptions, troubleshooting
 - [About the developer](https://maintra.me/about.html) — who builds Maintra: a DIY Pajero owner who is also a software delivery lead
 - [Support](https://maintra.me/support.html) — how to contact the team

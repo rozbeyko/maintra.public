@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="zh-Hans" dir="ltr" class="loading">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maintra 2.0 · 今年 10 月更新</title>
+<meta name="description" content="Maintra 2.0 将于 10 月推出：全新车库、自动累计里程的离线地图、OBD 诊断、发给修车师傅的链接、11 种语言。一本保养手册，写给用心养车的人。在页面上就能直接试用 App。">
+<link rel="canonical" href="https://maintra.me/zh/">
+<link rel="alternate" hreflang="en" href="https://maintra.me/">
+<link rel="alternate" hreflang="uk" href="https://maintra.me/uk/">
+<link rel="alternate" hreflang="pl" href="https://maintra.me/pl/">
+<link rel="alternate" hreflang="fr" href="https://maintra.me/fr/">
+<link rel="alternate" hreflang="it" href="https://maintra.me/it/">
+<link rel="alternate" hreflang="es" href="https://maintra.me/es/">
+<link rel="alternate" hreflang="de" href="https://maintra.me/de/">
+<link rel="alternate" hreflang="ar" href="https://maintra.me/ar/">
+<link rel="alternate" hreflang="ko" href="https://maintra.me/ko/">
+<link rel="alternate" hreflang="ja" href="https://maintra.me/ja/">
+<link rel="alternate" hreflang="zh-Hans" href="https://maintra.me/zh/">
+<link rel="alternate" hreflang="x-default" href="https://maintra.me/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Maintra">
+<meta property="og:title" content="Maintra 2.0 · 今年 10 月更新">
+<meta property="og:description" content="一本保养手册，写给用心养车的人，这次从第一屏开始重做。在页面上就能直接试用。">
+<meta property="og:url" content="https://maintra.me/zh/">
+<meta property="og:image" content="https://maintra.me/assets/home/og/zh.jpg?v=b5750df8">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Maintra 2.0 · 今年 10 月更新">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://maintra.me/assets/home/og/zh.jpg?v=b5750df8">
+<meta name="theme-color" content="#0B0B0A">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+
+<link rel="modulepreload" href="/assets/home/home.js?v=b68bb6c8">
+<link rel="modulepreload" href="/assets/home/stage.js?v=619f66c7">
+<link rel="modulepreload" href="/assets/home/player.js?v=4104dfe0">
+<link rel="modulepreload" href="/assets/journey/three.module.min.js">
+<link rel="preload" href="/assets/home/b/index.json?v=4b0612bf" as="fetch" crossorigin="anonymous">
+<link rel="preload" href="/assets/home/img/paj.webp" as="image">
+<link rel="preload" href="/assets/journey/fonts/tektur-400-900-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/journey/fonts/firasans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/journey/fonts/firasans-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/home/fonts.css?v=3a8a3f95">
+
+<link rel="stylesheet" href="/assets/home/home.css?v=9a477a3b">
+<script type="module" src="/assets/home/home.js?v=b68bb6c8"></script>
+<script>setTimeout(function () { document.documentElement.classList.remove('loading'); }, 7000);</script>
+<noscript><style>html.loading .loader{display:none}</style></noscript>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"MobileApplication","name":"Maintra","url":"https://maintra.me/zh/","description":"Maintra 2.0 将于 10 月推出：全新车库、自动累计里程的离线地图、OBD 诊断、发给修车师傅的链接、11 种语言。一本保养手册，写给用心养车的人。在页面上就能直接试用 App。","inLanguage":"zh-Hans","operatingSystem":"iOS, Android","applicationCategory":"UtilitiesApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"Kyrylo Rozbeiko"},"downloadUrl":["https://apps.apple.com/app/maintra/id6775876731","https://play.google.com/store/apps/details?id=com.maintra.app"]}</script>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<div class="loader" id="loader" role="status"><svg viewBox="0 0 100 100" aria-hidden="true">
+<g class="ld" style="--dx:-11.48"><path d="M28.97,24.61 L36.93,24.61 L36.93,75.39 L28.97,75.39 Z" fill="#8F897E"/></g>
+<g class="ld" style="--dx:-34.45"><path d="M51.93,24.61 L59.90,24.61 L59.90,75.39 L51.93,75.39 Z" fill="#8F897E"/></g>
+<path d="M14.14,34.77 L94.00,34.77 L90.93,44.23 L11.07,44.23 Z" fill="#F4B223"/>
+<clipPath id="ldBar"><path d="M14.14,34.77 L94.00,34.77 L90.93,44.23 L11.07,44.23 Z"/></clipPath>
+<g clip-path="url(#ldBar)">
+<g class="ld" style="--dx:0"><path d="M8.40,75.39 L22.83,75.39 L39.33,24.61 L24.90,24.61 Z" fill="#9A6700"/></g>
+<g class="ld" style="--dx:-22.97"><path d="M31.37,75.39 L45.80,75.39 L62.30,24.61 L47.86,24.61 Z" fill="#9A6700"/></g>
+<g class="ld" style="--dx:-45.93"><path d="M54.33,75.39 L68.77,75.39 L85.26,24.61 L70.83,24.61 Z" fill="#9A6700"/></g>
+</g>
+<g class="ld" style="--dx:0"><path d="M6.00,75.39 L20.43,75.39 L36.93,24.61 L22.50,24.61 Z" fill="#ECE4D6"/></g>
+<g class="ld" style="--dx:-22.97"><path d="M28.97,75.39 L43.40,75.39 L59.90,24.61 L45.46,24.61 Z" fill="#ECE4D6"/></g>
+<g class="ld" style="--dx:-45.93"><path d="M51.93,75.39 L66.37,75.39 L82.86,24.61 L68.43,24.61 Z" fill="#F4B223"/></g>
+</svg><span class="sr">加载中</span></div>
+
+<header class="top" id="top">
+  <a class="brand" href="/zh/" aria-label="Maintra"><svg class="mt" viewBox="0 0 100 57.69" aria-hidden="true"><path d="M26.10,0.00 L35.15,0.00 L35.15,57.69 L26.10,57.69 Z" fill="#8F897E"/><path d="M52.20,0.00 L61.25,0.00 L61.25,57.69 L52.20,57.69 Z" fill="#8F897E"/><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" fill="#F4B223"/><clipPath id="mtc1"><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z"/></clipPath><g clip-path="url(#mtc1)"><path d="M2.40,57.69 L18.80,57.69 L37.55,0.00 L21.15,0.00 Z" fill="#9A6700"/><path d="M28.50,57.69 L44.90,57.69 L63.65,0.00 L47.24,0.00 Z" fill="#9A6700"/><path d="M54.60,57.69 L71.00,57.69 L89.75,0.00 L73.34,0.00 Z" fill="#9A6700"/></g><path d="M0.00,57.69 L16.40,57.69 L35.15,0.00 L18.75,0.00 Z" fill="#ECE4D6"/><path d="M26.10,57.69 L42.50,57.69 L61.25,0.00 L44.84,0.00 Z" fill="#ECE4D6"/><path d="M52.20,57.69 L68.60,57.69 L87.35,0.00 L70.94,0.00 Z" fill="#F4B223"/></svg><span class="word">Maintra</span></a>
+  <nav class="top-nav" aria-label="Maintra">
+    <a href="#tour">上手试试</a>
+    <a href="#why">为什么值得用</a>
+    <a href="#maker">谁做的</a>
+    <a href="#faq">常见问题</a>
+  </nav>
+  <div class="lang">
+    <button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="语言"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 3.5h7l5 5v7l-5 5h-7l-5-5v-7z"></path><path d="M3.5 12h17M12 3.5L8.5 12l3.5 8.5M12 3.5l3.5 8.5-3.5 8.5"></path></svg><span>ZH</span></button>
+    <ul class="lang-menu" id="lang-menu" hidden><li><a href="/" hreflang="en" lang="en" data-lang="en"><span class="code">en</span>English</a></li><li><a href="/uk/" hreflang="uk" lang="uk" data-lang="uk"><span class="code">uk</span>Українська</a></li><li><a href="/pl/" hreflang="pl" lang="pl" data-lang="pl"><span class="code">pl</span>Polski</a></li><li><a href="/fr/" hreflang="fr" lang="fr" data-lang="fr"><span class="code">fr</span>Français</a></li><li><a href="/it/" hreflang="it" lang="it" data-lang="it"><span class="code">it</span>Italiano</a></li><li><a href="/es/" hreflang="es" lang="es" data-lang="es"><span class="code">es</span>Español</a></li><li><a href="/de/" hreflang="de" lang="de" data-lang="de"><span class="code">de</span>Deutsch</a></li><li><a href="/ar/" hreflang="ar" lang="ar" dir="rtl" data-lang="ar"><span class="code">ar</span>العربية</a></li><li><a href="/ko/" hreflang="ko" lang="ko" data-lang="ko"><span class="code">ko</span>한국어</a></li><li><a href="/ja/" hreflang="ja" lang="ja" data-lang="ja"><span class="code">ja</span>日本語</a></li><li><a href="/zh/" hreflang="zh-Hans" lang="zh-Hans" data-lang="zh" aria-current="true"><span class="code">zh</span>简体中文</a></li></ul>
+  </div>
+  <a class="btn btn-line btn-sm top-get" href="#get">下载 App</a>
+</header>
+
+<main id="main">
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-bg" aria-hidden="true"><div class="wall"></div><div class="lamp"></div><div class="beam"></div></div>
+  <div class="hero-in">
+    <div class="hero-copy">
+      <p class="kicker"><span class="label">Maintra 2.0</span><span class="film">10 2026</span></p>
+      <h1 id="hero-title" class="h1"><span class="h1-in">更新就在<br>今年 10 月</span></h1>
+      <p class="lede">一本保养手册，写给用心养车的人。这次从第一屏开始重做：全新车库、自动累计里程的离线地图、OBD 诊断、发给修车师傅的链接、11 种语言。</p>
+      <div class="stores"><a class="btn btn-gold store" data-store="ios" href="https://apps.apple.com/app/maintra/id6775876731" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg><span><small>前往</small>App Store</span></a><a class="btn btn-line store" data-store="android" href="https://play.google.com/store/apps/details?id=com.maintra.app" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3.6 1.9c-.4.3-.6.7-.6 1.3v17.5c0 .6.2 1 .6 1.3l9.3-9.5L3.6 1.9z"/><path fill="currentColor" opacity=".72" d="M16.9 8.4 13 12l3.9 3.6 3.7-2.1c1.2-.7 1.2-2.3 0-3l-3.7-2.1z"/><path fill="currentColor" opacity=".86" d="M3.6 1.9 12.9 11l3.5-3.3-9.6-5.5c-.5-.3-1-.4-1.5-.4-.6 0-1.1.2-1.7.1z"/><path fill="currentColor" opacity=".6" d="M3.6 22 12.9 13l3.5 3.3-9.6 5.5c-1 .5-1.7.4-2.7.2z"/></svg><span><small>前往</small>Google Play</span></a></div>
+      <p class="note">免费就能开始用。已经在用 Maintra？2.0 就是一次普通更新，你的记录原封不动。</p>
+    </div>
+    <div class="hero-phone">
+      <div class="slot" data-slot="hero"></div>
+      <a class="cue" href="#tour"><span class="cue-dot" aria-hidden="true"></span>这台手机里是真的 App，随便点点看。</a>
+    </div>
+    <aside class="hero-spec" aria-labelledby="spec-title">
+      <p class="label" id="spec-title">2.0 新功能</p>
+      <ol class="spec">
+        <li><span class="pn">MAP·01</span><span>离线地图和行程</span></li>
+        <li><span class="pn">OBD·02</span><span>OBD 诊断</span></li>
+        <li><span class="pn">KEY·03</span><span>出借、共享、出售</span></li>
+        <li><span class="pn">MEC·04</span><span>发给修车师傅的链接</span></li>
+        <li><span class="pn">SHT·05</span><span>车辆参数表</span></li>
+        <li><span class="pn">NTF·06</span><span>智能提醒</span></li>
+        <li><span class="pn">VOX·07</span><span>语音、Siri、Apple Watch</span></li>
+        <li><span class="pn">THM·08</span><span>主题</span></li>
+        <li><span class="pn">LNG·09</span><span>11 种语言</span></li>
+        <li><span class="pn">GRG·10</span><span>全新车库、浅色主题、平板</span></li>
+      </ol>
+    </aside>
+  </div>
+  <ul class="facts">
+    <li><b>1 000+</b><span>位车主在用 1.6</span></li>
+    <li><b>45</b><span>个国家</span></li>
+    <li><b>50</b><span>种货币</span></li>
+    <li><b>1</b><span>名开发者和他的 Pajero</span></li>
+  </ul>
+</section>
+
+<div class="ticker" aria-hidden="true"><div class="ticker-track"><span>离线地图和行程</span><i></i><span>OBD 诊断</span><i></i><span>出借、共享、出售</span><i></i><span>发给修车师傅的链接</span><i></i><span>车辆参数表</span><i></i><span>智能提醒</span><i></i><span>语音、Siri、Apple Watch</span><i></i><span>主题</span><i></i><span>11 种语言</span><i></i><span>离线地图和行程</span><i></i><span>OBD 诊断</span><i></i><span>出借、共享、出售</span><i></i><span>发给修车师傅的链接</span><i></i><span>车辆参数表</span><i></i><span>智能提醒</span><i></i><span>语音、Siri、Apple Watch</span><i></i><span>主题</span><i></i><span>11 种语言</span><i></i></div></div>
+
+<section class="tour" id="tour" aria-labelledby="tour-title">
+  <header class="sec-head tour-head">
+    <p class="label">上手试试</p>
+    <h2 id="tour-title" class="h2">这就是真正的 App，随便点。</h2>
+    <p class="lede">这不是视频。手机里跑的就是 App 里的同一套界面：点照片、打开计划、扫一张小票、把 Paj 借给朋友。往下滑，每一部分都会讲清楚。</p>
+  </header>
+  <div class="tour-grid">
+    <nav class="tour-index" aria-label="上手试试">
+      <ol>
+        <li><a href="#ch-garage" data-ch="garage"><span class="n">01</span><span class="t">车库</span></a></li>
+        <li><a href="#ch-log" data-ch="log"><span class="n">02</span><span class="t">记一笔</span></a></li>
+        <li><a href="#ch-plan" data-ch="plan"><span class="n">03</span><span class="t">计划</span></a></li>
+        <li><a href="#ch-money" data-ch="money"><span class="n">04</span><span class="t">费用</span></a></li>
+        <li><a href="#ch-map" data-ch="map"><span class="n">05</span><span class="t">地图</span><em>新功能</em></a></li>
+        <li><a href="#ch-obd" data-ch="obd"><span class="n">06</span><span class="t">OBD 诊断</span><em>新功能</em></a></li>
+        <li><a href="#ch-keys" data-ch="keys"><span class="n">07</span><span class="t">车辆交接</span><em>新功能</em></a></li>
+        <li><a href="#ch-mech" data-ch="mech"><span class="n">08</span><span class="t">修车师傅</span><em>新功能</em></a></li>
+        <li><a href="#ch-tyres" data-ch="tyres"><span class="n">09</span><span class="t">轮胎和证件</span></a></li>
+        <li><a href="#ch-yours" data-ch="yours"><span class="n">10</span><span class="t">随你喜欢</span><em>新功能</em></a></li>
+      </ol>
+    </nav>
+    <div class="tour-stage">
+      <div class="slot" data-slot="tour" role="region" aria-label="页面上运行着 Maintra 2.0，哪里都可以点。"></div>
+    </div>
+    <div class="tour-text">
+
+      <article class="ch" id="ch-garage" data-ch="garage" data-start="d/Main">
+        <p class="ch-n"><span>01</span>车库</p>
+        <h3 class="h3">挂在墙上的爱车</h3>
+        <p class="ch-body">打开 Maintra，第一眼看到的就是你的车：一张实拍照片装在拍立得相框里，里程数像胶片日期一样印在上面，还有此刻最要紧的那个数字。下面只列出已逾期和快到期的项目，其他的点一下就能看到。</p>
+        <ol class="steps">
+          <li><button type="button" data-board="d/Main">车库</button></li>
+          <li><button type="button" data-board="d/Car-Services">点一下，看完整历史</button></li>
+          <li><button type="button" data-board="d/Garage-Edit">照片下面放什么，你来选</button></li>
+          <li><button type="button" data-board="d/Frames">拍立得相框</button></li>
+        </ol>
+        <p class="hint"><span class="hint-dot" aria-hidden="true"></span><b>试试</b> 点一下 Paj 的照片。</p>
+      </article>
+
+      <article class="ch" id="ch-log" data-ch="log" data-start="d/Add">
+        <p class="ch-n"><span>02</span>记一笔</p>
+        <h3 class="h3">拍张小票，搞定。</h3>
+        <p class="ch-body">修理厂的账单、加油小票、买配件的收据，什么语言都行。Maintra 会读出内容，整理成记录：配件、工时费、金额、里程。保存前你会逐行确认，读错了也不吃亏。干活干得满手油？按住 +，说说你做了什么就行。</p>
+        <ol class="steps">
+          <li><button type="button" data-board="d/Add">点 +</button></li>
+          <li><button type="button" data-board="d/Photo-Camera">对准小票</button></li>
+          <li><button type="button" data-board="d/Photo-Reading">AI 认出这是什么</button></li>
+          <li><button type="button" data-board="d/AI-Review">你确认，它保存</button></li>
+          <li><button type="button" data-board="d/Voice-Listen">或者按住 + 说话</button></li>
+        </ol>
+        <p class="hint"><span class="hint-dot" aria-hidden="true"></span><b>试试</b> 点“Photo”，再按快门。</p>
+      </article>
+
+      <article class="ch" id="ch-plan" data-ch="plan" data-start="d/Car-Plan">
+        <p class="ch-n"><span>03</span>计划</p>
+        <h3 class="h3">该做什么，为什么</h3>
+        <p class="ch-body">Maintra 根据你的车和里程排出计划：哪些已逾期，哪些快到期，哪些可以再等等。每一项都写明什么时候做、为什么做。标记完成后，倒计时重新开始。出远门前，它还会帮你把车检查一遍。</p>
+        <ol class="steps">
+          <li><button type="button" data-board="d/Car-Plan">已逾期、即将到期、以后</button></li>
+          <li><button type="button" data-board="d/Plan-Item">什么时候，为什么</button></li>
+          <li><button type="button" data-board="d/Plan-Done">标记完成</button></li>
+          <li><button type="button" data-board="d/Moment">盖上印章</button></li>
+          <li><button type="button" data-board="n/Route-Check">出远门前</button></li>
+        </ol>
+        <p class="hint"><span class="hint-dot" aria-hidden="true"></span><b>试试</b> 打开一项，标记完成。</p>
+      </article>
+
+      <article class="ch" id="ch-money" data-ch="money" data-start="d/Car-Money">
+        <p class="ch-n"><span>04</span>费用</p>
+        <h3 class="h3">养车到底花多少钱</h3>
+        <p class="ch-body">每一笔格里夫纳、欧元或美元都记在一个地方，按花钱当天的汇率换算。行驶和持有的花费分开算：每公里多少、每月多少、买车以来一共多少。有罚款的话，半价期结束前会提醒你。</p>
+        <ol class="steps">
+          <li><button type="button" data-board="d/Car-Money">每公里，每月</button></li>
+          <li><button type="button" data-board="d/Car-Fuel">油耗和最好的加油站</button></li>
+          <li><button type="button" data-board="d/Stats-Money">整个车库的账</button></li>
+        </ol>
+        <p class="hint"><span class="hint-dot" aria-hidden="true"></span><b>试试</b> 在费用页面往下滑。</p>
+      </article>
+
+      <article class="ch" id="ch-map" data-ch="map" data-start="n/Map">
+        <p class="ch-n"><span>05</span>地图<em>新功能</em></p>
+        <h3 class="h3">地图离线也能用，还会记里程</h3>
+        <p class="ch-body">把所在地区的地图下载一次，没信号也照样能开。Maintra 一路导航，记下这趟行程，再把公里数加到里程表上，计划就一直是准的。好奇的话，还能看车速和最快的一段。行车轨迹不会离开你的手机。</p>
+        <ol class="steps">
+          <li><button type="button" data-board="n/Map">离线地图</button></li>
+          <li><button type="button" data-board="n/Map-Route">Maintra 带路</button></li>
+          <li><button type="button" data-board="n/Map-Trip-3D">3D 导航，逐个路口提示</button></li>
+          <li><button type="button" data-board="n/Trip-Result">这趟行程的数据</button></li>
+        </ol>
+        <p class="hint"><span class="hint-dot" aria-hidden="true"></span><b>试试</b> 点“Route”，再点“Go”。</p>
+      </article>
+
+      <article class="ch" id="ch-obd" data-ch="obd" data-start="n/Scans">
+        <p class="ch-n"><span>06</span>OBD 诊断<em>新功能</em></p>
+        <h3 class="h3">插上，读懂车况。</h3>
+        <p class="ch-body">在仪表台下插一个便宜的 OBD 适配器，Maintra 就能读出故障码、冻结帧和实时数据，用大白话讲清楚，并把每次诊断都存进车辆历史。修车前后可以对比，也可以发给修车师傅。</p>
+        <ol class="steps">
+          <li><button type="button" data-board="n/Scans">诊断和保养记录放在一起</button></li>
+          <li><button type="button" data-board="n/Scan-Running">正在读取车辆数据</button></li>
+          <li><button type="button" data-board="n/Scan-Detail">两个故障码，故障灯未亮</button></li>
+          <li><button type="button" data-board="n/Scan-Code">一个故障码，大白话讲清楚</button></li>
+          <li><button type="button" data-board="n/Scan-Compare">修车前后对比</button></li>
+        </ol>
+        <p class="hint"><span class="hint-dot" aria-hidden="true"></span><b>试试</b> 点“Scan now”。</p>
+      </article>
+
+      <article class="ch" id="ch-keys" data-ch="keys" data-start="n/Main" data-second="n/Lend-Guest">
+        <p class="ch-n"><span>07</span>车辆交接<em>新功能</em></p>
+        <h3 class="h3">借出去，一起开，带着记录卖掉。</h3>
+        <p class="ch-body">要把 Paj 借给朋友开到周日？朋友的手机上就会出现这辆车，可以记加油和里程；钥匙还回来时，他记的内容会和你的分开显示。也可以和另一半一起开。要是卖车，整套保养记录会转给新车主。带着完整记录的车更好卖。</p>
+        <ol class="steps">
+          <li><button type="button" data-board="n/Handover">三种交接方式</button></li>
+          <li><button type="button" data-board="n/Lend-Setup">借到周日</button></li>
+          <li><button type="button" data-board="n/Invite-QR">当面扫二维码</button></li>
+          <li><button type="button" data-board="n/Lend-Guest">在对方手机上</button></li>
+          <li><button type="button" data-board="n/Transfer-What">连同记录一起卖</button></li>
+        </ol>
+        <p class="hint"><span class="hint-dot" aria-hidden="true"></span><b>试试</b> 点顶部的钥匙图标。</p>
+      </article>
+
+      <article class="ch" id="ch-mech" data-ch="mech" data-start="n/Mech-Share" data-desk="n/Mech-Desktop">
+        <p class="ch-n"><span>08</span>修车师傅<em>新功能</em></p>
+        <h3 class="h3">发链接，不打电话</h3>
+        <p class="ch-body">给修车师傅发个链接：哪些项目已逾期、你记下的那个异响、油液和配件号，都在里面。对方用浏览器就能打开，不用装 App，也不用注册，做完的活儿还能发回给你。哪些写进历史记录，由你决定。车辆参数表把机油规格、滤清器型号和轮胎尺寸放在同一页上。</p>
+        <ol class="steps">
+          <li><button type="button" data-board="n/Mech-Share">选对方能看到什么</button></li>
+          <li><button type="button" data-board="n/Mech-Web">对方打开看到的</button></li>
+          <li><button type="button" data-board="n/Mech-In">对方的记录发回来</button></li>
+          <li><button type="button" data-board="n/Car-Sheet">车辆参数表</button></li>
+          <li><button type="button" data-board="n/Sheet-AI">AI 补全缺项，带标记</button></li>
+        </ol>
+        <p class="hint"><span class="hint-dot" aria-hidden="true"></span><b>试试</b> 点“Send link”。</p>
+      </article>
+
+      <article class="ch" id="ch-tyres" data-ch="tyres" data-start="d/Tyres">
+        <p class="ch-n"><span>09</span>轮胎和证件</p>
+        <h3 class="h3">轮胎看生产年份，证件加把锁。</h3>
+        <p class="ch-body">每个轮子的胎纹深度、换位记录，还有轮胎的生产日期：橡胶过了六年就会变硬，不管胎纹还剩多少。保险单和行驶证存在手机上的加密保险箱里，钥匙只在你手里。没有找回按钮。这份不方便是故意的。</p>
+        <ol class="steps">
+          <li><button type="button" data-board="d/Tyres">各套轮胎</button></li>
+          <li><button type="button" data-board="d/Tyre-Set">车上这一套</button></li>
+          <li><button type="button" data-board="d/Tyre-Made-DOT">用 DOT 码算胎龄</button></li>
+          <li><button type="button" data-board="d/Docs">证件加密保存</button></li>
+        </ol>
+        <p class="hint"><span class="hint-dot" aria-hidden="true"></span><b>试试</b> 打开车上这套轮胎。</p>
+      </article>
+
+      <article class="ch" id="ch-yours" data-ch="yours" data-start="n/Theme-Picker">
+        <p class="ch-n"><span>10</span>随你喜欢<em>新功能</em></p>
+        <h3 class="h3">你的车库，你做主</h3>
+        <p class="ch-body">深色、浅色，或者跟随系统。然后是主题：夜里开车用的 Red light，还有 Field、Blueprint、Logbook、Rose。主题只改背景和强调色，红色依然代表逾期。整个 App 现在支持 11 种语言，也包括从右往左书写的语言。</p>
+        <p class="steps-label">主题</p>
+        <ol class="steps swatches">
+          <li><button type="button" data-board="d/Main" data-accent="#F4B223" style="--sw:#F4B223">Garage</button></li>
+          <li><button type="button" data-board="l/Light-Garage" data-accent="#EBA817" style="--sw:#EBA817;--sw-bg:#EEEAE2">Workshop</button></li>
+          <li><button type="button" data-board="n/Red-Garage" data-accent="#D4402B" style="--sw:#D4402B">Red light</button></li>
+          <li><button type="button" data-board="n/Field-Garage" data-accent="#C9B27C" style="--sw:#C9B27C">Field</button></li>
+          <li><button type="button" data-board="n/Blue-Garage" data-accent="#7CD3FF" style="--sw:#7CD3FF;--sw-bg:#0A1626">Blueprint</button></li>
+          <li><button type="button" data-board="n/Log-Garage" data-accent="#7E95E6" style="--sw:#22398A;--sw-bg:#EFE6D2">Logbook</button></li>
+          <li><button type="button" data-board="n/Rose-Garage" data-accent="#FF6FAE" style="--sw:#FF6FAE;--sw-bg:#120A0E">Rose</button></li>
+        </ol>
+        <p class="steps-label">语言</p>
+        <ol class="steps langs">
+          <li><button type="button" data-board="n/Lang-English-Garage" lang="en">English</button></li>
+          <li><button type="button" data-board="n/Lang-German-Garage" lang="de">Deutsch</button></li>
+          <li><button type="button" data-board="n/Lang-Arabic-Garage" lang="ar" dir="rtl">العربية</button></li>
+          <li><button type="button" data-board="n/Lang-Korean-Garage" lang="ko">한국어</button></li>
+          <li><button type="button" data-board="n/Lang-Japanese-Garage" lang="ja">日本語</button></li>
+          <li><button type="button" data-board="n/Lang-Chinese-Garage" lang="zh-Hans">简体中文</button></li>
+        </ol>
+        <p class="hint"><span class="hint-dot" aria-hidden="true"></span><b>试试</b> 在手机上挑一个主题。</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why" aria-labelledby="why-title">
+  <header class="sec-head">
+    <p class="label">为什么值得用</p>
+    <h2 id="why-title" class="h2">给亲手干活的人做的</h2>
+    <p class="lede">没有为了凑数的功能。每一项都来自某个人的经历：丢过一张小票、少了一条记录，或者白白搭进去一个周末。</p>
+  </header>
+  <ul class="bento">
+    <li class="tile wide"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 5h17v15.5h-17z"></path><path d="M3.5 9.5h17M8 2.5v4M16 2.5v4M7.5 13.5h2M11 13.5h2"></path></svg></span><h3>保养手册免费</h3><p>记录、加油、计划、提醒、统计、导出，不管哪个方案，都永久免费。只有运行要花钱的部分才收费，也就是 AI。</p></li>
+    <li class="tile"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17.75h11l2.5-2.5v-3L18 9.75h-1l-2-3.5h-5L7 8.75 3.5 11.25v4z"></path><path d="M5.5 5.5l14.75 14.75"></path></svg></span><h3>没信号也能用</h3><p>所有内容先存到手机上。地下停车场、乡下的修车铺、盘山路上，照样能用，之后再同步。</p></li>
+    <li class="tile"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l8 3V13l-3 5-5 3.5L7 18l-3-5V5.5z"></path><path d="M8.5 12l2.5 2.5 5-5"></path></svg></span><h3>没有广告。没有追踪。</h3><p>车辆照片和行程只留在记录它们的那部手机上。什么都不卖，也不会盯着你。</p></li>
+    <li class="tile"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 2.5h9l4 4v15h-13z"></path><path d="M14.5 2.5v4h4M8.5 11.5h7M8.5 15.5h7"></path></svg></span><h3>你的数据，你的文件</h3><p>JSON、CSV，或者 PDF 版保养手册，任何方案都能随时导出。在 App 里删除账号，数据就彻底没了。</p></li>
+    <li class="tile wide"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 3.5h7l5 5v7l-5 5h-7l-5-5v-7z"></path><path d="M7.5 15.5l2.5-7 2.5 7M8.3 13.2h3.4M15.5 8.5v7"></path></svg></span><h3>AI 从不偷偷地猜</h3><p>它读出的内容，保存前都要你确认。读不出来的就留空，每个数值从哪来也都有标注。</p></li>
+    <li class="tile"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 10.5h15v10h-15z"></path><path d="M7.5 10.5v-4l2-3h5l2 3v4M12 14.5V17"></path></svg></span><h3>证件的钥匙在你手里</h3><p>证件在上传前就在手机上加密。Maintra 从不保管密钥。</p></li>
+    <li class="tile"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.1 2.5h7.8l5.6 5.6v7.8l-5.6 5.6H8.1l-5.6-5.6V8.1z"></path><circle cx="12" cy="12" r="4.5"></circle></svg></span><h3>轮胎看日期，不只看胎纹</h3><p>橡胶过了六年就会变硬。不管胎纹还剩多少，Maintra 都会读取 DOT 码提醒你。</p></li>
+    <li class="tile"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 6.5h19v11h-19z"></path><path d="M12 9l3 3-3 3-3-3z"></path></svg></span><h3>你的货币，当天的汇率</h3><p>50 种货币，45 个国家。2019 年的小票，就按 2019 年的汇率算。</p></li>
+    <li class="tile"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 16.5V12l2-1 2-4.5h9.5L19 11l2.5 1v4.5"></path><path d="M9 16.5h6M6 11h13"></path><circle cx="6.5" cy="16.5" r="2"></circle><circle cx="17.5" cy="16.5" r="2"></circle></svg><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="5.5" cy="16.5" r="3.5"></circle><circle cx="18.5" cy="16.5" r="3.5"></circle><path d="M5.5 16.5l4-6.5h5l4 6.5M13.5 10l-2-4H9"></path></svg></span><h3>汽车、面包车、摩托车</h3><p>汽油、柴油、LPG、混动或纯电，一个车库全装下。</p></li>
+    <li class="tile"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5V15M7 10l5 5 5-5"></path><path d="M3.5 20h17"></path></svg></span><h3>换过来不花钱</h3><p>从表格或其他 App 导入历史记录。导入不经过 AI，所以数字一行一行都对得上。</p></li>
+    <li class="tile wide"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3.5h4.5l2 5L8 10.5c1.5 3 3 4.5 5.5 5.5l2-2.5 5 2V20l-1 1C11 20.5 3.5 13 3 4.5z"></path></svg></span><h3>手机、平板、手表</h3><p>iPhone、iPad、安卓手机和平板，主屏幕和锁屏都有小组件。用 Siri 和 Apple Watch 快速记一笔。</p></li>
+    <li class="tile"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 4.5h17V16h-9l-5 4v-4h-3z"></path></svg></span><h3>是真人，不是客服中心</h3><p>给客服写信，回你的就是做这个 App 的人。</p></li>
+  </ul>
+</section>
+
+<section class="maker" id="maker" aria-labelledby="maker-title">
+  <div class="maker-in">
+    <figure class="pol maker-pol">
+      <img src="/assets/home/img/rok.webp" width="880" height="1000" alt="Maintra 的开发者 ROK，坐在他那辆黑色 Pajero 的驾驶座上" loading="lazy" decoding="async">
+      <figcaption><span class="pol-name">ROK · Pajero 2008</span><span class="pol-odo">228 477 KM</span></figcaption>
+    </figure>
+    <div class="maker-copy">
+      <p class="label">谁做的</p>
+      <h2 id="maker-title" class="h2">车库里做出来的</h2>
+      <p>我是 ROK。我有一辆 2008 年的 Pajero，一直是自己动手修着开。做 Maintra，是因为我老记不住加的是哪种机油、加了多少、什么时候加的。小票扔在手套箱里，笔记记在表格里，还有跟 AI 的聊天记录，结果全都找不到了。</p>
+      <p>所以我做了自己想要的这本手册。现在已经有上千位车主在用，2.0 里的改动都是他们告诉我的：界面更清爽，打字更少，还有我自己车库里一直缺的东西。进山也能用的地图，发动机故障灯一亮就能扫一下，还有发给修车师傅的链接。</p>
+      <blockquote class="q"><p>大修不用 App 也记得住。容易丢的是小事：到底是哪个滤清器、加了多少、上次什么时候做的。</p></blockquote>
+      <blockquote class="q"><p>我不想再做一个订阅制产品。运行不花钱的东西，就一直免费。</p></blockquote>
+      <p class="sign">ROK（Kyrylo Rozbeiko）</p>
+      <a class="more" href="/journey-en">2.0 是怎么做出来的<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 3.5h7v7M20.5 3.5l-9 9"></path><path d="M18 14v6.5H3.5V6H10"></path></svg></a>
+    </div>
+  </div>
+</section>
+
+<section class="plans" id="plans" aria-labelledby="plans-title">
+  <header class="sec-head">
+    <p class="label">价格方案</p>
+    <h2 id="plans-title" class="h2">AI 收费，手册免费。</h2>
+  </header>
+  <ul class="plan-list">
+    <li class="plan"><h3 class="plan-name">免费版</h3><p>完整的保养手册、加油记录、计划、提醒、统计、地点、心愿单、导入和导出。可以添加一辆车，还有几次 AI 记录可以试用。</p></li>
+    <li class="plan pro"><h3 class="plan-name">Pro</h3><p>车辆、证件和轮胎套数不限。每月更多 AI 记录和 AI 计划。小票原图留存作凭证，胎纹和换位记录，Siri 和 Apple Watch。</p></li>
+    <li class="plan vip"><h3 class="plan-name">VIP</h3><p>AI 额度最多，还能和熟悉你车辆历史的 AI 修车师傅聊天。</p></li>
+  </ul>
+  <p class="note">价格以 App Store 和 Google Play 显示为准，用你所在地区的货币标价。随时可以取消。</p>
+</section>
+
+<section class="faq" id="faq" aria-labelledby="faq-title">
+  <header class="sec-head">
+    <p class="label">常见问题</p>
+    <h2 id="faq-title" class="h2">你可能想问</h2>
+  </header>
+  <div class="qa">
+    <details><summary>10 月具体哪天？<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8.5l7 7 7-7"></path></svg></summary><p>等它准备好，并且在真实的手机、真实的车库里测试过之后。装了 Maintra 的话，更新会自己送到你手上，不用特意盯着。</p></details>
+    <details><summary>2.0 要付费吗？<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8.5l7 7 7-7"></path></svg></summary><p>不用。这是同一个 App 的更新，保养手册依然免费。</p></details>
+    <details><summary>我的记录会跟着过来吗？<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8.5l7 7 7-7"></path></svg></summary><p>会。同一个 App，同一个账号。你记过的所有内容，更新后都还在。</p></details>
+    <details><summary>iPhone 还是安卓？<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8.5l7 7 7-7"></path></svg></summary><p>都可以，手机和平板都支持。数据会在设备之间同步。</p></details>
+  </div>
+  <a class="more" href="/faq.html">更多问题<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5.5l6.5 6.5L9 18.5"></path></svg></a>
+</section>
+
+<section class="get" id="get" aria-labelledby="get-title">
+  <div class="get-in">
+    <div class="get-copy">
+      <h2 id="get-title" class="h1 get-title">10 月份，免费更新。</h2>
+      <p class="lede">今天装上 Maintra，2.0 到时会自动送到。就从这个周末要修的那辆车开始吧。</p>
+      <div class="stores"><a class="btn btn-gold store" data-store="ios" href="https://apps.apple.com/app/maintra/id6775876731" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg><span><small>前往</small>App Store</span></a><a class="btn btn-line store" data-store="android" href="https://play.google.com/store/apps/details?id=com.maintra.app" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3.6 1.9c-.4.3-.6.7-.6 1.3v17.5c0 .6.2 1 .6 1.3l9.3-9.5L3.6 1.9z"/><path fill="currentColor" opacity=".72" d="M16.9 8.4 13 12l3.9 3.6 3.7-2.1c1.2-.7 1.2-2.3 0-3l-3.7-2.1z"/><path fill="currentColor" opacity=".86" d="M3.6 1.9 12.9 11l3.5-3.3-9.6-5.5c-.5-.3-1-.4-1.5-.4-.6 0-1.1.2-1.7.1z"/><path fill="currentColor" opacity=".6" d="M3.6 22 12.9 13l3.5 3.3-9.6 5.5c-1 .5-1.7.4-2.7.2z"/></svg><span><small>前往</small>Google Play</span></a></div>
+    </div>
+    <figure class="pol get-pol" aria-hidden="true">
+      <img src="/assets/home/img/paj.webp" width="1200" height="800" alt="" loading="lazy" decoding="async">
+      <span class="get-stamp">已保养</span>
+      <figcaption><span class="pol-name pol-paj">Paj</span><span class="pol-odo">228 477 KM</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot-in">
+    <div class="foot-brand"><a class="brand" href="/zh/" aria-label="Maintra"><svg class="mt" viewBox="0 0 100 57.69" aria-hidden="true"><path d="M26.10,0.00 L35.15,0.00 L35.15,57.69 L26.10,57.69 Z" fill="#8F897E"/><path d="M52.20,0.00 L61.25,0.00 L61.25,57.69 L52.20,57.69 Z" fill="#8F897E"/><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" fill="#F4B223"/><clipPath id="mtc2"><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z"/></clipPath><g clip-path="url(#mtc2)"><path d="M2.40,57.69 L18.80,57.69 L37.55,0.00 L21.15,0.00 Z" fill="#9A6700"/><path d="M28.50,57.69 L44.90,57.69 L63.65,0.00 L47.24,0.00 Z" fill="#9A6700"/><path d="M54.60,57.69 L71.00,57.69 L89.75,0.00 L73.34,0.00 Z" fill="#9A6700"/></g><path d="M0.00,57.69 L16.40,57.69 L35.15,0.00 L18.75,0.00 Z" fill="#ECE4D6"/><path d="M26.10,57.69 L42.50,57.69 L61.25,0.00 L44.84,0.00 Z" fill="#ECE4D6"/><path d="M52.20,57.69 L68.60,57.69 L87.35,0.00 L70.94,0.00 Z" fill="#F4B223"/></svg><span class="word">Maintra</span></a><p>为你的车库准备的智能保养记录本。</p></div>
+    <nav class="foot-links" aria-label="Maintra">
+      <a href="/about.html">关于开发者</a>
+      <a href="/faq.html">常见问题</a>
+      <a href="/support.html">帮助与支持</a>
+      <a href="/press-en">媒体资料</a>
+      <a href="/journey-en">2.0 之路</a>
+      <a href="/privacy.html">隐私政策</a>
+      <a href="/terms.html">使用条款</a>
+      <a href="/delete-account.html">删除账号</a>
+    </nav>
+    <nav class="foot-langs" aria-label="本页语言"><a href="/" hreflang="en" lang="en" data-lang="en">English</a><a href="/uk/" hreflang="uk" lang="uk" data-lang="uk">Українська</a><a href="/pl/" hreflang="pl" lang="pl" data-lang="pl">Polski</a><a href="/fr/" hreflang="fr" lang="fr" data-lang="fr">Français</a><a href="/it/" hreflang="it" lang="it" data-lang="it">Italiano</a><a href="/es/" hreflang="es" lang="es" data-lang="es">Español</a><a href="/de/" hreflang="de" lang="de" data-lang="de">Deutsch</a><a href="/ar/" hreflang="ar" lang="ar" dir="rtl" data-lang="ar">العربية</a><a href="/ko/" hreflang="ko" lang="ko" data-lang="ko">한국어</a><a href="/ja/" hreflang="ja" lang="ja" data-lang="ja">日本語</a><a href="/zh/" hreflang="zh-Hans" lang="zh-Hans" data-lang="zh" aria-current="true">简体中文</a></nav>
+    <p class="copy">© 2026 Maintra</p>
+  </div>
+</footer>
+
+<script type="application/json" id="cfg">{"lang":"zh","boards":"4b0612bf","t":{"phone":"页面上运行着 Maintra 2.0，哪里都可以点。","plate_oil":"机油 + 滤清器","plate_late":"逾期 5 天","plate_hose":"冷却液软管","plate_health":"车况"}}</script>
+</body>
+</html>

@@ -60,6 +60,7 @@ node tools/genhome.mjs .     # always, after any change to the template, copy or
 | 3D | `assets/home/stage.js`: the phone and laptop models (three.js r169) |
 | The app on the screen | `assets/home/player.js` plays `assets/home/b/`, the design boards |
 | Design sources | `tools/home/src/`: the boards, committed verbatim; re-sync steps in `tools/genboards.mjs` |
+| Share cards | `assets/home/og/<code>.jpg`, the hero rendered at 1200×630 by `tools/genog.mjs` (needs Playwright) |
 
 How the pieces fit:
 
@@ -80,13 +81,19 @@ How the pieces fit:
   (localStorage `maintra.lang`), then the first non-English language the
   browser asks for, then the visitor's country from Cloudflare's
   `/cdn-cgi/trace` (which is why the local server logs a 404 for it). Search
-  bots are never redirected. The phone's app screens stay in English except
-  in the languages chapter, which shows the app in other languages.
+  bots are never redirected. Countries split between languages (Belgium) and
+  Traditional-Chinese ones are left out of the country map, since our Chinese is
+  Simplified. The phone's app screens stay in English except in the languages
+  chapter, which shows the app in other languages; hints that name a button
+  quote it in English for that reason.
+- **Share cards.** Each language page links its own 1200×630 card. After a
+  headline or hero change, re-render them: start a local server, run
+  `node tools/genog.mjs`, then `node tools/genhome.mjs .` for the new hashes.
 - **A dictionary is all or nothing.** The build fails on a missing or extra
   key or anything left in braces, and a language only gets a page once its
   dictionary exists. To add one: copy `en.json`, translate it, add the
-  language to `LANGS` in `genhome.mjs`, run the generator, add it to
-  `sitemap.xml`.
+  language to `LANGS` in `genhome.mjs`, run the generator, render its share
+  card, add it to `sitemap.xml`.
 - **Caching is handled for you here.** The generator stamps every homepage
   asset, and the import lines between the JS modules, with a hash of the
   file's content, so a change ships the moment it is generated. The

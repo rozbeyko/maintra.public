@@ -100,6 +100,14 @@ stampImports('assets/home/stage.js', ['css3d.js']);
 stampImports('assets/home/home.js', ['stage.js', 'player.js']);
 
 const asset = (p) => `/${p}?v=${hashFile(p)}`;
+
+// The share card: the hero, 1200x630, rendered per language by
+// tools/genog.mjs. A language without one shares English's.
+const ogImage = (code) => {
+  const p = existsSync(join(SITE, `assets/home/og/${code}.jpg`)) ? `assets/home/og/${code}.jpg` : 'assets/home/og/en.jpg';
+  if (!p.endsWith(`/${code}.jpg`)) console.warn(`${code}: no share card yet, using English's`);
+  return `${ORIGIN}/${p}?v=${createHash('sha256').update(readFileSync(join(SITE, p))).digest('hex').slice(0, 8)}`;
+};
 const BOARDS_V = hashFile('assets/home/b/index.json');
 
 // ------------------------------------------------------------- the pieces
@@ -144,10 +152,12 @@ const ticker = (d) => {
 // The language pick on / (and only there): a language chosen before wins;
 // then a browser that reads one of ours other than English; then the country
 // Cloudflare sees the visitor in. Search engines stay on the page they asked for.
+// Countries split between languages (Belgium) and the Traditional-Chinese ones
+// are left out of the map: English beats a guess they would resent.
 const LANGPICK = (codes) => `<script>
 (function () {
   var L = ${JSON.stringify(codes)};
-  var C = {UA:'uk',PL:'pl',FR:'fr',BE:'fr',LU:'fr',MC:'fr',SN:'fr',CI:'fr',CM:'fr',ML:'fr',BF:'fr',NE:'fr',TG:'fr',BJ:'fr',GA:'fr',CG:'fr',CD:'fr',MG:'fr',HT:'fr',IT:'it',SM:'it',VA:'it',ES:'es',MX:'es',AR:'es',CO:'es',CL:'es',PE:'es',VE:'es',EC:'es',GT:'es',CU:'es',BO:'es',DO:'es',HN:'es',PY:'es',SV:'es',NI:'es',CR:'es',PA:'es',UY:'es',PR:'es',GQ:'es',DE:'de',AT:'de',CH:'de',LI:'de',SA:'ar',AE:'ar',EG:'ar',MA:'ar',DZ:'ar',TN:'ar',IQ:'ar',JO:'ar',KW:'ar',QA:'ar',BH:'ar',OM:'ar',LB:'ar',SY:'ar',YE:'ar',LY:'ar',SD:'ar',PS:'ar',MR:'ar',KR:'ko',JP:'ja',CN:'zh',SG:'zh',TW:'zh',HK:'zh',MO:'zh'};
+  var C = {UA:'uk',PL:'pl',FR:'fr',LU:'fr',MC:'fr',SN:'fr',CI:'fr',CM:'fr',ML:'fr',BF:'fr',NE:'fr',TG:'fr',BJ:'fr',GA:'fr',CG:'fr',CD:'fr',MG:'fr',HT:'fr',IT:'it',SM:'it',VA:'it',ES:'es',MX:'es',AR:'es',CO:'es',CL:'es',PE:'es',VE:'es',EC:'es',GT:'es',CU:'es',BO:'es',DO:'es',HN:'es',PY:'es',SV:'es',NI:'es',CR:'es',PA:'es',UY:'es',PR:'es',GQ:'es',DE:'de',AT:'de',CH:'de',LI:'de',SA:'ar',AE:'ar',EG:'ar',MA:'ar',DZ:'ar',TN:'ar',IQ:'ar',JO:'ar',KW:'ar',QA:'ar',BH:'ar',OM:'ar',LB:'ar',SY:'ar',YE:'ar',LY:'ar',SD:'ar',PS:'ar',MR:'ar',KR:'ko',JP:'ja',CN:'zh',SG:'zh'};
   var go = function (l) {
     if (l && l !== 'en' && L.indexOf(l) >= 0) { location.replace('/' + l + '/' + location.search + location.hash); return true; }
     return false;
@@ -160,8 +170,10 @@ const LANGPICK = (codes) => `<script>
   if (/bot|crawl|spider|slurp|lighthouse|preview/i.test(navigator.userAgent)) { done(); return; }
   var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
   for (var i = 0; i < langs.length; i++) {
-    var c = String(langs[i]).toLowerCase().split('-')[0];
+    var raw = String(langs[i]).toLowerCase(), c = raw.split('-')[0];
     if (c === 'en') break;
+    // our Chinese is Simplified: Traditional readers aren't sent to it
+    if (c === 'zh' && /-(tw|hk|mo|hant)/.test(raw)) continue;
     if (L.indexOf(c) >= 0) { if (go(c)) return; break; }
   }
   if (!window.fetch) { done(); return; }
@@ -232,6 +244,7 @@ for (const l of built) {
       `<link rel="alternate" hreflang="x-default" href="${ORIGIN}/">`,
     ].join('\n'),
     langpick: l.code === 'en' ? LANGPICK(built.map((x) => x.code)) : '',
+    ogimage: ogImage(l.code),
     preloads: preloads(l),
     fontsextra: l.code === 'ar' ? ARABIC_FONTS : '',
     loader: LOADER,

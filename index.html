@@ -7,21 +7,35 @@
 <meta name="description" content="Maintra 2.0 arrives in October: a new garage, offline maps that count your kilometres, OBD scans, a link for your mechanic, 11 languages. The service book for people who look after their own cars. Try the app right on the page.">
 <link rel="canonical" href="https://maintra.me/">
 <link rel="alternate" hreflang="en" href="https://maintra.me/">
+<link rel="alternate" hreflang="uk" href="https://maintra.me/uk/">
+<link rel="alternate" hreflang="pl" href="https://maintra.me/pl/">
+<link rel="alternate" hreflang="fr" href="https://maintra.me/fr/">
+<link rel="alternate" hreflang="it" href="https://maintra.me/it/">
+<link rel="alternate" hreflang="es" href="https://maintra.me/es/">
+<link rel="alternate" hreflang="de" href="https://maintra.me/de/">
+<link rel="alternate" hreflang="ar" href="https://maintra.me/ar/">
+<link rel="alternate" hreflang="ko" href="https://maintra.me/ko/">
+<link rel="alternate" hreflang="ja" href="https://maintra.me/ja/">
+<link rel="alternate" hreflang="zh-Hans" href="https://maintra.me/zh/">
 <link rel="alternate" hreflang="x-default" href="https://maintra.me/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Maintra">
 <meta property="og:title" content="Maintra 2.0 · Update coming this October">
 <meta property="og:description" content="The service book for people who look after their own cars, rebuilt from the first screen. Try it right on the page.">
 <meta property="og:url" content="https://maintra.me/">
-<meta property="og:image" content="https://maintra.me/assets/press/maintra-feature-1024x500.png">
+<meta property="og:image" content="https://maintra.me/assets/home/og/en.jpg?v=540bc996">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Maintra 2.0 · Update coming this October">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://maintra.me/assets/home/og/en.jpg?v=540bc996">
 <meta name="theme-color" content="#0B0B0A">
 <link rel="icon" type="image/png" href="/assets/favicon.png">
 <script>
 (function () {
-  var L = ["en"];
-  var C = {UA:'uk',PL:'pl',FR:'fr',BE:'fr',LU:'fr',MC:'fr',SN:'fr',CI:'fr',CM:'fr',ML:'fr',BF:'fr',NE:'fr',TG:'fr',BJ:'fr',GA:'fr',CG:'fr',CD:'fr',MG:'fr',HT:'fr',IT:'it',SM:'it',VA:'it',ES:'es',MX:'es',AR:'es',CO:'es',CL:'es',PE:'es',VE:'es',EC:'es',GT:'es',CU:'es',BO:'es',DO:'es',HN:'es',PY:'es',SV:'es',NI:'es',CR:'es',PA:'es',UY:'es',PR:'es',GQ:'es',DE:'de',AT:'de',CH:'de',LI:'de',SA:'ar',AE:'ar',EG:'ar',MA:'ar',DZ:'ar',TN:'ar',IQ:'ar',JO:'ar',KW:'ar',QA:'ar',BH:'ar',OM:'ar',LB:'ar',SY:'ar',YE:'ar',LY:'ar',SD:'ar',PS:'ar',MR:'ar',KR:'ko',JP:'ja',CN:'zh',SG:'zh',TW:'zh',HK:'zh',MO:'zh'};
+  var L = ["en","uk","pl","fr","it","es","de","ar","ko","ja","zh"];
+  var C = {UA:'uk',PL:'pl',FR:'fr',LU:'fr',MC:'fr',SN:'fr',CI:'fr',CM:'fr',ML:'fr',BF:'fr',NE:'fr',TG:'fr',BJ:'fr',GA:'fr',CG:'fr',CD:'fr',MG:'fr',HT:'fr',IT:'it',SM:'it',VA:'it',ES:'es',MX:'es',AR:'es',CO:'es',CL:'es',PE:'es',VE:'es',EC:'es',GT:'es',CU:'es',BO:'es',DO:'es',HN:'es',PY:'es',SV:'es',NI:'es',CR:'es',PA:'es',UY:'es',PR:'es',GQ:'es',DE:'de',AT:'de',CH:'de',LI:'de',SA:'ar',AE:'ar',EG:'ar',MA:'ar',DZ:'ar',TN:'ar',IQ:'ar',JO:'ar',KW:'ar',QA:'ar',BH:'ar',OM:'ar',LB:'ar',SY:'ar',YE:'ar',LY:'ar',SD:'ar',PS:'ar',MR:'ar',KR:'ko',JP:'ja',CN:'zh',SG:'zh'};
   var go = function (l) {
     if (l && l !== 'en' && L.indexOf(l) >= 0) { location.replace('/' + l + '/' + location.search + location.hash); return true; }
     return false;
@@ -34,8 +48,10 @@
   if (/bot|crawl|spider|slurp|lighthouse|preview/i.test(navigator.userAgent)) { done(); return; }
   var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
   for (var i = 0; i < langs.length; i++) {
-    var c = String(langs[i]).toLowerCase().split('-')[0];
+    var raw = String(langs[i]).toLowerCase(), c = raw.split('-')[0];
     if (c === 'en') break;
+    // our Chinese is Simplified: Traditional readers aren't sent to it
+    if (c === 'zh' && /-(tw|hk|mo|hant)/.test(raw)) continue;
     if (L.indexOf(c) >= 0) { if (go(c)) return; break; }
   }
   if (!window.fetch) { done(); return; }
@@ -49,8 +65,8 @@
   }).catch(function () { clearTimeout(t); done(); });
 })();
 </script>
-<link rel="modulepreload" href="/assets/home/home.js?v=04259b32">
-<link rel="modulepreload" href="/assets/home/stage.js?v=c12b03ea">
+<link rel="modulepreload" href="/assets/home/home.js?v=b68bb6c8">
+<link rel="modulepreload" href="/assets/home/stage.js?v=619f66c7">
 <link rel="modulepreload" href="/assets/home/player.js?v=4104dfe0">
 <link rel="modulepreload" href="/assets/journey/three.module.min.js">
 <link rel="preload" href="/assets/home/b/index.json?v=4b0612bf" as="fetch" crossorigin="anonymous">
@@ -60,8 +76,8 @@
 <link rel="preload" href="/assets/journey/fonts/firasans-600-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/home/fonts.css?v=3a8a3f95">
 
-<link rel="stylesheet" href="/assets/home/home.css?v=e3494c54">
-<script type="module" src="/assets/home/home.js?v=04259b32"></script>
+<link rel="stylesheet" href="/assets/home/home.css?v=9a477a3b">
+<script type="module" src="/assets/home/home.js?v=b68bb6c8"></script>
 <script>setTimeout(function () { document.documentElement.classList.remove('loading'); }, 7000);</script>
 <noscript><style>html.loading .loader{display:none}</style></noscript>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"MobileApplication","name":"Maintra","url":"https://maintra.me/","description":"Maintra 2.0 arrives in October: a new garage, offline maps that count your kilometres, OBD scans, a link for your mechanic, 11 languages. The service book for people who look after their own cars. Try the app right on the page.","inLanguage":"en","operatingSystem":"iOS, Android","applicationCategory":"UtilitiesApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"Kyrylo Rozbeiko"},"downloadUrl":["https://apps.apple.com/app/maintra/id6775876731","https://play.google.com/store/apps/details?id=com.maintra.app"]}</script>
@@ -93,7 +109,7 @@
   </nav>
   <div class="lang">
     <button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="Language"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 3.5h7l5 5v7l-5 5h-7l-5-5v-7z"></path><path d="M3.5 12h17M12 3.5L8.5 12l3.5 8.5M12 3.5l3.5 8.5-3.5 8.5"></path></svg><span>EN</span></button>
-    <ul class="lang-menu" id="lang-menu" hidden><li><a href="/" hreflang="en" lang="en" data-lang="en" aria-current="true"><span class="code">en</span>English</a></li></ul>
+    <ul class="lang-menu" id="lang-menu" hidden><li><a href="/" hreflang="en" lang="en" data-lang="en" aria-current="true"><span class="code">en</span>English</a></li><li><a href="/uk/" hreflang="uk" lang="uk" data-lang="uk"><span class="code">uk</span>Українська</a></li><li><a href="/pl/" hreflang="pl" lang="pl" data-lang="pl"><span class="code">pl</span>Polski</a></li><li><a href="/fr/" hreflang="fr" lang="fr" data-lang="fr"><span class="code">fr</span>Français</a></li><li><a href="/it/" hreflang="it" lang="it" data-lang="it"><span class="code">it</span>Italiano</a></li><li><a href="/es/" hreflang="es" lang="es" data-lang="es"><span class="code">es</span>Español</a></li><li><a href="/de/" hreflang="de" lang="de" data-lang="de"><span class="code">de</span>Deutsch</a></li><li><a href="/ar/" hreflang="ar" lang="ar" dir="rtl" data-lang="ar"><span class="code">ar</span>العربية</a></li><li><a href="/ko/" hreflang="ko" lang="ko" data-lang="ko"><span class="code">ko</span>한국어</a></li><li><a href="/ja/" hreflang="ja" lang="ja" data-lang="ja"><span class="code">ja</span>日本語</a></li><li><a href="/zh/" hreflang="zh-Hans" lang="zh-Hans" data-lang="zh"><span class="code">zh</span>简体中文</a></li></ul>
   </div>
   <a class="btn btn-line btn-sm top-get" href="#get">Get the app</a>
 </header>
@@ -415,7 +431,7 @@
       <a href="/terms.html">Terms</a>
       <a href="/delete-account.html">Delete account</a>
     </nav>
-    <nav class="foot-langs" aria-label="This page in"><a href="/" hreflang="en" lang="en" data-lang="en" aria-current="true">English</a></nav>
+    <nav class="foot-langs" aria-label="This page in"><a href="/" hreflang="en" lang="en" data-lang="en" aria-current="true">English</a><a href="/uk/" hreflang="uk" lang="uk" data-lang="uk">Українська</a><a href="/pl/" hreflang="pl" lang="pl" data-lang="pl">Polski</a><a href="/fr/" hreflang="fr" lang="fr" data-lang="fr">Français</a><a href="/it/" hreflang="it" lang="it" data-lang="it">Italiano</a><a href="/es/" hreflang="es" lang="es" data-lang="es">Español</a><a href="/de/" hreflang="de" lang="de" data-lang="de">Deutsch</a><a href="/ar/" hreflang="ar" lang="ar" dir="rtl" data-lang="ar">العربية</a><a href="/ko/" hreflang="ko" lang="ko" data-lang="ko">한국어</a><a href="/ja/" hreflang="ja" lang="ja" data-lang="ja">日本語</a><a href="/zh/" hreflang="zh-Hans" lang="zh-Hans" data-lang="zh">简体中文</a></nav>
     <p class="copy">© 2026 Maintra</p>
   </div>
 </footer>

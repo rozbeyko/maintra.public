@@ -61,6 +61,12 @@
   --display: Tektur, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
   --sans: 'Fira Sans', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
 }
+/* Korean breaks between words, as it is written; Japanese and Chinese keep
+   closing marks and small kana off the start of a line */
+:lang(ko) { word-break: keep-all; overflow-wrap: break-word; }
+:lang(ja), :lang(zh) { line-break: strict; }
+/* Japanese headlines break between phrases, not inside a word (Chrome; others ignore it) */
+:lang(ja) .h1, :lang(ja) .h2, :lang(ja) .h3 { word-break: auto-phrase; }
 
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; background: var(--bg); }
@@ -523,7 +529,10 @@ html.loading body { overflow: hidden; }
 :lang(ar) .tour-index a, :lang(ar) .ch-n, :lang(ar) .steps-label, :lang(ar) .hint b { letter-spacing: 0; }
 
 /* --------------------------------------------------------------- the phone */
-.stage { position: fixed; inset: 0; z-index: 40; pointer-events: none; }
+/* CSS3D places its objects from the left edge: in a right-to-left page the
+   screens would land mirrored, away from their phones. The stage stays ltr;
+   the plates carry the page's direction themselves. */
+.stage { position: fixed; inset: 0; z-index: 40; pointer-events: none; direction: ltr; }
 .stage-gl, .stage-css { position: absolute; inset: 0; pointer-events: none; }
 .dev-screen { pointer-events: auto; }
 .dev-phone { border-radius: 54px; overflow: hidden; background: #0B0B0A; }
@@ -554,7 +563,8 @@ html.loading body { overflow: hidden; }
 .mp-stage { position: absolute; inset: 0; overflow: hidden; }
 .mp-layer { position: absolute; inset: 0; overflow: hidden; background: #0B0B0A; }
 .mp-scroll { position: absolute; inset: 0; overflow: hidden; }
-.mp-scroll.tall { overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; }
+/* a tall screen scrolls first, then hands the scroll back to the page: never a trap */
+.mp-scroll.tall { overflow-y: auto; scrollbar-width: none; }
 .mp-scroll.tall::-webkit-scrollbar { display: none; }
 .mp-shade { position: absolute; inset: 0; z-index: 50; background: #000; pointer-events: none; }
 .mp-chrome { position: absolute; inset: 0; z-index: 5; pointer-events: none; color: #ECE4D6; }

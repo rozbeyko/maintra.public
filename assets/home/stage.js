@@ -359,6 +359,7 @@ export class Stage {
   plate(device, html, { x, y, z, cls = '' }) {
     const el = document.createElement('div');
     el.className = `dev-plate ${cls}`;
+    el.dir = document.documentElement.dir || 'ltr';
     el.setAttribute('aria-hidden', 'true');
     el.innerHTML = html;
     const obj = new CSS3DObject(el);
