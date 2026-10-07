@@ -119,6 +119,7 @@ const CONE_FRAG = /* glsl */ `
   uniform vec3 uColor;
   uniform float uOn;
   uniform float uTime;
+  uniform float uFadeA;
   varying vec3 vNormalV;
   varying vec3 vViewPos;
   varying vec3 vWorld;
@@ -135,8 +136,8 @@ const CONE_FRAG = /* glsl */ `
     // sides fade to nothing, so the beam has no edge to draw
     float facing = abs(dot(normalize(vNormalV), normalize(-vViewPos)));
     float body = pow(facing, 2.2);
-    // even down its length, gone before it reaches the floor
-    float fall = smoothstep(0.0, 0.1, vT) * (1.0 - smoothstep(0.62, 1.0, vT));
+    // even down its length, gone by the floor
+    float fall = 1.0 - smoothstep(uFadeA, 1.0, vT);
     // haze drifting through it
     float haze = 0.62 + 0.55 * noise(vWorld * 0.0045 + vec3(0.0, uTime * 0.035, uTime * 0.02))
                       + 0.25 * noise(vWorld * 0.013 + vec3(uTime * 0.05, 0.0, 0.0));
@@ -201,7 +202,10 @@ export class Room {
     this.wallU = {
       uApex: { value: new THREE.Vector2() },
       uTan: { value: 0.3 },
-      uLen: { value: 1000 },
+      // (darkest, from, full): dimmer behind copy that sits above the phone
+      uRamp: { value: new THREE.Vector3(1, 0, 1) },
+      // where the light fades out towards the floor, as distances below the apex
+      uFade: { value: new THREE.Vector2(1, 2) },
       uOn: { value: 0 },
       uSway: { value: 0 },
       uColor: { value: new THREE.Color(1.3, 1.0, 0.66) },
@@ -218,7 +222,8 @@ export class Room {
           varying vec3 vWallPos;
           uniform vec2 uApex;
           uniform float uTan;
-          uniform float uLen;
+          uniform vec3 uRamp;
+          uniform vec2 uFade;
           uniform float uOn;
           uniform float uSway;
           uniform vec3 uColor;`,
@@ -228,11 +233,15 @@ export class Room {
           `#include <emissivemap_fragment>
           {
             vec2 rel = vWallPos.xy - uApex;
-            float down = max(-rel.y, 0.0);
-            float across = abs(rel.x + down * uSway) / max(down * uTan, 1.0);
-            float beam = (1.0 - smoothstep(0.42, 1.05, across)) * (0.72 + 0.28 * (1.0 - across * across));
-            float fall = 1.0 - smoothstep(0.55, 1.0, down / uLen);
-            totalEmissiveRadiance += diffuseColor.rgb * uColor * (beam * fall * uOn);
+            // only below the apex: above it there is no light at all
+            float down = -rel.y;
+            float below = step(0.0, down);
+            down = max(down, 0.0);
+            float across = abs(rel.x + down * uSway) / max(down * uTan, 1e-3);
+            float beam = (1.0 - smoothstep(0.42, 1.05, across)) * (0.72 + 0.28 * max(0.0, 1.0 - across * across));
+            float fall = 1.0 - smoothstep(uFade.x, uFade.y, down);
+            float ramp = mix(uRamp.x, 1.0, smoothstep(uRamp.y, uRamp.z, down));
+            totalEmissiveRadiance += diffuseColor.rgb * uColor * (below * beam * fall * ramp * uOn);
           }`,
         );
     };
@@ -277,7 +286,7 @@ export class Room {
     this.scene.add(pivot);
     // the beam: built to size in layout()
     this.coneMat = new THREE.ShaderMaterial({
-      uniforms: { uColor: { value: new THREE.Color(0.95, 0.72, 0.42) }, uOn: { value: 0 }, uTime: { value: 0 }, uLen: { value: 1 } },
+      uniforms: { uColor: { value: new THREE.Color(0.95, 0.72, 0.42) }, uOn: { value: 0 }, uTime: { value: 0 }, uLen: { value: 1 }, uFadeA: { value: 0.7 } },
       vertexShader: CONE_VERT,
       fragmentShader: CONE_FRAG,
       transparent: true,
@@ -384,14 +393,26 @@ export class Room {
     }
 
     // the light: far above the page, over the phone. The beam in the air and
-    // the light it puts on the wall share one apex and one angle, so they
-    // read as one cone with straight edges, already as wide as the phone
-    // where it comes in at the top of the page. (On a phone the copy sits
-    // above the phone: the light starts just over the phone there, and the
-    // copy keeps a dark wall.)
-    const HALF = (this.HALF = 0.27);
+    // the light it puts on the wall share one apex and one angle, so they read
+    // as one cone with straight edges. It is as wide as the phone at the
+    // phone's top edge and spreads below only as far as the copy beside the
+    // phone allows. Its apex is always above the page, out of sight: no point
+    // of light hangs anywhere on screen. Where the copy sits above the phone
+    // (one column, on phones) the beam passes behind the copy dimmed, and the
+    // air and dust show only round the phone.
     const top = slot.y - slot.h / 2;
-    const srcS = this.narrow ? Math.max(0, top - slot.h * 0.3) : -(slot.h * 0.25) / Math.tan(HALF);
+    const pw = (slot.h * 414) / 868;
+    const cr = this.hero.querySelector('.hero-copy')?.getBoundingClientRect();
+    const stacked = (this.stacked = !cr || cr.bottom + d <= top + 1);
+    const room = cr ? Math.max(slot.x - cr.right, cr.left - slot.x) : pw;
+    const hb = stacked ? pw * 0.75 : clamp(room, pw * 0.6, pw * 1.1);
+    let t = clamp((hb - pw / 2) / slot.h, 0.1, 0.3);
+    let srcS = top - pw / 2 / t;
+    if (srcS > -slot.h * 0.25) {
+      srcS = -slot.h * 0.25;
+      t = pw / 2 / (top - srcS);
+    }
+    this.T = t;
     this.srcS = srcS;
     // the beam hangs halfway to the wall: some of its air is in front of the phone
     const zL = (this.zL = zW * 0.5);
@@ -399,19 +420,21 @@ export class Room {
     const bx = W(slot.x) * kL, by = Y(srcS) * kL;
     this.pivot.position.set(bx, by, zL);
     const L = (this.L = Math.max(200, (this.heroH - srcS) * kL));
-    const cone = new THREE.CylinderGeometry(2 * kL, L * Math.tan(HALF), L, 72, 32, true);
+    const cone = new THREE.CylinderGeometry(2 * kL, L * t, L, 72, 32, true);
     cone.translate(0, -L / 2, 0);
     this.cone.geometry.dispose();
     this.cone.geometry = cone;
     this.cone.position.set(0, 0, 0);
     this.coneMat.uniforms.uLen.value = L;
-    this.cone.visible = !this.narrow;
+    this.coneMat.uniforms.uFadeA.value = (this.heroH * 0.7 - srcS) / (this.heroH - srcS);
     // the same wedge on the wall, at the wall's depth
     const kW = k;
     const wu = this.wallU;
     wu.uApex.value.set(W(slot.x) * kW, Y(srcS) * kW);
-    wu.uTan.value = Math.tan(HALF) * (this.narrow ? 1.6 : 1);
-    wu.uLen.value = (this.heroH - srcS) * kW;
+    wu.uTan.value = t;
+    wu.uFade.value.set((this.heroH * 0.72 - srcS) * kW, (this.heroH - srcS) * kW);
+    if (stacked) wu.uRamp.value.set(0.2, (0 - srcS) * kW, (top - srcS) * kW);
+    else wu.uRamp.value.set(1, 0, 1);
     this.bulbU = { x: bx, y: by, z: zL };
 
     // the key: high above and in front, slightly to the side of the copy
@@ -444,7 +467,7 @@ export class Room {
     sc.updateProjectionMatrix();
     // the frame: a big board with a window cut in it, square to the light,
     // between the sun and the room
-    const pw = slot.h * 0.36, phh = slot.h * 0.46, bar = slot.h * 0.05;
+    const paneW = slot.h * 0.36, phh = slot.h * 0.46, bar = slot.h * 0.05;
     const board = new THREE.Shape();
     const B = slot.h * 4;
     board.moveTo(-B, -B);
@@ -454,11 +477,11 @@ export class Room {
     board.lineTo(-B, -B);
     for (const [cx, cy] of [[-0.5, 0.5], [0.5, 0.5], [-0.5, -0.5], [0.5, -0.5]]) {
       const hole = new THREE.Path();
-      const x0 = cx * (pw + bar) - pw / 2, y0h = cy * (phh + bar) - phh / 2;
+      const x0 = cx * (paneW + bar) - paneW / 2, y0h = cy * (phh + bar) - phh / 2;
       hole.moveTo(x0, y0h);
       hole.lineTo(x0, y0h + phh);
-      hole.lineTo(x0 + pw, y0h + phh);
-      hole.lineTo(x0 + pw, y0h);
+      hole.lineTo(x0 + paneW, y0h + phh);
+      hole.lineTo(x0 + paneW, y0h);
       hole.lineTo(x0, y0h);
       board.holes.push(hole);
     }
@@ -493,7 +516,7 @@ export class Room {
     this.pivot.rotation.z = sway;
     this.coneMat.uniforms.uTime.value = t;
     this.coneMat.uniforms.uOn.value = on * 0.13;
-    this.cone.visible = !this.narrow && on > 0.005;
+    this.cone.visible = !this.stacked && on > 0.005;
     this.wallU.uOn.value = on;
     this.wallU.uSway.value = -sway;
     this.key.intensity = 0;
@@ -527,15 +550,15 @@ export class Room {
   }
 
   moveDust(dt, t, on) {
-    const show = this.visible && !this.narrow && on > 0.02 && !this.reduce;
+    const show = this.visible && on > 0.02 && !this.reduce;
     this.dust.visible = show;
     if (!show) return;
     const s = this.s;
     const vw = s.vw, vh = s.vh, D = s.D;
-    const tan = Math.tan(this.HALF), sway = this.pivot.rotation.z;
+    const tan = this.T, sway = this.pivot.rotation.z;
     // all down the part of the beam that shows, from the top of the page to
     // the floor: worked out on screen, then put at each mote's depth
-    const y0 = Math.max(0, this.srcS), y1 = this.heroH * 0.96;
+    const y0 = this.stacked ? this.pyU - this.ph * 0.62 : Math.max(0, this.srcS), y1 = this.heroH * 0.96;
     for (let i = 0; i < this.N; i++) {
       const [a, b, c2, e] = this.dseed[i];
       // drifting down, slowly, each at its own pace; swaying a little

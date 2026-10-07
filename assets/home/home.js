@@ -4,7 +4,7 @@
 
 import { Stage } from './stage.js?v=36fdbb8a';
 import { Player, loadIndex, prefetch } from './player.js?v=4104dfe0';
-import { Room } from './room.js?v=fe021ce6';
+import { Room } from './room.js?v=a5c426b9';
 
 const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
@@ -32,7 +32,10 @@ function menu(open) {
   langBtn.setAttribute('aria-expanded', String(open));
   if (open) (langMenu.querySelector('[aria-current]') || langMenu.querySelector('a')).focus();
 }
-langBtn.addEventListener('click', () => menu(langMenu.hidden));
+langBtn.addEventListener('click', () => {
+  if (langMenu.hidden) sheet(false);
+  menu(langMenu.hidden);
+});
 document.addEventListener('click', (e) => {
   if (!langMenu.hidden && !e.target.closest('.lang')) menu(false);
 });
@@ -41,6 +44,40 @@ document.addEventListener('keydown', (e) => {
     menu(false);
     langBtn.focus();
   }
+});
+
+// the menu sheet, where the header has no room for its links
+const sheetBtn = $('.menu-btn');
+const sheetEl = $('#menu');
+let sheetAt = 0;
+function sheet(open, focusBtn) {
+  if (!sheetEl || open === !sheetEl.hidden) return;
+  sheetEl.hidden = !open;
+  sheetBtn.setAttribute('aria-expanded', String(open));
+  top.classList.toggle('open', open);
+  sheetEl.classList.toggle('in', open);
+  if (open) {
+    sheetAt = scrollY;
+    menu(false);
+    sheetEl.querySelector('a').focus({ preventScroll: true });
+  } else if (focusBtn) sheetBtn.focus();
+}
+sheetBtn?.addEventListener('click', () => sheet(sheetEl.hidden));
+sheetEl?.addEventListener('click', (e) => {
+  if (e.target.closest('a')) sheet(false);
+});
+document.addEventListener('click', (e) => {
+  if (sheetEl && !sheetEl.hidden && !e.target.closest('.menu, .menu-btn')) sheet(false);
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && sheetEl && !sheetEl.hidden) sheet(false, true);
+});
+// scrolling the page away, or widening it until the links fit, closes it
+addEventListener('scroll', () => {
+  if (sheetEl && !sheetEl.hidden && Math.abs(scrollY - sheetAt) > 60) sheet(false);
+}, { passive: true });
+matchMedia('(min-width: 1100px)').addEventListener('change', (e) => {
+  if (e.matches) sheet(false);
 });
 // ------------------------------------------------------------------ theme
 // Light or dark: the visitor's choice, remembered, else the system's. The
@@ -100,21 +137,21 @@ for (const a of $$('[data-lang]')) {
 })();
 
 // section in view lights its link in the header
-const navLinks = new Map($$('.top-nav a').map((a) => [a.getAttribute('href').slice(1), a]));
+const navAll = $$('.top-nav a, .menu nav a');
+const navIds = [...new Set(navAll.map((a) => a.getAttribute('href').slice(1)))];
 const navIO = new IntersectionObserver(
   (es) => {
     for (const e of es) {
-      const a = navLinks.get(e.target.id);
-      if (!a) continue;
-      if (e.isIntersecting) {
-        navLinks.forEach((x) => x.removeAttribute('aria-current'));
-        a.setAttribute('aria-current', 'true');
+      if (!e.isIntersecting) continue;
+      for (const a of navAll) {
+        if (a.getAttribute('href') === `#${e.target.id}`) a.setAttribute('aria-current', 'true');
+        else a.removeAttribute('aria-current');
       }
     }
   },
   { rootMargin: '-50% 0px -49% 0px' },
 );
-for (const id of navLinks.keys()) {
+for (const id of navIds) {
   const s = document.getElementById(id);
   if (s) navIO.observe(s);
 }
@@ -166,20 +203,35 @@ function flight() {
 }
 
 const chapters = $$('.ch');
-// The chapter with a companion device, when the tour column has room for two.
+// The hand-over chapter shows the friend's phone beside the main one, when
+// the tour column has room for both side by side at a good size. Laid out by
+// what each phone measures on screen (the friend's stands further back and
+// turned, so it looks smaller), with a clear gap between them: they never
+// overlap. Without the room, the main phone stays on its own.
 let active = null;
-const duoOf = () => {
-  if (active !== 'keys') return null;
-  const S = tourStage.getBoundingClientRect();
+const ASPECT = 414 / 868;
+const EXTRA_RY = 0.24;
+function duoLayout() {
+  if (active !== 'keys' || flight() <= 0.98) return null;
+  const S = box(tourStage);
   const T = fit(box(tourSlot));
-  return flight() > 0.98 && S.width >= ((T.h * 414) / 868) * 2.1 ? active : null;
-};
+  const avail = S.w * 0.98;
+  const wm = ASPECT * T.h * 0.94;
+  const we = ASPECT * T.h * 0.8 * Math.cos(EXTRA_RY);
+  const g0 = T.h * 0.05;
+  const f = Math.min(1, avail / (wm + we + g0));
+  if (f < 0.8) return null;
+  const g = f < 1 ? g0 : Math.min(T.h * 0.14, avail - wm - we);
+  const W = (wm + we) * f + g;
+  return {
+    main: { x: S.x - side * (W / 2 - (wm * f) / 2), y: T.y, h: T.h * 0.94 * f },
+    extra: { x: S.x + side * (W / 2 - (we * f) / 2), y: T.y + T.h * 0.03, h: T.h * 0.8 * f, z: -T.h * 0.16 * f },
+  };
+}
 function tourTarget() {
   const T = fit(box(tourSlot));
-  const duo = duoOf();
-  if (!duo) return { ...T, z: 0 };
-  const S = box(tourStage);
-  return { ...T, x: S.x - side * S.w * 0.19, h: T.h * 0.94, z: 0 };
+  const L = duoLayout();
+  return L ? { ...T, ...L.main, z: 0 } : { ...T, z: 0 };
 }
 const byBoard = new Map();
 for (const b of $$('.steps [data-board]')) {
@@ -298,22 +350,29 @@ async function boot() {
   // On a wide screen the tour column takes two devices: the main phone steps
   // aside and the friend's phone stands next to it. (The stage can build a
   // laptop too, for the mechanic's side, which comes with 2.1.)
-  const extra = (kind, chapter, board, at) => {
-    const dev = kind === 'laptop' ? stage.laptop() : stage.phone();
-    const p = new Player(dev.el, kind === 'laptop' ? { w: 1280, h: 800, chrome: false, reduce } : { reduce });
+  {
+    const dev = stage.phone();
+    const p = new Player(dev.el, { reduce });
     let loaded = false;
+    let last = null;
     dev.follow = () => {
-      const want = duoOf() === chapter;
-      if (want && !loaded) {
+      const L = duoLayout();
+      if (L && !loaded) {
         loaded = true;
-        p.go(board);
+        p.go('n/Lend-Guest');
       }
       if (!loaded) return null;
-      return { ...at(box(tourStage), fit(box(tourSlot))), o: want ? 1 : 0, k: 9 };
+      if (L) {
+        // the layout is what shows on screen; the phone stands further back,
+        // so it is placed (and sized) for where the camera sees it
+        const E = L.extra;
+        const k = (stage.D - E.z) / stage.D;
+        last = { x: stage.vw / 2 + (E.x - stage.vw / 2) * k, y: stage.vh / 2 + (E.y - stage.vh / 2) * k, h: E.h * k, z: E.z, rx: 0.03, ry: -side * EXTRA_RY, rz: 0 };
+      }
+      if (!last) return null;
+      return { ...last, ry: last.ry + stage.pointer.sx * 0.06, o: L ? 1 : 0, k: 9 };
     };
-    return dev;
-  };
-  extra('phone', 'keys', 'n/Lend-Guest', (S, T) => ({ x: S.x + side * S.w * 0.2, y: T.y + T.h * 0.03, h: T.h * 0.86, z: -T.h * 0.16, rx: 0.03, ry: -side * 0.24 + stage.pointer.sx * 0.06, rz: 0 }));
+  }
 
   // ---- what the main phone shows
   // asked for less motion: the phone holds still on the garage until tapped

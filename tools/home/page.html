@@ -50,7 +50,17 @@
   </div>
   <button class="theme-btn" type="button" data-to-light="{{nav.to_light}}" data-to-dark="{{nav.to_dark}}" aria-label="{{nav.to_light}}">{{icon:sun}}<svg class="i moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3.5L5.5 5.5 3.5 10v4l2 4.5 4.5 2h4l4.5-2 2-4.5-5 .5-4.5-2-1.5-4z"></path></svg></button>
   <a class="btn btn-line btn-sm top-get" href="#get">{{nav.get}}</a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="{{a11y.menu}}"><i></i><i></i><i></i></button>
 </header>
+<div class="menu" id="menu" hidden>
+  <nav aria-label="{{a11y.menu}}">
+    <a href="#tour"><span class="n">01</span>{{nav.tour}}</a>
+    <a href="#why"><span class="n">02</span>{{nav.why}}</a>
+    <a href="#maker"><span class="n">03</span>{{nav.maker}}</a>
+    <a href="#faq"><span class="n">04</span>{{nav.faq}}</a>
+  </nav>
+  <a class="btn btn-gold menu-get" href="#get">{{nav.get}}</a>
+</div>
 
 <main id="main">
 

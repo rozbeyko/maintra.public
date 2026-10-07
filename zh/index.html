@@ -42,9 +42,9 @@
 </script>
 <link rel="icon" type="image/png" href="/assets/favicon.png">
 
-<link rel="modulepreload" href="/assets/home/home.js?v=8c0edb56">
+<link rel="modulepreload" href="/assets/home/home.js?v=dd0ab18a">
 <link rel="modulepreload" href="/assets/home/stage.js?v=36fdbb8a">
-<link rel="modulepreload" href="/assets/home/room.js?v=fe021ce6">
+<link rel="modulepreload" href="/assets/home/room.js?v=a5c426b9">
 <link rel="modulepreload" href="/assets/home/player.js?v=4104dfe0">
 <link rel="modulepreload" href="/assets/journey/three.module.min.js">
 <link rel="preload" href="/assets/home/b/index.json?v=4b0612bf" as="fetch" crossorigin="anonymous">
@@ -54,8 +54,8 @@
 <link rel="preload" href="/assets/journey/fonts/firasans-600-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/home/fonts.css?v=3a8a3f95">
 
-<link rel="stylesheet" href="/assets/home/home.css?v=f73defce">
-<script type="module" src="/assets/home/home.js?v=8c0edb56"></script>
+<link rel="stylesheet" href="/assets/home/home.css?v=20a5fb7d">
+<script type="module" src="/assets/home/home.js?v=dd0ab18a"></script>
 <script>setTimeout(function () { document.documentElement.classList.remove('loading'); }, 7000);</script>
 <noscript><style>html.loading .loader{display:none}</style></noscript>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"MobileApplication","name":"Maintra","url":"https://maintra.me/zh/","description":"Maintra 2.0 将于 10 月推出：全新车库、自动累计里程的离线地图、出借和共享车辆、连同记录一起出售、11 种语言。一本保养手册，写给用心养车的人。在页面上就能直接试用 App。","inLanguage":"zh-Hans","operatingSystem":"iOS, Android","applicationCategory":"UtilitiesApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"Kyrylo Rozbeiko"},"downloadUrl":["https://apps.apple.com/app/maintra/id6775876731","https://play.google.com/store/apps/details?id=com.maintra.app"]}</script>
@@ -91,7 +91,17 @@
   </div>
   <button class="theme-btn" type="button" data-to-light="切换到浅色主题" data-to-dark="切换到深色主题" aria-label="切换到浅色主题"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 8.5h7v7h-7z"></path><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"></path></svg><svg class="i moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3.5L5.5 5.5 3.5 10v4l2 4.5 4.5 2h4l4.5-2 2-4.5-5 .5-4.5-2-1.5-4z"></path></svg></button>
   <a class="btn btn-line btn-sm top-get" href="#get">下载 App</a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="菜单"><i></i><i></i><i></i></button>
 </header>
+<div class="menu" id="menu" hidden>
+  <nav aria-label="菜单">
+    <a href="#tour"><span class="n">01</span>上手试试</a>
+    <a href="#why"><span class="n">02</span>为什么值得用</a>
+    <a href="#maker"><span class="n">03</span>谁做的</a>
+    <a href="#faq"><span class="n">04</span>常见问题</a>
+  </nav>
+  <a class="btn btn-gold menu-get" href="#get">下载 App</a>
+</div>
 
 <main id="main">
 

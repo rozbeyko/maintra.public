@@ -329,6 +329,65 @@ html.loading body { overflow: hidden; }
 @media (min-width: 560px) { .top-get { display: inline-flex; } }
 @media (min-width: 1100px) { .top-nav { display: flex; } }
 
+/* The menu, where the header has no room for its links: three bars that
+   lean like the logo's, the last one short and gold; open, they cross. */
+.menu-btn { display: grid; place-items: center; width: 44px; height: 44px; margin-inline-end: -8px; color: var(--text); }
+.menu-btn i { grid-area: 1 / 1; display: block; width: 22px; height: 2.5px; background: currentColor; transition: transform .3s var(--ease), opacity .2s, width .3s var(--ease); }
+.menu-btn i:nth-child(1) { transform: translateY(-7px) skewX(-24deg); }
+.menu-btn i:nth-child(2) { transform: skewX(-24deg); }
+.menu-btn i:nth-child(3) { width: 13px; justify-self: end; margin-inline-end: 11px; background: var(--accent); transform: translateY(7px) skewX(-24deg); }
+.menu-btn[aria-expanded='true'] i:nth-child(1) { transform: rotate(45deg); }
+.menu-btn[aria-expanded='true'] i:nth-child(2) { opacity: 0; transform: scaleX(.2); }
+.menu-btn[aria-expanded='true'] i:nth-child(3) { width: 22px; margin-inline-end: 11px; background: currentColor; transform: rotate(-45deg); }
+.menu {
+  position: fixed;
+  z-index: 59;
+  inset: var(--nav) 0 auto;
+  max-height: calc(100svh - var(--nav));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 6px var(--gutter) 26px;
+  background: linear-gradient(115deg, var(--sheen), transparent 40%, color-mix(in srgb, var(--sheen) 60%, transparent)), var(--glass-menu);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  backdrop-filter: blur(22px) saturate(160%);
+  box-shadow: inset 0 -1px 0 var(--hair), 0 30px 60px var(--drop);
+}
+.menu[hidden] { display: none; }
+.menu nav { display: flex; flex-direction: column; border-top: 1px solid var(--hair); }
+.menu nav a {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  min-height: 60px;
+  padding: 16px 2px 14px;
+  border-bottom: 1px solid var(--hair);
+  font: italic 800 clamp(28px, 7vw, 44px)/1 var(--display);
+  font-stretch: 78%;
+  text-transform: uppercase;
+  color: var(--text);
+  text-decoration: none;
+}
+:lang(ar) .menu nav a, :lang(ja) .menu nav a, :lang(ko) .menu nav a, :lang(zh) .menu nav a { font-style: normal; }
+.menu nav a .n { flex: none; width: 2.2em; font: 600 12px/1 var(--display); font-stretch: 78%; letter-spacing: .14em; color: var(--muted); }
+.menu nav a[aria-current='true'] .n { color: var(--accent-line); }
+.menu nav a:hover { color: var(--accent-line); }
+.menu-get { margin-top: 22px; }
+@media (min-width: 560px) { .menu-get { display: none; } }
+/* in: the sheet drops in, the rows follow it 40 ms apart, as the app's + menu does */
+.menu.in { animation: menuIn .32s var(--ease) both; }
+.menu.in nav a, .menu.in .menu-get { animation: menuRow .42s var(--ease) both; }
+.menu.in nav a:nth-child(2) { animation-delay: 40ms; }
+.menu.in nav a:nth-child(3) { animation-delay: 80ms; }
+.menu.in nav a:nth-child(4) { animation-delay: 120ms; }
+.menu.in .menu-get { animation-delay: 160ms; }
+@keyframes menuIn { from { opacity: 0; transform: translateY(-10px); } }
+@keyframes menuRow { from { opacity: 0; transform: translateX(-18px); } }
+[dir='rtl'] .menu.in nav a, [dir='rtl'] .menu.in .menu-get { animation-name: menuRowR; }
+@keyframes menuRowR { from { opacity: 0; transform: translateX(18px); } }
+@media (prefers-reduced-motion: reduce) { .menu.in, .menu.in nav a, .menu.in .menu-get { animation: none; } }
+.top.open { background: var(--glass-menu); -webkit-backdrop-filter: blur(22px) saturate(160%); backdrop-filter: blur(22px) saturate(160%); }
+@media (min-width: 1100px) { .menu-btn, .menu { display: none !important; } }
+
 /* ----------------------------------------------------------------- hero */
 /* The hero is not its own stacking context: the facts band has to rise above
    the 3D stage (40) like the ticker, so the phone flies behind both bands

@@ -99,6 +99,10 @@ How the pieces fit:
   window, which throws the frame's shadow and the phone's. Switching the theme
   switches the garage between night and day. Without WebGL the CSS layers in
   `.hero-bg` stand in.
+- **Checking the modules.** The homepage's JS files are ES modules. Check them
+  with `node --input-type=module --check < assets/home/room.js`: a plain
+  `node --check` reads them as CommonJS and misses errors that only exist in a
+  module (a name declared twice, for one), which stop the whole page script.
 - **Share cards.** Each language page links its own 1200×630 card. After a
   headline or hero change, re-render them: start a local server, run
   `node tools/genog.mjs`, then `node tools/genhome.mjs .` for the new hashes.
