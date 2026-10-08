@@ -305,6 +305,8 @@ for (const [name, fileCode] of jobs) {
     .replace(/<main id="main" class="doc[^"]*">/, `<main id="main" class="doc${heads.length < 3 ? ' doc-plain' : ''}">`)
     .replace(/<div class="doc-grid[^"]*">/, `<div class="doc-grid${heads.length < 3 ? '' : ' has-toc'}">`);
   html = relink(html, code, name);
+  // the page's own structured data says which language it is in
+  html = html.replace(/("inLanguage":\s*")[^"]*"/g, `$1${byHtml(code).html}"`);
   writeFileSync(join(SITE, file), html, 'utf8');
   console.log(`${file.padEnd(26)} ${heads.length} sections${versions.length > 1 ? `, ${versions.length} languages` : ''}`);
 }
