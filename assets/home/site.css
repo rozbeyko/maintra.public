@@ -1,0 +1,153 @@
+/* The site's other pages (about, FAQ, support, privacy, terms, account
+ * deletion, press kit, the app's bounce pages, the shared wishlist), in the
+ * 2.0 design language. Loaded after home.css, which carries the tokens, both
+ * themes, the type, the header, the menu, the buttons and the footer; this
+ * adds the reading layout.
+ *
+ * Not boxed: the page starts at the gutter like the homepage's sections. A
+ * long page gets its sections as a numbered index on the left, sticky while
+ * you read, and the text in a column held to a readable measure by the text
+ * itself (ch), which grows with the type on big screens. The header and the
+ * footer are stamped in by tools/genchrome.mjs.
+ */
+
+.doc {
+  padding: calc(var(--nav) + clamp(40px, 9vh, 140px)) var(--gutter) var(--sec);
+  counter-reset: sec;
+}
+
+/* ---------------------------------------------------------------- head */
+.doc-head { display: flex; flex-direction: column; gap: clamp(16px, 2.6vh, 32px); max-width: 1500px; margin-bottom: clamp(40px, 8vh, 120px); }
+.doc-head .h1 { font-size: clamp(40px, min(6.4vw, 11vh), 150px); line-height: .92; max-width: 16ch; overflow-wrap: break-word; }
+:lang(uk) .doc-head .h1 { max-width: 18ch; }
+.doc-head .lede { margin: 0; max-width: 48ch; color: var(--text2); font-size: clamp(18px, .5vw + 13px, 27px); line-height: 1.5; }
+.doc-head .lede a { color: var(--text); }
+
+/* -------------------------------------------------------------- layout */
+.doc-grid { display: grid; grid-template-columns: minmax(0, 1fr); column-gap: clamp(40px, 6vw, 180px); align-items: start; }
+.doc-toc { display: none; }
+@media (min-width: 1100px) {
+  .doc-grid.has-toc { grid-template-columns: minmax(200px, 300px) minmax(0, 1fr); }
+  .doc-toc { display: block; position: sticky; top: calc(var(--nav) + 6vh); max-height: calc(100vh - var(--nav) - 12vh); overflow-y: auto; scrollbar-width: none; }
+}
+@media (min-width: 2200px) { .doc-grid.has-toc { grid-template-columns: minmax(260px, 380px) minmax(0, 1fr); } }
+
+.doc-toc ol { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--hair); }
+.doc-toc a {
+  position: relative;
+  display: flex;
+  gap: 14px;
+  padding: 11px 2px;
+  border-bottom: 1px solid var(--hair);
+  font: 600 clamp(12px, .16vw + 10px, 16px)/1.3 var(--display);
+  font-stretch: 78%;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text2);
+  text-decoration: none;
+  transition: color .2s;
+}
+:lang(uk) .doc-toc a { letter-spacing: .06em; }
+.doc-toc a .n { flex: none; width: 2em; color: var(--muted); font-variant-numeric: tabular-nums; }
+.doc-toc a:hover, .doc-toc a[aria-current='true'] { color: var(--text); }
+.doc-toc a[aria-current='true'] .n { color: var(--accent-line); }
+.doc-toc a[aria-current='true']::before { content: ''; position: absolute; inset-inline-start: -16px; top: 50%; width: 6px; height: 20px; margin-top: -10px; background: var(--accent-line); transform: skewX(-24deg); }
+
+/* ---------------------------------------------------------------- text */
+.doc-body { min-width: 0; max-width: 68ch; font-size: clamp(16px, .28vw + 12.6px, 21px); line-height: 1.65; color: var(--text); }
+.doc-body > :first-child { margin-top: 0; }
+.doc-body p { margin: 0 0 1.05em; }
+.doc-body h2 {
+  counter-increment: sec;
+  margin: 2.6em 0 .7em;
+  font: 800 clamp(26px, 1.6vw + 14px, 54px)/1 var(--display);
+  font-stretch: 78%;
+  text-transform: uppercase;
+  letter-spacing: .01em;
+  scroll-margin-top: calc(var(--nav) + 24px);
+}
+.doc-body h2::before {
+  content: counter(sec, decimal-leading-zero);
+  display: block;
+  margin-bottom: .7em;
+  font: 600 clamp(12px, .16vw + 10px, 15px)/1 var(--display);
+  font-stretch: 78%;
+  letter-spacing: .14em;
+  color: var(--accent-line);
+}
+.doc-body h3 { margin: 1.9em 0 .5em; font: 700 clamp(18px, .4vw + 13px, 26px)/1.25 var(--sans); }
+.doc-body h2 + h3 { margin-top: 1em; }
+:lang(ar) .doc-body h2, :lang(ja) .doc-body h2, :lang(ko) .doc-body h2, :lang(zh) .doc-body h2 { letter-spacing: 0; line-height: 1.15; }
+
+.doc-body a { overflow-wrap: anywhere; color: var(--text); text-decoration: underline; text-decoration-color: var(--accent-line); text-decoration-thickness: 2px; text-underline-offset: .2em; transition: color .2s; }
+.doc-body a:hover { color: var(--accent-line); }
+.doc-body strong { color: var(--text); font-weight: 700; }
+.doc-body .muted, .doc-body p.muted { color: var(--text2); font-size: .9em; }
+.doc-body .lede { color: var(--text2); font-size: 1.12em; }
+
+.doc-body ul, .doc-body ol { margin: 0 0 1.2em; padding: 0; list-style: none; }
+.doc-body li { position: relative; margin: 0 0 .55em; padding-inline-start: 1.6em; }
+.doc-body ul > li::before { content: ''; position: absolute; inset-inline-start: .15em; top: .72em; width: .7em; height: .17em; background: var(--accent-line); transform: skewX(-24deg); }
+.doc-body ol { counter-reset: li; }
+.doc-body ol > li { counter-increment: li; }
+.doc-body ol > li::before { content: counter(li) '.'; position: absolute; inset-inline-start: 0; font: 700 .9em/1.8 var(--display); font-stretch: 78%; color: var(--accent-line); }
+
+/* steps you follow in order (deleting an account) */
+.doc-body .step-list { counter-reset: step; border-top: 1px solid var(--hair); }
+.doc-body .step-list > li { counter-increment: step; margin: 0; padding: 14px 0 14px 3em; border-bottom: 1px solid var(--hair); }
+.doc-body .step-list > li::before { content: counter(step, decimal-leading-zero); top: 14px; inset-inline-start: 0; width: auto; height: auto; background: none; transform: none; font: 700 .85em/1.9 var(--display); font-stretch: 78%; letter-spacing: .1em; color: var(--accent-line); }
+
+/* a set-apart note: hairline plate, top-left corner cut */
+.doc-body .card {
+  margin: 1.4em 0;
+  padding: 18px 22px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--hair);
+  clip-path: polygon(var(--cut) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cut));
+}
+.doc-body .card > :last-child { margin-bottom: 0; }
+.doc-body .card.accent { box-shadow: inset 0 0 0 1px var(--hair), inset 3px 0 0 var(--accent); }
+[dir='rtl'] .doc-body .card.accent { box-shadow: inset 0 0 0 1px var(--hair), inset -3px 0 0 var(--accent); }
+
+.doc-body table { width: 100%; border-collapse: collapse; margin: 1em 0 1.6em; font-size: .92em; }
+.doc-body td, .doc-body th { overflow-wrap: anywhere; padding: 11px 0; border-bottom: 1px solid var(--hair); vertical-align: top; text-align: start; }
+.doc-body td:first-child { width: 36%; padding-inline-end: 18px; color: var(--text2); }
+
+.doc-body .btn { text-decoration: none; color: var(--on-gold); }
+.doc-body .btn-line { color: var(--text); }
+
+/* ---------------------------------------------- short pages, no index */
+.doc-plain .doc-body { max-width: 60ch; }
+
+/* -------------------------------------------------------- big screens */
+@media (min-width: 3000px) and (min-height: 1300px) {
+  .doc-body { font-size: 24px; }
+  .doc-toc a { font-size: 18px; }
+}
+
+/* ------------------------------------------------------------ header */
+/* (no language menu here: this pushes the switches to the end) */
+.top-gap { margin-inline-start: auto; }
+a.lang-btn { text-decoration: none; }
+.menu nav a[aria-current] .n { color: var(--accent-line); }
+
+/* ---------------------------------------------------- shared wishlist */
+.wl-head { margin: 0 0 8px; }
+.wl-head h1 { margin: 0 0 10px; font: italic 800 clamp(36px, 5vw, 96px)/.95 var(--display); font-stretch: 78%; text-transform: uppercase; }
+.wl-sub { color: var(--text2); font-size: .9em; }
+.wl-list { display: flex; flex-direction: column; margin: 28px 0; border-top: 1px solid var(--hair); }
+.doc-body .wl-item { display: flex; gap: 16px; align-items: center; padding: 14px 2px; border-bottom: 1px solid var(--hair); text-decoration: none; color: inherit; }
+.doc-body .wl-item:hover { color: inherit; background: var(--hover); }
+.wl-thumb { flex: none; width: 56px; height: 56px; object-fit: cover; background: var(--card); clip-path: polygon(8px 0, 100% 0, 100% 100%, 0 100%, 0 8px); }
+.wl-thumb.ph { display: grid; place-items: center; font-size: 24px; }
+.wl-body { flex: 1; min-width: 0; }
+.wl-title { font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.wl-site { font-size: .8em; color: var(--text2); }
+.wl-price { font: 700 1.1em/1 var(--display); font-stretch: 78%; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.wl-prio { margin-inline-start: 8px; padding: 3px 8px; font: 700 10px/1 var(--display); font-stretch: 78%; letter-spacing: .12em; }
+.wl-prio.high { color: var(--red); box-shadow: inset 0 0 0 1px var(--red); }
+.wl-prio.normal { color: var(--amber); box-shadow: inset 0 0 0 1px var(--amber); }
+.wl-prio.low { color: var(--text2); box-shadow: inset 0 0 0 1px var(--control); }
+.wl-total { margin: 18px 0 6px; font: 800 1.3em/1 var(--display); font-stretch: 78%; text-transform: uppercase; }
+.wl-cta { margin: 30px 0; }
+.wl-err { color: var(--text2); margin: 40px 0; }

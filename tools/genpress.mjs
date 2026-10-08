@@ -10,9 +10,12 @@
  * Output is plain static HTML with no runtime dependency, because a press kit
  * has to survive a journalist with JavaScript switched off.
  *
- * Regenerate both pages after editing anything below, then check the result:
+ * The pages come out in the site's 1.x shape and tools/genchrome.mjs gives
+ * them the 2.0 header, footer and layout. Regenerate both after editing
+ * anything below, then check the result:
  *
  *   node tools/genpress.mjs .
+ *   node tools/genchrome.mjs .
  *   node tools/press-linkcheck.mjs .
  *
  * Do not hand-edit press.html or press-en.html — they are output, and an edit
@@ -35,10 +38,6 @@ const SHOTS = 'assets/press/screens';
  * identical URL kept serving that for the four hours Cache-Control allows.
  * A hash cannot be forgotten — change the file and the URL changes with it,
  * leave it alone and the URL stays put so the cache still does its job.
- *
- * style.css and nav.js keep the hand-typed date: they are shared with the
- * rest of the site, and giving them a different query string here would just
- * make press visitors download a second copy of files they already have.
  *
  * Line endings are normalised before hashing. Git hands this repo CRLF on
  * checkout while the generator writes LF, so hashing the raw bytes makes the
@@ -387,9 +386,7 @@ function page(lang) {
   <meta property="og:image" content="https://maintra.me/assets/press/maintra-feature-1024x500.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" href="assets/favicon.png" />
-  <link rel="stylesheet" href="assets/style.css?v=20260915" />
   <link rel="stylesheet" href="assets/press.css?v=${assetVersion('assets/press.css')}" />
-  <script src="assets/nav.js?v=20260915" defer></script>
 </head>
 <body>
   <div class="container">

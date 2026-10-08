@@ -120,6 +120,43 @@ const preloads = (lang) => {
   ].join('\n');
 };
 
+// The design lays the page out as one centred column (720px, 1180px for the
+// wide sections). The site runs it from the gutter like the homepage, and on
+// a wide screen gives each section two columns: its heading and words on the
+// left, sticky while its pictures go by on the right. Type grows with the
+// screen. Phones keep the design's own single column.
+const LAYOUT_CSS = `
+/* layout (site only, see genjourney.mjs) */
+:root{--gut:clamp(20px,3.6vw,140px)}
+main{padding-inline:var(--gut)}
+main .col,main .wide{max-width:none;margin-inline:0}
+.lang{right:var(--gut)}
+@media (min-width:1100px){
+  body{font-size:clamp(17px,.22vw + 14px,22px)}
+  h2{font-size:clamp(44px,3.2vw,104px)}
+  h3{font-size:clamp(22px,.7vw + 14px,32px)}
+  .eyebrow{font-size:clamp(13px,.2vw + 10px,17px)}
+  .lede{font-size:clamp(19px,.5vw + 13px,28px)}
+  .hero{min-height:min(100svh,1500px);grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,140px)}
+  .hero h1{font-size:clamp(52px,4.4vw,150px)}
+  .hero-3d{height:min(84svh,1300px)}
+  main>section{display:grid;grid-template-columns:minmax(300px,30%) minmax(0,1fr);column-gap:clamp(48px,5vw,180px);align-items:start;padding-block:clamp(72px,12vh,220px) 8px}
+  /* the left column: the stripe and the heading share one area, so the
+     first picture's row can't push the heading down */
+  main>section.col>.hazard,main>section.col>.head{grid-column:1;grid-row:1/span 60;align-self:start;position:sticky;top:calc(var(--gut) + 6vh)}
+  main>section.col>.head{margin-top:30px}
+  main>section.col>:not(.hazard):not(.head){grid-column:2}
+  main>section.wide>.col:first-child{grid-column:1;grid-row:1/span 60;align-self:start;position:sticky;top:calc(var(--gut) + 6vh)}
+  main>section.wide>:not(.col:first-child){grid-column:2}
+  main>section.wide>.col~.col{position:static}
+  main>footer{padding-inline:0}
+}
+/* an ultrawide: the design's small print (13px plates) grows with it; the
+   hero, with its 3D, keeps its own scale */
+@media (min-width:2600px){main>section,main>footer{zoom:1.2}}
+@media (min-width:3400px){main>section,main>footer{zoom:1.35}}
+`;
+
 const SWITCH_CSS = `
 /* language switch (site only, not in the design) */
 .lang{position:absolute;top:10px;right:max(10px,calc((100% - 1180px) / 2));z-index:3;display:flex;align-items:center;font-family:var(--display);font-stretch:78%;font-weight:700;font-size:14px;letter-spacing:.14em}
@@ -269,7 +306,7 @@ function page(lang, content) {
 ${preloads(lang)}
 <style>
 ${fonts}</style>
-<style>${pageCss}${SWITCH_CSS}</style>
+<style>${pageCss}${SWITCH_CSS}${LAYOUT_CSS}</style>
 </head>
 <body>
 <div class="loader" id="loader" role="status">${LOADER_SVG}<span class="sr">${p.loading}</span></div>

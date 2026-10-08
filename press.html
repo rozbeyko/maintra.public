@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Прескіт — Maintra</title>
   <meta name="description" content="Матеріали для преси: логотипи, скріншоти, готові тексти й фактаж про Maintra — цифрову сервісну книжку для авто й мотоциклів. Використання дозволено без погодження." />
-  <meta name="theme-color" content="#0A0A0A" />
+  <meta name="theme-color" content="#0B0B0A" />
   <link rel="canonical" href="https://maintra.me/press" />
   <link rel="alternate" hreflang="uk" href="https://maintra.me/press" />
   <link rel="alternate" hreflang="en" href="https://maintra.me/press-en" />
@@ -20,337 +20,399 @@
   <meta property="og:image" content="https://maintra.me/assets/press/maintra-feature-1024x500.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" href="assets/favicon.png" />
-  <link rel="stylesheet" href="assets/style.css?v=20260915" />
-  <link rel="stylesheet" href="assets/press.css?v=56c159a5" />
-  <script src="assets/nav.js?v=20260915" defer></script>
+<!-- chrome:head -->
+<script>
+(function () {
+  var t = null;
+  try { t = localStorage.getItem('maintra.theme'); } catch (e) {}
+  if (t !== 'light' && t !== 'dark') t = window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', t);
+  if (t === 'light') document.querySelector('meta[name="theme-color"]').setAttribute('content', '#EEEAE2');
+})();
+</script>
+<link rel="stylesheet" href="/assets/home/fonts.css?v=3a8a3f95" />
+<link rel="stylesheet" href="/assets/home/home.css?v=de947d99" />
+<link rel="stylesheet" href="/assets/home/site.css?v=ecdf75d4" />
+<link rel="stylesheet" href="/assets/press.css?v=e909af73" />
+<script type="module" src="/assets/home/site.js?v=52d2b1e2"></script>
+<!-- /chrome:head -->
 </head>
 <body>
-  <div class="container">
-    <header class="site-header">
-      <a href="index.html"><img src="assets/logo.png" alt="Maintra logo" class="logo-img" /></a>
-      <a href="index.html" class="brand" style="text-decoration:none;">Maintra</a>
-      <nav>
-        <a href="about.html">Про розробника</a>
-        <a href="faq.html">FAQ</a>
-        <a href="support.html">Support</a>
-        <a href="/press-en" class="lang-switch" hreflang="en">English</a>
-      </nav>
-    </header>
-
-    <h1>Прескіт</h1>
+<!-- chrome:top -->
+<a class="skip" href="#main">Перейти до змісту</a>
+<header class="top" id="top">
+  <a class="brand" href="/uk/" aria-label="Maintra"><svg class="mt" viewBox="0 0 100 57.69" aria-hidden="true"><path d="M26.10,0.00 L35.15,0.00 L35.15,57.69 L26.10,57.69 Z" style="fill:var(--lg-stem)"/><path d="M52.20,0.00 L61.25,0.00 L61.25,57.69 L52.20,57.69 Z" style="fill:var(--lg-stem)"/><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" style="fill:var(--lg-gold)"/><clipPath id="mtc1"><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z"/></clipPath><g clip-path="url(#mtc1)"><path d="M2.40,57.69 L18.80,57.69 L37.55,0.00 L21.15,0.00 Z" style="fill:var(--lg-shade)"/><path d="M28.50,57.69 L44.90,57.69 L63.65,0.00 L47.24,0.00 Z" style="fill:var(--lg-shade)"/><path d="M54.60,57.69 L71.00,57.69 L89.75,0.00 L73.34,0.00 Z" style="fill:var(--lg-shade)"/></g><path d="M0.00,57.69 L16.40,57.69 L35.15,0.00 L18.75,0.00 Z" style="fill:var(--lg-ink)"/><path d="M26.10,57.69 L42.50,57.69 L61.25,0.00 L44.84,0.00 Z" style="fill:var(--lg-ink)"/><path d="M52.20,57.69 L68.60,57.69 L87.35,0.00 L70.94,0.00 Z" style="fill:var(--lg-gold)"/></svg><span class="word">Maintra</span></a>
+  <nav class="top-nav" aria-label="Maintra">
+    <a href="/uk/#tour">Спробуй</a>
+    <a href="/faq.html">Часті питання</a>
+    <a href="/support.html">Підтримка</a>
+    <a href="/press" aria-current="page">Для преси</a>
+    <a href="/about.html">Про розробника</a>
+  </nav>
+  <span class="top-gap"></span>
+  <a class="lang-btn" href="/press-en" hreflang="en" lang="en"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 3.5h7l5 5v7l-5 5h-7l-5-5v-7z"></path><path d="M3.5 12h17M12 3.5L8.5 12l3.5 8.5M12 3.5l3.5 8.5-3.5 8.5"></path></svg><span>EN</span></a>
+  <button class="theme-btn" type="button" data-to-light="Увімкнути світлу тему" data-to-dark="Увімкнути темну тему" aria-label="Увімкнути світлу тему"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 8.5h7v7h-7z"></path><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"></path></svg><svg class="i moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3.5L5.5 5.5 3.5 10v4l2 4.5 4.5 2h4l4.5-2 2-4.5-5 .5-4.5-2-1.5-4z"></path></svg></button>
+  <a class="btn btn-line btn-sm top-get" href="/uk/#get">Завантажити</a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Меню"><i></i><i></i><i></i></button>
+</header>
+<div class="menu" id="menu" hidden>
+  <nav aria-label="Меню">
+    <a href="/uk/#tour"><span class="n">01</span>Спробуй</a>
+    <a href="/faq.html"><span class="n">02</span>Часті питання</a>
+    <a href="/support.html"><span class="n">03</span>Підтримка</a>
+    <a href="/press" aria-current="page"><span class="n">04</span>Для преси</a>
+    <a href="/about.html"><span class="n">05</span>Про розробника</a>
+  </nav>
+  <a class="btn btn-gold menu-get" href="/uk/#get">Завантажити</a>
+</div>
+<!-- /chrome:top -->
+<main id="main" class="doc">
+  <header class="doc-head">
+    <h1 class="h1">Прескіт</h1>
     <p class="lede">Усе, що потрібно для матеріалу про Maintra: логотипи, скріншоти, готові тексти й перевірений фактаж. Нічого погоджувати не треба — умови нижче.</p>
-
-    <div class="permission"><strong>Дозвіл.</strong> Усі матеріали в цьому прескіті дозволено використовувати в редакційних матеріалах без окремого погодження. Назва пишеться <strong>Maintra</strong> — з великої M, без пробілів.</div>
-
-    <h2>Фактаж</h2>
-    <p class="muted">Якщо якоїсь цифри тут немає — напишіть, і я дам її з датою. Краще так, ніж припущення.</p>
-    <table class="facts">
-      <tr><td>Що це</td><td>Цифрова сервісна книжка для авто й мотоциклів</td></tr>
-      <tr><td>Платформи</td><td>iOS та Android</td></tr>
-      <tr><td>Поточна версія</td><td>1.6.0, вийшла 14 вересня 2026 (Google Play vc29 · App Store build 55)</td></tr>
-      <tr><td>Мови інтерфейсу</td><td>українська, англійська, польська, французька, італійська, іспанська</td></tr>
-      <tr><td>Типи техніки</td><td>авто й мотоцикли</td></tr>
-      <tr><td>Тарифи</td><td>Безкоштовно — одне авто, вся історія, заправки, план, нагадування, шини, один документ на авто.<br />Pro та VIP — більше авто й AI-функції (розпізнавання чеків, план, аналіз фото шин, чат).</td></tr>
-      <tr><td>Офлайн</td><td>Так. Дані зберігаються на пристрої; синхронізація — коли зʼявиться звʼязок</td></tr>
-      <tr><td>Реклама й трекінг</td><td>Немає</td></tr>
-      <tr><td>Стек</td><td>React Native (Expo), Supabase, Claude для AI-функцій</td></tr>
-      <tr><td>Розробник</td><td>ROK (Кирило Розбейко), один автор</td></tr>
-      <tr><td>Контакт</td><td><a href="mailto:rokops13@gmail.com">rokops13@gmail.com</a></td></tr>
-      <tr><td>Сайт</td><td><a href="https://maintra.me">maintra.me</a></td></tr>
-      <tr><td>App Store</td><td><a href="https://apps.apple.com/app/maintra/id6775876731" rel="noopener">apps.apple.com/app/maintra/id6775876731</a></td></tr>
-      <tr><td>Google Play</td><td><a href="https://play.google.com/store/apps/details?id=com.maintra.app" rel="noopener">play.google.com/store/apps/details?id=com.maintra.app</a></td></tr>
-    </table>
-
-    <h2>Тексти</h2>
-    <p>Копіюйте як є. Усе те саме одним файлом: <a href="assets/press/texts.txt">texts.txt</a>.</p>
-
-    <h3>Одне речення</h3>
-    <div class="copyblock">
-      <p>Maintra — це цифрова сервісна книжка для авто й мототехніки: фото чека зі СТО автоматично стає записом з деталями, роботою й сумою.</p>
-    </div>
-
-    <h3>50 слів</h3>
-    <div class="copyblock">
-      <p>Maintra — це цифрова сервісна книжка для авто й мотоциклів. Застосунок розпізнає чек зі СТО чи заправки будь-якою мовою і перетворює його на повний запис, будує план обслуговування за пробігом, зберігає документи в зашифрованому сейфі та веде облік шин за датою виробництва. Працює офлайн, без реклами й без трекінгу.</p>
-    </div>
-
-    <h3>150 слів</h3>
-    <div class="copyblock">
-      <p>Maintra — це цифрова сервісна книжка для авто й мотоциклів. Застосунок розпізнає чек зі СТО чи заправки будь-якою мовою і перетворює його на повний запис: деталі, роботи, суми, пробіг. Далі він будує план обслуговування, рахує реальну витрату пального, зберігає документи в зашифрованому сейфі й веде облік шин — включно з датою виробництва, бо гума дубіє за віком, а не за пробігом.</p>
-      <p>Застосунок виріс із власної потреби розробника: він тримає на ходу старий Mitsubishi Pajero, і йому набридла коробка з чеками в бардачку. Maintra працює офлайн, не показує реклами і не має трекінгу; історію обслуговування можна будь-коли вивантажити й забрати з собою.</p>
-      <p>Безкоштовно: одне авто, вся історія обслуговування, заправки, план, нагадування, шини й документи. Платно — лише те, за що розробник сам платить третім сторонам: розпізнавання чеків, AI-план обслуговування та аналіз фото шин.</p>
-    </div>
-
-    <h3>Цитати розробника</h3>
-    <p class="muted">Беріть будь-яку, питати не треба.</p>
-    <div class="copyblock">
-      <p>«Великі ремонти памʼятаєш і без застосунку. Губиться дрібне: який саме фільтр, скільки залили, коли востаннє. Через три роки це вже не історія авто, а купа чеків у бардачку.»</p>
-      <p>«Протектор перед зимою перевіряють усі, дату виробництва майже ніхто. А після шести років гума дубіє незалежно від того, скільки на ній міліметрів.»</p>
-      <p>«Техпаспорт і страховка — це ПІБ, адреса, VIN і підпис в одному файлі. Тому документи шифруються на телефоні до того, як кудись поїдуть: ключ є тільки у власника, і кнопки "відновити доступ" не існує. Це незручно — і це навмисно.»</p>
-      <p>«Я не хотів робити ще одну підписку. Усе, що нічого не коштує в обслуговуванні, лишається безкоштовним. Платне — тільки те, за що я сам плачу третім сторонам.»</p>
-    </div>
-
-    <h3>Boilerplate — у кінець статті</h3>
-    <div class="copyblock">
-      <p>Maintra — цифрова сервісна книжка для авто й мотоциклів: розпізнає чеки зі СТО, веде план обслуговування, шини й зашифровані документи. Працює офлайн, без реклами. Розробник: ROK (Кирило Розбейко), один автор. Завантажити: App Store та Google Play, безкоштовно. maintra.me</p>
-    </div>
-
-    <h2>Логотип та іконка</h2>
-    <div class="press-grid">
-      <div class="press-item">
-        <img src="assets/press/maintra-icon-1024.png" alt="Іконка Maintra на непрозорому фоні" />
-        <div class="name">Іконка, непрозорий фон</div>
-        <div class="meta">PNG · 1024×1024</div>
-        <a href="assets/press/maintra-icon-1024.png" download>Завантажити</a>
-      </div>
-      <div class="press-item">
-        <img src="assets/press/maintra-icon-1024-transparent.png" alt="Іконка Maintra з прозорим фоном" />
-        <div class="name">Іконка, прозорий фон</div>
-        <div class="meta">PNG · 1024×1024 · alpha</div>
-        <a href="assets/press/maintra-icon-1024-transparent.png" download>Завантажити</a>
-      </div>
-      <div class="press-item">
-        <img src="assets/press/maintra-logo.png" alt="Логотип Maintra" />
-        <div class="name">Логотип</div>
-        <div class="meta">PNG · alpha</div>
-        <a href="assets/press/maintra-logo.png" download>Завантажити</a>
-      </div>
-      <div class="press-item">
-        <img src="assets/press/maintra-feature-1024x500.png" alt="Feature graphic Maintra" />
-        <div class="name">Feature graphic</div>
-        <div class="meta">PNG · 1024×500</div>
-        <a href="assets/press/maintra-feature-1024x500.png" download>Завантажити</a>
-      </div>
-    </div>
-
-    <h2>Скріншоти</h2>
-    <p class="lede">Скріншоти українською. Англійські — на <a href="/press-en">English version</a> цієї сторінки. Клік відкриває повний розмір.</p>
-
-    <h3>Чисті скріншоти</h3>
-    <p class="muted">Просто екран застосунку: без рамки телефона й без маркетингового тексту. Для статті беріть ці — слоган поверх картинки виглядає як реклама.</p>
-    <div class="shot-grid">
-      <figure class="shot">
-        <a href="assets/press/screens/uk/maintra-garage-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/garage-clean.jpg" alt="Гараж" loading="lazy" width="420" height="913" /></a>
-        <figcaption>
-          <span class="name">Гараж</span>
-          <span class="meta">PNG · 1320×2868 · 1714 KB</span>
-          <a href="assets/press/screens/uk/maintra-garage-clean.png" download>Завантажити</a>
-        </figcaption>
-      </figure>
-      <figure class="shot">
-        <a href="assets/press/screens/uk/maintra-services-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/services-clean.jpg" alt="Історія обслуговування" loading="lazy" width="420" height="913" /></a>
-        <figcaption>
-          <span class="name">Історія обслуговування</span>
-          <span class="meta">PNG · 1320×2868 · 1990 KB</span>
-          <a href="assets/press/screens/uk/maintra-services-clean.png" download>Завантажити</a>
-        </figcaption>
-      </figure>
-      <figure class="shot">
-        <a href="assets/press/screens/uk/maintra-ai-entry-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/ai-entry-clean.jpg" alt="Розпізнавання чека" loading="lazy" width="420" height="913" /></a>
-        <figcaption>
-          <span class="name">Розпізнавання чека</span>
-          <span class="meta">PNG · 1320×2868 · 324 KB</span>
-          <a href="assets/press/screens/uk/maintra-ai-entry-clean.png" download>Завантажити</a>
-        </figcaption>
-      </figure>
-      <figure class="shot">
-        <a href="assets/press/screens/uk/maintra-plan-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/plan-clean.jpg" alt="План обслуговування" loading="lazy" width="420" height="913" /></a>
-        <figcaption>
-          <span class="name">План обслуговування</span>
-          <span class="meta">PNG · 1320×2868 · 646 KB</span>
-          <a href="assets/press/screens/uk/maintra-plan-clean.png" download>Завантажити</a>
-        </figcaption>
-      </figure>
-      <figure class="shot">
-        <a href="assets/press/screens/uk/maintra-fuel-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/fuel-clean.jpg" alt="Пальне і заправки" loading="lazy" width="420" height="913" /></a>
-        <figcaption>
-          <span class="name">Пальне і заправки</span>
-          <span class="meta">PNG · 1320×2868 · 700 KB</span>
-          <a href="assets/press/screens/uk/maintra-fuel-clean.png" download>Завантажити</a>
-        </figcaption>
-      </figure>
-      <figure class="shot">
-        <a href="assets/press/screens/uk/maintra-documents-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/documents-clean.jpg" alt="Зашифровані документи" loading="lazy" width="420" height="913" /></a>
-        <figcaption>
-          <span class="name">Зашифровані документи</span>
-          <span class="meta">PNG · 1320×2868 · 1364 KB</span>
-          <a href="assets/press/screens/uk/maintra-documents-clean.png" download>Завантажити</a>
-        </figcaption>
-      </figure>
-      <figure class="shot">
-        <a href="assets/press/screens/uk/maintra-tyres-sets-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/tyres-sets-clean.jpg" alt="Комплекти шин" loading="lazy" width="420" height="913" /></a>
-        <figcaption>
-          <span class="name">Комплекти шин</span>
-          <span class="meta">PNG · 1320×2868 · 912 KB</span>
-          <a href="assets/press/screens/uk/maintra-tyres-sets-clean.png" download>Завантажити</a>
-        </figcaption>
-      </figure>
-      <figure class="shot">
-        <a href="assets/press/screens/uk/maintra-tyres-corners-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/tyres-corners-clean.jpg" alt="Шини на авто" loading="lazy" width="420" height="913" /></a>
-        <figcaption>
-          <span class="name">Шини на авто</span>
-          <span class="meta">PNG · 1320×2868 · 817 KB</span>
-          <a href="assets/press/screens/uk/maintra-tyres-corners-clean.png" download>Завантажити</a>
-        </figcaption>
-      </figure>
-      <figure class="shot">
-        <a href="assets/press/screens/uk/maintra-tyre-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/tyre-clean.jpg" alt="Одна шина — з датою виробництва" loading="lazy" width="420" height="913" /></a>
-        <figcaption>
-          <span class="name">Одна шина — з датою виробництва</span>
-          <span class="meta">PNG · 1320×2868 · 1988 KB</span>
-          <a href="assets/press/screens/uk/maintra-tyre-clean.png" download>Завантажити</a>
-        </figcaption>
-      </figure>
-      <figure class="shot">
-        <a href="assets/press/screens/uk/maintra-shelf-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/shelf-clean.jpg" alt="Куплене, ще не встановлене" loading="lazy" width="420" height="913" /></a>
-        <figcaption>
-          <span class="name">Куплене, ще не встановлене</span>
-          <span class="meta">PNG · 1320×2868 · 1806 KB</span>
-          <a href="assets/press/screens/uk/maintra-shelf-clean.png" download>Завантажити</a>
-        </figcaption>
-      </figure>
-      <figure class="shot">
-        <a href="assets/press/screens/uk/maintra-wishlist-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/wishlist-clean.jpg" alt="Хотілки" loading="lazy" width="420" height="913" /></a>
-        <figcaption>
-          <span class="name">Хотілки</span>
-          <span class="meta">PNG · 1320×2868 · 749 KB</span>
-          <a href="assets/press/screens/uk/maintra-wishlist-clean.png" download>Завантажити</a>
-        </figcaption>
-      </figure>
-      <figure class="shot">
-        <a href="assets/press/screens/uk/maintra-stats-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/stats-clean.jpg" alt="Статистика" loading="lazy" width="420" height="913" /></a>
-        <figcaption>
-          <span class="name">Статистика</span>
-          <span class="meta">PNG · 1320×2868 · 577 KB</span>
-          <a href="assets/press/screens/uk/maintra-stats-clean.png" download>Завантажити</a>
-        </figcaption>
-      </figure>
-      <figure class="shot">
-        <a href="assets/press/screens/uk/maintra-chat-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/chat-clean.jpg" alt="Чат з AI" loading="lazy" width="420" height="913" /></a>
-        <figcaption>
-          <span class="name">Чат з AI</span>
-          <span class="meta">PNG · 1320×2868 · 635 KB</span>
-          <a href="assets/press/screens/uk/maintra-chat-clean.png" download>Завантажити</a>
-        </figcaption>
-      </figure>
-    </div>
-
-    <h3>Сторові скріншоти</h3>
-    <p class="muted">Ті самі екрани, як вони виглядають у App Store та Google Play — у рамці й зі слоганом.</p>
-    <div class="shot-grid">
-      <figure class="shot">
-        <a href="assets/press/screens/uk/maintra-garage-store.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/garage-store.jpg" alt="Гараж" loading="lazy" width="420" height="909" /></a>
-        <figcaption>
-          <span class="name">Гараж</span>
-          <span class="meta">PNG · 1284×2778 · 1260 KB</span>
-          <a href="assets/press/screens/uk/maintra-garage-store.png" download>Завантажити</a>
-        </figcaption>
-      </figure>
-      <figure class="shot">
-        <a href="assets/press/screens/uk/maintra-logging-store.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/logging-store.jpg" alt="Внесення записів" loading="lazy" width="420" height="909" /></a>
-        <figcaption>
-          <span class="name">Внесення записів</span>
-          <span class="meta">PNG · 1284×2778 · 1256 KB</span>
-          <a href="assets/press/screens/uk/maintra-logging-store.png" download>Завантажити</a>
-        </figcaption>
-      </figure>
-      <figure class="shot">
-        <a href="assets/press/screens/uk/maintra-plan-store.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/plan-store.jpg" alt="План" loading="lazy" width="420" height="909" /></a>
-        <figcaption>
-          <span class="name">План</span>
-          <span class="meta">PNG · 1284×2778 · 848 KB</span>
-          <a href="assets/press/screens/uk/maintra-plan-store.png" download>Завантажити</a>
-        </figcaption>
-      </figure>
-      <figure class="shot">
-        <a href="assets/press/screens/uk/maintra-chat-store.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/chat-store.jpg" alt="Чат з AI" loading="lazy" width="420" height="909" /></a>
-        <figcaption>
-          <span class="name">Чат з AI</span>
-          <span class="meta">PNG · 1284×2778 · 900 KB</span>
-          <a href="assets/press/screens/uk/maintra-chat-store.png" download>Завантажити</a>
-        </figcaption>
-      </figure>
-      <figure class="shot">
-        <a href="assets/press/screens/uk/maintra-tyres-store.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/tyres-store.jpg" alt="Шини" loading="lazy" width="420" height="909" /></a>
-        <figcaption>
-          <span class="name">Шини</span>
-          <span class="meta">PNG · 1284×2778 · 900 KB</span>
-          <a href="assets/press/screens/uk/maintra-tyres-store.png" download>Завантажити</a>
-        </figcaption>
-      </figure>
-      <figure class="shot">
-        <a href="assets/press/screens/uk/maintra-documents-store.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/documents-store.jpg" alt="Документи" loading="lazy" width="420" height="909" /></a>
-        <figcaption>
-          <span class="name">Документи</span>
-          <span class="meta">PNG · 1284×2778 · 803 KB</span>
-          <a href="assets/press/screens/uk/maintra-documents-store.png" download>Завантажити</a>
-        </figcaption>
-      </figure>
-      <figure class="shot">
-        <a href="assets/press/screens/uk/maintra-wishlist-store.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/wishlist-store.jpg" alt="Хотілки" loading="lazy" width="420" height="909" /></a>
-        <figcaption>
-          <span class="name">Хотілки</span>
-          <span class="meta">PNG · 1284×2778 · 1071 KB</span>
-          <a href="assets/press/screens/uk/maintra-wishlist-store.png" download>Завантажити</a>
-        </figcaption>
-      </figure>
-      <figure class="shot">
-        <a href="assets/press/screens/uk/maintra-stats-store.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/stats-store.jpg" alt="Статистика" loading="lazy" width="420" height="909" /></a>
-        <figcaption>
-          <span class="name">Статистика</span>
-          <span class="meta">PNG · 1284×2778 · 735 KB</span>
-          <a href="assets/press/screens/uk/maintra-stats-store.png" download>Завантажити</a>
-        </figcaption>
-      </figure>
-    </div>
-
-    <h2>Відео</h2>
-    <p class="pending">Готується: запис екрана на 20–40 секунд без музики й голосу — один сценарій, фото чека перетворюється на запис. MP4 файлом, окремо GIF на 5 секунд для телеграм-каналів.</p>
-
-    <h2>Фото розробника</h2>
-    <p class="muted">У розробника в телефоні більше фото запчастин, ніж власних — оце те, що знайшлося.</p>
-    <div class="photo-grid">
-      <figure class="shot">
-        <a href="assets/press/photo/maintra-developer-1.png" target="_blank" rel="noopener"><img src="assets/press/photo/thumbs/maintra-developer-1.jpg" alt="Кирило Розбейко" loading="lazy" width="560" height="852" /></a>
-        <figcaption>
-          <span class="name">Кирило Розбейко</span>
-          <span class="meta">PNG · 1320×2008 · 376 KB</span>
-          <a href="assets/press/photo/maintra-developer-1.png" download>Завантажити</a>
-        </figcaption>
-      </figure>
-      <figure class="shot">
-        <a href="assets/press/photo/maintra-developer-2.jpg" target="_blank" rel="noopener"><img src="assets/press/photo/thumbs/maintra-developer-2.jpg" alt="Кирило Розбейко" loading="lazy" width="560" height="589" /></a>
-        <figcaption>
-          <span class="name">Кирило Розбейко</span>
-          <span class="meta">JPG · 1218×1280 · 202 KB</span>
-          <a href="assets/press/photo/maintra-developer-2.jpg" download>Завантажити</a>
-        </figcaption>
-      </figure>
-    </div>
-
-    <h2>Забрати все одразу</h2>
-    <p class="muted">Два архіви — по одному на мову. У кожному: логотипи, всі скріншоти тією мовою, фото розробника й тексти. Відео додам до архіву, щойно буде.</p>
-    <div class="press-grid">
-      <div class="press-item zip-item">
-        <div class="name">Українською</div>
-        <div class="meta">ZIP · 23.6 MB · логотипи · 21 скріншот · 2 фото · тексти</div>
-        <a href="assets/press/maintra-press-kit-uk.zip" download>Завантажити</a>
-      </div>
-      <div class="press-item zip-item">
-        <div class="name">Англійською</div>
-        <div class="meta">ZIP · 23.6 MB · логотипи · 21 скріншот · 2 фото · тексти</div>
-        <a href="assets/press/maintra-press-kit-en.zip" download>Завантажити</a>
-      </div>
-    </div>
-
-    <h2>Питання</h2>
-    <p>Пишіть на <a href="mailto:rokops13@gmail.com">rokops13@gmail.com</a> — відповідаю на всі листи. Якщо потрібен матеріал, якого тут немає, або цифра з актуальною датою — так само.</p>
-
-    <footer>
-      <div>&copy; <span id="year">2026</span> Maintra</div>
-      <div><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="faq.html">FAQ</a> · <a href="privacy.html">Privacy</a></div>
-    </footer>
+  </header>
+  <div class="doc-grid has-toc">
+    <!-- chrome:toc -->
+    <nav class="doc-toc" aria-label="Розділи">
+      <ol>
+        <li><a href="#фактаж"><span class="n">01</span>Фактаж</a></li>
+        <li><a href="#тексти"><span class="n">02</span>Тексти</a></li>
+        <li><a href="#логотип-та-іконка"><span class="n">03</span>Логотип та іконка</a></li>
+        <li><a href="#скріншоти"><span class="n">04</span>Скріншоти</a></li>
+        <li><a href="#відео"><span class="n">05</span>Відео</a></li>
+        <li><a href="#фото-розробника"><span class="n">06</span>Фото розробника</a></li>
+        <li><a href="#забрати-все-одразу"><span class="n">07</span>Забрати все одразу</a></li>
+        <li><a href="#питання"><span class="n">08</span>Питання</a></li>
+      </ol>
+    </nav>
+    <!-- /chrome:toc -->
+    <article class="doc-body">
+      <div class="permission"><strong>Дозвіл.</strong> Усі матеріали в цьому прескіті дозволено використовувати в редакційних матеріалах без окремого погодження. Назва пишеться <strong>Maintra</strong> — з великої M, без пробілів.</div>
+      
+          <h2 id="фактаж">Фактаж</h2>
+          <p class="muted">Якщо якоїсь цифри тут немає — напишіть, і я дам її з датою. Краще так, ніж припущення.</p>
+          <table class="facts">
+            <tr><td>Що це</td><td>Цифрова сервісна книжка для авто й мотоциклів</td></tr>
+            <tr><td>Платформи</td><td>iOS та Android</td></tr>
+            <tr><td>Поточна версія</td><td>1.6.0, вийшла 14 вересня 2026 (Google Play vc29 · App Store build 55)</td></tr>
+            <tr><td>Мови інтерфейсу</td><td>українська, англійська, польська, французька, італійська, іспанська</td></tr>
+            <tr><td>Типи техніки</td><td>авто й мотоцикли</td></tr>
+            <tr><td>Тарифи</td><td>Безкоштовно — одне авто, вся історія, заправки, план, нагадування, шини, один документ на авто.<br />Pro та VIP — більше авто й AI-функції (розпізнавання чеків, план, аналіз фото шин, чат).</td></tr>
+            <tr><td>Офлайн</td><td>Так. Дані зберігаються на пристрої; синхронізація — коли зʼявиться звʼязок</td></tr>
+            <tr><td>Реклама й трекінг</td><td>Немає</td></tr>
+            <tr><td>Стек</td><td>React Native (Expo), Supabase, Claude для AI-функцій</td></tr>
+            <tr><td>Розробник</td><td>ROK (Кирило Розбейко), один автор</td></tr>
+            <tr><td>Контакт</td><td><a href="mailto:rokops13@gmail.com">rokops13@gmail.com</a></td></tr>
+            <tr><td>Сайт</td><td><a href="https://maintra.me">maintra.me</a></td></tr>
+            <tr><td>App Store</td><td><a href="https://apps.apple.com/app/maintra/id6775876731" rel="noopener">apps.apple.com/app/maintra/id6775876731</a></td></tr>
+            <tr><td>Google Play</td><td><a href="https://play.google.com/store/apps/details?id=com.maintra.app" rel="noopener">play.google.com/store/apps/details?id=com.maintra.app</a></td></tr>
+          </table>
+      
+          <h2 id="тексти">Тексти</h2>
+          <p>Копіюйте як є. Усе те саме одним файлом: <a href="assets/press/texts.txt">texts.txt</a>.</p>
+      
+          <h3>Одне речення</h3>
+          <div class="copyblock">
+            <p>Maintra — це цифрова сервісна книжка для авто й мототехніки: фото чека зі СТО автоматично стає записом з деталями, роботою й сумою.</p>
+          </div>
+      
+          <h3>50 слів</h3>
+          <div class="copyblock">
+            <p>Maintra — це цифрова сервісна книжка для авто й мотоциклів. Застосунок розпізнає чек зі СТО чи заправки будь-якою мовою і перетворює його на повний запис, будує план обслуговування за пробігом, зберігає документи в зашифрованому сейфі та веде облік шин за датою виробництва. Працює офлайн, без реклами й без трекінгу.</p>
+          </div>
+      
+          <h3>150 слів</h3>
+          <div class="copyblock">
+            <p>Maintra — це цифрова сервісна книжка для авто й мотоциклів. Застосунок розпізнає чек зі СТО чи заправки будь-якою мовою і перетворює його на повний запис: деталі, роботи, суми, пробіг. Далі він будує план обслуговування, рахує реальну витрату пального, зберігає документи в зашифрованому сейфі й веде облік шин — включно з датою виробництва, бо гума дубіє за віком, а не за пробігом.</p>
+            <p>Застосунок виріс із власної потреби розробника: він тримає на ходу старий Mitsubishi Pajero, і йому набридла коробка з чеками в бардачку. Maintra працює офлайн, не показує реклами і не має трекінгу; історію обслуговування можна будь-коли вивантажити й забрати з собою.</p>
+            <p>Безкоштовно: одне авто, вся історія обслуговування, заправки, план, нагадування, шини й документи. Платно — лише те, за що розробник сам платить третім сторонам: розпізнавання чеків, AI-план обслуговування та аналіз фото шин.</p>
+          </div>
+      
+          <h3>Цитати розробника</h3>
+          <p class="muted">Беріть будь-яку, питати не треба.</p>
+          <div class="copyblock">
+            <p>«Великі ремонти памʼятаєш і без застосунку. Губиться дрібне: який саме фільтр, скільки залили, коли востаннє. Через три роки це вже не історія авто, а купа чеків у бардачку.»</p>
+            <p>«Протектор перед зимою перевіряють усі, дату виробництва майже ніхто. А після шести років гума дубіє незалежно від того, скільки на ній міліметрів.»</p>
+            <p>«Техпаспорт і страховка — це ПІБ, адреса, VIN і підпис в одному файлі. Тому документи шифруються на телефоні до того, як кудись поїдуть: ключ є тільки у власника, і кнопки "відновити доступ" не існує. Це незручно — і це навмисно.»</p>
+            <p>«Я не хотів робити ще одну підписку. Усе, що нічого не коштує в обслуговуванні, лишається безкоштовним. Платне — тільки те, за що я сам плачу третім сторонам.»</p>
+          </div>
+      
+          <h3>Boilerplate — у кінець статті</h3>
+          <div class="copyblock">
+            <p>Maintra — цифрова сервісна книжка для авто й мотоциклів: розпізнає чеки зі СТО, веде план обслуговування, шини й зашифровані документи. Працює офлайн, без реклами. Розробник: ROK (Кирило Розбейко), один автор. Завантажити: App Store та Google Play, безкоштовно. maintra.me</p>
+          </div>
+      
+          <h2 id="логотип-та-іконка">Логотип та іконка</h2>
+          <div class="press-grid">
+            <div class="press-item">
+              <img src="assets/press/maintra-icon-1024.png" alt="Іконка Maintra на непрозорому фоні" />
+              <div class="name">Іконка, непрозорий фон</div>
+              <div class="meta">PNG · 1024×1024</div>
+              <a href="assets/press/maintra-icon-1024.png" download>Завантажити</a>
+            </div>
+            <div class="press-item">
+              <img src="assets/press/maintra-icon-1024-transparent.png" alt="Іконка Maintra з прозорим фоном" />
+              <div class="name">Іконка, прозорий фон</div>
+              <div class="meta">PNG · 1024×1024 · alpha</div>
+              <a href="assets/press/maintra-icon-1024-transparent.png" download>Завантажити</a>
+            </div>
+            <div class="press-item">
+              <img src="assets/press/maintra-logo.png" alt="Логотип Maintra" />
+              <div class="name">Логотип</div>
+              <div class="meta">PNG · alpha</div>
+              <a href="assets/press/maintra-logo.png" download>Завантажити</a>
+            </div>
+            <div class="press-item">
+              <img src="assets/press/maintra-feature-1024x500.png" alt="Feature graphic Maintra" />
+              <div class="name">Feature graphic</div>
+              <div class="meta">PNG · 1024×500</div>
+              <a href="assets/press/maintra-feature-1024x500.png" download>Завантажити</a>
+            </div>
+          </div>
+      
+          <h2 id="скріншоти">Скріншоти</h2>
+          <p class="lede">Скріншоти українською. Англійські — на <a href="/press-en">English version</a> цієї сторінки. Клік відкриває повний розмір.</p>
+      
+          <h3>Чисті скріншоти</h3>
+          <p class="muted">Просто екран застосунку: без рамки телефона й без маркетингового тексту. Для статті беріть ці — слоган поверх картинки виглядає як реклама.</p>
+          <div class="shot-grid">
+            <figure class="shot">
+              <a href="assets/press/screens/uk/maintra-garage-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/garage-clean.jpg" alt="Гараж" loading="lazy" width="420" height="913" /></a>
+              <figcaption>
+                <span class="name">Гараж</span>
+                <span class="meta">PNG · 1320×2868 · 1714 KB</span>
+                <a href="assets/press/screens/uk/maintra-garage-clean.png" download>Завантажити</a>
+              </figcaption>
+            </figure>
+            <figure class="shot">
+              <a href="assets/press/screens/uk/maintra-services-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/services-clean.jpg" alt="Історія обслуговування" loading="lazy" width="420" height="913" /></a>
+              <figcaption>
+                <span class="name">Історія обслуговування</span>
+                <span class="meta">PNG · 1320×2868 · 1990 KB</span>
+                <a href="assets/press/screens/uk/maintra-services-clean.png" download>Завантажити</a>
+              </figcaption>
+            </figure>
+            <figure class="shot">
+              <a href="assets/press/screens/uk/maintra-ai-entry-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/ai-entry-clean.jpg" alt="Розпізнавання чека" loading="lazy" width="420" height="913" /></a>
+              <figcaption>
+                <span class="name">Розпізнавання чека</span>
+                <span class="meta">PNG · 1320×2868 · 324 KB</span>
+                <a href="assets/press/screens/uk/maintra-ai-entry-clean.png" download>Завантажити</a>
+              </figcaption>
+            </figure>
+            <figure class="shot">
+              <a href="assets/press/screens/uk/maintra-plan-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/plan-clean.jpg" alt="План обслуговування" loading="lazy" width="420" height="913" /></a>
+              <figcaption>
+                <span class="name">План обслуговування</span>
+                <span class="meta">PNG · 1320×2868 · 646 KB</span>
+                <a href="assets/press/screens/uk/maintra-plan-clean.png" download>Завантажити</a>
+              </figcaption>
+            </figure>
+            <figure class="shot">
+              <a href="assets/press/screens/uk/maintra-fuel-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/fuel-clean.jpg" alt="Пальне і заправки" loading="lazy" width="420" height="913" /></a>
+              <figcaption>
+                <span class="name">Пальне і заправки</span>
+                <span class="meta">PNG · 1320×2868 · 700 KB</span>
+                <a href="assets/press/screens/uk/maintra-fuel-clean.png" download>Завантажити</a>
+              </figcaption>
+            </figure>
+            <figure class="shot">
+              <a href="assets/press/screens/uk/maintra-documents-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/documents-clean.jpg" alt="Зашифровані документи" loading="lazy" width="420" height="913" /></a>
+              <figcaption>
+                <span class="name">Зашифровані документи</span>
+                <span class="meta">PNG · 1320×2868 · 1364 KB</span>
+                <a href="assets/press/screens/uk/maintra-documents-clean.png" download>Завантажити</a>
+              </figcaption>
+            </figure>
+            <figure class="shot">
+              <a href="assets/press/screens/uk/maintra-tyres-sets-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/tyres-sets-clean.jpg" alt="Комплекти шин" loading="lazy" width="420" height="913" /></a>
+              <figcaption>
+                <span class="name">Комплекти шин</span>
+                <span class="meta">PNG · 1320×2868 · 912 KB</span>
+                <a href="assets/press/screens/uk/maintra-tyres-sets-clean.png" download>Завантажити</a>
+              </figcaption>
+            </figure>
+            <figure class="shot">
+              <a href="assets/press/screens/uk/maintra-tyres-corners-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/tyres-corners-clean.jpg" alt="Шини на авто" loading="lazy" width="420" height="913" /></a>
+              <figcaption>
+                <span class="name">Шини на авто</span>
+                <span class="meta">PNG · 1320×2868 · 817 KB</span>
+                <a href="assets/press/screens/uk/maintra-tyres-corners-clean.png" download>Завантажити</a>
+              </figcaption>
+            </figure>
+            <figure class="shot">
+              <a href="assets/press/screens/uk/maintra-tyre-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/tyre-clean.jpg" alt="Одна шина — з датою виробництва" loading="lazy" width="420" height="913" /></a>
+              <figcaption>
+                <span class="name">Одна шина — з датою виробництва</span>
+                <span class="meta">PNG · 1320×2868 · 1988 KB</span>
+                <a href="assets/press/screens/uk/maintra-tyre-clean.png" download>Завантажити</a>
+              </figcaption>
+            </figure>
+            <figure class="shot">
+              <a href="assets/press/screens/uk/maintra-shelf-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/shelf-clean.jpg" alt="Куплене, ще не встановлене" loading="lazy" width="420" height="913" /></a>
+              <figcaption>
+                <span class="name">Куплене, ще не встановлене</span>
+                <span class="meta">PNG · 1320×2868 · 1806 KB</span>
+                <a href="assets/press/screens/uk/maintra-shelf-clean.png" download>Завантажити</a>
+              </figcaption>
+            </figure>
+            <figure class="shot">
+              <a href="assets/press/screens/uk/maintra-wishlist-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/wishlist-clean.jpg" alt="Хотілки" loading="lazy" width="420" height="913" /></a>
+              <figcaption>
+                <span class="name">Хотілки</span>
+                <span class="meta">PNG · 1320×2868 · 749 KB</span>
+                <a href="assets/press/screens/uk/maintra-wishlist-clean.png" download>Завантажити</a>
+              </figcaption>
+            </figure>
+            <figure class="shot">
+              <a href="assets/press/screens/uk/maintra-stats-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/stats-clean.jpg" alt="Статистика" loading="lazy" width="420" height="913" /></a>
+              <figcaption>
+                <span class="name">Статистика</span>
+                <span class="meta">PNG · 1320×2868 · 577 KB</span>
+                <a href="assets/press/screens/uk/maintra-stats-clean.png" download>Завантажити</a>
+              </figcaption>
+            </figure>
+            <figure class="shot">
+              <a href="assets/press/screens/uk/maintra-chat-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/chat-clean.jpg" alt="Чат з AI" loading="lazy" width="420" height="913" /></a>
+              <figcaption>
+                <span class="name">Чат з AI</span>
+                <span class="meta">PNG · 1320×2868 · 635 KB</span>
+                <a href="assets/press/screens/uk/maintra-chat-clean.png" download>Завантажити</a>
+              </figcaption>
+            </figure>
+          </div>
+      
+          <h3>Сторові скріншоти</h3>
+          <p class="muted">Ті самі екрани, як вони виглядають у App Store та Google Play — у рамці й зі слоганом.</p>
+          <div class="shot-grid">
+            <figure class="shot">
+              <a href="assets/press/screens/uk/maintra-garage-store.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/garage-store.jpg" alt="Гараж" loading="lazy" width="420" height="909" /></a>
+              <figcaption>
+                <span class="name">Гараж</span>
+                <span class="meta">PNG · 1284×2778 · 1260 KB</span>
+                <a href="assets/press/screens/uk/maintra-garage-store.png" download>Завантажити</a>
+              </figcaption>
+            </figure>
+            <figure class="shot">
+              <a href="assets/press/screens/uk/maintra-logging-store.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/logging-store.jpg" alt="Внесення записів" loading="lazy" width="420" height="909" /></a>
+              <figcaption>
+                <span class="name">Внесення записів</span>
+                <span class="meta">PNG · 1284×2778 · 1256 KB</span>
+                <a href="assets/press/screens/uk/maintra-logging-store.png" download>Завантажити</a>
+              </figcaption>
+            </figure>
+            <figure class="shot">
+              <a href="assets/press/screens/uk/maintra-plan-store.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/plan-store.jpg" alt="План" loading="lazy" width="420" height="909" /></a>
+              <figcaption>
+                <span class="name">План</span>
+                <span class="meta">PNG · 1284×2778 · 848 KB</span>
+                <a href="assets/press/screens/uk/maintra-plan-store.png" download>Завантажити</a>
+              </figcaption>
+            </figure>
+            <figure class="shot">
+              <a href="assets/press/screens/uk/maintra-chat-store.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/chat-store.jpg" alt="Чат з AI" loading="lazy" width="420" height="909" /></a>
+              <figcaption>
+                <span class="name">Чат з AI</span>
+                <span class="meta">PNG · 1284×2778 · 900 KB</span>
+                <a href="assets/press/screens/uk/maintra-chat-store.png" download>Завантажити</a>
+              </figcaption>
+            </figure>
+            <figure class="shot">
+              <a href="assets/press/screens/uk/maintra-tyres-store.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/tyres-store.jpg" alt="Шини" loading="lazy" width="420" height="909" /></a>
+              <figcaption>
+                <span class="name">Шини</span>
+                <span class="meta">PNG · 1284×2778 · 900 KB</span>
+                <a href="assets/press/screens/uk/maintra-tyres-store.png" download>Завантажити</a>
+              </figcaption>
+            </figure>
+            <figure class="shot">
+              <a href="assets/press/screens/uk/maintra-documents-store.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/documents-store.jpg" alt="Документи" loading="lazy" width="420" height="909" /></a>
+              <figcaption>
+                <span class="name">Документи</span>
+                <span class="meta">PNG · 1284×2778 · 803 KB</span>
+                <a href="assets/press/screens/uk/maintra-documents-store.png" download>Завантажити</a>
+              </figcaption>
+            </figure>
+            <figure class="shot">
+              <a href="assets/press/screens/uk/maintra-wishlist-store.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/wishlist-store.jpg" alt="Хотілки" loading="lazy" width="420" height="909" /></a>
+              <figcaption>
+                <span class="name">Хотілки</span>
+                <span class="meta">PNG · 1284×2778 · 1071 KB</span>
+                <a href="assets/press/screens/uk/maintra-wishlist-store.png" download>Завантажити</a>
+              </figcaption>
+            </figure>
+            <figure class="shot">
+              <a href="assets/press/screens/uk/maintra-stats-store.png" target="_blank" rel="noopener"><img src="assets/press/screens/uk/thumbs/stats-store.jpg" alt="Статистика" loading="lazy" width="420" height="909" /></a>
+              <figcaption>
+                <span class="name">Статистика</span>
+                <span class="meta">PNG · 1284×2778 · 735 KB</span>
+                <a href="assets/press/screens/uk/maintra-stats-store.png" download>Завантажити</a>
+              </figcaption>
+            </figure>
+          </div>
+      
+          <h2 id="відео">Відео</h2>
+          <p class="pending">Готується: запис екрана на 20–40 секунд без музики й голосу — один сценарій, фото чека перетворюється на запис. MP4 файлом, окремо GIF на 5 секунд для телеграм-каналів.</p>
+      
+          <h2 id="фото-розробника">Фото розробника</h2>
+          <p class="muted">У розробника в телефоні більше фото запчастин, ніж власних — оце те, що знайшлося.</p>
+          <div class="photo-grid">
+            <figure class="shot">
+              <a href="assets/press/photo/maintra-developer-1.png" target="_blank" rel="noopener"><img src="assets/press/photo/thumbs/maintra-developer-1.jpg" alt="Кирило Розбейко" loading="lazy" width="560" height="852" /></a>
+              <figcaption>
+                <span class="name">Кирило Розбейко</span>
+                <span class="meta">PNG · 1320×2008 · 376 KB</span>
+                <a href="assets/press/photo/maintra-developer-1.png" download>Завантажити</a>
+              </figcaption>
+            </figure>
+            <figure class="shot">
+              <a href="assets/press/photo/maintra-developer-2.jpg" target="_blank" rel="noopener"><img src="assets/press/photo/thumbs/maintra-developer-2.jpg" alt="Кирило Розбейко" loading="lazy" width="560" height="589" /></a>
+              <figcaption>
+                <span class="name">Кирило Розбейко</span>
+                <span class="meta">JPG · 1218×1280 · 202 KB</span>
+                <a href="assets/press/photo/maintra-developer-2.jpg" download>Завантажити</a>
+              </figcaption>
+            </figure>
+          </div>
+      
+          <h2 id="забрати-все-одразу">Забрати все одразу</h2>
+          <p class="muted">Два архіви — по одному на мову. У кожному: логотипи, всі скріншоти тією мовою, фото розробника й тексти. Відео додам до архіву, щойно буде.</p>
+          <div class="press-grid">
+            <div class="press-item zip-item">
+              <div class="name">Українською</div>
+              <div class="meta">ZIP · 23.6 MB · логотипи · 21 скріншот · 2 фото · тексти</div>
+              <a href="assets/press/maintra-press-kit-uk.zip" download>Завантажити</a>
+            </div>
+            <div class="press-item zip-item">
+              <div class="name">Англійською</div>
+              <div class="meta">ZIP · 23.6 MB · логотипи · 21 скріншот · 2 фото · тексти</div>
+              <a href="assets/press/maintra-press-kit-en.zip" download>Завантажити</a>
+            </div>
+          </div>
+      
+          <h2 id="питання">Питання</h2>
+          <p>Пишіть на <a href="mailto:rokops13@gmail.com">rokops13@gmail.com</a> — відповідаю на всі листи. Якщо потрібен матеріал, якого тут немає, або цифра з актуальною датою — так само.</p>
+    </article>
   </div>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</main>
+<!-- chrome:foot -->
+<footer class="foot">
+  <div class="foot-in">
+    <div class="foot-brand"><a class="brand" href="/uk/" aria-label="Maintra"><svg class="mt" viewBox="0 0 100 57.69" aria-hidden="true"><path d="M26.10,0.00 L35.15,0.00 L35.15,57.69 L26.10,57.69 Z" style="fill:var(--lg-stem)"/><path d="M52.20,0.00 L61.25,0.00 L61.25,57.69 L52.20,57.69 Z" style="fill:var(--lg-stem)"/><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" style="fill:var(--lg-gold)"/><clipPath id="mtc2"><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z"/></clipPath><g clip-path="url(#mtc2)"><path d="M2.40,57.69 L18.80,57.69 L37.55,0.00 L21.15,0.00 Z" style="fill:var(--lg-shade)"/><path d="M28.50,57.69 L44.90,57.69 L63.65,0.00 L47.24,0.00 Z" style="fill:var(--lg-shade)"/><path d="M54.60,57.69 L71.00,57.69 L89.75,0.00 L73.34,0.00 Z" style="fill:var(--lg-shade)"/></g><path d="M0.00,57.69 L16.40,57.69 L35.15,0.00 L18.75,0.00 Z" style="fill:var(--lg-ink)"/><path d="M26.10,57.69 L42.50,57.69 L61.25,0.00 L44.84,0.00 Z" style="fill:var(--lg-ink)"/><path d="M52.20,57.69 L68.60,57.69 L87.35,0.00 L70.94,0.00 Z" style="fill:var(--lg-gold)"/></svg><span class="word">Maintra</span></a><p>Смарт-трекер обслуговування для твого гаража.</p></div>
+    <nav class="foot-links" aria-label="Maintra">
+      <a href="/about.html">Про розробника</a>
+      <a href="/faq.html">Часті питання</a>
+      <a href="/support.html">Підтримка</a>
+      <a href="/press">Для преси</a>
+      <a href="/journey">Шлях до 2.0</a>
+      <a href="/privacy.html">Конфіденційність</a>
+      <a href="/terms.html">Умови</a>
+      <a href="/delete-account.html">Видалити акаунт</a>
+    </nav>
+    <p class="copy">© 2026 Maintra</p>
+  </div>
+</footer>
+<!-- /chrome:foot -->
+
 </body>
 </html>

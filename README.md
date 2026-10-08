@@ -25,10 +25,13 @@ maintra.public/
 │   ├── genhome.mjs         # builds the homepage in every language
 │   ├── genboards.mjs       # turns the 2.0 design boards into the phone's screens
 │   ├── genjourney.mjs      # builds the two journey pages
+│   ├── genpress.mjs        # builds the two press kit pages
+│   ├── genchrome.mjs       # gives the other pages the 2.0 header, footer and layout
 │   └── home/               # the homepage's template, dictionaries and design sources
 └── assets/
-    ├── style.css           # Shared stylesheet for the inner pages
-    ├── home/               # the homepage: CSS, JS modules, screens (b/), images, fonts
+    ├── press.css           # the press kit's galleries and plates
+    ├── home/               # the homepage: CSS, JS modules, screens (b/), images, fonts;
+    │                       #   site.css / site.js for the other pages
     ├── journey/            # the journey pages, and the three.js file the homepage shares
     ├── logo.png            # Header logo
     └── favicon.png         # Browser tab icon
@@ -131,23 +134,16 @@ the new file, `curl` proves it, a fresh browser shows it, and the person who
 asked for the change still sees the old site and reasonably concludes it was
 never done. This cost a full round of "it's still not working" on 2026-08-30.
 
-So every CSS/JS reference carries a version token:
-
-```html
-<link rel="stylesheet" href="assets/style.css?v=20260830" />
-<script src="assets/device.js?v=20260830" defer></script>
-```
-
-**Changing `assets/style.css` or any `assets/*.js` means bumping the token in
-every HTML file in the same commit.** It is a date stamp, so use the day you
-made the change — and if you change an asset twice in one day, append a letter
-(`20260830`, then `20260830b`). A token that does not change is a token that
-does nothing, and the second edit of the day is exactly when you stop thinking
-about it:
+So every CSS/JS reference carries a version token, and the generators write
+it: a hash of the file's content (`?v=1a2b3c4d`), so a change ships the moment
+it is generated and an untouched file keeps its cache. Nothing is bumped by
+hand any more. After changing a stylesheet or script, run the generator for
+the pages that use it:
 
 ```bash
-grep -rl 'v=20260830' *.html | xargs sed -i 's/v=20260830/v=YYYYMMDD/g'
-grep -c 'v=' *.html   # sanity: index 5, wishlist 2, everything else 4
+node tools/genhome.mjs .      # the homepage, all languages (also stamps the JS imports)
+node tools/genchrome.mjs .    # about, FAQ, support, privacy, terms, press... (site.css, site.js, home.css, press.css)
+node tools/genjourney.mjs .   # the journey pages
 ```
 
 Images are deliberately not versioned — a stale screenshot is cosmetic, and
@@ -226,8 +222,8 @@ AI assistants like ChatGPT, Gemini, Copilot, and Perplexity recommend apps via t
 
 ## Tone & design
 
-- Dark theme matching the app's "Carbon" theme: `#0A0A0A` background, `#D4AF37` gold accent. Variables live at the top of `assets/style.css`.
-- Inner pages: 760px max-width (`.container`).
-- The homepage uses the 2.0 design language (Tektur and Fira Sans, the garage gold `#F4B223` on `#0B0B0A`) and is not boxed: it is laid out from 360 px phones to 5K ultrawides.
+- The 2.0 design language everywhere: Tektur and Fira Sans, the garage gold `#F4B223` on carbon `#0B0B0A`, and the app's light theme. Tokens live at the top of `assets/home/home.css`.
+- Not boxed: pages are laid out from the gutter, from 360 px phones to 5K ultrawides. Long pages (privacy, terms, FAQ...) get a numbered section index on the left and a text column held to a readable measure.
+- The other pages (about, FAQ, support, privacy, terms, delete account, press, the wishlist and the app's bounce pages) stay hand-editable HTML: edit the text inside `<article class="doc-body">`, then run `node tools/genchrome.mjs .`, which rewrites only what sits between its `<!-- chrome:... -->` markers.
 - No tracking, no analytics, no cookies, no external fonts. Static HTML.
 - Mobile-first; cards stack on narrow screens.

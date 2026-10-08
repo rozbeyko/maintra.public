@@ -14,7 +14,9 @@ for (const page of ['press.html', 'press-en.html']) {
   const refs = [...html.matchAll(/(?:href|src)="([^"]+)"/g)].map((m) => m[1]);
   for (const ref of refs) {
     if (/^(https?:|mailto:|#)/.test(ref)) continue;
-    let rel = ref.split('?')[0];
+    let rel = ref.split('?')[0].split('#')[0];
+    // a folder (/, /uk/) is served from its index.html
+    if (rel.endsWith('/')) rel = `${rel.slice(1)}index.html`;
     // Cloudflare Pages serves /press from press.html and 308-redirects the
     // .html form, so an extensionless root-relative link is backed by a file
     // with .html appended. Resolving it here is what makes the check prove
