@@ -237,7 +237,7 @@ const jsonld = (l, d) =>
     operatingSystem: 'iOS, Android',
     applicationCategory: 'UtilitiesApplication',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-    author: { '@type': 'Person', name: 'Kyrylo Rozbeiko' },
+    author: { '@type': 'Person', name: 'ROK' },
     downloadUrl: [STORES.ios, STORES.android],
   }).replace(/</g, '\\u003c');
 
