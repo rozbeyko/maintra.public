@@ -110,6 +110,8 @@
 [dir='rtl'] .doc-body .card.accent { box-shadow: inset 0 0 0 1px var(--hair), inset -3px 0 0 var(--accent); }
 
 .doc-body table { width: 100%; border-collapse: collapse; margin: 1em 0 1.6em; font-size: .92em; }
+/* (the press kit's table is .facts, like the homepage's facts band: not that) */
+.doc-body table.facts { display: table; position: static; padding: 0; gap: 0; border-top: 0; background: none; }
 .doc-body td, .doc-body th { overflow-wrap: anywhere; padding: 11px 0; border-bottom: 1px solid var(--hair); vertical-align: top; text-align: start; }
 .doc-body td:first-child { width: 36%; padding-inline-end: 18px; color: var(--text2); }
 
