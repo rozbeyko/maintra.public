@@ -273,6 +273,13 @@ for (const l of built) {
       .map((x) => `<a href="${pathOf(x.code)}" hreflang="${htmlLang(x)}" lang="${htmlLang(x)}"${x.dir ? ` dir="${x.dir}"` : ''} data-lang="${x.code}"${x.code === l.code ? ' aria-current="true"' : ''}>${x.name}</a>`)
       .join(''),
     journey: l.code === 'uk' ? '/journey' : '/journey-en',
+    // the site's other pages in this language, where they are translated
+    ...Object.fromEntries(
+      ['about', 'faq', 'support', 'privacy', 'terms', 'delete-account'].map((n) => [
+        `p_${n.replace('-', '_')}`,
+        l.code !== 'en' && existsSync(join(SITE, `${l.code}/${n}.html`)) ? `/${l.code}/${n}.html` : `/${n}.html`,
+      ]),
+    ),
     press: l.code === 'uk' ? '/press' : '/press-en',
     jsonld: jsonld(l, d),
     cfg: JSON.stringify({
@@ -289,7 +296,7 @@ for (const l of built) {
     })
     .replace(/\{\{icon:([a-z]+)\}\}/g, (m, n) => icon(n))
     .replace(/\{\{asset:([^}]+)\}\}/g, (m, p) => asset(p))
-    .replace(/\{\{v:([a-z]+)\}\}/g, (m, k) => {
+    .replace(/\{\{v:([a-z_]+)\}\}/g, (m, k) => {
       if (!(k in vars)) throw new Error(`no variable ${k}`);
       const v = vars[k];
       return typeof v === 'function' ? v() : v;

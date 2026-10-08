@@ -19,7 +19,7 @@
   <meta property="og:url" content="https://maintra.me/press-en" />
   <meta property="og:image" content="https://maintra.me/assets/press/maintra-feature-1024x500.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
 <!-- chrome:head -->
 <script>
 (function () {
@@ -34,7 +34,7 @@
 <link rel="stylesheet" href="/assets/home/home.css?v=de947d99" />
 <link rel="stylesheet" href="/assets/home/site.css?v=63dcbaf2" />
 <link rel="stylesheet" href="/assets/press.css?v=e909af73" />
-<script type="module" src="/assets/home/site.js?v=52d2b1e2"></script>
+<script type="module" src="/assets/home/site.js?v=6b25487e"></script>
 <!-- /chrome:head -->
 </head>
 <body>
@@ -49,8 +49,10 @@
     <a href="/press-en" aria-current="page">Press</a>
     <a href="/about.html">About</a>
   </nav>
-  <span class="top-gap"></span>
-  <a class="lang-btn" href="/press" hreflang="uk" lang="uk"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 3.5h7l5 5v7l-5 5h-7l-5-5v-7z"></path><path d="M3.5 12h17M12 3.5L8.5 12l3.5 8.5M12 3.5l3.5 8.5-3.5 8.5"></path></svg><span>UK</span></a>
+  <div class="lang">
+    <button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="Language"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 3.5h7l5 5v7l-5 5h-7l-5-5v-7z"></path><path d="M3.5 12h17M12 3.5L8.5 12l3.5 8.5M12 3.5l3.5 8.5-3.5 8.5"></path></svg><span>EN</span></button>
+    <ul class="lang-menu" id="lang-menu" hidden><li><a href="/press" hreflang="uk" lang="uk" data-lang="uk"><span class="code">uk</span>Українська</a></li><li><a href="/press-en" hreflang="en" lang="en" data-lang="en" aria-current="true"><span class="code">en</span>English</a></li></ul>
+  </div>
   <button class="theme-btn" type="button" data-to-light="Switch to the light theme" data-to-dark="Switch to the dark theme" aria-label="Switch to the light theme"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 8.5h7v7h-7z"></path><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"></path></svg><svg class="i moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3.5L5.5 5.5 3.5 10v4l2 4.5 4.5 2h4l4.5-2 2-4.5-5 .5-4.5-2-1.5-4z"></path></svg></button>
   <a class="btn btn-line btn-sm top-get" href="/#get">Get the app</a>
   <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menu"><i></i><i></i><i></i></button>
@@ -109,7 +111,7 @@
           </table>
       
           <h2 id="copy">Copy</h2>
-          <p>Use it as it stands. The same text as one file: <a href="assets/press/texts-en.txt">texts-en.txt</a>.</p>
+          <p>Use it as it stands. The same text as one file: <a href="/assets/press/texts-en.txt">texts-en.txt</a>.</p>
       
           <h3>One sentence</h3>
           <div class="copyblock">
@@ -145,28 +147,28 @@
           <h2 id="logo-and-icon">Logo and icon</h2>
           <div class="press-grid">
             <div class="press-item">
-              <img src="assets/press/maintra-icon-1024.png" alt="Maintra icon on an opaque background" />
+              <img src="/assets/press/maintra-icon-1024.png" alt="Maintra icon on an opaque background" />
               <div class="name">Icon, opaque background</div>
               <div class="meta">PNG · 1024×1024</div>
-              <a href="assets/press/maintra-icon-1024.png" download>Download</a>
+              <a href="/assets/press/maintra-icon-1024.png" download>Download</a>
             </div>
             <div class="press-item">
-              <img src="assets/press/maintra-icon-1024-transparent.png" alt="Maintra icon with a transparent background" />
+              <img src="/assets/press/maintra-icon-1024-transparent.png" alt="Maintra icon with a transparent background" />
               <div class="name">Icon, transparent background</div>
               <div class="meta">PNG · 1024×1024 · alpha</div>
-              <a href="assets/press/maintra-icon-1024-transparent.png" download>Download</a>
+              <a href="/assets/press/maintra-icon-1024-transparent.png" download>Download</a>
             </div>
             <div class="press-item">
-              <img src="assets/press/maintra-logo.png" alt="Maintra logo" />
+              <img src="/assets/press/maintra-logo.png" alt="Maintra logo" />
               <div class="name">Logo</div>
               <div class="meta">PNG · alpha</div>
-              <a href="assets/press/maintra-logo.png" download>Download</a>
+              <a href="/assets/press/maintra-logo.png" download>Download</a>
             </div>
             <div class="press-item">
-              <img src="assets/press/maintra-feature-1024x500.png" alt="Maintra feature graphic" />
+              <img src="/assets/press/maintra-feature-1024x500.png" alt="Maintra feature graphic" />
               <div class="name">Feature graphic</div>
               <div class="meta">PNG · 1024×500</div>
-              <a href="assets/press/maintra-feature-1024x500.png" download>Download</a>
+              <a href="/assets/press/maintra-feature-1024x500.png" download>Download</a>
             </div>
           </div>
       
@@ -177,107 +179,107 @@
           <p class="muted">Just the app’s screen: no phone frame, no marketing text. Use these in an article — a slogan across the image reads as an advert.</p>
           <div class="shot-grid">
             <figure class="shot">
-              <a href="assets/press/screens/en/maintra-garage-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/en/thumbs/garage-clean.jpg" alt="Garage" loading="lazy" width="420" height="913" /></a>
+              <a href="/assets/press/screens/en/maintra-garage-clean.png" target="_blank" rel="noopener"><img src="/assets/press/screens/en/thumbs/garage-clean.jpg" alt="Garage" loading="lazy" width="420" height="913" /></a>
               <figcaption>
                 <span class="name">Garage</span>
                 <span class="meta">PNG · 1320×2868 · 1709 KB</span>
-                <a href="assets/press/screens/en/maintra-garage-clean.png" download>Download</a>
+                <a href="/assets/press/screens/en/maintra-garage-clean.png" download>Download</a>
               </figcaption>
             </figure>
             <figure class="shot">
-              <a href="assets/press/screens/en/maintra-services-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/en/thumbs/services-clean.jpg" alt="Service history" loading="lazy" width="420" height="913" /></a>
+              <a href="/assets/press/screens/en/maintra-services-clean.png" target="_blank" rel="noopener"><img src="/assets/press/screens/en/thumbs/services-clean.jpg" alt="Service history" loading="lazy" width="420" height="913" /></a>
               <figcaption>
                 <span class="name">Service history</span>
                 <span class="meta">PNG · 1320×2868 · 1999 KB</span>
-                <a href="assets/press/screens/en/maintra-services-clean.png" download>Download</a>
+                <a href="/assets/press/screens/en/maintra-services-clean.png" download>Download</a>
               </figcaption>
             </figure>
             <figure class="shot">
-              <a href="assets/press/screens/en/maintra-ai-entry-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/en/thumbs/ai-entry-clean.jpg" alt="Reading a receipt" loading="lazy" width="420" height="913" /></a>
+              <a href="/assets/press/screens/en/maintra-ai-entry-clean.png" target="_blank" rel="noopener"><img src="/assets/press/screens/en/thumbs/ai-entry-clean.jpg" alt="Reading a receipt" loading="lazy" width="420" height="913" /></a>
               <figcaption>
                 <span class="name">Reading a receipt</span>
                 <span class="meta">PNG · 1320×2868 · 319 KB</span>
-                <a href="assets/press/screens/en/maintra-ai-entry-clean.png" download>Download</a>
+                <a href="/assets/press/screens/en/maintra-ai-entry-clean.png" download>Download</a>
               </figcaption>
             </figure>
             <figure class="shot">
-              <a href="assets/press/screens/en/maintra-plan-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/en/thumbs/plan-clean.jpg" alt="Maintenance plan" loading="lazy" width="420" height="913" /></a>
+              <a href="/assets/press/screens/en/maintra-plan-clean.png" target="_blank" rel="noopener"><img src="/assets/press/screens/en/thumbs/plan-clean.jpg" alt="Maintenance plan" loading="lazy" width="420" height="913" /></a>
               <figcaption>
                 <span class="name">Maintenance plan</span>
                 <span class="meta">PNG · 1320×2868 · 654 KB</span>
-                <a href="assets/press/screens/en/maintra-plan-clean.png" download>Download</a>
+                <a href="/assets/press/screens/en/maintra-plan-clean.png" download>Download</a>
               </figcaption>
             </figure>
             <figure class="shot">
-              <a href="assets/press/screens/en/maintra-fuel-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/en/thumbs/fuel-clean.jpg" alt="Fuel and stations" loading="lazy" width="420" height="913" /></a>
+              <a href="/assets/press/screens/en/maintra-fuel-clean.png" target="_blank" rel="noopener"><img src="/assets/press/screens/en/thumbs/fuel-clean.jpg" alt="Fuel and stations" loading="lazy" width="420" height="913" /></a>
               <figcaption>
                 <span class="name">Fuel and stations</span>
                 <span class="meta">PNG · 1320×2868 · 695 KB</span>
-                <a href="assets/press/screens/en/maintra-fuel-clean.png" download>Download</a>
+                <a href="/assets/press/screens/en/maintra-fuel-clean.png" download>Download</a>
               </figcaption>
             </figure>
             <figure class="shot">
-              <a href="assets/press/screens/en/maintra-documents-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/en/thumbs/documents-clean.jpg" alt="Encrypted documents" loading="lazy" width="420" height="913" /></a>
+              <a href="/assets/press/screens/en/maintra-documents-clean.png" target="_blank" rel="noopener"><img src="/assets/press/screens/en/thumbs/documents-clean.jpg" alt="Encrypted documents" loading="lazy" width="420" height="913" /></a>
               <figcaption>
                 <span class="name">Encrypted documents</span>
                 <span class="meta">PNG · 1320×2868 · 1361 KB</span>
-                <a href="assets/press/screens/en/maintra-documents-clean.png" download>Download</a>
+                <a href="/assets/press/screens/en/maintra-documents-clean.png" download>Download</a>
               </figcaption>
             </figure>
             <figure class="shot">
-              <a href="assets/press/screens/en/maintra-tyres-sets-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/en/thumbs/tyres-sets-clean.jpg" alt="Tyre sets" loading="lazy" width="420" height="913" /></a>
+              <a href="/assets/press/screens/en/maintra-tyres-sets-clean.png" target="_blank" rel="noopener"><img src="/assets/press/screens/en/thumbs/tyres-sets-clean.jpg" alt="Tyre sets" loading="lazy" width="420" height="913" /></a>
               <figcaption>
                 <span class="name">Tyre sets</span>
                 <span class="meta">PNG · 1320×2868 · 915 KB</span>
-                <a href="assets/press/screens/en/maintra-tyres-sets-clean.png" download>Download</a>
+                <a href="/assets/press/screens/en/maintra-tyres-sets-clean.png" download>Download</a>
               </figcaption>
             </figure>
             <figure class="shot">
-              <a href="assets/press/screens/en/maintra-tyres-corners-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/en/thumbs/tyres-corners-clean.jpg" alt="Tyres on the car" loading="lazy" width="420" height="913" /></a>
+              <a href="/assets/press/screens/en/maintra-tyres-corners-clean.png" target="_blank" rel="noopener"><img src="/assets/press/screens/en/thumbs/tyres-corners-clean.jpg" alt="Tyres on the car" loading="lazy" width="420" height="913" /></a>
               <figcaption>
                 <span class="name">Tyres on the car</span>
                 <span class="meta">PNG · 1320×2868 · 816 KB</span>
-                <a href="assets/press/screens/en/maintra-tyres-corners-clean.png" download>Download</a>
+                <a href="/assets/press/screens/en/maintra-tyres-corners-clean.png" download>Download</a>
               </figcaption>
             </figure>
             <figure class="shot">
-              <a href="assets/press/screens/en/maintra-tyre-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/en/thumbs/tyre-clean.jpg" alt="One tyre, with its build date" loading="lazy" width="420" height="913" /></a>
+              <a href="/assets/press/screens/en/maintra-tyre-clean.png" target="_blank" rel="noopener"><img src="/assets/press/screens/en/thumbs/tyre-clean.jpg" alt="One tyre, with its build date" loading="lazy" width="420" height="913" /></a>
               <figcaption>
                 <span class="name">One tyre, with its build date</span>
                 <span class="meta">PNG · 1320×2868 · 1995 KB</span>
-                <a href="assets/press/screens/en/maintra-tyre-clean.png" download>Download</a>
+                <a href="/assets/press/screens/en/maintra-tyre-clean.png" download>Download</a>
               </figcaption>
             </figure>
             <figure class="shot">
-              <a href="assets/press/screens/en/maintra-shelf-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/en/thumbs/shelf-clean.jpg" alt="Bought, not fitted yet" loading="lazy" width="420" height="913" /></a>
+              <a href="/assets/press/screens/en/maintra-shelf-clean.png" target="_blank" rel="noopener"><img src="/assets/press/screens/en/thumbs/shelf-clean.jpg" alt="Bought, not fitted yet" loading="lazy" width="420" height="913" /></a>
               <figcaption>
                 <span class="name">Bought, not fitted yet</span>
                 <span class="meta">PNG · 1320×2868 · 1805 KB</span>
-                <a href="assets/press/screens/en/maintra-shelf-clean.png" download>Download</a>
+                <a href="/assets/press/screens/en/maintra-shelf-clean.png" download>Download</a>
               </figcaption>
             </figure>
             <figure class="shot">
-              <a href="assets/press/screens/en/maintra-wishlist-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/en/thumbs/wishlist-clean.jpg" alt="Wishlist" loading="lazy" width="420" height="913" /></a>
+              <a href="/assets/press/screens/en/maintra-wishlist-clean.png" target="_blank" rel="noopener"><img src="/assets/press/screens/en/thumbs/wishlist-clean.jpg" alt="Wishlist" loading="lazy" width="420" height="913" /></a>
               <figcaption>
                 <span class="name">Wishlist</span>
                 <span class="meta">PNG · 1320×2868 · 738 KB</span>
-                <a href="assets/press/screens/en/maintra-wishlist-clean.png" download>Download</a>
+                <a href="/assets/press/screens/en/maintra-wishlist-clean.png" download>Download</a>
               </figcaption>
             </figure>
             <figure class="shot">
-              <a href="assets/press/screens/en/maintra-stats-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/en/thumbs/stats-clean.jpg" alt="Statistics" loading="lazy" width="420" height="913" /></a>
+              <a href="/assets/press/screens/en/maintra-stats-clean.png" target="_blank" rel="noopener"><img src="/assets/press/screens/en/thumbs/stats-clean.jpg" alt="Statistics" loading="lazy" width="420" height="913" /></a>
               <figcaption>
                 <span class="name">Statistics</span>
                 <span class="meta">PNG · 1320×2868 · 582 KB</span>
-                <a href="assets/press/screens/en/maintra-stats-clean.png" download>Download</a>
+                <a href="/assets/press/screens/en/maintra-stats-clean.png" download>Download</a>
               </figcaption>
             </figure>
             <figure class="shot">
-              <a href="assets/press/screens/en/maintra-chat-clean.png" target="_blank" rel="noopener"><img src="assets/press/screens/en/thumbs/chat-clean.jpg" alt="AI chat" loading="lazy" width="420" height="913" /></a>
+              <a href="/assets/press/screens/en/maintra-chat-clean.png" target="_blank" rel="noopener"><img src="/assets/press/screens/en/thumbs/chat-clean.jpg" alt="AI chat" loading="lazy" width="420" height="913" /></a>
               <figcaption>
                 <span class="name">AI chat</span>
                 <span class="meta">PNG · 1320×2868 · 651 KB</span>
-                <a href="assets/press/screens/en/maintra-chat-clean.png" download>Download</a>
+                <a href="/assets/press/screens/en/maintra-chat-clean.png" download>Download</a>
               </figcaption>
             </figure>
           </div>
@@ -286,67 +288,67 @@
           <p class="muted">The same screens as they appear on the App Store and Google Play — framed, with the slogan.</p>
           <div class="shot-grid">
             <figure class="shot">
-              <a href="assets/press/screens/en/maintra-garage-store.png" target="_blank" rel="noopener"><img src="assets/press/screens/en/thumbs/garage-store.jpg" alt="Garage" loading="lazy" width="420" height="909" /></a>
+              <a href="/assets/press/screens/en/maintra-garage-store.png" target="_blank" rel="noopener"><img src="/assets/press/screens/en/thumbs/garage-store.jpg" alt="Garage" loading="lazy" width="420" height="909" /></a>
               <figcaption>
                 <span class="name">Garage</span>
                 <span class="meta">PNG · 1284×2778 · 1253 KB</span>
-                <a href="assets/press/screens/en/maintra-garage-store.png" download>Download</a>
+                <a href="/assets/press/screens/en/maintra-garage-store.png" download>Download</a>
               </figcaption>
             </figure>
             <figure class="shot">
-              <a href="assets/press/screens/en/maintra-logging-store.png" target="_blank" rel="noopener"><img src="assets/press/screens/en/thumbs/logging-store.jpg" alt="Logging" loading="lazy" width="420" height="909" /></a>
+              <a href="/assets/press/screens/en/maintra-logging-store.png" target="_blank" rel="noopener"><img src="/assets/press/screens/en/thumbs/logging-store.jpg" alt="Logging" loading="lazy" width="420" height="909" /></a>
               <figcaption>
                 <span class="name">Logging</span>
                 <span class="meta">PNG · 1284×2778 · 1251 KB</span>
-                <a href="assets/press/screens/en/maintra-logging-store.png" download>Download</a>
+                <a href="/assets/press/screens/en/maintra-logging-store.png" download>Download</a>
               </figcaption>
             </figure>
             <figure class="shot">
-              <a href="assets/press/screens/en/maintra-plan-store.png" target="_blank" rel="noopener"><img src="assets/press/screens/en/thumbs/plan-store.jpg" alt="Plan" loading="lazy" width="420" height="909" /></a>
+              <a href="/assets/press/screens/en/maintra-plan-store.png" target="_blank" rel="noopener"><img src="/assets/press/screens/en/thumbs/plan-store.jpg" alt="Plan" loading="lazy" width="420" height="909" /></a>
               <figcaption>
                 <span class="name">Plan</span>
                 <span class="meta">PNG · 1284×2778 · 834 KB</span>
-                <a href="assets/press/screens/en/maintra-plan-store.png" download>Download</a>
+                <a href="/assets/press/screens/en/maintra-plan-store.png" download>Download</a>
               </figcaption>
             </figure>
             <figure class="shot">
-              <a href="assets/press/screens/en/maintra-chat-store.png" target="_blank" rel="noopener"><img src="assets/press/screens/en/thumbs/chat-store.jpg" alt="AI chat" loading="lazy" width="420" height="909" /></a>
+              <a href="/assets/press/screens/en/maintra-chat-store.png" target="_blank" rel="noopener"><img src="/assets/press/screens/en/thumbs/chat-store.jpg" alt="AI chat" loading="lazy" width="420" height="909" /></a>
               <figcaption>
                 <span class="name">AI chat</span>
                 <span class="meta">PNG · 1284×2778 · 938 KB</span>
-                <a href="assets/press/screens/en/maintra-chat-store.png" download>Download</a>
+                <a href="/assets/press/screens/en/maintra-chat-store.png" download>Download</a>
               </figcaption>
             </figure>
             <figure class="shot">
-              <a href="assets/press/screens/en/maintra-tyres-store.png" target="_blank" rel="noopener"><img src="assets/press/screens/en/thumbs/tyres-store.jpg" alt="Tyres" loading="lazy" width="420" height="909" /></a>
+              <a href="/assets/press/screens/en/maintra-tyres-store.png" target="_blank" rel="noopener"><img src="/assets/press/screens/en/thumbs/tyres-store.jpg" alt="Tyres" loading="lazy" width="420" height="909" /></a>
               <figcaption>
                 <span class="name">Tyres</span>
                 <span class="meta">PNG · 1284×2778 · 885 KB</span>
-                <a href="assets/press/screens/en/maintra-tyres-store.png" download>Download</a>
+                <a href="/assets/press/screens/en/maintra-tyres-store.png" download>Download</a>
               </figcaption>
             </figure>
             <figure class="shot">
-              <a href="assets/press/screens/en/maintra-documents-store.png" target="_blank" rel="noopener"><img src="assets/press/screens/en/thumbs/documents-store.jpg" alt="Documents" loading="lazy" width="420" height="909" /></a>
+              <a href="/assets/press/screens/en/maintra-documents-store.png" target="_blank" rel="noopener"><img src="/assets/press/screens/en/thumbs/documents-store.jpg" alt="Documents" loading="lazy" width="420" height="909" /></a>
               <figcaption>
                 <span class="name">Documents</span>
                 <span class="meta">PNG · 1284×2778 · 803 KB</span>
-                <a href="assets/press/screens/en/maintra-documents-store.png" download>Download</a>
+                <a href="/assets/press/screens/en/maintra-documents-store.png" download>Download</a>
               </figcaption>
             </figure>
             <figure class="shot">
-              <a href="assets/press/screens/en/maintra-wishlist-store.png" target="_blank" rel="noopener"><img src="assets/press/screens/en/thumbs/wishlist-store.jpg" alt="Wishlist" loading="lazy" width="420" height="909" /></a>
+              <a href="/assets/press/screens/en/maintra-wishlist-store.png" target="_blank" rel="noopener"><img src="/assets/press/screens/en/thumbs/wishlist-store.jpg" alt="Wishlist" loading="lazy" width="420" height="909" /></a>
               <figcaption>
                 <span class="name">Wishlist</span>
                 <span class="meta">PNG · 1284×2778 · 1065 KB</span>
-                <a href="assets/press/screens/en/maintra-wishlist-store.png" download>Download</a>
+                <a href="/assets/press/screens/en/maintra-wishlist-store.png" download>Download</a>
               </figcaption>
             </figure>
             <figure class="shot">
-              <a href="assets/press/screens/en/maintra-stats-store.png" target="_blank" rel="noopener"><img src="assets/press/screens/en/thumbs/stats-store.jpg" alt="Statistics" loading="lazy" width="420" height="909" /></a>
+              <a href="/assets/press/screens/en/maintra-stats-store.png" target="_blank" rel="noopener"><img src="/assets/press/screens/en/thumbs/stats-store.jpg" alt="Statistics" loading="lazy" width="420" height="909" /></a>
               <figcaption>
                 <span class="name">Statistics</span>
                 <span class="meta">PNG · 1284×2778 · 735 KB</span>
-                <a href="assets/press/screens/en/maintra-stats-store.png" download>Download</a>
+                <a href="/assets/press/screens/en/maintra-stats-store.png" download>Download</a>
               </figcaption>
             </figure>
           </div>
@@ -358,19 +360,19 @@
           <p class="muted">There are more photos of car parts on the developer’s phone than of the developer — this is what turned up.</p>
           <div class="photo-grid">
             <figure class="shot">
-              <a href="assets/press/photo/maintra-developer-1.png" target="_blank" rel="noopener"><img src="assets/press/photo/thumbs/maintra-developer-1.jpg" alt="Kyrylo Rozbeiko" loading="lazy" width="560" height="852" /></a>
+              <a href="/assets/press/photo/maintra-developer-1.png" target="_blank" rel="noopener"><img src="/assets/press/photo/thumbs/maintra-developer-1.jpg" alt="Kyrylo Rozbeiko" loading="lazy" width="560" height="852" /></a>
               <figcaption>
                 <span class="name">Kyrylo Rozbeiko</span>
                 <span class="meta">PNG · 1320×2008 · 376 KB</span>
-                <a href="assets/press/photo/maintra-developer-1.png" download>Download</a>
+                <a href="/assets/press/photo/maintra-developer-1.png" download>Download</a>
               </figcaption>
             </figure>
             <figure class="shot">
-              <a href="assets/press/photo/maintra-developer-2.jpg" target="_blank" rel="noopener"><img src="assets/press/photo/thumbs/maintra-developer-2.jpg" alt="Kyrylo Rozbeiko" loading="lazy" width="560" height="589" /></a>
+              <a href="/assets/press/photo/maintra-developer-2.jpg" target="_blank" rel="noopener"><img src="/assets/press/photo/thumbs/maintra-developer-2.jpg" alt="Kyrylo Rozbeiko" loading="lazy" width="560" height="589" /></a>
               <figcaption>
                 <span class="name">Kyrylo Rozbeiko</span>
                 <span class="meta">JPG · 1218×1280 · 202 KB</span>
-                <a href="assets/press/photo/maintra-developer-2.jpg" download>Download</a>
+                <a href="/assets/press/photo/maintra-developer-2.jpg" download>Download</a>
               </figcaption>
             </figure>
           </div>
@@ -381,12 +383,12 @@
             <div class="press-item zip-item">
               <div class="name">English</div>
               <div class="meta">ZIP · 23.6 MB · logos · 21 screenshots · 2 photos · copy</div>
-              <a href="assets/press/maintra-press-kit-en.zip" download>Download</a>
+              <a href="/assets/press/maintra-press-kit-en.zip" download>Download</a>
             </div>
             <div class="press-item zip-item">
               <div class="name">Ukrainian</div>
               <div class="meta">ZIP · 23.6 MB · logos · 21 screenshots · 2 photos · copy</div>
-              <a href="assets/press/maintra-press-kit-uk.zip" download>Download</a>
+              <a href="/assets/press/maintra-press-kit-uk.zip" download>Download</a>
             </div>
           </div>
       

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shared wishlist — Maintra</title>
   <meta name="robots" content="noindex" />
-  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
 <meta name="theme-color" content="#0B0B0A" />
 <!-- chrome:head -->
 <script>
@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="/assets/home/fonts.css?v=3a8a3f95" />
 <link rel="stylesheet" href="/assets/home/home.css?v=de947d99" />
 <link rel="stylesheet" href="/assets/home/site.css?v=63dcbaf2" />
-<script type="module" src="/assets/home/site.js?v=52d2b1e2"></script>
+<script type="module" src="/assets/home/site.js?v=6b25487e"></script>
 <!-- /chrome:head -->
 </head>
 <body>
@@ -147,7 +147,7 @@
           var prio = i.priority || 'normal';
           a.innerHTML =
             (i.image_url
-              ? '<img class="wl-thumb" src="' + encodeURI(i.image_url) + '" alt="" loading="lazy" />'
+              ? '<img class="wl-thumb" src="/' + encodeURI(i.image_url) + '" alt="" loading="lazy" />'
               : '<div class="wl-thumb ph">🎁</div>') +
             '<div class="wl-body"><div class="wl-title"></div><div class="wl-site"></div></div>' +
             '<div class="wl-price"></div>' +

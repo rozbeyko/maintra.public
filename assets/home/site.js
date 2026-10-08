@@ -42,6 +42,38 @@ matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
   if (!chosen) switchTo(e.matches ? 'light' : 'dark');
 });
 
+// ---------------------------------------------------- language menu
+// this page in the other languages; a choice is remembered, so the next
+// visit to the homepage opens in it too
+const langBtn = $('.lang-btn');
+const langMenu = $('#lang-menu');
+function langs(open) {
+  if (!langMenu) return;
+  langMenu.hidden = !open;
+  langBtn.setAttribute('aria-expanded', String(open));
+  if (open) (langMenu.querySelector('[aria-current]') || langMenu.querySelector('a')).focus();
+}
+langBtn?.addEventListener('click', () => {
+  if (langMenu.hidden) menu(false);
+  langs(langMenu.hidden);
+});
+document.addEventListener('click', (e) => {
+  if (langMenu && !langMenu.hidden && !e.target.closest('.lang')) langs(false);
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && langMenu && !langMenu.hidden) {
+    langs(false);
+    langBtn.focus();
+  }
+});
+for (const a of $$('[data-lang]')) {
+  a.addEventListener('click', () => {
+    try {
+      localStorage.setItem('maintra.lang', a.dataset.lang);
+    } catch (e) {}
+  });
+}
+
 // -------------------------------------------------------------- menu
 const btn = $('.menu-btn');
 const sheet = $('#menu');
