@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Polityka prywatności — Maintra</title>
+  <meta name="description" content="Jak Maintra obchodzi się z Twoimi danymi: co zbieramy, po co, komu je przekazujemy i jak je usunąć. Bez reklam, bez śledzenia, bez danych o lokalizacji." />
+  <meta name="theme-color" content="#0B0B0A" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Maintra" />
+  <meta property="og:title" content="Polityka prywatności — Maintra" />
+  <meta property="og:description" content="Co zbiera Maintra, po co i jak to usunąć. Bez reklam, bez śledzenia." />
+  <meta property="og:url" content="https://maintra.me/privacy.html" />
+  <meta property="og:image" content="https://maintra.me/assets/logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+<!-- chrome:head -->
+<link rel="canonical" href="https://maintra.me/privacy.html" />
+<script>
+(function () {
+  var t = null;
+  try { t = localStorage.getItem('maintra.theme'); } catch (e) {}
+  if (t !== 'light' && t !== 'dark') t = window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', t);
+  if (t === 'light') document.querySelector('meta[name="theme-color"]').setAttribute('content', '#EEEAE2');
+})();
+</script>
+<link rel="stylesheet" href="/assets/home/fonts.css?v=3a8a3f95" />
+<link rel="stylesheet" href="/assets/home/home.css?v=de947d99" />
+<link rel="stylesheet" href="/assets/home/site.css?v=63dcbaf2" />
+<script type="module" src="/assets/home/site.js?v=6b25487e"></script>
+<!-- /chrome:head -->
+</head>
+<body>
+<!-- chrome:top -->
+<a class="skip" href="#main">Skip to content</a>
+<header class="top" id="top">
+  <a class="brand" href="/" aria-label="Maintra"><svg class="mt" viewBox="0 0 100 57.69" aria-hidden="true"><path d="M26.10,0.00 L35.15,0.00 L35.15,57.69 L26.10,57.69 Z" style="fill:var(--lg-stem)"/><path d="M52.20,0.00 L61.25,0.00 L61.25,57.69 L52.20,57.69 Z" style="fill:var(--lg-stem)"/><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" style="fill:var(--lg-gold)"/><clipPath id="mtc1"><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z"/></clipPath><g clip-path="url(#mtc1)"><path d="M2.40,57.69 L18.80,57.69 L37.55,0.00 L21.15,0.00 Z" style="fill:var(--lg-shade)"/><path d="M28.50,57.69 L44.90,57.69 L63.65,0.00 L47.24,0.00 Z" style="fill:var(--lg-shade)"/><path d="M54.60,57.69 L71.00,57.69 L89.75,0.00 L73.34,0.00 Z" style="fill:var(--lg-shade)"/></g><path d="M0.00,57.69 L16.40,57.69 L35.15,0.00 L18.75,0.00 Z" style="fill:var(--lg-ink)"/><path d="M26.10,57.69 L42.50,57.69 L61.25,0.00 L44.84,0.00 Z" style="fill:var(--lg-ink)"/><path d="M52.20,57.69 L68.60,57.69 L87.35,0.00 L70.94,0.00 Z" style="fill:var(--lg-gold)"/></svg><span class="word">Maintra</span></a>
+  <nav class="top-nav" aria-label="Maintra">
+    <a href="/#tour">Try it</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/support.html">Support</a>
+    <a href="/press-en">Press</a>
+    <a href="/about.html">About</a>
+  </nav>
+  <span class="top-gap"></span>
+  <button class="theme-btn" type="button" data-to-light="Switch to the light theme" data-to-dark="Switch to the dark theme" aria-label="Switch to the light theme"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 8.5h7v7h-7z"></path><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"></path></svg><svg class="i moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3.5L5.5 5.5 3.5 10v4l2 4.5 4.5 2h4l4.5-2 2-4.5-5 .5-4.5-2-1.5-4z"></path></svg></button>
+  <a class="btn btn-line btn-sm top-get" href="/#get">Get the app</a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menu"><i></i><i></i><i></i></button>
+</header>
+<div class="menu" id="menu" hidden>
+  <nav aria-label="Menu">
+    <a href="/#tour"><span class="n">01</span>Try it</a>
+    <a href="/faq.html"><span class="n">02</span>FAQ</a>
+    <a href="/support.html"><span class="n">03</span>Support</a>
+    <a href="/press-en"><span class="n">04</span>Press</a>
+    <a href="/about.html"><span class="n">05</span>About</a>
+  </nav>
+  <a class="btn btn-gold menu-get" href="/#get">Get the app</a>
+</div>
+<!-- /chrome:top -->
+<main id="main" class="doc">
+  <header class="doc-head">
+    <h1 class="h1">Polityka prywatności</h1>
+  </header>
+  <div class="doc-grid has-toc">
+    <!-- chrome:toc -->
+    <nav class="doc-toc" aria-label="Sections">
+      <ol>
+        <li><a href="#1-who-we-are"><span class="n">01</span>Who we are</a></li>
+        <li><a href="#2-information-we-collect"><span class="n">02</span>Information we collect</a></li>
+        <li><a href="#3-how-we-use-your-information"><span class="n">03</span>How we use your information</a></li>
+        <li><a href="#4-where-your-data-is-stored"><span class="n">04</span>Where your data is stored</a></li>
+        <li><a href="#5-third-party-services"><span class="n">05</span>Third-party services</a></li>
+        <li><a href="#6-your-rights"><span class="n">06</span>Your rights</a></li>
+        <li><a href="#7-data-retention"><span class="n">07</span>Data retention</a></li>
+        <li><a href="#8-children"><span class="n">08</span>Children</a></li>
+        <li><a href="#9-international-transfers"><span class="n">09</span>International transfers</a></li>
+        <li><a href="#10-security"><span class="n">10</span>Security</a></li>
+        <li><a href="#11-changes-to-this-policy"><span class="n">11</span>Changes to this policy</a></li>
+        <li><a href="#12-contact"><span class="n">12</span>Contact</a></li>
+      </ol>
+    </nav>
+    <!-- /chrome:toc -->
+    <article class="doc-body">
+      <p class="muted">To tłumaczenie przygotowane dla Twojej wygody. Jeśli różni się od wersji angielskiej, obowiązuje wersja angielska. <a href="/privacy.html">Wersja angielska</a></p>
+      <p class="muted">Ostatnia aktualizacja: <strong>17 czerwca 2026 r.</strong></p>
+      
+          <p>Niniejsza Polityka prywatności opisuje, w jaki sposób <strong>Maintra</strong> („my”, „nasz” lub „aplikacja”) zbiera, wykorzystuje i chroni Twoje informacje, gdy korzystasz z naszej aplikacji mobilnej.</p>
+      
+          <h2 id="1-who-we-are">Kim jesteśmy</h2>
+          <p>Operatorem Maintry jest <strong>Kyrylo Rozbeiko</strong>. Jeśli masz pytania dotyczące niniejszej polityki, skontaktuj się z nami pod adresem <a href="mailto:rokops13@gmail.com">rokops13@gmail.com</a>.</p>
+      
+          <h2 id="2-information-we-collect">Jakie informacje zbieramy</h2>
+      
+          <h3>Informacje o koncie</h3>
+          <ul>
+            <li><strong>Adres e-mail</strong> – służy do założenia konta i uwierzytelniania.</li>
+            <li><strong>Nazwa wyświetlana</strong> (opcjonalnie) – wyświetlana w aplikacji.</li>
+            <li><strong>Identyfikatory uwierzytelniania</strong> od Google, jeśli logujesz się kontem Google (wyłącznie adres e-mail konta Google i unikalny identyfikator; nie uzyskujemy dostępu do kontaktów, kalendarza, plików ani żadnej innej usługi Google).</li>
+          </ul>
+      
+          <h3>Dane pojazdów i serwisu</h3>
+          <p>Dane, które dobrowolnie wprowadzasz do aplikacji na temat swoich pojazdów i ich obsługi:</p>
+          <ul>
+            <li>Dane pojazdu (marka, model, rok, VIN, numer rejestracyjny, przebieg, rodzaj paliwa, skrzynia biegów, data i cena zakupu).</li>
+            <li>Wpisy serwisowe (data, przebieg, kategoria, opis, koszt części i robocizny, nazwa warsztatu).</li>
+            <li>Dzienniki tankowań (data, litry, cena, nazwa stacji, ocena jakości paliwa).</li>
+            <li>Pozycje planu serwisowego (interwały, terminy, priorytet, notatki).</li>
+            <li>Wiadomości czatu AI, które wysyłasz do asystenta AI w aplikacji na temat swojego pojazdu.</li>
+            <li>Notatki w dowolnej formie przekazywane AI (odgłosy, problemy podczas jazdy, prace wykonane gdzie indziej).</li>
+          </ul>
+      
+          <h3>Preferencje i korzystanie z aplikacji</h3>
+          <ul>
+            <li>Język, preferowana waluta, kraj.</li>
+            <li>Pakiet subskrypcji (Darmowy / Pro / VIP) i data jego wygaśnięcia.</li>
+            <li>Liczniki wykorzystanych planów serwisowych AI, wiadomości czatu AI i wpisów serwisowych AI.</li>
+            <li>Motyw aplikacji i ustawienia powiadomień.</li>
+            <li>Token powiadomień push (tylko jeśli włączysz powiadomienia push, np. alerty o spadku cen z listy życzeń). Token jest generowany przez Expo i przechowywany na naszym backendzie, abyśmy mogli dostarczać alerty na Twoje urządzenie; nie identyfikuje Cię osobiście.</li>
+          </ul>
+      
+          <h3>Analityka produktowa</h3>
+          <ul>
+            <li>Anonimowe zdarzenia użytkowania: które ekrany otwierasz i z jakich funkcji korzystasz (na przykład dodanie pojazdu, wygenerowanie planu AI lub wyświetlenie ekranu przejścia na płatny pakiet), wraz z Twoim pakietem subskrypcji, wersją aplikacji, modelem urządzenia i systemem operacyjnym. Dane te są zbierane za pośrednictwem PostHog (zob. sekcja 5), hostowanego w Unii Europejskiej, i są powiązane wyłącznie z identyfikatorem pseudonimowym. Nigdy nie obejmują danych Twoich pojazdów, wpisów serwisowych, zdjęć ani treści czatu. Wykorzystujemy je wyłącznie po to, aby zrozumieć, które funkcje są przydatne, i ulepszać aplikację.</li>
+          </ul>
+      
+          <h3>Dane, których <em>nie</em> zbieramy</h3>
+          <ul>
+            <li>Nie zbieramy Twojej dokładnej lokalizacji.</li>
+            <li>Nie zbieramy Twoich kontaktów, kalendarza, plików ani wiadomości.</li>
+            <li>Nie przechowujemy na naszych serwerach zdjęć z Twojego aparatu ani galerii, z jednym wyjątkiem: funkcji skanowania paragonów. Gdy skanujesz paragon, obraz jest wysyłany do Anthropic (Claude AI) w celu odczytania pozycji. Jeśli korzystasz z płatnego pakietu i zdecydujesz się zachować ten paragon, obraz jest następnie przechowywany prywatnie na Twoim koncie, aby mógł służyć jako dowód wykonania serwisu i być dołączany do eksportów PDF; jeśli go nie zachowasz, obraz jest usuwany po przetworzeniu. Przechowywane obrazy paragonów są dostępne tylko dla Ciebie, są usuwane, gdy usuniesz powiązany wpis serwisowy lub swoje konto, i nigdy nie są wykorzystywane do celów reklamowych ani udostępniane. Funkcja wpisu serwisowego AI może też działać wyłącznie na podstawie wpisanego przez Ciebie tekstu, bez żadnego obrazu.</li>
+            <li>Nie używamy identyfikatorów reklamowych, a aplikacja nie zawiera reklam.</li>
+            <li>Nie używamy SDK reklamowych ani SDK do śledzenia między aplikacjami. Używamy natomiast SDK do raportowania awarii (Sentry) oraz przyjaznego dla prywatności SDK analityki produktowej (PostHog, hostowanego w UE), opisanych w sekcji 5, aby naprawiać błędy i rozumieć, z których funkcji się korzysta. Żadne z nich nigdy nie otrzymuje danych Twoich pojazdów, wpisów serwisowych, zdjęć ani treści czatu.</li>
+          </ul>
+      
+          <h2 id="3-how-we-use-your-information">Jak wykorzystujemy Twoje informacje</h2>
+          <ul>
+            <li>Aby zapewniać podstawowe funkcje aplikacji: przechowywanie i wyświetlanie Twojej historii serwisowej i planów serwisowych.</li>
+            <li>Aby generować spersonalizowane plany serwisowe AI na podstawie danych Twojego pojazdu i historii serwisowej.</li>
+            <li>Aby synchronizować Twoje dane między Twoimi urządzeniami za pośrednictwem naszego backendu.</li>
+            <li>Aby egzekwować limity subskrypcji (np. limit pojazdów w darmowym pakiecie, limity korzystania z AI).</li>
+            <li>Aby wysyłać Ci przypomnienia serwisowe oraz (jeśli włączysz powiadomienia push) alerty, np. o spadku cen z listy życzeń.</li>
+          </ul>
+      
+          <h2 id="4-where-your-data-is-stored">Gdzie przechowywane są Twoje dane</h2>
+          <p>Twoje dane są przechowywane w dwóch miejscach:</p>
+          <ul>
+            <li><strong>Na Twoim urządzeniu</strong> – w lokalnej bazie danych SQLite. Dzięki temu aplikacja działa offline.</li>
+            <li><strong>Na naszym backendzie</strong> – hostowanym przez <a href="https://supabase.com/" target="_blank" rel="noopener">Supabase</a> (baza danych PostgreSQL). Supabase zapewnia infrastrukturę uwierzytelniania, bazy danych i API, z której korzystamy.</li>
+            <li><strong>Obrazy paragonów</strong> (funkcja płatna, tylko jeśli zdecydujesz się zachować zeskanowany paragon) – przechowywane prywatnie w Supabase Storage, z dostępem ograniczonym do Twojego konta.</li>
+          </ul>
+          <p>Dane są przesyłane szyfrowanymi połączeniami HTTPS i przechowywane z zabezpieczeniem na poziomie wierszy (row-level security), dzięki czemu jeden użytkownik nie może odczytać danych innego użytkownika.</p>
+      
+          <h2 id="5-third-party-services">Usługi podmiotów trzecich</h2>
+          <p>Aby zapewnić działanie funkcji aplikacji, przekazujemy następującym podmiotom trzecim minimum niezbędnych danych:</p>
+      
+          <div class="card">
+            <h3 style="margin-top:0;">Supabase Inc.</h3>
+            <p class="muted">Hosting bazy danych, uwierzytelnianie i backend API.</p>
+            <p>Otrzymuje: wszystkie dane Twojego konta i pojazdów. Zob. <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Politykę prywatności Supabase</a>.</p>
+          </div>
+      
+          <div class="card">
+            <h3 style="margin-top:0;">Anthropic PBC (Claude AI)</h3>
+            <p class="muted">Przetwarzanie AI na potrzeby generowania planów serwisowych, czatu w aplikacji, wpisów serwisowych AI i skanowania paragonów przez AI.</p>
+            <p>Otrzymuje: dane Twojego pojazdu (marka, model, rok, przebieg, VIN, rodzaj paliwa), podsumowania historii serwisowej, wszelkie wysyłane przez Ciebie notatki tekstowe lub wiadomości czatu oraz – wyłącznie gdy korzystasz z funkcji skanowania paragonów – obraz paragonu, który zdecydujesz się zeskanować. Anthropic przetwarza te zapytania w celu wygenerowania odpowiedzi i nie trenuje na tych danych. Zob. <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Politykę prywatności Anthropic</a>.</p>
+          </div>
+      
+          <div class="card">
+            <h3 style="margin-top:0;">Expo (650 Industries, Inc.)</h3>
+            <p class="muted">Dostarczanie powiadomień push.</p>
+            <p>Otrzymuje: token powiadomień push urządzenia (tylko jeśli włączysz powiadomienia push). Korzystamy z usługi push Expo, aby dostarczać na Twoje urządzenie alerty, np. o spadku cen z listy życzeń. Zob. <a href="https://expo.dev/privacy" target="_blank" rel="noopener">Politykę prywatności Expo</a>.</p>
+          </div>
+      
+          <div class="card">
+            <h3 style="margin-top:0;">Google LLC (logowanie przez Google, Google Play Billing)</h3>
+            <p class="muted">Opcjonalne uwierzytelnianie i zakupy w aplikacji.</p>
+            <p>Otrzymuje: żądanie uwierzytelnienia (tylko jeśli zdecydujesz się zalogować przez Google) i transakcje zakupów w aplikacji. Zob. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Politykę prywatności Google</a>.</p>
+          </div>
+      
+          <div class="card">
+            <h3 style="margin-top:0;">Apple Inc. (App Store Billing)</h3>
+            <p class="muted">Zakupy w aplikacji na iOS.</p>
+            <p>Otrzymuje: transakcje zakupów w aplikacji, gdy wykupujesz subskrypcję na iPhonie. Zob. <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Politykę prywatności Apple</a>.</p>
+          </div>
+      
+          <div class="card">
+            <h3 style="margin-top:0;">RevenueCat Inc.</h3>
+            <p class="muted">Zarządzanie subskrypcjami pakietów Pro / VIP.</p>
+            <p>Otrzymuje: anonimowy identyfikator użytkownika i transakcje Twojej subskrypcji. Zob. <a href="https://www.revenuecat.com/privacy/" target="_blank" rel="noopener">Politykę prywatności RevenueCat</a>.</p>
+          </div>
+      
+          <div class="card">
+            <h3 style="margin-top:0;">Functional Software, Inc. (Sentry)</h3>
+            <p class="muted">Raportowanie awarii i błędów.</p>
+            <p>Otrzymuje: ślady stosu, identyfikator Twojego konta, wersję aplikacji, model urządzenia i wersję systemu operacyjnego oraz krótki zapis działań w aplikacji poprzedzających błąd. Sentry otrzymuje dane tylko wtedy, gdy w aplikacji wystąpi błąd. Nie wysyłamy do Sentry danych Twoich pojazdów, wpisów serwisowych ani treści czatu. Zob. <a href="https://sentry.io/privacy/" target="_blank" rel="noopener">Politykę prywatności Sentry</a>.</p>
+          </div>
+      
+          <div class="card">
+            <h3 style="margin-top:0;">PostHog (UE)</h3>
+            <p class="muted">Przyjazna dla prywatności analityka produktowa, hostowana w Unii Europejskiej.</p>
+            <p>Otrzymuje: pseudonimowy identyfikator użytkownika i zdarzenia użytkowania produktu – które ekrany otwierasz, z jakich funkcji korzystasz (np. dodanie pojazdu lub wygenerowanie planu), Twój pakiet subskrypcji, wersję aplikacji, model urządzenia i system operacyjny. Nie wysyłamy do PostHog danych Twoich pojazdów, wpisów serwisowych, obrazów paragonów ani treści czatu. PostHog przetwarza te dane na serwerach w UE. Zob. <a href="https://posthog.com/privacy" target="_blank" rel="noopener">Politykę prywatności PostHog</a>.</p>
+          </div>
+      
+          <h2 id="6-your-rights">Twoje prawa</h2>
+          <p>Masz prawo do:</p>
+          <ul>
+            <li><strong>Dostępu</strong> – przeglądania wszystkich swoich danych bezpośrednio w aplikacji.</li>
+            <li><strong>Sprostowania</strong> – edytowania lub usuwania dowolnego wpisu w aplikacji w dowolnym momencie.</li>
+            <li><strong>Usunięcia</strong> – trwałego usunięcia całego konta i wszystkich powiązanych z nim danych. Zob. <a href="/delete-account.html">Jak usunąć konto</a>.</li>
+            <li><strong>Eksportu</strong> – wygenerowania w aplikacji pliku PDF z historią pojazdu.</li>
+            <li><strong>Sprzeciwu / ograniczenia / skargi</strong> – jeśli przebywasz w UE lub Wielkiej Brytanii, możesz zwrócić się do lokalnego organu ochrony danych.</li>
+          </ul>
+      
+          <h2 id="7-data-retention">Okres przechowywania danych</h2>
+          <p>Przechowujemy Twoje dane tak długo, jak Twoje konto jest aktywne. Gdy usuniesz konto, wszystkie Twoje dane (profil, pojazdy, wpisy serwisowe, dzienniki tankowań, plany serwisowe i historia czatu) są natychmiast usuwane z naszej bazy danych. Zaszyfrowane kopie zapasowe mogą zawierać szczątkowe kopie przez maksymalnie <strong>30 dni</strong>, zanim zostaną nadpisane w normalnym trybie działania.</p>
+      
+          <h2 id="8-children">Dzieci</h2>
+          <p>Maintra nie jest skierowana do dzieci poniżej 13. roku życia i nie zbieramy świadomie danych osobowych dzieci poniżej 13. roku życia. Jeśli uważasz, że konto założyło dziecko, skontaktuj się z nami, a usuniemy je.</p>
+      
+          <h2 id="9-international-transfers">Międzynarodowe przekazywanie danych</h2>
+          <p>Nasi dostawcy usług Supabase, Anthropic, Google, RevenueCat i Sentry mają siedzibę w Stanach Zjednoczonych i mogą tam przetwarzać Twoje dane. Korzystając z aplikacji, wyrażasz zgodę na takie przekazywanie. Nasz dostawca analityki produktowej, PostHog, przetwarza Twoje dane na terenie Unii Europejskiej. Dostawcy ci są zobowiązani chronić Twoje dane zgodnie z obowiązującymi przepisami o ochronie danych.</p>
+      
+          <h2 id="10-security">Bezpieczeństwo</h2>
+          <p>Stosujemy rozsądne środki techniczne i organizacyjne w celu ochrony Twoich danych, w tym szyfrowanie HTTPS podczas przesyłania, szyfrowanie na poziomie bazy danych w spoczynku, zasady zabezpieczeń na poziomie wierszy oraz zasadę minimalnych uprawnień w dostępie usług. Żaden system nie jest jednak doskonały i nie możemy zagwarantować absolutnego bezpieczeństwa.</p>
+      
+          <h2 id="11-changes-to-this-policy">Zmiany niniejszej polityki</h2>
+          <p>Możemy od czasu do czasu aktualizować niniejszą politykę. O istotnych zmianach poinformujemy w aplikacji lub e-mailem. Data „Ostatnia aktualizacja” na górze odpowiada najnowszej wersji.</p>
+      
+          <h2 id="12-contact">Kontakt</h2>
+          <p>Pytania, wątpliwości lub wnioski dotyczące Twoich danych? Napisz na <a href="mailto:rokops13@gmail.com">rokops13@gmail.com</a>.</p>
+    </article>
+  </div>
+</main>
+<!-- chrome:foot -->
+<footer class="foot">
+  <div class="foot-in">
+    <div class="foot-brand"><a class="brand" href="/" aria-label="Maintra"><svg class="mt" viewBox="0 0 100 57.69" aria-hidden="true"><path d="M26.10,0.00 L35.15,0.00 L35.15,57.69 L26.10,57.69 Z" style="fill:var(--lg-stem)"/><path d="M52.20,0.00 L61.25,0.00 L61.25,57.69 L52.20,57.69 Z" style="fill:var(--lg-stem)"/><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" style="fill:var(--lg-gold)"/><clipPath id="mtc2"><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z"/></clipPath><g clip-path="url(#mtc2)"><path d="M2.40,57.69 L18.80,57.69 L37.55,0.00 L21.15,0.00 Z" style="fill:var(--lg-shade)"/><path d="M28.50,57.69 L44.90,57.69 L63.65,0.00 L47.24,0.00 Z" style="fill:var(--lg-shade)"/><path d="M54.60,57.69 L71.00,57.69 L89.75,0.00 L73.34,0.00 Z" style="fill:var(--lg-shade)"/></g><path d="M0.00,57.69 L16.40,57.69 L35.15,0.00 L18.75,0.00 Z" style="fill:var(--lg-ink)"/><path d="M26.10,57.69 L42.50,57.69 L61.25,0.00 L44.84,0.00 Z" style="fill:var(--lg-ink)"/><path d="M52.20,57.69 L68.60,57.69 L87.35,0.00 L70.94,0.00 Z" style="fill:var(--lg-gold)"/></svg><span class="word">Maintra</span></a><p>A smart maintenance tracker for your garage.</p></div>
+    <nav class="foot-links" aria-label="Maintra">
+      <a href="/about.html">About</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="/support.html">Support</a>
+      <a href="/press-en">Press</a>
+      <a href="/journey-en">The road to 2.0</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/delete-account.html">Delete account</a>
+    </nav>
+    <p class="copy">© 2026 Maintra</p>
+  </div>
+</footer>
+<!-- /chrome:foot -->
+
+</body>
+</html>

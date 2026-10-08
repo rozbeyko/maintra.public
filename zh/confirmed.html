@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>邮箱已验证 — Maintra</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>
+    (function () {
+      // Forward query (?code=… PKCE) + hash (#access_token=… implicit) so the
+      // confirmation code reaches the app and auto-signs the user in.
+      var qs = window.location.search || '';
+      var hash = window.location.hash || '';
+      var target = 'autocare://' + qs + hash;
+      var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      if (isMobile) {
+        window.location.replace(target);
+      }
+      window.__maintraDeepLink = target;
+    })();
+  </script>
+<meta name="theme-color" content="#0B0B0A" />
+<!-- chrome:head -->
+<link rel="canonical" href="https://maintra.me/confirmed.html" />
+<script>
+(function () {
+  var t = null;
+  try { t = localStorage.getItem('maintra.theme'); } catch (e) {}
+  if (t !== 'light' && t !== 'dark') t = window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', t);
+  if (t === 'light') document.querySelector('meta[name="theme-color"]').setAttribute('content', '#EEEAE2');
+})();
+</script>
+<link rel="stylesheet" href="/assets/home/fonts.css?v=3a8a3f95" />
+<link rel="stylesheet" href="/assets/home/home.css?v=de947d99" />
+<link rel="stylesheet" href="/assets/home/site.css?v=63dcbaf2" />
+<script type="module" src="/assets/home/site.js?v=6b25487e"></script>
+<!-- /chrome:head -->
+</head>
+<body>
+<!-- chrome:top -->
+<a class="skip" href="#main">Skip to content</a>
+<header class="top" id="top">
+  <a class="brand" href="/" aria-label="Maintra"><svg class="mt" viewBox="0 0 100 57.69" aria-hidden="true"><path d="M26.10,0.00 L35.15,0.00 L35.15,57.69 L26.10,57.69 Z" style="fill:var(--lg-stem)"/><path d="M52.20,0.00 L61.25,0.00 L61.25,57.69 L52.20,57.69 Z" style="fill:var(--lg-stem)"/><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" style="fill:var(--lg-gold)"/><clipPath id="mtc1"><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z"/></clipPath><g clip-path="url(#mtc1)"><path d="M2.40,57.69 L18.80,57.69 L37.55,0.00 L21.15,0.00 Z" style="fill:var(--lg-shade)"/><path d="M28.50,57.69 L44.90,57.69 L63.65,0.00 L47.24,0.00 Z" style="fill:var(--lg-shade)"/><path d="M54.60,57.69 L71.00,57.69 L89.75,0.00 L73.34,0.00 Z" style="fill:var(--lg-shade)"/></g><path d="M0.00,57.69 L16.40,57.69 L35.15,0.00 L18.75,0.00 Z" style="fill:var(--lg-ink)"/><path d="M26.10,57.69 L42.50,57.69 L61.25,0.00 L44.84,0.00 Z" style="fill:var(--lg-ink)"/><path d="M52.20,57.69 L68.60,57.69 L87.35,0.00 L70.94,0.00 Z" style="fill:var(--lg-gold)"/></svg><span class="word">Maintra</span></a>
+  <nav class="top-nav" aria-label="Maintra">
+    <a href="/#tour">Try it</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/support.html">Support</a>
+    <a href="/press-en">Press</a>
+    <a href="/about.html">About</a>
+  </nav>
+  <span class="top-gap"></span>
+  <button class="theme-btn" type="button" data-to-light="Switch to the light theme" data-to-dark="Switch to the dark theme" aria-label="Switch to the light theme"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 8.5h7v7h-7z"></path><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"></path></svg><svg class="i moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3.5L5.5 5.5 3.5 10v4l2 4.5 4.5 2h4l4.5-2 2-4.5-5 .5-4.5-2-1.5-4z"></path></svg></button>
+  <a class="btn btn-line btn-sm top-get" href="/#get">Get the app</a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menu"><i></i><i></i><i></i></button>
+</header>
+<div class="menu" id="menu" hidden>
+  <nav aria-label="Menu">
+    <a href="/#tour"><span class="n">01</span>Try it</a>
+    <a href="/faq.html"><span class="n">02</span>FAQ</a>
+    <a href="/support.html"><span class="n">03</span>Support</a>
+    <a href="/press-en"><span class="n">04</span>Press</a>
+    <a href="/about.html"><span class="n">05</span>About</a>
+  </nav>
+  <a class="btn btn-gold menu-get" href="/#get">Get the app</a>
+</div>
+<!-- /chrome:top -->
+<main id="main" class="doc doc-plain">
+  <header class="doc-head">
+    <h1 class="h1">你的邮箱已验证。</h1>
+    <p class="lede">谢谢！你的 Maintra 账号已经准备好了。</p>
+  </header>
+  <div class="doc-grid">
+    <!-- chrome:toc --><!-- /chrome:toc -->
+    <article class="doc-body">
+      <div class="card accent">
+            <strong>下一步：</strong>在手机上打开 Maintra App，用同一个邮箱和密码登录。
+          </div>
+      
+          <h2 id="on-your-phone-already">已经在手机上了？</h2>
+          <p>点下面的按钮，马上打开 Maintra。如果没有反应，就从主屏幕打开 App。无论哪种方式，你的邮箱都已经验证好了。</p>
+          <p>
+            <a id="open-app" href="#" class="btn btn-gold">打开 Maintra</a>
+          </p>
+          <script>
+            document.getElementById('open-app').href = window.__maintraDeepLink;
+          </script>
+      
+          <h2 id="don-t-have-the-app-yet">还没有安装 App？</h2>
+          <p>Maintra 的安卓版可以在 <a href="https://play.google.com/store/apps/details?id=com.maintra.app" rel="noopener">Google Play</a> 下载，iPhone 版可以在 <a href="https://apps.apple.com/app/maintra/id6775876731" rel="noopener">App Store</a> 下载。</p>
+    </article>
+  </div>
+</main>
+<!-- chrome:foot -->
+<footer class="foot">
+  <div class="foot-in">
+    <div class="foot-brand"><a class="brand" href="/" aria-label="Maintra"><svg class="mt" viewBox="0 0 100 57.69" aria-hidden="true"><path d="M26.10,0.00 L35.15,0.00 L35.15,57.69 L26.10,57.69 Z" style="fill:var(--lg-stem)"/><path d="M52.20,0.00 L61.25,0.00 L61.25,57.69 L52.20,57.69 Z" style="fill:var(--lg-stem)"/><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" style="fill:var(--lg-gold)"/><clipPath id="mtc2"><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z"/></clipPath><g clip-path="url(#mtc2)"><path d="M2.40,57.69 L18.80,57.69 L37.55,0.00 L21.15,0.00 Z" style="fill:var(--lg-shade)"/><path d="M28.50,57.69 L44.90,57.69 L63.65,0.00 L47.24,0.00 Z" style="fill:var(--lg-shade)"/><path d="M54.60,57.69 L71.00,57.69 L89.75,0.00 L73.34,0.00 Z" style="fill:var(--lg-shade)"/></g><path d="M0.00,57.69 L16.40,57.69 L35.15,0.00 L18.75,0.00 Z" style="fill:var(--lg-ink)"/><path d="M26.10,57.69 L42.50,57.69 L61.25,0.00 L44.84,0.00 Z" style="fill:var(--lg-ink)"/><path d="M52.20,57.69 L68.60,57.69 L87.35,0.00 L70.94,0.00 Z" style="fill:var(--lg-gold)"/></svg><span class="word">Maintra</span></a><p>A smart maintenance tracker for your garage.</p></div>
+    <nav class="foot-links" aria-label="Maintra">
+      <a href="/about.html">About</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="/support.html">Support</a>
+      <a href="/press-en">Press</a>
+      <a href="/journey-en">The road to 2.0</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/delete-account.html">Delete account</a>
+    </nav>
+    <p class="copy">© 2026 Maintra</p>
+  </div>
+</footer>
+<!-- /chrome:foot -->
+
+</body>
+</html>
