@@ -19,7 +19,7 @@
  */
 import { execFileSync } from 'node:child_process';
 import { readFileSync, writeFileSync, mkdirSync, rmSync, statSync, readdirSync, copyFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, resolve } from 'node:path';
 
 const SITE = process.argv[2] || '.';
 const PRESS = join(SITE, 'assets/press');
@@ -29,16 +29,20 @@ const BRAND = [
   'maintra-icon-1024.png',
   'maintra-icon-1024-transparent.png',
   'maintra-logo.png',
+  'maintra-logo.svg',
+  'maintra-logo-light.png',
+  'maintra-logo-light.svg',
   'maintra-feature-1024x500.png',
 ];
 
 const README = {
   uk: `MAINTRA — ПРЕСКІТ
-Оновлено: 15 вересня 2026
+Оновлено: 10 жовтня 2026
 maintra.me/press
 
 Що в архіві
-  logo/         іконка (прозора й на фоні), логотип, feature graphic
+  logo/         іконка (прозора й на фоні), логотип для темного й світлого
+                фону (PNG і SVG), feature graphic
   screenshots/  чисті скріншоти застосунку (-clean) і сторові зі слоганами
                 (-store). Для статті беріть чисті.
   photo/        фото розробника
@@ -54,11 +58,12 @@ maintra.me/press
   якого тут немає, або цифра з актуальною датою — так само.
 `,
   en: `MAINTRA — PRESS KIT
-Updated: 15 September 2026
+Updated: 10 October 2026
 maintra.me/press-en
 
 What is in here
-  logo/         icon (transparent and on a background), logo, feature graphic
+  logo/         icon (transparent and on a background), logo for dark and
+                light backgrounds (PNG and SVG), feature graphic
   screenshots/  clean screenshots of the app (-clean) and the store versions
                 with slogans (-store). Use the clean ones in an article.
   photo/        photo of the developer
@@ -86,6 +91,11 @@ Contact
  * explicitly, rather than letting the platform choose.
  */
 function zip(stageDir, outFile) {
+  // off Windows, Info-ZIP: it writes forward slashes on its own
+  if (process.platform !== 'win32') {
+    execFileSync('zip', ['-r', '-X', '-q', '-9', resolve(outFile), '.'], { cwd: stageDir, stdio: 'inherit' });
+    return;
+  }
   const files = [];
   (function walk(dir) {
     for (const e of readdirSync(dir, { withFileTypes: true })) {

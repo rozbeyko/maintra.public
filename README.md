@@ -27,6 +27,7 @@ maintra.public/
 │   ├── genjourney.mjs      # builds the two journey pages
 │   ├── genpress.mjs        # builds the two press kit pages
 │   ├── genchrome.mjs       # gives the other pages the 2.0 header, footer and layout
+│   ├── genbrand.mjs        # draws the favicon, the home-screen icon and the press logos
 │   └── home/               # the homepage's template, dictionaries and design sources
 └── assets/
     ├── press.css           # the press kit's galleries and plates
@@ -67,6 +68,7 @@ node tools/genhome.mjs .     # always, after any change to the template, copy or
 | The app on the screen | `assets/home/player.js` plays `assets/home/b/`, the design boards |
 | Design sources | `tools/home/src/`: the boards, committed verbatim; re-sync steps in `tools/genboards.mjs` |
 | Share cards | `assets/home/og/<code>.jpg`, the hero rendered at 1200×630 by `tools/genog.mjs` (needs Playwright) |
+| The mark | `favicon.ico`, `assets/favicon.svg|png`, `apple-touch-icon.png`, `assets/logo.png` and the press kit's icons, logos and feature graphic, all drawn by `tools/genbrand.mjs` from the brand board (`tools/home/src/d/Brand.dc.html`; needs Playwright). Then `node tools/press-zip.mjs .` and the page generators, for the new hashes |
 
 How the pieces fit:
 

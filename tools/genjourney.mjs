@@ -302,7 +302,9 @@ function page(lang, content) {
 <meta property="og:url" content="${p.url}">
 <meta property="og:image" content="https://maintra.me/assets/press/maintra-feature-1024x500.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 ${preloads(lang)}
 <style>
 ${fonts}</style>

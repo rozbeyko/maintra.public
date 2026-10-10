@@ -144,8 +144,14 @@ ${links.map(([h, l]) => `      <a href="${h}">${esc(l)}</a>`).join('\n')}
 <!-- /chrome:foot -->`;
 }
 
+// the tab icon, the home-screen icon (tools/genbrand.mjs draws them)
+const icons = () => `<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
+<link rel="icon" href="${asset('assets/favicon.svg')}" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="${asset('apple-touch-icon.png')}" />
+`;
+
 const chromeHead = (press, code, alts) => `<!-- chrome:head -->
-${alts}${themePick}${code === 'ar' && arabicFonts ? `\n${arabicFonts}` : ''}
+${alts}${icons()}${themePick}${code === 'ar' && arabicFonts ? `\n${arabicFonts}` : ''}
 <link rel="stylesheet" href="${asset('assets/home/fonts.css')}" />
 <link rel="stylesheet" href="${asset('assets/home/home.css')}" />
 <link rel="stylesheet" href="${asset('assets/home/site.css')}" />${press ? `\n<link rel="stylesheet" href="${asset('assets/press.css')}" />` : ''}
@@ -290,6 +296,10 @@ for (const [name, fileCode] of jobs) {
     .replace(/\s*<script src="assets\/(nav|parallax|fancy-fx)\.js[^"]*" defer><\/script>/g, '')
     .replace(/<meta name="theme-color" content="[^"]*" \/>/, '<meta name="theme-color" content="#0B0B0A" />')
     .replace(/\s*<!-- chrome:head -->[\s\S]*?<!-- \/chrome:head -->/, '')
+    .replace(/\s*<link rel="(?:icon|apple-touch-icon)"[^>]*>/g, '')
+    // the 1.x share image was the old logo: the homepage's card in this language
+    .replace(/(<meta property="og:image" content=")https:\/\/maintra\.me\/assets\/logo\.png"/, `$1${ORIGIN}/assets/home/og/${code}.jpg"`)
+    .replace(/<meta name="twitter:card" content="summary" \/>/, '<meta name="twitter:card" content="summary_large_image" />')
     .replace('</head>', `${chromeHead(press, code, alts)}\n</head>`);
   // the theme script sets the browser's bar colour: every page needs the tag
   if (!/<meta name="theme-color"/.test(html)) html = html.replace('<!-- chrome:head -->', '<meta name="theme-color" content="#0B0B0A" />\n<!-- chrome:head -->');

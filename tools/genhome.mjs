@@ -259,6 +259,8 @@ for (const l of built) {
     themepick: THEMEPICK,
     langpick: l.code === 'en' ? LANGPICK(built.map((x) => x.code)) : '',
     ogimage: ogImage(l.code),
+    favicon: asset('assets/favicon.svg'),
+    touchicon: asset('apple-touch-icon.png'),
     preloads: preloads(l),
     fontsextra: l.code === 'ar' ? ARABIC_FONTS : '',
     loader: LOADER,

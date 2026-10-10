@@ -25,6 +25,7 @@
 .press-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; margin: 1.2em 0 2em; }
 .press-item { display: flex; flex-direction: column; padding: 14px 14px 16px; }
 .press-item img { width: 100%; height: 140px; object-fit: contain; background: #0B0B0A; }
+.press-item.on-paper img { background: #F8F6F1; }
 .press-item .name { margin: 12px 0 2px; font-weight: 700; font-size: .9em; }
 .press-item .meta { color: var(--text2); font-size: .78em; }
 .doc-body .press-item a { margin-top: 10px; font-size: .82em; }

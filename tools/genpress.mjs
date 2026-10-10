@@ -228,7 +228,8 @@ const T = {
     logos: [
       ['maintra-icon-1024.png', 'Іконка, непрозорий фон', 'PNG · 1024×1024', 'Іконка Maintra на непрозорому фоні'],
       ['maintra-icon-1024-transparent.png', 'Іконка, прозорий фон', 'PNG · 1024×1024 · alpha', 'Іконка Maintra з прозорим фоном'],
-      ['maintra-logo.png', 'Логотип', 'PNG · alpha', 'Логотип Maintra'],
+      ['maintra-logo.png', 'Логотип для темного фону', 'PNG · 2125×1448 · alpha', 'Логотип Maintra для темного фону'],
+      ['maintra-logo-light.png', 'Логотип для світлого фону', 'PNG · 2125×1448 · alpha', 'Логотип Maintra для світлого фону'],
       ['maintra-feature-1024x500.png', 'Feature graphic', 'PNG · 1024×500', 'Feature graphic Maintra'],
     ],
     dl: 'Завантажити',
@@ -320,7 +321,8 @@ const T = {
     logos: [
       ['maintra-icon-1024.png', 'Icon, opaque background', 'PNG · 1024×1024', 'Maintra icon on an opaque background'],
       ['maintra-icon-1024-transparent.png', 'Icon, transparent background', 'PNG · 1024×1024 · alpha', 'Maintra icon with a transparent background'],
-      ['maintra-logo.png', 'Logo', 'PNG · alpha', 'Maintra logo'],
+      ['maintra-logo.png', 'Logo for dark backgrounds', 'PNG · 2125×1448 · alpha', 'Maintra logo for dark backgrounds'],
+      ['maintra-logo-light.png', 'Logo for light backgrounds', 'PNG · 2125×1448 · alpha', 'Maintra logo for light backgrounds'],
       ['maintra-feature-1024x500.png', 'Feature graphic', 'PNG · 1024×500', 'Maintra feature graphic'],
     ],
     dl: 'Download',
@@ -355,11 +357,12 @@ function page(lang) {
   const t = T[lang];
   const logoGrid = t.logos
     .map(
-      ([f, name, meta, alt]) => `      <div class="press-item">
+      // the logos come as SVG too; the one for light backgrounds is shown on one
+      ([f, name, meta, alt]) => `      <div class="press-item${f.includes('-light') ? ' on-paper' : ''}">
         <img src="assets/press/${f}" alt="${alt}" />
         <div class="name">${name}</div>
         <div class="meta">${meta}</div>
-        <a href="assets/press/${f}" download>${t.dl}</a>
+        <a href="assets/press/${f}" download>${t.dl} PNG</a>${f.startsWith('maintra-logo') ? `\n        <a href="assets/press/${f.replace('.png', '.svg')}" download>${t.dl} SVG</a>` : ''}
       </div>`
     )
     .join('\n');
@@ -385,8 +388,7 @@ function page(lang) {
   <meta property="og:url" content="${lang === 'uk' ? URL_UK : URL_EN}" />
   <meta property="og:image" content="https://maintra.me/assets/press/maintra-feature-1024x500.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="icon" type="image/png" href="assets/favicon.png" />
-  <link rel="stylesheet" href="assets/press.css?v=${assetVersion('assets/press.css')}" />
+    <link rel="stylesheet" href="assets/press.css?v=${assetVersion('assets/press.css')}" />
 </head>
 <body>
   <div class="container">
