@@ -157,6 +157,106 @@ main .col,main .wide{max-width:none;margin-inline:0}
 @media (min-width:3400px){main>section,main>footer{zoom:1.35}}
 `;
 
+// A picture opens large: the journey's screens are drawn at phone size, the
+// page shows them at a fraction of it. Site only, not in the design. The
+// viewer walks the pictures of the section it was opened in.
+const ZOOM_CSS = `
+/* the picture viewer (site only) */
+html.js main img{cursor:zoom-in;transition:filter .2s,outline-color .2s;outline:2px solid transparent;outline-offset:3px}
+html.js main img:hover{filter:brightness(1.08)}
+html.js main img:focus-visible{outline-color:var(--gold)}
+.zoom{position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:transparent;color:var(--text);overflow:hidden}
+.zoom::backdrop{background:rgba(6,6,5,.93);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.zoom[open]{display:flex;flex-direction:column;align-items:center;justify-content:center;animation:zIn .22s ease-out}
+.zoom figure{margin:0;display:flex;justify-content:center;width:100%;padding:0 72px;box-sizing:border-box;touch-action:pan-y pinch-zoom}
+.zoom img{display:block;max-width:100%;max-height:calc(100vh - 140px);max-height:calc(100dvh - 140px);width:auto;height:auto;object-fit:contain;border-radius:18px;box-shadow:0 30px 80px rgba(0,0,0,.6);user-select:none;-webkit-user-drag:none}
+.zoom .cap{display:flex;gap:14px;align-items:baseline;justify-content:center;max-width:min(900px,92vw);padding:12px 20px max(18px,env(safe-area-inset-bottom));text-align:center;font-size:15px;line-height:1.45;color:var(--muted)}
+.zoom .cap b{flex:none;font:700 13px/1 var(--display);font-stretch:78%;letter-spacing:.14em;color:var(--gold)}
+.zoom button{position:absolute;display:grid;place-items:center;width:48px;height:48px;padding:0;border:0;background:var(--surface2);color:var(--text);cursor:pointer;clip-path:polygon(10px 0,100% 0,100% 100%,0 100%,0 10px);transition:background .2s,color .2s}
+.zoom button:hover{background:var(--edge)}
+.zoom button:focus-visible{outline:none;background:var(--gold);color:#0B0B0A}
+.zoom button svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:square}
+.zoom .x{top:max(12px,env(safe-area-inset-top));right:12px}
+.zoom .prev{left:12px;top:50%;margin-top:-24px}
+.zoom .next{right:12px;top:50%;margin-top:-24px}
+.zoom.solo .prev,.zoom.solo .next,.zoom.solo .cap b{display:none}
+@media (max-width:640px){.zoom figure{padding:0 10px}.zoom img{max-height:calc(100vh - 160px);max-height:calc(100dvh - 160px);border-radius:14px}.zoom .prev,.zoom .next{top:auto;bottom:max(12px,env(safe-area-inset-bottom));margin:0}.zoom .cap{padding:10px 70px max(20px,env(safe-area-inset-bottom));font-size:14px}}
+@keyframes zIn{from{opacity:0;transform:scale(.97)}}
+@media (prefers-reduced-motion:reduce){.zoom[open]{animation:none}}
+`;
+
+const zoomJs = (p) => `<dialog class="zoom" aria-label="${p.zoom.label}">
+<figure><img alt=""></figure>
+<p class="cap"><b></b><span></span></p>
+<button class="x" type="button" aria-label="${p.zoom.close}"><svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+<button class="prev" type="button" aria-label="${p.zoom.prev}"><svg viewBox="0 0 24 24"><path d="M15 4l-8 8 8 8"/></svg></button>
+<button class="next" type="button" aria-label="${p.zoom.next}"><svg viewBox="0 0 24 24"><path d="M9 4l8 8-8 8"/></svg></button>
+</dialog>
+<script>
+(function(){
+  var dlg = document.querySelector('.zoom');
+  if (!dlg || !dlg.showModal) return;
+  var big = dlg.querySelector('img'), num = dlg.querySelector('.cap b'), txt = dlg.querySelector('.cap span');
+  var imgs = [].slice.call(document.querySelectorAll('main img'));
+  var set = [], at = 0, back = null;
+  // a picture's words: its figure's caption, else what it shows (alt)
+  function words(img) {
+    var f = img.closest('figure'), c = f && f.querySelector('figcaption');
+    var t = c ? [].slice.call(c.childNodes).map(function (n) { return n.textContent.trim(); }).filter(Boolean).join(' · ') : '';
+    return t || img.alt;
+  }
+  function show(i) {
+    at = (i + set.length) % set.length;
+    var img = set[at];
+    big.src = img.currentSrc || img.src;
+    big.alt = img.alt;
+    num.textContent = (at + 1) + ' / ' + set.length;
+    txt.textContent = words(img);
+    // the neighbours, so stepping is instant
+    [at - 1, at + 1].forEach(function (k) { var n = set[(k + set.length) % set.length]; if (n) new Image().src = n.currentSrc || n.src; });
+  }
+  function open(img) {
+    var sec = img.closest('section') || document;
+    set = imgs.filter(function (x) { return sec.contains(x); });
+    back = img;
+    dlg.classList.toggle('solo', set.length < 2);
+    show(set.indexOf(img));
+    document.documentElement.style.overflow = 'hidden';
+    dlg.showModal();
+  }
+  dlg.addEventListener('close', function () {
+    document.documentElement.style.overflow = '';
+    if (back) back.focus({ preventScroll: true });
+  });
+  imgs.forEach(function (img) {
+    img.tabIndex = 0;
+    img.setAttribute('role', 'button');
+    img.setAttribute('aria-label', '${p.zoom.open}: ' + img.alt);
+    img.addEventListener('click', function () { open(img); });
+    img.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(img); } });
+  });
+  dlg.querySelector('.x').addEventListener('click', function () { dlg.close(); });
+  dlg.querySelector('.prev').addEventListener('click', function () { show(at - 1); });
+  dlg.querySelector('.next').addEventListener('click', function () { show(at + 1); });
+  // a tap outside the picture and the buttons closes
+  dlg.addEventListener('click', function (e) { if (e.target === dlg || e.target.tagName === 'FIGURE' || e.target.classList.contains('cap')) dlg.close(); });
+  dlg.addEventListener('keydown', function (e) {
+    if (set.length < 2) return;
+    var rtl = getComputedStyle(dlg).direction === 'rtl';
+    if (e.key === 'ArrowLeft') show(at + (rtl ? 1 : -1));
+    if (e.key === 'ArrowRight') show(at + (rtl ? -1 : 1));
+  });
+  // a sideways swipe steps
+  var x0 = null, y0 = 0;
+  dlg.addEventListener('pointerdown', function (e) { if (e.pointerType !== 'mouse') { x0 = e.clientX; y0 = e.clientY; } });
+  dlg.addEventListener('pointerup', function (e) {
+    if (x0 === null || set.length < 2) return;
+    var dx = e.clientX - x0, dy = e.clientY - y0; x0 = null;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) show(at + (dx < 0 ? 1 : -1));
+  });
+})();
+</script>`;
+
 const SWITCH_CSS = `
 /* language switch (site only, not in the design) */
 .lang{position:absolute;top:10px;right:max(10px,calc((100% - 1180px) / 2));z-index:3;display:flex;align-items:center;font-family:var(--display);font-stretch:78%;font-weight:700;font-size:14px;letter-spacing:.14em}
@@ -260,6 +360,7 @@ const PAGES = {
     description: 'Як Maintra прийшла від першої версії до 2.0: що не влаштовувало, звідки натхнення, які ідеї не вижили і з чого склалась нова мова дизайну.',
     switchLabel: 'Мова',
     loading: 'Завантаження',
+    zoom: { label: 'Перегляд зображення', open: 'Відкрити більшим', close: 'Закрити', prev: 'Попереднє', next: 'Наступне' },
   },
   en: {
     file: 'journey-en.html',
@@ -269,6 +370,7 @@ const PAGES = {
     description: "How Maintra got from its first version to 2.0: what bothered me, where the inspiration came from, which ideas didn't survive, and what the new design language is made of.",
     switchLabel: 'Language',
     loading: 'Loading',
+    zoom: { label: 'Picture viewer', open: 'Open larger', close: 'Close', prev: 'Previous', next: 'Next' },
   },
 };
 
@@ -308,11 +410,12 @@ function page(lang, content) {
 ${preloads(lang)}
 <style>
 ${fonts}</style>
-<style>${pageCss}${SWITCH_CSS}${LAYOUT_CSS}</style>
+<style>${pageCss}${SWITCH_CSS}${LAYOUT_CSS}${ZOOM_CSS}</style>
 </head>
 <body>
 <div class="loader" id="loader" role="status">${LOADER_SVG}<span class="sr">${p.loading}</span></div>
 ${content.replace('<main>', `<main>\n${langSwitch}`)}${LOADER_JS}
+${zoomJs(p)}
 </body>
 </html>
 `;
