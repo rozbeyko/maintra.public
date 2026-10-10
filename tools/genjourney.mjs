@@ -27,12 +27,13 @@
  *
  * Do not hand-edit journey.html or journey-en.html: they are output.
  */
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { join } from 'node:path';
 
 const SITE = process.argv[2] ?? '.';
-const ASSETS = 'assets/journey';
+// root-absolute: the translations live a folder down (/pl/journey)
+const ASSETS = '/assets/journey';
 const read = (p) => readFileSync(join(SITE, p), 'utf8');
 // Line endings normalised first: git checks this repo out as CRLF, the build
 // writes LF, and raw bytes would make the URL depend on who touched it last
@@ -40,7 +41,7 @@ const read = (p) => readFileSync(join(SITE, p), 'utf8');
 const hash = (p) => createHash('sha256').update(read(p).replace(/\r\n/g, '\n')).digest('hex').slice(0, 8);
 
 const source = read('tools/journey-source.html');
-const fonts = read('tools/journey-fonts.css');
+const fonts = read('tools/journey-fonts.css').replace(/url\(assets\//g, 'url(/assets/');
 
 // hero3d.js loads its texture from a path relative to the PAGE, which was the
 // artifact root. Resolve it next to the script instead so the page can live
@@ -81,7 +82,7 @@ const HERO_JS = `${ASSETS}/hero3d.js?v=${hash(`${ASSETS}/hero3d.js`)}`;
 // The hero video is 1 MB and preload="auto" pulled it in parallel with the 3D
 // code the loader waits for, on every connection. hero3d.js calls play() once
 // the phone is up, which loads it then, after what the first screen needs.
-const HERO_VIDEO_AUTO = 'id="heroVid" src="assets/journey/hero.mp4" poster="assets/journey/hero-poster.webp" muted loop playsinline preload="auto"';
+const HERO_VIDEO_AUTO = `id="heroVid" src="${ASSETS}/hero.mp4" poster="${ASSETS}/hero-poster.webp" muted loop playsinline preload="auto"`;
 // A poster is fetched at once even with preload="none", so the eight motion
 // clips' posters (340 KB) and the hidden fallback's copy of the hero poster
 // all raced the 3D code. They become data-poster, and LOADER_JS sets them:
@@ -109,7 +110,7 @@ if (!body.includes('id="heroVid"') || body.includes('preload="auto"')) {
 // highest priority there is, and every extra one delays the phone.
 const preloads = (lang) => {
   const fontFiles = ['tektur-400-900', 'firasans-400']
-    .flatMap((f) => (lang === 'uk' ? [`${f}-latin`, `${f}-cyrillic`] : [`${f}-latin`]))
+    .flatMap((f) => (lang === 'uk' ? [`${f}-latin`, `${f}-cyrillic`] : ['pl', 'de', 'fr', 'it', 'es'].includes(lang) ? [`${f}-latin`, `${f}-latin-ext`] : [`${f}-latin`]))
     .concat('firasans-500-latin');
   return [
     `<link rel="modulepreload" href="${HERO_JS}">`,
@@ -130,7 +131,14 @@ const LAYOUT_CSS = `
 :root{--gut:clamp(20px,3.6vw,140px)}
 main{padding-inline:var(--gut)}
 main .col,main .wide{max-width:none;margin-inline:0}
-.lang{right:var(--gut)}
+/* the hero starts under the header */
+main>.hero{padding-top:calc(var(--nav) + 24px)}
+/* a long word in a language other than the design's (Polish, Arabic) must
+   not widen a phone's page: the column may shrink, the word may break */
+main>.hero>*{min-width:0}
+.hero h1{overflow-wrap:break-word;hyphens:auto}
+@media (max-width:1099px){main>.hero{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:640px){h1 .l{white-space:normal}}
 @media (min-width:1100px){
   body{font-size:clamp(17px,.22vw + 14px,22px)}
   h2{font-size:clamp(44px,3.2vw,104px)}
@@ -143,10 +151,11 @@ main .col,main .wide{max-width:none;margin-inline:0}
   main>section{display:grid;grid-template-columns:minmax(300px,30%) minmax(0,1fr);column-gap:clamp(48px,5vw,180px);align-items:start;padding-block:clamp(72px,12vh,220px) 8px}
   /* the left column: the stripe and the heading share one area, so the
      first picture's row can't push the heading down */
-  main>section.col>.hazard,main>section.col>.head{grid-column:1;grid-row:1/span 60;align-self:start;position:sticky;top:calc(var(--gut) + 6vh)}
-  main>section.col>.head{margin-top:30px}
+  main>section.col>.hazard,main>section.col>.head{grid-column:1;grid-row:1/span 60;align-self:start;position:sticky;top:calc(var(--nav) + 4vh)}
+  /* stuck, a margin no longer counts: the heading sits under the stripe by its offset */
+  main>section.col>.head{margin-top:30px;top:calc(var(--nav) + 4vh + 30px)}
   main>section.col>:not(.hazard):not(.head){grid-column:2}
-  main>section.wide>.col:first-child{grid-column:1;grid-row:1/span 60;align-self:start;position:sticky;top:calc(var(--gut) + 6vh)}
+  main>section.wide>.col:first-child{grid-column:1;grid-row:1/span 60;align-self:start;position:sticky;top:calc(var(--nav) + 4vh)}
   main>section.wide>:not(.col:first-child){grid-column:2}
   main>section.wide>.col~.col{position:static}
   main>footer{padding-inline:0}
@@ -258,18 +267,11 @@ const zoomJs = (p) => `<dialog class="zoom" aria-label="${p.zoom.label}">
 </script>`;
 
 const SWITCH_CSS = `
-/* language switch (site only, not in the design) */
-.lang{position:absolute;top:10px;right:max(10px,calc((100% - 1180px) / 2));z-index:3;display:flex;align-items:center;font-family:var(--display);font-stretch:78%;font-weight:700;font-size:14px;letter-spacing:.14em}
-.lang a{display:inline-flex;align-items:center;min-height:44px;padding:0 10px;color:var(--muted);text-decoration:none}
-.lang a:hover{color:var(--text)}
-.lang a[aria-current]{color:var(--gold)}
-.lang span{color:var(--dim)}
-
 /* loader (site only): the mark's spring from the Logo artifact, R16-Motion,
    "Loading · 2.4 s a cycle", keyframes copied as drawn. Only with JS, so a
    visitor without it gets the page, not a cover that never lifts. */
 .loader{display:none}
-html.js .loader{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:var(--bg);transition:opacity .35s ease}
+html.js .loader{position:fixed;inset:0;z-index:400;display:grid;place-items:center;background:var(--bg);transition:opacity .35s ease}
 html.js .loader.out{opacity:0;pointer-events:none}
 html.loading{overflow:hidden}
 .loader svg{width:min(120px,30vw);height:auto;overflow:visible}
@@ -351,75 +353,162 @@ const LOADER_JS = `<script>
 })();
 </script>`;
 
-const PAGES = {
+// ------------------------------------------------------------ languages
+// The site's languages, as the homepage's menu lists them (code, html lang,
+// direction, name). Ukrainian is the design's own; English is the EN table
+// below; the rest come from tools/journey-i18n/<code>.json ({meta, strings}
+// with the same Ukrainian keys), and a language without a file is skipped.
+const home = read('index.html');
+const LANGS = [...home.matchAll(/<li><a href="(\/[a-z]*\/?)" hreflang="([^"]+)" lang="[^"]+"(?: dir="(rtl)")? data-lang="([a-z]+)"[^>]*><span class="code">[a-z]+<\/span>([^<]+)<\/a><\/li>/g)].map(
+  (m) => ({ code: m[4], html: m[2], dir: m[3] || 'ltr' }),
+);
+if (LANGS.length < 2) throw new Error('index.html: no language menu (run tools/genhome.mjs first)');
+const I18N = 'tools/journey-i18n';
+const table = (code) => (existsSync(join(SITE, I18N, `${code}.json`)) ? JSON.parse(read(`${I18N}/${code}.json`)) : null);
+const BUILT = LANGS.filter((l) => l.code === 'uk' || l.code === 'en' || table(l.code));
+const fileOf = (code) => (code === 'uk' ? 'journey.html' : code === 'en' ? 'journey-en.html' : `${code}/journey.html`);
+const urlOf = (code) => (code === 'uk' ? '/journey' : code === 'en' ? '/journey-en' : `/${code}/journey`);
+const homeDict = (code) => JSON.parse(read(`tools/home/i18n/${code}.json`));
+
+const META = {
   uk: {
-    file: 'journey.html',
-    url: 'https://maintra.me/journey',
-    ogLocale: 'uk_UA',
     title: 'Шлях Maintra 2.0',
     description: 'Як Maintra прийшла від першої версії до 2.0: що не влаштовувало, звідки натхнення, які ідеї не вижили і з чого склалась нова мова дизайну.',
-    switchLabel: 'Мова',
     loading: 'Завантаження',
-    zoom: { label: 'Перегляд зображення', open: 'Відкрити більшим', close: 'Закрити', prev: 'Попереднє', next: 'Наступне' },
+    zoom_label: 'Перегляд зображення', zoom_open: 'Відкрити більшим', zoom_close: 'Закрити', zoom_prev: 'Попереднє', zoom_next: 'Наступне',
   },
   en: {
-    file: 'journey-en.html',
-    url: 'https://maintra.me/journey-en',
-    ogLocale: 'en_US',
     title: 'The road to Maintra 2.0',
     description: "How Maintra got from its first version to 2.0: what bothered me, where the inspiration came from, which ideas didn't survive, and what the new design language is made of.",
-    switchLabel: 'Language',
     loading: 'Loading',
-    zoom: { label: 'Picture viewer', open: 'Open larger', close: 'Close', prev: 'Previous', next: 'Next' },
+    zoom_label: 'Picture viewer', zoom_open: 'Open larger', zoom_close: 'Close', zoom_prev: 'Previous', zoom_next: 'Next',
   },
 };
+const metaOf = (code) => {
+  const m = META[code] ?? table(code).meta;
+  return { ...m, zoom: { label: m.zoom_label, open: m.zoom_open, close: m.zoom_close, prev: m.zoom_prev, next: m.zoom_next } };
+};
 
-function page(lang, content) {
-  const p = PAGES[lang];
-  const cur = (l) => (l === lang ? ' aria-current="page"' : '');
-  const langSwitch =
-    `<nav class="lang" aria-label="${p.switchLabel}">` +
-    `<a href="/journey" lang="uk" hreflang="uk"${cur('uk')}>UA</a>` +
-    `<span aria-hidden="true">/</span>` +
-    `<a href="/journey-en" lang="en" hreflang="en"${cur('en')}>EN</a></nav>`;
+// ---------------------------------------------------- the site's chrome
+// The header (logo home, the site's pages, the language menu, the menu on a
+// phone) and the footer, as tools/genchrome.mjs stamps them on the site's
+// other pages: taken from this language's FAQ, so they read the same. The
+// design is dark only, so no theme switch; the language menu leads to this
+// page in each language. Their styles come from home.css, the controls
+// scoped to the header so the design's own .btn is left alone.
+const css = read('assets/home/home.css');
+const between = (a, b) => {
+  const i = css.indexOf(a);
+  const j = css.indexOf(b, i + 1);
+  if (i < 0 || j < 0) throw new Error(`home.css: section moved (${a.trim()})`);
+  return css.slice(i, j);
+};
+const section = (name) => new RegExp(`/\\* -+ ${name} \\*/`);
+const sectionAt = (name) => css.search(section(name));
+const slice = (from, to) => {
+  const i = sectionAt(from);
+  const j = sectionAt(to);
+  if (i < 0 || j < 0) throw new Error(`home.css: no "${from}" or "${to}" section`);
+  return css.slice(i, j);
+};
+const darkTokens = css.match(/:root \{[\s\S]*?\n\}/)[0];
+const langTokens = between(':lang(ar) {', '/* Korean breaks');
+const scoped = (block, scope) =>
+  block.replace(/(^|\})(\s*)([^{}@]+?)\s*\{/g, (all, close, ws, sel) => `${close}${ws}${sel.split(',').map((x) => `${scope} ${x.trim()}`).join(', ')} {`);
+const CHROME_CSS = `
+/* the site's header and footer (site only, from home.css) */
+${darkTokens}
+${langTokens}
+.skip{position:fixed;z-index:200;inset-inline-start:12px;top:-60px;padding:10px 16px;background:var(--accent);color:var(--on-gold);font-weight:700;text-decoration:none;transition:top .2s}
+.skip:focus{top:12px}
+:is(.top,.menu,.foot) a{color:inherit}
+:is(.top,.menu) button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+${scoped(slice('controls', 'loader').replace(section('controls'), ''), ':is(.top,.menu)')}
+${slice('top', 'hero')}
+${slice('footer', 'reveals')}
+.foot{font-family:var(--sans)}
+/* the scoped controls outrank these two, so they are said again */
+.top .top-get{display:none}
+@media (min-width:560px){.top .top-get{display:inline-flex}.menu .menu-get{display:none}}
+:lang(ar) :is(h1,h2,h3),:lang(ja) :is(h1,h2,h3),:lang(ko) :is(h1,h2,h3),:lang(zh) :is(h1,h2,h3){font-style:normal;letter-spacing:0}
+:lang(ko){word-break:keep-all;overflow-wrap:break-word}
+:lang(ja),:lang(zh){line-break:strict}
+`;
+
+function chromeOf(code) {
+  const faq = read(code === 'en' ? 'faq.html' : `${code}/faq.html`);
+  const grab = (name) => {
+    const m = faq.match(new RegExp(`<!-- chrome:${name} -->[\\s\\S]*?<!-- /chrome:${name} -->`));
+    if (!m) throw new Error(`${code}/faq.html: no chrome:${name} (run tools/genchrome.mjs first)`);
+    return m[0];
+  };
+  const top = grab('top')
+    .replace(/\s*<button class="theme-btn"[\s\S]*?<\/button>/, '')
+    .replace(/ aria-current="page"/g, '')
+    .replace(/<li><a href="[^"]*"([^>]*data-lang="([a-z]+)"[^>]*)>/g, (all, attrs, c) =>
+      BUILT.some((l) => l.code === c) ? `<li><a href="${urlOf(c)}"${attrs}>` : '')
+    .replace(/<\/a><\/li>(?=<li>|<\/ul>)/g, '</a></li>');
+  // a language the page isn't in drops out of the menu with its row
+  const menu = top.replace(/<li>(?!<a)[\s\S]*?<\/li>/g, '');
+  const foot = grab('foot');
+  const extras = faq.match(/<style>\n@font-face\{font-family:'Noto Kufi Arabic'[\s\S]*?<\/style>/)?.[0] ?? '';
+  const site = faq.match(/<script type="module" src="(\/assets\/home\/site\.js\?v=[^"]+)"><\/script>/)?.[1];
+  if (!site) throw new Error(`${code}/faq.html: no site.js`);
+  return { top: menu, foot, extras, site };
+}
+
+function page(code, content) {
+  const p = metaOf(code);
+  const l = LANGS.find((x) => x.code === code);
+  const d = homeDict(code);
+  const self = `https://maintra.me${urlOf(code)}`;
+  const chrome = chromeOf(code);
+  // the design's own footer (a mark and a line) gives way to the site's
+  const main = content
+    .replace('<main>', '<main id="main">')
+    .replace(/\s*<footer class="col">[\s\S]*?<\/footer>/, '');
+  if (main.includes('<footer class="col">')) throw new Error('the design footer moved');
   return `<!DOCTYPE html>
 <!-- Generated by tools/genjourney.mjs from tools/journey-source.html. Edit those, not this file. -->
-<html lang="${lang}">
+<html lang="${l.html}"${l.dir === 'rtl' ? ' dir="rtl"' : ''}>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <script>document.documentElement.classList.add('js','loading')</script>
 <title>${p.title}</title>
-<meta name="description" content="${p.description}">
+<meta name="description" content="${p.description.replace(/"/g, '&quot;')}">
 <meta name="theme-color" content="#0B0B0A">
-<link rel="canonical" href="${p.url}">
-<link rel="alternate" hreflang="uk" href="${PAGES.uk.url}">
-<link rel="alternate" hreflang="en" href="${PAGES.en.url}">
-<link rel="alternate" hreflang="x-default" href="${PAGES.en.url}">
+<link rel="canonical" href="${self}">
+${BUILT.map((x) => `<link rel="alternate" hreflang="${x.html}" href="https://maintra.me${urlOf(x.code)}">`).join('\n')}
+<link rel="alternate" hreflang="x-default" href="https://maintra.me${urlOf('en')}">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Maintra">
-<meta property="og:locale" content="${p.ogLocale}">
+<meta property="og:locale" content="${d['meta.og_locale']}">
 <meta property="og:title" content="${p.title}">
-<meta property="og:description" content="${p.description}">
-<meta property="og:url" content="${p.url}">
+<meta property="og:description" content="${p.description.replace(/"/g, '&quot;')}">
+<meta property="og:url" content="${self}">
 <meta property="og:image" content="https://maintra.me/assets/press/maintra-feature-1024x500.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-${preloads(lang)}
+${preloads(code)}${chrome.extras ? `\n${chrome.extras}` : ''}
 <style>
 ${fonts}</style>
-<style>${pageCss}${SWITCH_CSS}${LAYOUT_CSS}${ZOOM_CSS}</style>
+<style>${CHROME_CSS}${pageCss}${SWITCH_CSS}${LAYOUT_CSS}${ZOOM_CSS}</style>
+<script type="module" src="${chrome.site}"></script>
 </head>
 <body>
 <div class="loader" id="loader" role="status">${LOADER_SVG}<span class="sr">${p.loading}</span></div>
-${content.replace('<main>', `<main>\n${langSwitch}`)}${LOADER_JS}
+${chrome.top.replace(/^<!-- chrome:top -->\n?|\n?<!-- \/chrome:top -->$/g, '')}
+${main}${chrome.foot.replace(/^<!-- chrome:foot -->\n?|\n?<!-- \/chrome:foot -->$/g, '')}
+${LOADER_JS}
 ${zoomJs(p)}
 </body>
 </html>
 `;
 }
+
 
 // [Ukrainian as it appears in the source, English]. Applied longest first, so
 // a short string never eats part of a longer one; short words carry their
@@ -701,24 +790,47 @@ const EN = [
   ['Смарт-трекер обслуговування для твого гаража.', 'A smart maintenance tracker for your garage.'],
 ];
 
-function translate(html) {
+// The source's Ukrainian, replaced through a table: longest first, so a short
+// string never eats part of a longer one. The build FAILS if a string is no
+// longer in the source (the design changed under it), if a translation is
+// missing, or if any Cyrillic is left (the design gained text nobody
+// translated): a silently half-translated page is the failure this guards.
+function translate(html, pairs, code) {
   let out = html;
   const missing = [];
-  for (const [uk, en] of [...EN].sort((a, b) => b[0].length - a[0].length)) {
+  for (const [uk, tr] of [...pairs].sort((a, b) => b[0].length - a[0].length)) {
     if (!out.includes(uk)) { missing.push(uk); continue; }
-    out = out.split(uk).join(en);
+    out = out.split(uk).join(tr);
   }
   if (missing.length) {
-    throw new Error(`not in the source any more (the design changed?):\n  ${missing.join('\n  ')}`);
+    throw new Error(`${code}: not in the source any more (the design changed?):\n  ${missing.join('\n  ')}`);
   }
   const left = [...new Set(out.match(/[^<>"]*[Ѐ-ӿ][^<>"]*/g) ?? [])];
-  if (left.length) throw new Error(`untranslated on the English page:\n  ${left.join('\n  ')}`);
+  if (left.length) throw new Error(`${code}: untranslated:\n  ${left.join('\n  ')}`);
   return out;
 }
 
 const dashes = /[–—]/;
-for (const [, en] of EN) if (dashes.test(en)) throw new Error(`long dash in English copy: ${en}`);
+const tagsOf = (s) => (s.match(/<[^>]+>/g) ?? []).join('');
+function pairsOf(code) {
+  if (code === 'en') return EN;
+  const t = table(code);
+  const pairs = EN.map(([uk, en]) => {
+    const tr = t.strings[uk];
+    if (typeof tr !== 'string' || !tr.trim()) throw new Error(`${code}: no translation for\n  ${uk}`);
+    if (tagsOf(tr) !== tagsOf(en)) throw new Error(`${code}: the markup differs from the English in\n  ${tr}`);
+    return [uk, tr];
+  });
+  const extra = Object.keys(t.strings).filter((k) => !EN.some(([uk]) => uk === k));
+  if (extra.length) throw new Error(`${code}: strings the page no longer has:\n  ${extra.join('\n  ')}`);
+  return pairs;
+}
 
-writeFileSync(join(SITE, PAGES.uk.file), page('uk', body), 'utf8');
-writeFileSync(join(SITE, PAGES.en.file), page('en', translate(body)), 'utf8');
-console.log(`wrote ${PAGES.uk.file} and ${PAGES.en.file}`);
+for (const l of BUILT) {
+  const html = l.code === 'uk' ? body : translate(body, pairsOf(l.code), l.code);
+  if (l.code !== 'uk') for (const [, tr] of pairsOf(l.code)) if (dashes.test(tr)) throw new Error(`${l.code}: long dash in ${tr}`);
+  const file = fileOf(l.code);
+  if (file.includes('/')) mkdirSync(join(SITE, file.split('/')[0]), { recursive: true });
+  writeFileSync(join(SITE, file), page(l.code, html), 'utf8');
+}
+console.log(`wrote ${BUILT.map((l) => fileOf(l.code)).join(', ')}`);

@@ -9,8 +9,17 @@
 <meta name="description" content="How Maintra got from its first version to 2.0: what bothered me, where the inspiration came from, which ideas didn't survive, and what the new design language is made of.">
 <meta name="theme-color" content="#0B0B0A">
 <link rel="canonical" href="https://maintra.me/journey-en">
-<link rel="alternate" hreflang="uk" href="https://maintra.me/journey">
 <link rel="alternate" hreflang="en" href="https://maintra.me/journey-en">
+<link rel="alternate" hreflang="uk" href="https://maintra.me/journey">
+<link rel="alternate" hreflang="pl" href="https://maintra.me/pl/journey">
+<link rel="alternate" hreflang="fr" href="https://maintra.me/fr/journey">
+<link rel="alternate" hreflang="it" href="https://maintra.me/it/journey">
+<link rel="alternate" hreflang="es" href="https://maintra.me/es/journey">
+<link rel="alternate" hreflang="de" href="https://maintra.me/de/journey">
+<link rel="alternate" hreflang="ar" href="https://maintra.me/ar/journey">
+<link rel="alternate" hreflang="ko" href="https://maintra.me/ko/journey">
+<link rel="alternate" hreflang="ja" href="https://maintra.me/ja/journey">
+<link rel="alternate" hreflang="zh-Hans" href="https://maintra.me/zh/journey">
 <link rel="alternate" hreflang="x-default" href="https://maintra.me/journey-en">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Maintra">
@@ -23,13 +32,13 @@
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="modulepreload" href="assets/journey/hero3d.js?v=1a7bb98f">
-<link rel="modulepreload" href="assets/journey/three.module.min.js">
-<link rel="modulepreload" href="assets/journey/RoomEnvironment.js">
-<link rel="preload" href="assets/journey/hero-poster.webp" as="image" crossorigin="anonymous" fetchpriority="high">
-<link rel="preload" href="assets/journey/fonts/tektur-400-900-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/journey/fonts/firasans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/journey/fonts/firasans-500-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="modulepreload" href="/assets/journey/hero3d.js?v=1a7bb98f">
+<link rel="modulepreload" href="/assets/journey/three.module.min.js">
+<link rel="modulepreload" href="/assets/journey/RoomEnvironment.js">
+<link rel="preload" href="/assets/journey/hero-poster.webp" as="image" crossorigin="anonymous" fetchpriority="high">
+<link rel="preload" href="/assets/journey/fonts/tektur-400-900-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/journey/fonts/firasans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/journey/fonts/firasans-500-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 /* cyrillic-ext */
 @font-face {
@@ -37,7 +46,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(assets/journey/fonts/firasans-400-cyrillic-ext.woff2) format('woff2');
+  src: url(/assets/journey/fonts/firasans-400-cyrillic-ext.woff2) format('woff2');
   unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
 }
 /* cyrillic */
@@ -46,7 +55,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(assets/journey/fonts/firasans-400-cyrillic.woff2) format('woff2');
+  src: url(/assets/journey/fonts/firasans-400-cyrillic.woff2) format('woff2');
   unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 /* latin-ext */
@@ -55,7 +64,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(assets/journey/fonts/firasans-400-latin-ext.woff2) format('woff2');
+  src: url(/assets/journey/fonts/firasans-400-latin-ext.woff2) format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -64,7 +73,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(assets/journey/fonts/firasans-400-latin.woff2) format('woff2');
+  src: url(/assets/journey/fonts/firasans-400-latin.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 /* cyrillic-ext */
@@ -73,7 +82,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(assets/journey/fonts/firasans-500-cyrillic-ext.woff2) format('woff2');
+  src: url(/assets/journey/fonts/firasans-500-cyrillic-ext.woff2) format('woff2');
   unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
 }
 /* cyrillic */
@@ -82,7 +91,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(assets/journey/fonts/firasans-500-cyrillic.woff2) format('woff2');
+  src: url(/assets/journey/fonts/firasans-500-cyrillic.woff2) format('woff2');
   unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 /* latin-ext */
@@ -91,7 +100,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(assets/journey/fonts/firasans-500-latin-ext.woff2) format('woff2');
+  src: url(/assets/journey/fonts/firasans-500-latin-ext.woff2) format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -100,7 +109,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(assets/journey/fonts/firasans-500-latin.woff2) format('woff2');
+  src: url(/assets/journey/fonts/firasans-500-latin.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 /* cyrillic-ext */
@@ -109,7 +118,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(assets/journey/fonts/firasans-600-cyrillic-ext.woff2) format('woff2');
+  src: url(/assets/journey/fonts/firasans-600-cyrillic-ext.woff2) format('woff2');
   unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
 }
 /* cyrillic */
@@ -118,7 +127,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(assets/journey/fonts/firasans-600-cyrillic.woff2) format('woff2');
+  src: url(/assets/journey/fonts/firasans-600-cyrillic.woff2) format('woff2');
   unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 /* latin-ext */
@@ -127,7 +136,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(assets/journey/fonts/firasans-600-latin-ext.woff2) format('woff2');
+  src: url(/assets/journey/fonts/firasans-600-latin-ext.woff2) format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -136,7 +145,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(assets/journey/fonts/firasans-600-latin.woff2) format('woff2');
+  src: url(/assets/journey/fonts/firasans-600-latin.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 /* cyrillic-ext */
@@ -145,7 +154,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(assets/journey/fonts/firasans-700-cyrillic-ext.woff2) format('woff2');
+  src: url(/assets/journey/fonts/firasans-700-cyrillic-ext.woff2) format('woff2');
   unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
 }
 /* cyrillic */
@@ -154,7 +163,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(assets/journey/fonts/firasans-700-cyrillic.woff2) format('woff2');
+  src: url(/assets/journey/fonts/firasans-700-cyrillic.woff2) format('woff2');
   unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 /* latin-ext */
@@ -163,7 +172,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(assets/journey/fonts/firasans-700-latin-ext.woff2) format('woff2');
+  src: url(/assets/journey/fonts/firasans-700-latin-ext.woff2) format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -172,7 +181,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(assets/journey/fonts/firasans-700-latin.woff2) format('woff2');
+  src: url(/assets/journey/fonts/firasans-700-latin.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 /* cyrillic-ext */
@@ -182,7 +191,7 @@
   font-weight: 400 900;
   font-stretch: 75% 100%;
   font-display: swap;
-  src: url(assets/journey/fonts/tektur-400-900-cyrillic-ext.woff2) format('woff2');
+  src: url(/assets/journey/fonts/tektur-400-900-cyrillic-ext.woff2) format('woff2');
   unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
 }
 /* cyrillic */
@@ -192,7 +201,7 @@
   font-weight: 400 900;
   font-stretch: 75% 100%;
   font-display: swap;
-  src: url(assets/journey/fonts/tektur-400-900-cyrillic.woff2) format('woff2');
+  src: url(/assets/journey/fonts/tektur-400-900-cyrillic.woff2) format('woff2');
   unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 /* latin-ext */
@@ -202,7 +211,7 @@
   font-weight: 400 900;
   font-stretch: 75% 100%;
   font-display: swap;
-  src: url(assets/journey/fonts/tektur-400-900-latin-ext.woff2) format('woff2');
+  src: url(/assets/journey/fonts/tektur-400-900-latin-ext.woff2) format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -212,11 +221,288 @@
   font-weight: 400 900;
   font-stretch: 75% 100%;
   font-display: swap;
-  src: url(assets/journey/fonts/tektur-400-900-latin.woff2) format('woff2');
+  src: url(/assets/journey/fonts/tektur-400-900-latin.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 </style>
 <style>
+/* the site's header and footer (site only, from home.css) */
+:root {
+  --bg: #0B0B0A;
+  --surface: #151513;
+  --card: #1C1B19;
+  --hair: #23211E;
+  --edge: #3A3732;
+  --control: #67625B;
+  --track: #2A2825;
+  --text: #ECE4D6;
+  --text2: #8F897E;
+  --muted: #6A665E;
+  --gold: #F4B223;
+  --gold-hi: #FFC542;
+  --on-gold: #0B0B0A;
+  --amber: #F0A33A;
+  --red: #EE4F37;
+  --green: #8CC084;
+  --stamp: #FF8A2A;
+  --vip: #A78BFA;
+  --paper: #F3EFE6;
+  --ink: #1B1A17;
+  --accent: var(--gold);
+  /* gold as a line or as text (underlines, current marks, numbers) */
+  --accent-line: var(--accent);
+  --glass: rgba(11, 11, 10, .72);
+  --glass-menu: rgba(21, 21, 19, .9);
+  --sheen: rgba(255, 255, 255, .06);
+  --hover: rgba(255, 255, 255, .04);
+  --drop: rgba(0, 0, 0, .6);
+  --dot: rgba(255, 255, 255, .9);
+  --dot-ring: rgba(255, 255, 255, .14);
+  --plate: rgba(21, 21, 19, .92);
+  --pol-shadow: 0 34px 70px rgba(0, 0, 0, .75), 0 2px 4px rgba(0, 0, 0, .3);
+  --lg-stem: #8F897E;
+  --lg-ink: #ECE4D6;
+  --lg-gold: #F4B223;
+  --lg-shade: #9A6700;
+  --display: Tektur, 'Arial Narrow', sans-serif;
+  --sans: 'Fira Sans', 'Helvetica Neue', Arial, sans-serif;
+  --nav: 64px;
+  --gutter: clamp(16px, 3.6vw, 140px);
+  --slant: 10px;
+  --cut: 14px;
+  --ease: cubic-bezier(.2, .8, .2, 1);
+  --sec: clamp(88px, 14vh, 240px);
+  color-scheme: dark;
+}
+:lang(ar) {
+  --display: 'Noto Kufi Arabic', Tektur, 'Geeza Pro', 'Segoe UI', sans-serif;
+  --sans: 'IBM Plex Sans Arabic', 'Fira Sans', 'Geeza Pro', 'Segoe UI', sans-serif;
+}
+:lang(ja) {
+  --display: Tektur, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', Meiryo, sans-serif;
+  --sans: 'Fira Sans', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', Meiryo, sans-serif;
+}
+:lang(ko) {
+  --display: Tektur, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', sans-serif;
+  --sans: 'Fira Sans', 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', sans-serif;
+}
+:lang(zh) {
+  --display: Tektur, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+  --sans: 'Fira Sans', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+}
+
+.skip{position:fixed;z-index:200;inset-inline-start:12px;top:-60px;padding:10px 16px;background:var(--accent);color:var(--on-gold);font-weight:700;text-decoration:none;transition:top .2s}
+.skip:focus{top:12px}
+:is(.top,.menu,.foot) a{color:inherit}
+:is(.top,.menu) button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+
+:is(.top,.menu) .btn {
+  --h: 54px;
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: var(--h);
+  padding: 0 28px;
+  font: 700 16px/1 var(--sans);
+  text-decoration: none;
+  white-space: nowrap;
+  clip-path: polygon(var(--slant) 0, 100% 0, calc(100% - var(--slant)) 100%, 0 100%);
+  transition: background .2s, color .2s, transform .15s var(--ease);
+}
+:is(.top,.menu) .btn:active { transform: translateY(1px) scale(.985); }
+:is(.top,.menu) .btn-gold { background: var(--accent); color: var(--on-gold); }
+:is(.top,.menu) .btn-gold:hover { background: var(--gold-hi); }
+:is(.top,.menu) .btn-line { background: var(--control); color: var(--text); }
+:is(.top,.menu) .btn-line::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 1px 1.5px;
+  background: var(--bg);
+  clip-path: polygon(var(--slant) 0, 100% 0, calc(100% - var(--slant)) 100%, 0 100%);
+  transition: background .2s;
+}
+:is(.top,.menu) .btn-line:hover { background: var(--text2); }
+:is(.top,.menu) .btn-line:hover::before { background: var(--surface); }
+:is(.top,.menu) .btn-sm { --h: 40px; padding: 0 20px; font-size: 14px; --slant: 8px; }
+:is(.top,.menu) .store { --h: 60px; padding: 0 30px 0 26px; text-align: start; }
+:is(.top,.menu) .store svg { width: 24px; height: 24px; flex: none; }
+:is(.top,.menu) .store span { display: flex; flex-direction: column; gap: 3px; font-size: 19px; letter-spacing: -.01em; }
+:is(.top,.menu) .store small { font: 500 11.5px/1 var(--sans); opacity: .8; letter-spacing: .01em; }
+:is(.top,.menu) .stores { display: flex; flex-wrap: wrap; gap: 10px 12px; }
+
+:is(.top,.menu) .i { width: 1em; height: 1em; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: square; stroke-linejoin: miter; vertical-align: -.14em; }
+
+:is(.top,.menu) .oct { display: inline-block; width: 10px; height: 10px; flex: none; background: currentColor; clip-path: polygon(29% 0, 71% 0, 100% 29%, 100% 71%, 71% 100%, 29% 100%, 0 71%, 0 29%); }
+
+
+/* ------------------------------------------------------------------ top */
+.top {
+  position: fixed;
+  z-index: 60;
+  inset: 0 0 auto;
+  height: var(--nav);
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 2vw, 44px);
+  padding: 0 var(--gutter);
+  transition: background .3s, box-shadow .3s;
+}
+.top.solid {
+  background: linear-gradient(115deg, var(--sheen), transparent 40%, color-mix(in srgb, var(--sheen) 60%, transparent)), var(--glass);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  backdrop-filter: blur(18px) saturate(160%);
+  box-shadow: inset 0 -1px 0 var(--hair), inset 0 1px 0 var(--sheen);
+}
+.brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text); flex: none; min-height: 44px; }
+.brand .mt { height: 22px; width: auto; overflow: visible; }
+.brand .word { font: italic 800 23px/1 var(--display); font-stretch: 78%; text-transform: uppercase; letter-spacing: .01em; }
+.top-nav { display: none; gap: clamp(14px, 1.8vw, 40px); margin-inline-start: clamp(8px, 2vw, 48px); }
+.top-nav a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  font: 700 14px/1 var(--display);
+  font-stretch: 78%;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--text2);
+  text-decoration: none;
+  transition: color .2s;
+}
+.top-nav a:hover, .top-nav a[aria-current] { color: var(--text); }
+.top-nav a[aria-current]::after { content: ''; position: absolute; inset-inline: 0; bottom: 8px; height: 2px; background: var(--accent-line); transform: skewX(-24deg); }
+.lang { position: relative; margin-inline-start: auto; }
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 8px;
+  font: 700 14px/1 var(--display);
+  font-stretch: 78%;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--text2);
+  transition: color .2s;
+}
+.lang-btn:hover, .lang-btn[aria-expanded='true'] { color: var(--text); }
+.lang-btn .i { font-size: 18px; }
+/* the theme switch: a sun to go light, a moon to go dark */
+.theme-btn { display: grid; place-items: center; width: 44px; height: 44px; color: var(--text2); transition: color .2s; }
+.theme-btn:hover { color: var(--text); }
+.theme-btn .i { grid-area: 1 / 1; font-size: 19px; }
+.theme-btn .moon, :root[data-theme='light'] .theme-btn .i:not(.moon) { display: none; }
+:root[data-theme='light'] .theme-btn .moon { display: block; }
+.lang-menu {
+  position: absolute;
+  inset-inline-end: 0;
+  top: calc(100% + 8px);
+  min-width: 220px;
+  margin: 0;
+  padding: 8px 0;
+  list-style: none;
+  background: linear-gradient(115deg, var(--sheen), transparent 40%, color-mix(in srgb, var(--sheen) 70%, transparent)), var(--glass-menu);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  backdrop-filter: blur(22px) saturate(160%);
+  box-shadow: inset 0 1px 0 var(--sheen), 0 24px 48px var(--drop);
+  clip-path: polygon(var(--cut) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cut));
+}
+.lang-menu[hidden] { display: none; }
+.lang-menu a { display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 20px; font: 500 16px/1 system-ui, var(--sans); color: var(--text2); text-decoration: none; }
+.lang-menu a:hover { color: var(--text); background: var(--hover); }
+.lang-menu a[aria-current] { color: var(--text); }
+.lang-menu a[aria-current]::after { content: ''; margin-inline-start: auto; width: 9px; height: 9px; background: var(--accent-line); clip-path: polygon(29% 0, 71% 0, 100% 29%, 100% 71%, 71% 100%, 29% 100%, 0 71%, 0 29%); }
+.lang-menu .code { width: 26px; font: 700 12px/1 var(--display); font-stretch: 78%; letter-spacing: .1em; color: var(--muted); text-transform: uppercase; }
+.top-get { display: none; }
+@media (min-width: 560px) { .top-get { display: inline-flex; } }
+@media (min-width: 1100px) { .top-nav { display: flex; } }
+
+/* The menu, where the header has no room for its links: three bars that
+   lean like the logo's, the last one short and gold; open, they cross. */
+.menu-btn { display: grid; place-items: center; width: 44px; height: 44px; margin-inline-end: -8px; color: var(--text); }
+.menu-btn i { grid-area: 1 / 1; display: block; width: 22px; height: 2.5px; background: currentColor; transition: transform .3s var(--ease), opacity .2s, width .3s var(--ease); }
+.menu-btn i:nth-child(1) { transform: translateY(-7px) skewX(-24deg); }
+.menu-btn i:nth-child(2) { transform: skewX(-24deg); }
+.menu-btn i:nth-child(3) { width: 13px; justify-self: end; margin-inline-end: 11px; background: var(--accent); transform: translateY(7px) skewX(-24deg); }
+.menu-btn[aria-expanded='true'] i:nth-child(1) { transform: rotate(45deg); }
+.menu-btn[aria-expanded='true'] i:nth-child(2) { opacity: 0; transform: scaleX(.2); }
+.menu-btn[aria-expanded='true'] i:nth-child(3) { width: 22px; margin-inline-end: 11px; background: currentColor; transform: rotate(-45deg); }
+.menu {
+  position: fixed;
+  z-index: 59;
+  inset: var(--nav) 0 auto;
+  max-height: calc(100svh - var(--nav));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 6px var(--gutter) 26px;
+  background: linear-gradient(115deg, var(--sheen), transparent 40%, color-mix(in srgb, var(--sheen) 60%, transparent)), var(--glass-menu);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  backdrop-filter: blur(22px) saturate(160%);
+  box-shadow: inset 0 -1px 0 var(--hair), 0 30px 60px var(--drop);
+}
+.menu[hidden] { display: none; }
+.menu nav { display: flex; flex-direction: column; border-top: 1px solid var(--hair); }
+.menu nav a {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  min-height: 60px;
+  padding: 16px 2px 14px;
+  border-bottom: 1px solid var(--hair);
+  font: italic 800 clamp(28px, 7vw, 44px)/1 var(--display);
+  font-stretch: 78%;
+  text-transform: uppercase;
+  color: var(--text);
+  text-decoration: none;
+}
+:lang(ar) .menu nav a, :lang(ja) .menu nav a, :lang(ko) .menu nav a, :lang(zh) .menu nav a { font-style: normal; }
+.menu nav a .n { flex: none; width: 2.2em; font: 600 12px/1 var(--display); font-stretch: 78%; letter-spacing: .14em; color: var(--muted); }
+.menu nav a[aria-current='true'] .n { color: var(--accent-line); }
+.menu nav a:hover { color: var(--accent-line); }
+.menu-get { margin-top: 22px; }
+@media (min-width: 560px) { .menu-get { display: none; } }
+/* in: the sheet drops in, the rows follow it 40 ms apart, as the app's + menu does */
+.menu.in { animation: menuIn .32s var(--ease) both; }
+.menu.in nav a, .menu.in .menu-get { animation: menuRow .42s var(--ease) both; }
+.menu.in nav a:nth-child(2) { animation-delay: 40ms; }
+.menu.in nav a:nth-child(3) { animation-delay: 80ms; }
+.menu.in nav a:nth-child(4) { animation-delay: 120ms; }
+.menu.in .menu-get { animation-delay: 160ms; }
+@keyframes menuIn { from { opacity: 0; transform: translateY(-10px); } }
+@keyframes menuRow { from { opacity: 0; transform: translateX(-18px); } }
+[dir='rtl'] .menu.in nav a, [dir='rtl'] .menu.in .menu-get { animation-name: menuRowR; }
+@keyframes menuRowR { from { opacity: 0; transform: translateX(18px); } }
+@media (prefers-reduced-motion: reduce) { .menu.in, .menu.in nav a, .menu.in .menu-get { animation: none; } }
+.top.open { background: var(--glass-menu); -webkit-backdrop-filter: blur(22px) saturate(160%); backdrop-filter: blur(22px) saturate(160%); }
+@media (min-width: 1100px) { .menu-btn, .menu { display: none !important; } }
+
+
+/* -------------------------------------------------------------- footer */
+.foot { border-top: 1px solid var(--hair); padding: clamp(40px, 7vh, 96px) var(--gutter) 40px; color: var(--text2); }
+.foot-in { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px 48px; }
+.foot-brand { display: flex; flex-direction: column; gap: 12px; }
+.foot-links, .foot-langs { display: flex; flex-wrap: wrap; gap: 4px 22px; }
+.foot-links a, .foot-langs a { display: inline-flex; align-items: center; min-height: 44px; color: var(--text2); text-decoration: none; font-size: 15px; }
+.foot-links a:hover, .foot-langs a:hover { color: var(--text); }
+.foot-langs a { font-family: system-ui, var(--sans); }
+.foot-langs a[aria-current] { color: var(--text); }
+.copy { font-size: 14px; color: var(--muted); }
+@media (min-width: 1000px) { .foot-in { grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); } .foot-langs, .copy { grid-column: 2; } }
+
+
+.foot{font-family:var(--sans)}
+/* the scoped controls outrank these two, so they are said again */
+.top .top-get{display:none}
+@media (min-width:560px){.top .top-get{display:inline-flex}.menu .menu-get{display:none}}
+:lang(ar) :is(h1,h2,h3),:lang(ja) :is(h1,h2,h3),:lang(ko) :is(h1,h2,h3),:lang(zh) :is(h1,h2,h3){font-style:normal;letter-spacing:0}
+:lang(ko){word-break:keep-all;overflow-wrap:break-word}
+:lang(ja),:lang(zh){line-break:strict}
+
 /* Layout: one long garage wall. Narrow reading column for words, full-bleed strips for screens. Dark only, like the app's night garage. */
 :root{
   --bg:#0B0B0A; --surface:#151513; --surface2:#1C1B19; --line:#23211E; --edge:#3A3732;
@@ -230,7 +516,7 @@
 body{margin:0;background:var(--bg);color:var(--text);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:var(--gold)}
-.wall{position:fixed;inset:0;background:url(assets/journey/doodle.webp) center/520px repeat;opacity:.05;pointer-events:none;z-index:0}
+.wall{position:fixed;inset:0;background:url(/assets/journey/doodle.webp) center/520px repeat;opacity:.05;pointer-events:none;z-index:0}
 main{position:relative;z-index:1;padding-inline:20px;padding-block:0 80px}
 .col{max-width:var(--col);margin-inline:auto}
 .wide{max-width:1180px;margin-inline:auto}
@@ -438,18 +724,11 @@ footer{padding-block:70px 20px;display:grid;gap:14px;justify-items:start}
 }
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 
-/* language switch (site only, not in the design) */
-.lang{position:absolute;top:10px;right:max(10px,calc((100% - 1180px) / 2));z-index:3;display:flex;align-items:center;font-family:var(--display);font-stretch:78%;font-weight:700;font-size:14px;letter-spacing:.14em}
-.lang a{display:inline-flex;align-items:center;min-height:44px;padding:0 10px;color:var(--muted);text-decoration:none}
-.lang a:hover{color:var(--text)}
-.lang a[aria-current]{color:var(--gold)}
-.lang span{color:var(--dim)}
-
 /* loader (site only): the mark's spring from the Logo artifact, R16-Motion,
    "Loading · 2.4 s a cycle", keyframes copied as drawn. Only with JS, so a
    visitor without it gets the page, not a cover that never lifts. */
 .loader{display:none}
-html.js .loader{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:var(--bg);transition:opacity .35s ease}
+html.js .loader{position:fixed;inset:0;z-index:400;display:grid;place-items:center;background:var(--bg);transition:opacity .35s ease}
 html.js .loader.out{opacity:0;pointer-events:none}
 html.loading{overflow:hidden}
 .loader svg{width:min(120px,30vw);height:auto;overflow:visible}
@@ -462,7 +741,14 @@ html.loading{overflow:hidden}
 :root{--gut:clamp(20px,3.6vw,140px)}
 main{padding-inline:var(--gut)}
 main .col,main .wide{max-width:none;margin-inline:0}
-.lang{right:var(--gut)}
+/* the hero starts under the header */
+main>.hero{padding-top:calc(var(--nav) + 24px)}
+/* a long word in a language other than the design's (Polish, Arabic) must
+   not widen a phone's page: the column may shrink, the word may break */
+main>.hero>*{min-width:0}
+.hero h1{overflow-wrap:break-word;hyphens:auto}
+@media (max-width:1099px){main>.hero{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:640px){h1 .l{white-space:normal}}
 @media (min-width:1100px){
   body{font-size:clamp(17px,.22vw + 14px,22px)}
   h2{font-size:clamp(44px,3.2vw,104px)}
@@ -475,10 +761,11 @@ main .col,main .wide{max-width:none;margin-inline:0}
   main>section{display:grid;grid-template-columns:minmax(300px,30%) minmax(0,1fr);column-gap:clamp(48px,5vw,180px);align-items:start;padding-block:clamp(72px,12vh,220px) 8px}
   /* the left column: the stripe and the heading share one area, so the
      first picture's row can't push the heading down */
-  main>section.col>.hazard,main>section.col>.head{grid-column:1;grid-row:1/span 60;align-self:start;position:sticky;top:calc(var(--gut) + 6vh)}
-  main>section.col>.head{margin-top:30px}
+  main>section.col>.hazard,main>section.col>.head{grid-column:1;grid-row:1/span 60;align-self:start;position:sticky;top:calc(var(--nav) + 4vh)}
+  /* stuck, a margin no longer counts: the heading sits under the stripe by its offset */
+  main>section.col>.head{margin-top:30px;top:calc(var(--nav) + 4vh + 30px)}
   main>section.col>:not(.hazard):not(.head){grid-column:2}
-  main>section.wide>.col:first-child{grid-column:1;grid-row:1/span 60;align-self:start;position:sticky;top:calc(var(--gut) + 6vh)}
+  main>section.wide>.col:first-child{grid-column:1;grid-row:1/span 60;align-self:start;position:sticky;top:calc(var(--nav) + 4vh)}
   main>section.wide>:not(.col:first-child){grid-column:2}
   main>section.wide>.col~.col{position:static}
   main>footer{padding-inline:0}
@@ -511,6 +798,7 @@ html.js main img:focus-visible{outline-color:var(--gold)}
 @keyframes zIn{from{opacity:0;transform:scale(.97)}}
 @media (prefers-reduced-motion:reduce){.zoom[open]{animation:none}}
 </style>
+<script type="module" src="/assets/home/site.js?v=6b25487e"></script>
 </head>
 <body>
 <div class="loader" id="loader" role="status"><svg viewBox="0 0 100 100" aria-hidden="true">
@@ -527,9 +815,35 @@ html.js main img:focus-visible{outline-color:var(--gold)}
 <g class="ld" style="--dx:-22.97"><path d="M28.97,75.39 L43.40,75.39 L59.90,24.61 L45.46,24.61 Z" fill="#ECE4D6"/></g>
 <g class="ld" style="--dx:-45.93"><path d="M51.93,75.39 L66.37,75.39 L82.86,24.61 L68.43,24.61 Z" fill="#F4B223"/></g>
 </svg><span class="sr">Loading</span></div>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top" id="top">
+  <a class="brand" href="/" aria-label="Maintra"><svg class="mt" viewBox="0 0 100 57.69" aria-hidden="true"><path d="M26.10,0.00 L35.15,0.00 L35.15,57.69 L26.10,57.69 Z" style="fill:var(--lg-stem)"/><path d="M52.20,0.00 L61.25,0.00 L61.25,57.69 L52.20,57.69 Z" style="fill:var(--lg-stem)"/><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" style="fill:var(--lg-gold)"/><clipPath id="mtc1"><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z"/></clipPath><g clip-path="url(#mtc1)"><path d="M2.40,57.69 L18.80,57.69 L37.55,0.00 L21.15,0.00 Z" style="fill:var(--lg-shade)"/><path d="M28.50,57.69 L44.90,57.69 L63.65,0.00 L47.24,0.00 Z" style="fill:var(--lg-shade)"/><path d="M54.60,57.69 L71.00,57.69 L89.75,0.00 L73.34,0.00 Z" style="fill:var(--lg-shade)"/></g><path d="M0.00,57.69 L16.40,57.69 L35.15,0.00 L18.75,0.00 Z" style="fill:var(--lg-ink)"/><path d="M26.10,57.69 L42.50,57.69 L61.25,0.00 L44.84,0.00 Z" style="fill:var(--lg-ink)"/><path d="M52.20,57.69 L68.60,57.69 L87.35,0.00 L70.94,0.00 Z" style="fill:var(--lg-gold)"/></svg><span class="word">Maintra</span></a>
+  <nav class="top-nav" aria-label="Maintra">
+    <a href="/#tour">Try it</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/support.html">Support</a>
+    <a href="/press-en">Press</a>
+    <a href="/about.html">About</a>
+  </nav>
+  <div class="lang">
+    <button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="Language"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 3.5h7l5 5v7l-5 5h-7l-5-5v-7z"></path><path d="M3.5 12h17M12 3.5L8.5 12l3.5 8.5M12 3.5l3.5 8.5-3.5 8.5"></path></svg><span>EN</span></button>
+    <ul class="lang-menu" id="lang-menu" hidden><li><a href="/journey-en" hreflang="en" lang="en" data-lang="en" aria-current="true"><span class="code">en</span>English</a></li><li><a href="/journey" hreflang="uk" lang="uk" data-lang="uk"><span class="code">uk</span>Українська</a></li><li><a href="/pl/journey" hreflang="pl" lang="pl" data-lang="pl"><span class="code">pl</span>Polski</a></li><li><a href="/fr/journey" hreflang="fr" lang="fr" data-lang="fr"><span class="code">fr</span>Français</a></li><li><a href="/it/journey" hreflang="it" lang="it" data-lang="it"><span class="code">it</span>Italiano</a></li><li><a href="/es/journey" hreflang="es" lang="es" data-lang="es"><span class="code">es</span>Español</a></li><li><a href="/de/journey" hreflang="de" lang="de" data-lang="de"><span class="code">de</span>Deutsch</a></li><li><a href="/ar/journey" hreflang="ar" lang="ar" dir="rtl" data-lang="ar"><span class="code">ar</span>العربية</a></li><li><a href="/ko/journey" hreflang="ko" lang="ko" data-lang="ko"><span class="code">ko</span>한국어</a></li><li><a href="/ja/journey" hreflang="ja" lang="ja" data-lang="ja"><span class="code">ja</span>日本語</a></li><li><a href="/zh/journey" hreflang="zh-Hans" lang="zh-Hans" data-lang="zh"><span class="code">zh</span>简体中文</a></li></ul>
+  </div>
+  <a class="btn btn-line btn-sm top-get" href="/#get">Get the app</a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menu"><i></i><i></i><i></i></button>
+</header>
+<div class="menu" id="menu" hidden>
+  <nav aria-label="Menu">
+    <a href="/#tour"><span class="n">01</span>Try it</a>
+    <a href="/faq.html"><span class="n">02</span>FAQ</a>
+    <a href="/support.html"><span class="n">03</span>Support</a>
+    <a href="/press-en"><span class="n">04</span>Press</a>
+    <a href="/about.html"><span class="n">05</span>About</a>
+  </nav>
+  <a class="btn btn-gold menu-get" href="/#get">Get the app</a>
+</div>
 <div class="wall" aria-hidden="true"></div>
-<main>
-<nav class="lang" aria-label="Language"><a href="/journey" lang="uk" hreflang="uk">UA</a><span aria-hidden="true">/</span><a href="/journey-en" lang="en" hreflang="en" aria-current="page">EN</a></nav>
+<main id="main">
 
 <header class="hero wide">
   <div class="hero-txt">
@@ -540,7 +854,7 @@ html.js main img:focus-visible{outline-color:var(--gold)}
   </div>
   <div class="hero-3d" id="hero3d" role="img" aria-label="Maintra 2.0 on a phone: the garage, the plus menu, swiping between cars, and the polaroid turning into the header">
     <canvas aria-hidden="true"></canvas>
-    <div class="hero-fallback" aria-hidden="true"><video id="heroVid" src="assets/journey/hero.mp4" data-poster="assets/journey/hero-poster.webp" muted loop playsinline preload="none"></video></div>
+    <div class="hero-fallback" aria-hidden="true"><video id="heroVid" src="/assets/journey/hero.mp4" data-poster="/assets/journey/hero-poster.webp" muted loop playsinline preload="none"></video></div>
   </div>
 </header>
 
@@ -555,25 +869,25 @@ html.js main img:focus-visible{outline-color:var(--gold)}
   <div class="era">
     <span class="era-tag"><i class="oct"></i>First version</span>
     <div class="phones">
-      <figure class="ph"><img src="assets/journey/old-garage.webp" alt="Maintra's first version: a garage with one car card" loading="lazy"><figcaption><b>Garage</b>A car card, an “add” button and a gold gear with a mandala in the nav bar.</figcaption></figure>
-      <figure class="ph"><img src="assets/journey/old-car.webp" alt="Maintra's first version: the car screen with a list of services" loading="lazy"><figcaption><b>Car</b>A list of jobs, tabs, prices. Clean, but stock, with no style of its own.</figcaption></figure>
+      <figure class="ph"><img src="/assets/journey/old-garage.webp" alt="Maintra's first version: a garage with one car card" loading="lazy"><figcaption><b>Garage</b>A car card, an “add” button and a gold gear with a mandala in the nav bar.</figcaption></figure>
+      <figure class="ph"><img src="/assets/journey/old-car.webp" alt="Maintra's first version: the car screen with a list of services" loading="lazy"><figcaption><b>Car</b>A list of jobs, tabs, prices. Clean, but stock, with no style of its own.</figcaption></figure>
     </div>
   </div>
 
   <div class="era">
     <span class="era-tag"><i class="oct"></i>1.5</span>
     <div class="phones">
-      <figure class="ph"><img src="assets/journey/v15-garage.webp" alt="Maintra 1.5: a garage with two cars, documents and tyres" loading="lazy"><figcaption><b>Garage</b>Two cars, a plan, documents, tyres. All of it needed, all of it the same weight.</figcaption></figure>
-      <figure class="ph"><img src="assets/journey/v15-car.webp" alt="Maintra 1.5: the car screen with a wishlist and oil and filters" loading="lazy"><figcaption><b>Car</b>Wishlist, shelf, intervals. More buttons than answers.</figcaption></figure>
+      <figure class="ph"><img src="/assets/journey/v15-garage.webp" alt="Maintra 1.5: a garage with two cars, documents and tyres" loading="lazy"><figcaption><b>Garage</b>Two cars, a plan, documents, tyres. All of it needed, all of it the same weight.</figcaption></figure>
+      <figure class="ph"><img src="/assets/journey/v15-car.webp" alt="Maintra 1.5: the car screen with a wishlist and oil and filters" loading="lazy"><figcaption><b>Car</b>Wishlist, shelf, intervals. More buttons than answers.</figcaption></figure>
     </div>
   </div>
 
   <div class="era">
     <span class="era-tag"><i class="oct"></i>1.6, before the redesign</span>
     <div class="phones">
-      <figure class="ph"><img src="assets/journey/now-garage.webp" alt="Maintra 1.6: a garage with a polaroid and an odometer" loading="lazy"><figcaption><b>Garage</b>The polaroid arrived. So did health, service, wishlist, costs and upcoming jobs.</figcaption></figure>
-      <figure class="ph"><img src="assets/journey/now-car.webp" alt="Maintra 1.6: the car screen" loading="lazy"><figcaption><b>Car</b>Service history is already the main thing, but it drowns among the cards.</figcaption></figure>
-      <figure class="ph"><img src="assets/journey/now-plan.webp" alt="Maintra 1.6: the maintenance plan" loading="lazy"><figcaption><b>Plan</b>The AI plan does its job, but looks like everything else. Plus AI-generated icons that everyone spots and calls “slop, ew”.</figcaption></figure>
+      <figure class="ph"><img src="/assets/journey/now-garage.webp" alt="Maintra 1.6: a garage with a polaroid and an odometer" loading="lazy"><figcaption><b>Garage</b>The polaroid arrived. So did health, service, wishlist, costs and upcoming jobs.</figcaption></figure>
+      <figure class="ph"><img src="/assets/journey/now-car.webp" alt="Maintra 1.6: the car screen" loading="lazy"><figcaption><b>Car</b>Service history is already the main thing, but it drowns among the cards.</figcaption></figure>
+      <figure class="ph"><img src="/assets/journey/now-plan.webp" alt="Maintra 1.6: the maintenance plan" loading="lazy"><figcaption><b>Plan</b>The AI plan does its job, but looks like everything else. Plus AI-generated icons that everyone spots and calls “slop, ew”.</figcaption></figure>
     </div>
     <p class="quote">Users said it straight: too busy, and it looks like AI slop. That was the starting point.</p>
   </div>
@@ -615,7 +929,7 @@ html.js main img:focus-visible{outline-color:var(--gold)}
           <li>Calm menus where every action feels as good as a mechanical click.</li>
         </ul>
       </div>
-      <div class="pics three"><img src="assets/journey/x-card.webp" alt="Sketch: the car as a collectible card with class and condition by system" loading="lazy"><img src="assets/journey/x-game-garage.webp" alt="Sketch v4: a garage like in a racing game" loading="lazy"><img src="assets/journey/x-pit-rating.webp" alt="Sketch v5: a ranking among Pajero owners" loading="lazy"></div>
+      <div class="pics three"><img src="/assets/journey/x-card.webp" alt="Sketch: the car as a collectible card with class and condition by system" loading="lazy"><img src="/assets/journey/x-game-garage.webp" alt="Sketch v4: a garage like in a racing game" loading="lazy"><img src="/assets/journey/x-pit-rating.webp" alt="Sketch v5: a ranking among Pajero owners" loading="lazy"></div>
     </article>
     <article class="ref">
       <div class="txt">
@@ -627,7 +941,7 @@ html.js main img:focus-visible{outline-color:var(--gold)}
           <li>A dark background and one bright colour that means “press here”.</li>
         </ul>
       </div>
-      <div class="pics"><img src="assets/journey/x-v12-garage.webp" alt="Sketch v12: black, gold, hexagons" loading="lazy"><img src="assets/journey/x-v19-garage-menu.webp" alt="Sketch v19: wishlist, documents and tyres as a game menu" loading="lazy"></div>
+      <div class="pics"><img src="/assets/journey/x-v12-garage.webp" alt="Sketch v12: black, gold, hexagons" loading="lazy"><img src="/assets/journey/x-v19-garage-menu.webp" alt="Sketch v19: wishlist, documents and tyres as a game menu" loading="lazy"></div>
     </article>
     <article class="ref">
       <div class="txt">
@@ -639,7 +953,7 @@ html.js main img:focus-visible{outline-color:var(--gold)}
           <li>Dark and light themes from day one.</li>
         </ul>
       </div>
-      <div class="pics"><img src="assets/journey/x-premium-garage.webp" alt="Sketch v2: a premium garage" loading="lazy"><img src="assets/journey/x-v24-garage-open.webp" alt="Sketch v24: a glass tray above the nav bar" loading="lazy"></div>
+      <div class="pics"><img src="/assets/journey/x-premium-garage.webp" alt="Sketch v2: a premium garage" loading="lazy"><img src="/assets/journey/x-v24-garage-open.webp" alt="Sketch v24: a glass tray above the nav bar" loading="lazy"></div>
     </article>
     <article class="ref full">
       <div class="txt">
@@ -653,12 +967,12 @@ html.js main img:focus-visible{outline-color:var(--gold)}
         </ul>
       </div>
       <div class="els">
-        <figure><img src="assets/journey/doodle.webp" alt="Wallpaper of small tools" loading="lazy"><figcaption>Background · was there, stayed</figcaption></figure>
-        <figure><img src="assets/journey/el-polaroid-old.webp" alt="The polaroid in the previous version" loading="lazy"><figcaption>Polaroid · before</figcaption></figure>
-        <figure><img src="assets/journey/el-polaroid.webp" alt="The polaroid in 2.0" loading="lazy"><figcaption>Polaroid · after</figcaption></figure>
-        <figure class="fr"><img src="assets/journey/el-frames.webp" alt="Polaroid frames: classic, charcoal, doodle" loading="lazy"><figcaption>Frames</figcaption></figure>
-        <figure class="w2"><picture><source media="(max-width:760px)" srcset="assets/journey/el-icons-m.webp"><img src="assets/journey/el-icons.webp" alt="Icons for items and categories" loading="lazy"></picture><figcaption>Icons · one sheet</figcaption></figure>
-        <figure class="w3"><div class="frs"><img src="assets/journey/fr-rust.webp" alt="Frame: riveted metal" loading="lazy"><img src="assets/journey/fr-topo.webp" alt="Frame: topographic map" loading="lazy"><img src="assets/journey/fr-pearl.webp" alt="Frame: mother of pearl" loading="lazy"><img src="assets/journey/fr-carbon.webp" alt="Frame: white carbon" loading="lazy"></div></figure>
+        <figure><img src="/assets/journey/doodle.webp" alt="Wallpaper of small tools" loading="lazy"><figcaption>Background · was there, stayed</figcaption></figure>
+        <figure><img src="/assets/journey/el-polaroid-old.webp" alt="The polaroid in the previous version" loading="lazy"><figcaption>Polaroid · before</figcaption></figure>
+        <figure><img src="/assets/journey/el-polaroid.webp" alt="The polaroid in 2.0" loading="lazy"><figcaption>Polaroid · after</figcaption></figure>
+        <figure class="fr"><img src="/assets/journey/el-frames.webp" alt="Polaroid frames: classic, charcoal, doodle" loading="lazy"><figcaption>Frames</figcaption></figure>
+        <figure class="w2"><picture><source media="(max-width:760px)" srcset="/assets/journey/el-icons-m.webp"><img src="/assets/journey/el-icons.webp" alt="Icons for items and categories" loading="lazy"></picture><figcaption>Icons · one sheet</figcaption></figure>
+        <figure class="w3"><div class="frs"><img src="/assets/journey/fr-rust.webp" alt="Frame: riveted metal" loading="lazy"><img src="/assets/journey/fr-topo.webp" alt="Frame: topographic map" loading="lazy"><img src="/assets/journey/fr-pearl.webp" alt="Frame: mother of pearl" loading="lazy"><img src="/assets/journey/fr-carbon.webp" alt="Frame: white carbon" loading="lazy"></div></figure>
       </div>
     </article>
   </div>
@@ -675,20 +989,20 @@ html.js main img:focus-visible{outline-color:var(--gold)}
   </div>
   <div class="rail" aria-hidden="true"><span>Start</span><i></i><span>Final</span></div>
   <div class="strip" tabindex="0" aria-label="Iterations of the main screen">
-    <figure class="it"><img src="assets/journey/x-main.webp" alt="First attempt" loading="lazy"><figcaption><span class="v">Start</span><span class="t">Workshop</span><span class="n">Cut the clutter, keep the core.</span></figcaption></figure>
-    <figure class="it"><img src="assets/journey/x-premium-garage.webp" alt="v2" loading="lazy"><figcaption><span class="v">v2</span><span class="t">Premium garage</span><span class="n">Glass, Apple, calm.</span></figcaption></figure>
-    <figure class="it"><img src="assets/journey/x-garage-bay.webp" alt="v3" loading="lazy"><figcaption><span class="v">v3</span><span class="t">A real garage bay</span><span class="n">A lamp over the car, a sign on the door.</span></figcaption></figure>
-    <figure class="it"><img src="assets/journey/x-game-garage.webp" alt="v4" loading="lazy"><figcaption><span class="v">v4</span><span class="t">A garage from a game</span><span class="n">Showroom, class B, condition by system.</span></figcaption></figure>
-    <figure class="it"><img src="assets/journey/x-pit-garage.webp" alt="v5" loading="lazy"><figcaption><span class="v">v5</span><span class="t">Pit stop</span><span class="n">A car diagram with a score for each system.</span></figcaption></figure>
-    <figure class="it"><img src="assets/journey/x-pad-garage.webp" alt="v6" loading="lazy"><figcaption><span class="v">v6</span><span class="t">Game energy</span><span class="n">The same mood across the whole app.</span></figcaption></figure>
-    <figure class="it"><img src="assets/journey/x-v8-garage.webp" alt="v8" loading="lazy"><figcaption><span class="v">v8</span><span class="t">The car as a card</span><span class="n">A collectible card with specs and class.</span></figcaption></figure>
-    <figure class="it"><img src="assets/journey/x-v9-garage.webp" alt="v9" loading="lazy"><figcaption><span class="v">v9</span><span class="t">The polaroid returns</span><span class="n">Game on top, but the photo is back on the wall.</span></figcaption></figure>
-    <figure class="it"><img src="assets/journey/x-v12-garage.webp" alt="v12" loading="lazy"><figcaption><span class="v">v12</span><span class="t">Black and gold</span><span class="n">Hexagons, a racing HUD.</span></figcaption></figure>
-    <figure class="it"><img src="assets/journey/x-v13-dark.webp" alt="v13" loading="lazy"><figcaption><span class="v">v13</span><span class="t">Strip it all back</span><span class="n">Matte black, yellow only as an accent.</span></figcaption></figure>
-    <figure class="it"><img src="assets/journey/x-v19-garage-menu.webp" alt="v19" loading="lazy"><figcaption><span class="v">v19</span><span class="t">A game-style menu</span><span class="n">Wishlist, documents, tyres, shelf.</span></figcaption></figure>
-    <figure class="it"><img src="assets/journey/x-v24-garage-open.webp" alt="v24" loading="lazy"><figcaption><span class="v">v24</span><span class="t">One cut for everything</span><span class="n">A glass tray, and the contrast is back.</span></figcaption></figure>
-    <figure class="it"><img src="assets/journey/x-v26-garage.webp" alt="v26" loading="lazy"><figcaption><span class="v">v26</span><span class="t">One language</span><span class="n">The same rules on every screen.</span></figcaption></figure>
-    <figure class="it"><img src="assets/journey/x-v29-garage.webp" alt="v29" loading="lazy"><figcaption><span class="v">v29</span><span class="t">Almost final</span><span class="n">A slightly tilted polaroid, frames, a quiet wishlist.</span></figcaption></figure>
+    <figure class="it"><img src="/assets/journey/x-main.webp" alt="First attempt" loading="lazy"><figcaption><span class="v">Start</span><span class="t">Workshop</span><span class="n">Cut the clutter, keep the core.</span></figcaption></figure>
+    <figure class="it"><img src="/assets/journey/x-premium-garage.webp" alt="v2" loading="lazy"><figcaption><span class="v">v2</span><span class="t">Premium garage</span><span class="n">Glass, Apple, calm.</span></figcaption></figure>
+    <figure class="it"><img src="/assets/journey/x-garage-bay.webp" alt="v3" loading="lazy"><figcaption><span class="v">v3</span><span class="t">A real garage bay</span><span class="n">A lamp over the car, a sign on the door.</span></figcaption></figure>
+    <figure class="it"><img src="/assets/journey/x-game-garage.webp" alt="v4" loading="lazy"><figcaption><span class="v">v4</span><span class="t">A garage from a game</span><span class="n">Showroom, class B, condition by system.</span></figcaption></figure>
+    <figure class="it"><img src="/assets/journey/x-pit-garage.webp" alt="v5" loading="lazy"><figcaption><span class="v">v5</span><span class="t">Pit stop</span><span class="n">A car diagram with a score for each system.</span></figcaption></figure>
+    <figure class="it"><img src="/assets/journey/x-pad-garage.webp" alt="v6" loading="lazy"><figcaption><span class="v">v6</span><span class="t">Game energy</span><span class="n">The same mood across the whole app.</span></figcaption></figure>
+    <figure class="it"><img src="/assets/journey/x-v8-garage.webp" alt="v8" loading="lazy"><figcaption><span class="v">v8</span><span class="t">The car as a card</span><span class="n">A collectible card with specs and class.</span></figcaption></figure>
+    <figure class="it"><img src="/assets/journey/x-v9-garage.webp" alt="v9" loading="lazy"><figcaption><span class="v">v9</span><span class="t">The polaroid returns</span><span class="n">Game on top, but the photo is back on the wall.</span></figcaption></figure>
+    <figure class="it"><img src="/assets/journey/x-v12-garage.webp" alt="v12" loading="lazy"><figcaption><span class="v">v12</span><span class="t">Black and gold</span><span class="n">Hexagons, a racing HUD.</span></figcaption></figure>
+    <figure class="it"><img src="/assets/journey/x-v13-dark.webp" alt="v13" loading="lazy"><figcaption><span class="v">v13</span><span class="t">Strip it all back</span><span class="n">Matte black, yellow only as an accent.</span></figcaption></figure>
+    <figure class="it"><img src="/assets/journey/x-v19-garage-menu.webp" alt="v19" loading="lazy"><figcaption><span class="v">v19</span><span class="t">A game-style menu</span><span class="n">Wishlist, documents, tyres, shelf.</span></figcaption></figure>
+    <figure class="it"><img src="/assets/journey/x-v24-garage-open.webp" alt="v24" loading="lazy"><figcaption><span class="v">v24</span><span class="t">One cut for everything</span><span class="n">A glass tray, and the contrast is back.</span></figcaption></figure>
+    <figure class="it"><img src="/assets/journey/x-v26-garage.webp" alt="v26" loading="lazy"><figcaption><span class="v">v26</span><span class="t">One language</span><span class="n">The same rules on every screen.</span></figcaption></figure>
+    <figure class="it"><img src="/assets/journey/x-v29-garage.webp" alt="v29" loading="lazy"><figcaption><span class="v">v29</span><span class="t">Almost final</span><span class="n">A slightly tilted polaroid, frames, a quiet wishlist.</span></figcaption></figure>
   </div>
   <p class="small col" style="margin-top:6px">What didn't survive: rankings against other owners, collectible cards, hexagons and the big HUD. What stayed from games: the car's class and condition, the menu strip, yellow as the main action.</p>
 </section>
@@ -752,14 +1066,14 @@ html.js main img:focus-visible{outline-color:var(--gold)}
     <div><span class="k">Loud only in the Moment</span><p>Bounce, scale and haptics only when you finish a job.</p></div>
   </div>
   <div class="motion">
-    <figure class="mv"><video data-src="assets/journey/m-add-local.mp4" data-poster="assets/journey/m-add-local.webp" muted loop playsinline preload="none" aria-label="+ menu"></video><figcaption><b>+ menu</b>Cards slide in from the right edge, the one nearest your finger first. The plus turns into a cross.</figcaption></figure>
-    <figure class="mv"><video data-src="assets/journey/m-next-car.mp4" data-poster="assets/journey/m-next-car.webp" muted loop playsinline preload="none" aria-label="Swiping the garage"></video><figcaption><b>Swiping the garage</b>The polaroid follows your finger and springs into place. At the end, room for one more car.</figcaption></figure>
-    <figure class="mv"><video data-src="assets/journey/m-hero.mp4" data-poster="assets/journey/m-hero.webp" muted loop playsinline preload="none" aria-label="Polaroid to header"></video><figcaption><b>Polaroid to header</b>The photo from the garage becomes the car screen's header instead of opening from scratch.</figcaption></figure>
-    <figure class="mv"><video data-src="assets/journey/m-push.mp4" data-poster="assets/journey/m-push.webp" muted loop playsinline preload="none" aria-label="Garage to car"></video><figcaption><b>Garage to car</b>The car screen slides in from the side and back out the same way, with the garage staying underneath.</figcaption></figure>
-    <figure class="mv"><video data-src="assets/journey/m-moment.mp4" data-poster="assets/journey/m-moment.webp" muted loop playsinline preload="none" aria-label="The Moment"></video><figcaption><b>The Moment</b>A job is done: the SERVICED stamp, then +8 health. The only place where animation gets loud.</figcaption></figure>
-    <figure class="mv"><video data-src="assets/journey/m-plan-gen.mp4" data-poster="assets/journey/m-plan-gen.webp" muted loop playsinline preload="none" aria-label="AI writes the plan"></video><figcaption><b>AI writes the plan</b>You can see what's happening right now and how long is left.</figcaption></figure>
-    <figure class="mv"><video data-src="assets/journey/m-save.mp4" data-poster="assets/journey/m-save.webp" muted loop playsinline preload="none" aria-label="Expense saved"></video><figcaption><b>Expense saved</b>The sheet closes and the entry drops into the list, right where you'll look for it.</figcaption></figure>
-    <figure class="mv"><video data-src="assets/journey/m-tabs.mp4" data-poster="assets/journey/m-tabs.webp" muted loop playsinline preload="none" aria-label="Car tabs"></video><figcaption><b>Car tabs</b>Services, plan, fuel, money. The header stays, only the content changes.</figcaption></figure>
+    <figure class="mv"><video data-src="/assets/journey/m-add-local.mp4" data-poster="/assets/journey/m-add-local.webp" muted loop playsinline preload="none" aria-label="+ menu"></video><figcaption><b>+ menu</b>Cards slide in from the right edge, the one nearest your finger first. The plus turns into a cross.</figcaption></figure>
+    <figure class="mv"><video data-src="/assets/journey/m-next-car.mp4" data-poster="/assets/journey/m-next-car.webp" muted loop playsinline preload="none" aria-label="Swiping the garage"></video><figcaption><b>Swiping the garage</b>The polaroid follows your finger and springs into place. At the end, room for one more car.</figcaption></figure>
+    <figure class="mv"><video data-src="/assets/journey/m-hero.mp4" data-poster="/assets/journey/m-hero.webp" muted loop playsinline preload="none" aria-label="Polaroid to header"></video><figcaption><b>Polaroid to header</b>The photo from the garage becomes the car screen's header instead of opening from scratch.</figcaption></figure>
+    <figure class="mv"><video data-src="/assets/journey/m-push.mp4" data-poster="/assets/journey/m-push.webp" muted loop playsinline preload="none" aria-label="Garage to car"></video><figcaption><b>Garage to car</b>The car screen slides in from the side and back out the same way, with the garage staying underneath.</figcaption></figure>
+    <figure class="mv"><video data-src="/assets/journey/m-moment.mp4" data-poster="/assets/journey/m-moment.webp" muted loop playsinline preload="none" aria-label="The Moment"></video><figcaption><b>The Moment</b>A job is done: the SERVICED stamp, then +8 health. The only place where animation gets loud.</figcaption></figure>
+    <figure class="mv"><video data-src="/assets/journey/m-plan-gen.mp4" data-poster="/assets/journey/m-plan-gen.webp" muted loop playsinline preload="none" aria-label="AI writes the plan"></video><figcaption><b>AI writes the plan</b>You can see what's happening right now and how long is left.</figcaption></figure>
+    <figure class="mv"><video data-src="/assets/journey/m-save.mp4" data-poster="/assets/journey/m-save.webp" muted loop playsinline preload="none" aria-label="Expense saved"></video><figcaption><b>Expense saved</b>The sheet closes and the entry drops into the list, right where you'll look for it.</figcaption></figure>
+    <figure class="mv"><video data-src="/assets/journey/m-tabs.mp4" data-poster="/assets/journey/m-tabs.webp" muted loop playsinline preload="none" aria-label="Car tabs"></video><figcaption><b>Car tabs</b>Services, plan, fuel, money. The header stays, only the content changes.</figcaption></figure>
   </div>
   <p class="small col" style="margin-top:14px">With “Reduce motion” turned on in the system, everything is the same but without movement: simple fades or an instant change.</p>
 </section>
@@ -774,8 +1088,8 @@ html.js main img:focus-visible{outline-color:var(--gold)}
     </div>
   </div>
   <div class="logo-row">
-    <figure><img src="assets/journey/logo-old.webp" alt="The old logo: a gear with a mandala" loading="lazy"><figcaption><b>Before.</b> A gear and a mandala.</figcaption></figure>
-    <figure><img src="assets/journey/logo-sketch.webp" alt="Sketches of the new logo in a notebook" loading="lazy"><figcaption><b>Notebook.</b> Looking for a rhythm in three slanted strokes.</figcaption></figure>
+    <figure><img src="/assets/journey/logo-old.webp" alt="The old logo: a gear with a mandala" loading="lazy"><figcaption><b>Before.</b> A gear and a mandala.</figcaption></figure>
+    <figure><img src="/assets/journey/logo-sketch.webp" alt="Sketches of the new logo in a notebook" loading="lazy"><figcaption><b>Notebook.</b> Looking for a rhythm in three slanted strokes.</figcaption></figure>
     <figure><div class="newmark" role="img" aria-label="The new Maintra mark"><svg aria-hidden="true" class="" viewBox="0 0 100 57.69" width="220" height="126.9" style="display: block; flex-shrink: 0; overflow: visible; "><path d="M26.10,0.00 L35.15,0.00 L35.15,57.69 L26.10,57.69 Z" fill="#8F897E"></path><path d="M52.20,0.00 L61.25,0.00 L61.25,57.69 L52.20,57.69 Z" fill="#8F897E"></path><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" fill="#F4B223"></path><clipPath id="mtlg3"><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" fill="#000"></path></clipPath><g clip-path="url(#mtlg3)"><path d="M2.40,57.69 L18.80,57.69 L37.55,0.00 L21.15,0.00 Z" fill="#9A6700"></path><path d="M28.50,57.69 L44.90,57.69 L63.65,0.00 L47.24,0.00 Z" fill="#9A6700"></path><path d="M54.60,57.69 L71.00,57.69 L89.75,0.00 L73.34,0.00 Z" fill="#9A6700"></path></g><path d="M0.00,57.69 L16.40,57.69 L35.15,0.00 L18.75,0.00 Z" fill="#ECE4D6"></path><path d="M26.10,57.69 L42.50,57.69 L61.25,0.00 L44.84,0.00 Z" fill="#ECE4D6"></path><path d="M52.20,57.69 L68.60,57.69 L87.35,0.00 L70.94,0.00 Z" fill="#F4B223"></path></svg></div><figcaption><b>After.</b> M and t from three slanted strokes.</figcaption></figure>
   </div>
   <div class="logo-why">
@@ -796,21 +1110,21 @@ html.js main img:focus-visible{outline-color:var(--gold)}
     </div>
   </div>
   <div class="pair">
-    <figure><img src="assets/journey/now-garage.webp" alt="The garage in 1.6" loading="lazy"><figcaption>1.6 · Garage</figcaption></figure>
+    <figure><img src="/assets/journey/now-garage.webp" alt="The garage in 1.6" loading="lazy"><figcaption>1.6 · Garage</figcaption></figure>
     <span class="vs" aria-hidden="true">→</span>
-    <figure class="after"><img src="assets/journey/new-garage-dark.webp" alt="The garage in 2.0" loading="lazy"><figcaption>2.0 · Garage</figcaption></figure>
+    <figure class="after"><img src="/assets/journey/new-garage-dark.webp" alt="The garage in 2.0" loading="lazy"><figcaption>2.0 · Garage</figcaption></figure>
   </div>
   <p class="pair-note">The polaroid is bigger, with one number under it: how long until the oil change. Then only what's most urgent. Wishlist, documents, tyres and the shelf moved to a strip at the bottom.</p>
   <div class="pair">
-    <figure><img src="assets/journey/now-car.webp" alt="The car screen in 1.6" loading="lazy"><figcaption>1.6 · Car</figcaption></figure>
+    <figure><img src="/assets/journey/now-car.webp" alt="The car screen in 1.6" loading="lazy"><figcaption>1.6 · Car</figcaption></figure>
     <span class="vs" aria-hidden="true">→</span>
-    <figure class="after"><img src="assets/journey/new-services.webp" alt="The car screen in 2.0" loading="lazy"><figcaption>2.0 · Car</figcaption></figure>
+    <figure class="after"><img src="/assets/journey/new-services.webp" alt="The car screen in 2.0" loading="lazy"><figcaption>2.0 · Car</figcaption></figure>
   </div>
   <p class="pair-note">Jobs are grouped by visit to the shop, with a total for each visit. Work done and parts bought for the shelf are kept apart.</p>
   <div class="pair">
-    <figure><img src="assets/journey/now-plan.webp" alt="The plan in 1.6" loading="lazy"><figcaption>1.6 · Plan</figcaption></figure>
+    <figure><img src="/assets/journey/now-plan.webp" alt="The plan in 1.6" loading="lazy"><figcaption>1.6 · Plan</figcaption></figure>
     <span class="vs" aria-hidden="true">→</span>
-    <figure class="after"><img src="assets/journey/new-plan-dark.webp" alt="The plan in 2.0" loading="lazy"><figcaption>2.0 · Plan</figcaption></figure>
+    <figure class="after"><img src="/assets/journey/new-plan-dark.webp" alt="The plan in 2.0" loading="lazy"><figcaption>2.0 · Plan</figcaption></figure>
   </div>
   <p class="pair-note">Overdue, soon and later. Every row says when and why. Fewer icons and less text, calmer colours, more room to breathe.</p>
 </section>
@@ -825,16 +1139,16 @@ html.js main img:focus-visible{outline-color:var(--gold)}
     </div>
   </div>
   <div class="store">
-    <img src="assets/journey/store-main.webp" alt="Store screenshot: Service book on autopilot" loading="lazy">
-    <img src="assets/journey/store-ios-2.webp" alt="Store screenshot: 50+ tools" loading="lazy">
-    <img src="assets/journey/store-ios-5.webp" alt="Store screenshot: offline navigation" loading="lazy">
-    <img src="assets/journey/store-ios-9.webp" alt="Store screenshot: garage settings" loading="lazy">
+    <img src="/assets/journey/store-main.webp" alt="Store screenshot: Service book on autopilot" loading="lazy">
+    <img src="/assets/journey/store-ios-2.webp" alt="Store screenshot: 50+ tools" loading="lazy">
+    <img src="/assets/journey/store-ios-5.webp" alt="Store screenshot: offline navigation" loading="lazy">
+    <img src="/assets/journey/store-ios-9.webp" alt="Store screenshot: garage settings" loading="lazy">
   </div>
-  <img class="ipad" src="assets/journey/store-ipad-1.webp" alt="Store screenshot for iPad" loading="lazy">
+  <img class="ipad" src="/assets/journey/store-ipad-1.webp" alt="Store screenshot for iPad" loading="lazy">
   <div class="phones" style="margin-top:22px">
-    <figure class="ph"><img src="assets/journey/new-trip-result.webp" alt="Trip summary" loading="lazy"><figcaption><b>After a drive</b>Speed, time, the fastest stretch. The track never leaves your phone.</figcaption></figure>
-    <figure class="ph"><img src="assets/journey/new-tyres.webp" alt="Tyres" loading="lazy"><figcaption><b>Tyres</b>Tread on every wheel, age, rotation.</figcaption></figure>
-    <figure class="ph"><img src="assets/journey/new-docs.webp" alt="Documents" loading="lazy"><figcaption><b>Documents</b>Encrypted on your phone before they're uploaded.</figcaption></figure>
+    <figure class="ph"><img src="/assets/journey/new-trip-result.webp" alt="Trip summary" loading="lazy"><figcaption><b>After a drive</b>Speed, time, the fastest stretch. The track never leaves your phone.</figcaption></figure>
+    <figure class="ph"><img src="/assets/journey/new-tyres.webp" alt="Tyres" loading="lazy"><figcaption><b>Tyres</b>Tread on every wheel, age, rotation.</figcaption></figure>
+    <figure class="ph"><img src="/assets/journey/new-docs.webp" alt="Documents" loading="lazy"><figcaption><b>Documents</b>Encrypted on your phone before they're uploaded.</figcaption></figure>
   </div>
 </section>
 
@@ -848,10 +1162,10 @@ html.js main img:focus-visible{outline-color:var(--gold)}
     </div>
   </div>
   <div class="themes">
-    <div class="tset"><div class="tpair"><img src="assets/journey/new-garage-dark.webp" alt="Garage, dark theme" loading="lazy"><img src="assets/journey/new-garage-light.webp" alt="Garage, light theme" loading="lazy"></div><span class="tl">Garage</span></div>
-    <div class="tset"><div class="tpair"><img src="assets/journey/new-plan-dark.webp" alt="Plan, dark theme" loading="lazy"><img src="assets/journey/new-plan-light.webp" alt="Plan, light theme" loading="lazy"></div><span class="tl">Plan</span></div>
-    <div class="tset"><div class="tpair"><img src="assets/journey/new-money-dark.webp" alt="Costs, dark theme" loading="lazy"><img src="assets/journey/new-money-light.webp" alt="Costs, light theme" loading="lazy"></div><span class="tl">Costs</span></div>
-    <div class="tset"><div class="tpair"><img src="assets/journey/new-classic-dark.webp" alt="Classic garage, dark theme" loading="lazy"><img src="assets/journey/new-classic-light.webp" alt="Classic garage, light theme" loading="lazy"></div><span class="tl">Classic garage</span></div>
+    <div class="tset"><div class="tpair"><img src="/assets/journey/new-garage-dark.webp" alt="Garage, dark theme" loading="lazy"><img src="/assets/journey/new-garage-light.webp" alt="Garage, light theme" loading="lazy"></div><span class="tl">Garage</span></div>
+    <div class="tset"><div class="tpair"><img src="/assets/journey/new-plan-dark.webp" alt="Plan, dark theme" loading="lazy"><img src="/assets/journey/new-plan-light.webp" alt="Plan, light theme" loading="lazy"></div><span class="tl">Plan</span></div>
+    <div class="tset"><div class="tpair"><img src="/assets/journey/new-money-dark.webp" alt="Costs, dark theme" loading="lazy"><img src="/assets/journey/new-money-light.webp" alt="Costs, light theme" loading="lazy"></div><span class="tl">Costs</span></div>
+    <div class="tset"><div class="tpair"><img src="/assets/journey/new-classic-dark.webp" alt="Classic garage, dark theme" loading="lazy"><img src="/assets/journey/new-classic-light.webp" alt="Classic garage, light theme" loading="lazy"></div><span class="tl">Classic garage</span></div>
   </div>
   <div class="col" style="margin-top:56px">
     <div class="head">
@@ -860,24 +1174,19 @@ html.js main img:focus-visible{outline-color:var(--gold)}
     </div>
   </div>
   <div class="tgrid">
-    <figure class="tpick"><img src="assets/journey/th-picker.webp" alt="Theme picker screen" loading="lazy"><figcaption><b>Theme picker</b>Profile → Appearance</figcaption></figure>
-    <figure><img src="assets/journey/new-garage-dark.webp" alt="Garage theme" loading="lazy"><figcaption><b>Garage</b>Dark, familiar</figcaption></figure>
-    <figure><img src="assets/journey/new-garage-light.webp" alt="Workshop theme" loading="lazy"><figcaption><b>Workshop</b>Light, for daytime</figcaption></figure>
-    <figure><img src="assets/journey/th-red.webp" alt="Red light theme" loading="lazy"><figcaption><b>Red light</b>A red accent for night</figcaption></figure>
-    <figure><img src="assets/journey/th-field.webp" alt="Field theme" loading="lazy"><figcaption><b>Field <i>Pro</i></b>Olive and tan, camo on the +</figcaption></figure>
-    <figure><img src="assets/journey/th-blueprint.webp" alt="Blueprint theme" loading="lazy"><figcaption><b>Blueprint <i>Pro</i></b>Technical drawing, blue lines</figcaption></figure>
-    <figure><img src="assets/journey/th-logbook.webp" alt="Logbook theme" loading="lazy"><figcaption><b>Logbook <i>Pro</i></b>An old service book, blue ink</figcaption></figure>
-    <figure><img src="assets/journey/th-rose.webp" alt="Rose theme, night" loading="lazy"><figcaption><b>Rose <i>Pro</i></b>Plum at night</figcaption></figure>
-    <figure><img src="assets/journey/th-rose-day.webp" alt="Rose theme, day" loading="lazy"><figcaption><b>Rose <i>Pro</i></b>Pink by day</figcaption></figure>
+    <figure class="tpick"><img src="/assets/journey/th-picker.webp" alt="Theme picker screen" loading="lazy"><figcaption><b>Theme picker</b>Profile → Appearance</figcaption></figure>
+    <figure><img src="/assets/journey/new-garage-dark.webp" alt="Garage theme" loading="lazy"><figcaption><b>Garage</b>Dark, familiar</figcaption></figure>
+    <figure><img src="/assets/journey/new-garage-light.webp" alt="Workshop theme" loading="lazy"><figcaption><b>Workshop</b>Light, for daytime</figcaption></figure>
+    <figure><img src="/assets/journey/th-red.webp" alt="Red light theme" loading="lazy"><figcaption><b>Red light</b>A red accent for night</figcaption></figure>
+    <figure><img src="/assets/journey/th-field.webp" alt="Field theme" loading="lazy"><figcaption><b>Field <i>Pro</i></b>Olive and tan, camo on the +</figcaption></figure>
+    <figure><img src="/assets/journey/th-blueprint.webp" alt="Blueprint theme" loading="lazy"><figcaption><b>Blueprint <i>Pro</i></b>Technical drawing, blue lines</figcaption></figure>
+    <figure><img src="/assets/journey/th-logbook.webp" alt="Logbook theme" loading="lazy"><figcaption><b>Logbook <i>Pro</i></b>An old service book, blue ink</figcaption></figure>
+    <figure><img src="/assets/journey/th-rose.webp" alt="Rose theme, night" loading="lazy"><figcaption><b>Rose <i>Pro</i></b>Plum at night</figcaption></figure>
+    <figure><img src="/assets/journey/th-rose-day.webp" alt="Rose theme, day" loading="lazy"><figcaption><b>Rose <i>Pro</i></b>Pink by day</figcaption></figure>
   </div>
 </section>
-
-<footer class="col">
-  <div class="mark"><svg aria-hidden="true" class="" viewBox="0 0 100 57.69" width="40" height="23.1" style="display: block; flex-shrink: 0; overflow: visible; "><path d="M26.10,0.00 L35.15,0.00 L35.15,57.69 L26.10,57.69 Z" fill="#8F897E"></path><path d="M52.20,0.00 L61.25,0.00 L61.25,57.69 L52.20,57.69 Z" fill="#8F897E"></path><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" fill="#F4B223"></path><clipPath id="mtlg2"><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" fill="#000"></path></clipPath><g clip-path="url(#mtlg2)"><path d="M2.40,57.69 L18.80,57.69 L37.55,0.00 L21.15,0.00 Z" fill="#9A6700"></path><path d="M28.50,57.69 L44.90,57.69 L63.65,0.00 L47.24,0.00 Z" fill="#9A6700"></path><path d="M54.60,57.69 L71.00,57.69 L89.75,0.00 L73.34,0.00 Z" fill="#9A6700"></path></g><path d="M0.00,57.69 L16.40,57.69 L35.15,0.00 L18.75,0.00 Z" fill="#ECE4D6"></path><path d="M26.10,57.69 L42.50,57.69 L61.25,0.00 L44.84,0.00 Z" fill="#ECE4D6"></path><path d="M52.20,57.69 L68.60,57.69 L87.35,0.00 L70.94,0.00 Z" fill="#F4B223"></path></svg><span>MAINTRA</span></div>
-  <p class="small">A smart maintenance tracker for your garage. <a href="https://maintra.me">maintra.me</a></p>
-</footer>
 </main>
-<script type="module" src="assets/journey/hero3d.js?v=1a7bb98f"></script>
+<script type="module" src="/assets/journey/hero3d.js?v=1a7bb98f"></script>
 <script>
 // motion clips: load and play only while on screen
 (function(){var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -889,6 +1198,22 @@ vs.forEach(function(v){io.observe(v);v.addEventListener('click',function(){if(v.
 </script>
 
 
+<footer class="foot">
+  <div class="foot-in">
+    <div class="foot-brand"><a class="brand" href="/" aria-label="Maintra"><svg class="mt" viewBox="0 0 100 57.69" aria-hidden="true"><path d="M26.10,0.00 L35.15,0.00 L35.15,57.69 L26.10,57.69 Z" style="fill:var(--lg-stem)"/><path d="M52.20,0.00 L61.25,0.00 L61.25,57.69 L52.20,57.69 Z" style="fill:var(--lg-stem)"/><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" style="fill:var(--lg-gold)"/><clipPath id="mtc2"><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z"/></clipPath><g clip-path="url(#mtc2)"><path d="M2.40,57.69 L18.80,57.69 L37.55,0.00 L21.15,0.00 Z" style="fill:var(--lg-shade)"/><path d="M28.50,57.69 L44.90,57.69 L63.65,0.00 L47.24,0.00 Z" style="fill:var(--lg-shade)"/><path d="M54.60,57.69 L71.00,57.69 L89.75,0.00 L73.34,0.00 Z" style="fill:var(--lg-shade)"/></g><path d="M0.00,57.69 L16.40,57.69 L35.15,0.00 L18.75,0.00 Z" style="fill:var(--lg-ink)"/><path d="M26.10,57.69 L42.50,57.69 L61.25,0.00 L44.84,0.00 Z" style="fill:var(--lg-ink)"/><path d="M52.20,57.69 L68.60,57.69 L87.35,0.00 L70.94,0.00 Z" style="fill:var(--lg-gold)"/></svg><span class="word">Maintra</span></a><p>A smart maintenance tracker for your garage.</p></div>
+    <nav class="foot-links" aria-label="Maintra">
+      <a href="/about.html">About</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="/support.html">Support</a>
+      <a href="/press-en">Press</a>
+      <a href="/journey-en">The road to 2.0</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/delete-account.html">Delete account</a>
+    </nav>
+    <p class="copy">© 2026 Maintra</p>
+  </div>
+</footer>
 <script>
 (function(){
   var root = document.documentElement, el = document.getElementById('loader');

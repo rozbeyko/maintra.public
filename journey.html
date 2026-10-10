@@ -9,8 +9,17 @@
 <meta name="description" content="Як Maintra прийшла від першої версії до 2.0: що не влаштовувало, звідки натхнення, які ідеї не вижили і з чого склалась нова мова дизайну.">
 <meta name="theme-color" content="#0B0B0A">
 <link rel="canonical" href="https://maintra.me/journey">
-<link rel="alternate" hreflang="uk" href="https://maintra.me/journey">
 <link rel="alternate" hreflang="en" href="https://maintra.me/journey-en">
+<link rel="alternate" hreflang="uk" href="https://maintra.me/journey">
+<link rel="alternate" hreflang="pl" href="https://maintra.me/pl/journey">
+<link rel="alternate" hreflang="fr" href="https://maintra.me/fr/journey">
+<link rel="alternate" hreflang="it" href="https://maintra.me/it/journey">
+<link rel="alternate" hreflang="es" href="https://maintra.me/es/journey">
+<link rel="alternate" hreflang="de" href="https://maintra.me/de/journey">
+<link rel="alternate" hreflang="ar" href="https://maintra.me/ar/journey">
+<link rel="alternate" hreflang="ko" href="https://maintra.me/ko/journey">
+<link rel="alternate" hreflang="ja" href="https://maintra.me/ja/journey">
+<link rel="alternate" hreflang="zh-Hans" href="https://maintra.me/zh/journey">
 <link rel="alternate" hreflang="x-default" href="https://maintra.me/journey-en">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Maintra">
@@ -23,15 +32,15 @@
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="modulepreload" href="assets/journey/hero3d.js?v=1a7bb98f">
-<link rel="modulepreload" href="assets/journey/three.module.min.js">
-<link rel="modulepreload" href="assets/journey/RoomEnvironment.js">
-<link rel="preload" href="assets/journey/hero-poster.webp" as="image" crossorigin="anonymous" fetchpriority="high">
-<link rel="preload" href="assets/journey/fonts/tektur-400-900-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/journey/fonts/tektur-400-900-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/journey/fonts/firasans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/journey/fonts/firasans-400-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/journey/fonts/firasans-500-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="modulepreload" href="/assets/journey/hero3d.js?v=1a7bb98f">
+<link rel="modulepreload" href="/assets/journey/three.module.min.js">
+<link rel="modulepreload" href="/assets/journey/RoomEnvironment.js">
+<link rel="preload" href="/assets/journey/hero-poster.webp" as="image" crossorigin="anonymous" fetchpriority="high">
+<link rel="preload" href="/assets/journey/fonts/tektur-400-900-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/journey/fonts/tektur-400-900-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/journey/fonts/firasans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/journey/fonts/firasans-400-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/journey/fonts/firasans-500-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 /* cyrillic-ext */
 @font-face {
@@ -39,7 +48,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(assets/journey/fonts/firasans-400-cyrillic-ext.woff2) format('woff2');
+  src: url(/assets/journey/fonts/firasans-400-cyrillic-ext.woff2) format('woff2');
   unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
 }
 /* cyrillic */
@@ -48,7 +57,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(assets/journey/fonts/firasans-400-cyrillic.woff2) format('woff2');
+  src: url(/assets/journey/fonts/firasans-400-cyrillic.woff2) format('woff2');
   unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 /* latin-ext */
@@ -57,7 +66,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(assets/journey/fonts/firasans-400-latin-ext.woff2) format('woff2');
+  src: url(/assets/journey/fonts/firasans-400-latin-ext.woff2) format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -66,7 +75,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(assets/journey/fonts/firasans-400-latin.woff2) format('woff2');
+  src: url(/assets/journey/fonts/firasans-400-latin.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 /* cyrillic-ext */
@@ -75,7 +84,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(assets/journey/fonts/firasans-500-cyrillic-ext.woff2) format('woff2');
+  src: url(/assets/journey/fonts/firasans-500-cyrillic-ext.woff2) format('woff2');
   unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
 }
 /* cyrillic */
@@ -84,7 +93,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(assets/journey/fonts/firasans-500-cyrillic.woff2) format('woff2');
+  src: url(/assets/journey/fonts/firasans-500-cyrillic.woff2) format('woff2');
   unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 /* latin-ext */
@@ -93,7 +102,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(assets/journey/fonts/firasans-500-latin-ext.woff2) format('woff2');
+  src: url(/assets/journey/fonts/firasans-500-latin-ext.woff2) format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -102,7 +111,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(assets/journey/fonts/firasans-500-latin.woff2) format('woff2');
+  src: url(/assets/journey/fonts/firasans-500-latin.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 /* cyrillic-ext */
@@ -111,7 +120,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(assets/journey/fonts/firasans-600-cyrillic-ext.woff2) format('woff2');
+  src: url(/assets/journey/fonts/firasans-600-cyrillic-ext.woff2) format('woff2');
   unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
 }
 /* cyrillic */
@@ -120,7 +129,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(assets/journey/fonts/firasans-600-cyrillic.woff2) format('woff2');
+  src: url(/assets/journey/fonts/firasans-600-cyrillic.woff2) format('woff2');
   unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 /* latin-ext */
@@ -129,7 +138,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(assets/journey/fonts/firasans-600-latin-ext.woff2) format('woff2');
+  src: url(/assets/journey/fonts/firasans-600-latin-ext.woff2) format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -138,7 +147,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(assets/journey/fonts/firasans-600-latin.woff2) format('woff2');
+  src: url(/assets/journey/fonts/firasans-600-latin.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 /* cyrillic-ext */
@@ -147,7 +156,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(assets/journey/fonts/firasans-700-cyrillic-ext.woff2) format('woff2');
+  src: url(/assets/journey/fonts/firasans-700-cyrillic-ext.woff2) format('woff2');
   unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
 }
 /* cyrillic */
@@ -156,7 +165,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(assets/journey/fonts/firasans-700-cyrillic.woff2) format('woff2');
+  src: url(/assets/journey/fonts/firasans-700-cyrillic.woff2) format('woff2');
   unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 /* latin-ext */
@@ -165,7 +174,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(assets/journey/fonts/firasans-700-latin-ext.woff2) format('woff2');
+  src: url(/assets/journey/fonts/firasans-700-latin-ext.woff2) format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -174,7 +183,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(assets/journey/fonts/firasans-700-latin.woff2) format('woff2');
+  src: url(/assets/journey/fonts/firasans-700-latin.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 /* cyrillic-ext */
@@ -184,7 +193,7 @@
   font-weight: 400 900;
   font-stretch: 75% 100%;
   font-display: swap;
-  src: url(assets/journey/fonts/tektur-400-900-cyrillic-ext.woff2) format('woff2');
+  src: url(/assets/journey/fonts/tektur-400-900-cyrillic-ext.woff2) format('woff2');
   unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
 }
 /* cyrillic */
@@ -194,7 +203,7 @@
   font-weight: 400 900;
   font-stretch: 75% 100%;
   font-display: swap;
-  src: url(assets/journey/fonts/tektur-400-900-cyrillic.woff2) format('woff2');
+  src: url(/assets/journey/fonts/tektur-400-900-cyrillic.woff2) format('woff2');
   unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 /* latin-ext */
@@ -204,7 +213,7 @@
   font-weight: 400 900;
   font-stretch: 75% 100%;
   font-display: swap;
-  src: url(assets/journey/fonts/tektur-400-900-latin-ext.woff2) format('woff2');
+  src: url(/assets/journey/fonts/tektur-400-900-latin-ext.woff2) format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -214,11 +223,288 @@
   font-weight: 400 900;
   font-stretch: 75% 100%;
   font-display: swap;
-  src: url(assets/journey/fonts/tektur-400-900-latin.woff2) format('woff2');
+  src: url(/assets/journey/fonts/tektur-400-900-latin.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 </style>
 <style>
+/* the site's header and footer (site only, from home.css) */
+:root {
+  --bg: #0B0B0A;
+  --surface: #151513;
+  --card: #1C1B19;
+  --hair: #23211E;
+  --edge: #3A3732;
+  --control: #67625B;
+  --track: #2A2825;
+  --text: #ECE4D6;
+  --text2: #8F897E;
+  --muted: #6A665E;
+  --gold: #F4B223;
+  --gold-hi: #FFC542;
+  --on-gold: #0B0B0A;
+  --amber: #F0A33A;
+  --red: #EE4F37;
+  --green: #8CC084;
+  --stamp: #FF8A2A;
+  --vip: #A78BFA;
+  --paper: #F3EFE6;
+  --ink: #1B1A17;
+  --accent: var(--gold);
+  /* gold as a line or as text (underlines, current marks, numbers) */
+  --accent-line: var(--accent);
+  --glass: rgba(11, 11, 10, .72);
+  --glass-menu: rgba(21, 21, 19, .9);
+  --sheen: rgba(255, 255, 255, .06);
+  --hover: rgba(255, 255, 255, .04);
+  --drop: rgba(0, 0, 0, .6);
+  --dot: rgba(255, 255, 255, .9);
+  --dot-ring: rgba(255, 255, 255, .14);
+  --plate: rgba(21, 21, 19, .92);
+  --pol-shadow: 0 34px 70px rgba(0, 0, 0, .75), 0 2px 4px rgba(0, 0, 0, .3);
+  --lg-stem: #8F897E;
+  --lg-ink: #ECE4D6;
+  --lg-gold: #F4B223;
+  --lg-shade: #9A6700;
+  --display: Tektur, 'Arial Narrow', sans-serif;
+  --sans: 'Fira Sans', 'Helvetica Neue', Arial, sans-serif;
+  --nav: 64px;
+  --gutter: clamp(16px, 3.6vw, 140px);
+  --slant: 10px;
+  --cut: 14px;
+  --ease: cubic-bezier(.2, .8, .2, 1);
+  --sec: clamp(88px, 14vh, 240px);
+  color-scheme: dark;
+}
+:lang(ar) {
+  --display: 'Noto Kufi Arabic', Tektur, 'Geeza Pro', 'Segoe UI', sans-serif;
+  --sans: 'IBM Plex Sans Arabic', 'Fira Sans', 'Geeza Pro', 'Segoe UI', sans-serif;
+}
+:lang(ja) {
+  --display: Tektur, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', Meiryo, sans-serif;
+  --sans: 'Fira Sans', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', Meiryo, sans-serif;
+}
+:lang(ko) {
+  --display: Tektur, 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', sans-serif;
+  --sans: 'Fira Sans', 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', sans-serif;
+}
+:lang(zh) {
+  --display: Tektur, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+  --sans: 'Fira Sans', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+}
+
+.skip{position:fixed;z-index:200;inset-inline-start:12px;top:-60px;padding:10px 16px;background:var(--accent);color:var(--on-gold);font-weight:700;text-decoration:none;transition:top .2s}
+.skip:focus{top:12px}
+:is(.top,.menu,.foot) a{color:inherit}
+:is(.top,.menu) button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+
+:is(.top,.menu) .btn {
+  --h: 54px;
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: var(--h);
+  padding: 0 28px;
+  font: 700 16px/1 var(--sans);
+  text-decoration: none;
+  white-space: nowrap;
+  clip-path: polygon(var(--slant) 0, 100% 0, calc(100% - var(--slant)) 100%, 0 100%);
+  transition: background .2s, color .2s, transform .15s var(--ease);
+}
+:is(.top,.menu) .btn:active { transform: translateY(1px) scale(.985); }
+:is(.top,.menu) .btn-gold { background: var(--accent); color: var(--on-gold); }
+:is(.top,.menu) .btn-gold:hover { background: var(--gold-hi); }
+:is(.top,.menu) .btn-line { background: var(--control); color: var(--text); }
+:is(.top,.menu) .btn-line::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 1px 1.5px;
+  background: var(--bg);
+  clip-path: polygon(var(--slant) 0, 100% 0, calc(100% - var(--slant)) 100%, 0 100%);
+  transition: background .2s;
+}
+:is(.top,.menu) .btn-line:hover { background: var(--text2); }
+:is(.top,.menu) .btn-line:hover::before { background: var(--surface); }
+:is(.top,.menu) .btn-sm { --h: 40px; padding: 0 20px; font-size: 14px; --slant: 8px; }
+:is(.top,.menu) .store { --h: 60px; padding: 0 30px 0 26px; text-align: start; }
+:is(.top,.menu) .store svg { width: 24px; height: 24px; flex: none; }
+:is(.top,.menu) .store span { display: flex; flex-direction: column; gap: 3px; font-size: 19px; letter-spacing: -.01em; }
+:is(.top,.menu) .store small { font: 500 11.5px/1 var(--sans); opacity: .8; letter-spacing: .01em; }
+:is(.top,.menu) .stores { display: flex; flex-wrap: wrap; gap: 10px 12px; }
+
+:is(.top,.menu) .i { width: 1em; height: 1em; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: square; stroke-linejoin: miter; vertical-align: -.14em; }
+
+:is(.top,.menu) .oct { display: inline-block; width: 10px; height: 10px; flex: none; background: currentColor; clip-path: polygon(29% 0, 71% 0, 100% 29%, 100% 71%, 71% 100%, 29% 100%, 0 71%, 0 29%); }
+
+
+/* ------------------------------------------------------------------ top */
+.top {
+  position: fixed;
+  z-index: 60;
+  inset: 0 0 auto;
+  height: var(--nav);
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 2vw, 44px);
+  padding: 0 var(--gutter);
+  transition: background .3s, box-shadow .3s;
+}
+.top.solid {
+  background: linear-gradient(115deg, var(--sheen), transparent 40%, color-mix(in srgb, var(--sheen) 60%, transparent)), var(--glass);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  backdrop-filter: blur(18px) saturate(160%);
+  box-shadow: inset 0 -1px 0 var(--hair), inset 0 1px 0 var(--sheen);
+}
+.brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text); flex: none; min-height: 44px; }
+.brand .mt { height: 22px; width: auto; overflow: visible; }
+.brand .word { font: italic 800 23px/1 var(--display); font-stretch: 78%; text-transform: uppercase; letter-spacing: .01em; }
+.top-nav { display: none; gap: clamp(14px, 1.8vw, 40px); margin-inline-start: clamp(8px, 2vw, 48px); }
+.top-nav a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  font: 700 14px/1 var(--display);
+  font-stretch: 78%;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--text2);
+  text-decoration: none;
+  transition: color .2s;
+}
+.top-nav a:hover, .top-nav a[aria-current] { color: var(--text); }
+.top-nav a[aria-current]::after { content: ''; position: absolute; inset-inline: 0; bottom: 8px; height: 2px; background: var(--accent-line); transform: skewX(-24deg); }
+.lang { position: relative; margin-inline-start: auto; }
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 8px;
+  font: 700 14px/1 var(--display);
+  font-stretch: 78%;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--text2);
+  transition: color .2s;
+}
+.lang-btn:hover, .lang-btn[aria-expanded='true'] { color: var(--text); }
+.lang-btn .i { font-size: 18px; }
+/* the theme switch: a sun to go light, a moon to go dark */
+.theme-btn { display: grid; place-items: center; width: 44px; height: 44px; color: var(--text2); transition: color .2s; }
+.theme-btn:hover { color: var(--text); }
+.theme-btn .i { grid-area: 1 / 1; font-size: 19px; }
+.theme-btn .moon, :root[data-theme='light'] .theme-btn .i:not(.moon) { display: none; }
+:root[data-theme='light'] .theme-btn .moon { display: block; }
+.lang-menu {
+  position: absolute;
+  inset-inline-end: 0;
+  top: calc(100% + 8px);
+  min-width: 220px;
+  margin: 0;
+  padding: 8px 0;
+  list-style: none;
+  background: linear-gradient(115deg, var(--sheen), transparent 40%, color-mix(in srgb, var(--sheen) 70%, transparent)), var(--glass-menu);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  backdrop-filter: blur(22px) saturate(160%);
+  box-shadow: inset 0 1px 0 var(--sheen), 0 24px 48px var(--drop);
+  clip-path: polygon(var(--cut) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cut));
+}
+.lang-menu[hidden] { display: none; }
+.lang-menu a { display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 20px; font: 500 16px/1 system-ui, var(--sans); color: var(--text2); text-decoration: none; }
+.lang-menu a:hover { color: var(--text); background: var(--hover); }
+.lang-menu a[aria-current] { color: var(--text); }
+.lang-menu a[aria-current]::after { content: ''; margin-inline-start: auto; width: 9px; height: 9px; background: var(--accent-line); clip-path: polygon(29% 0, 71% 0, 100% 29%, 100% 71%, 71% 100%, 29% 100%, 0 71%, 0 29%); }
+.lang-menu .code { width: 26px; font: 700 12px/1 var(--display); font-stretch: 78%; letter-spacing: .1em; color: var(--muted); text-transform: uppercase; }
+.top-get { display: none; }
+@media (min-width: 560px) { .top-get { display: inline-flex; } }
+@media (min-width: 1100px) { .top-nav { display: flex; } }
+
+/* The menu, where the header has no room for its links: three bars that
+   lean like the logo's, the last one short and gold; open, they cross. */
+.menu-btn { display: grid; place-items: center; width: 44px; height: 44px; margin-inline-end: -8px; color: var(--text); }
+.menu-btn i { grid-area: 1 / 1; display: block; width: 22px; height: 2.5px; background: currentColor; transition: transform .3s var(--ease), opacity .2s, width .3s var(--ease); }
+.menu-btn i:nth-child(1) { transform: translateY(-7px) skewX(-24deg); }
+.menu-btn i:nth-child(2) { transform: skewX(-24deg); }
+.menu-btn i:nth-child(3) { width: 13px; justify-self: end; margin-inline-end: 11px; background: var(--accent); transform: translateY(7px) skewX(-24deg); }
+.menu-btn[aria-expanded='true'] i:nth-child(1) { transform: rotate(45deg); }
+.menu-btn[aria-expanded='true'] i:nth-child(2) { opacity: 0; transform: scaleX(.2); }
+.menu-btn[aria-expanded='true'] i:nth-child(3) { width: 22px; margin-inline-end: 11px; background: currentColor; transform: rotate(-45deg); }
+.menu {
+  position: fixed;
+  z-index: 59;
+  inset: var(--nav) 0 auto;
+  max-height: calc(100svh - var(--nav));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 6px var(--gutter) 26px;
+  background: linear-gradient(115deg, var(--sheen), transparent 40%, color-mix(in srgb, var(--sheen) 60%, transparent)), var(--glass-menu);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  backdrop-filter: blur(22px) saturate(160%);
+  box-shadow: inset 0 -1px 0 var(--hair), 0 30px 60px var(--drop);
+}
+.menu[hidden] { display: none; }
+.menu nav { display: flex; flex-direction: column; border-top: 1px solid var(--hair); }
+.menu nav a {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  min-height: 60px;
+  padding: 16px 2px 14px;
+  border-bottom: 1px solid var(--hair);
+  font: italic 800 clamp(28px, 7vw, 44px)/1 var(--display);
+  font-stretch: 78%;
+  text-transform: uppercase;
+  color: var(--text);
+  text-decoration: none;
+}
+:lang(ar) .menu nav a, :lang(ja) .menu nav a, :lang(ko) .menu nav a, :lang(zh) .menu nav a { font-style: normal; }
+.menu nav a .n { flex: none; width: 2.2em; font: 600 12px/1 var(--display); font-stretch: 78%; letter-spacing: .14em; color: var(--muted); }
+.menu nav a[aria-current='true'] .n { color: var(--accent-line); }
+.menu nav a:hover { color: var(--accent-line); }
+.menu-get { margin-top: 22px; }
+@media (min-width: 560px) { .menu-get { display: none; } }
+/* in: the sheet drops in, the rows follow it 40 ms apart, as the app's + menu does */
+.menu.in { animation: menuIn .32s var(--ease) both; }
+.menu.in nav a, .menu.in .menu-get { animation: menuRow .42s var(--ease) both; }
+.menu.in nav a:nth-child(2) { animation-delay: 40ms; }
+.menu.in nav a:nth-child(3) { animation-delay: 80ms; }
+.menu.in nav a:nth-child(4) { animation-delay: 120ms; }
+.menu.in .menu-get { animation-delay: 160ms; }
+@keyframes menuIn { from { opacity: 0; transform: translateY(-10px); } }
+@keyframes menuRow { from { opacity: 0; transform: translateX(-18px); } }
+[dir='rtl'] .menu.in nav a, [dir='rtl'] .menu.in .menu-get { animation-name: menuRowR; }
+@keyframes menuRowR { from { opacity: 0; transform: translateX(18px); } }
+@media (prefers-reduced-motion: reduce) { .menu.in, .menu.in nav a, .menu.in .menu-get { animation: none; } }
+.top.open { background: var(--glass-menu); -webkit-backdrop-filter: blur(22px) saturate(160%); backdrop-filter: blur(22px) saturate(160%); }
+@media (min-width: 1100px) { .menu-btn, .menu { display: none !important; } }
+
+
+/* -------------------------------------------------------------- footer */
+.foot { border-top: 1px solid var(--hair); padding: clamp(40px, 7vh, 96px) var(--gutter) 40px; color: var(--text2); }
+.foot-in { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px 48px; }
+.foot-brand { display: flex; flex-direction: column; gap: 12px; }
+.foot-links, .foot-langs { display: flex; flex-wrap: wrap; gap: 4px 22px; }
+.foot-links a, .foot-langs a { display: inline-flex; align-items: center; min-height: 44px; color: var(--text2); text-decoration: none; font-size: 15px; }
+.foot-links a:hover, .foot-langs a:hover { color: var(--text); }
+.foot-langs a { font-family: system-ui, var(--sans); }
+.foot-langs a[aria-current] { color: var(--text); }
+.copy { font-size: 14px; color: var(--muted); }
+@media (min-width: 1000px) { .foot-in { grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); } .foot-langs, .copy { grid-column: 2; } }
+
+
+.foot{font-family:var(--sans)}
+/* the scoped controls outrank these two, so they are said again */
+.top .top-get{display:none}
+@media (min-width:560px){.top .top-get{display:inline-flex}.menu .menu-get{display:none}}
+:lang(ar) :is(h1,h2,h3),:lang(ja) :is(h1,h2,h3),:lang(ko) :is(h1,h2,h3),:lang(zh) :is(h1,h2,h3){font-style:normal;letter-spacing:0}
+:lang(ko){word-break:keep-all;overflow-wrap:break-word}
+:lang(ja),:lang(zh){line-break:strict}
+
 /* Layout: one long garage wall. Narrow reading column for words, full-bleed strips for screens. Dark only, like the app's night garage. */
 :root{
   --bg:#0B0B0A; --surface:#151513; --surface2:#1C1B19; --line:#23211E; --edge:#3A3732;
@@ -232,7 +518,7 @@
 body{margin:0;background:var(--bg);color:var(--text);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:var(--gold)}
-.wall{position:fixed;inset:0;background:url(assets/journey/doodle.webp) center/520px repeat;opacity:.05;pointer-events:none;z-index:0}
+.wall{position:fixed;inset:0;background:url(/assets/journey/doodle.webp) center/520px repeat;opacity:.05;pointer-events:none;z-index:0}
 main{position:relative;z-index:1;padding-inline:20px;padding-block:0 80px}
 .col{max-width:var(--col);margin-inline:auto}
 .wide{max-width:1180px;margin-inline:auto}
@@ -440,18 +726,11 @@ footer{padding-block:70px 20px;display:grid;gap:14px;justify-items:start}
 }
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 
-/* language switch (site only, not in the design) */
-.lang{position:absolute;top:10px;right:max(10px,calc((100% - 1180px) / 2));z-index:3;display:flex;align-items:center;font-family:var(--display);font-stretch:78%;font-weight:700;font-size:14px;letter-spacing:.14em}
-.lang a{display:inline-flex;align-items:center;min-height:44px;padding:0 10px;color:var(--muted);text-decoration:none}
-.lang a:hover{color:var(--text)}
-.lang a[aria-current]{color:var(--gold)}
-.lang span{color:var(--dim)}
-
 /* loader (site only): the mark's spring from the Logo artifact, R16-Motion,
    "Loading · 2.4 s a cycle", keyframes copied as drawn. Only with JS, so a
    visitor without it gets the page, not a cover that never lifts. */
 .loader{display:none}
-html.js .loader{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:var(--bg);transition:opacity .35s ease}
+html.js .loader{position:fixed;inset:0;z-index:400;display:grid;place-items:center;background:var(--bg);transition:opacity .35s ease}
 html.js .loader.out{opacity:0;pointer-events:none}
 html.loading{overflow:hidden}
 .loader svg{width:min(120px,30vw);height:auto;overflow:visible}
@@ -464,7 +743,14 @@ html.loading{overflow:hidden}
 :root{--gut:clamp(20px,3.6vw,140px)}
 main{padding-inline:var(--gut)}
 main .col,main .wide{max-width:none;margin-inline:0}
-.lang{right:var(--gut)}
+/* the hero starts under the header */
+main>.hero{padding-top:calc(var(--nav) + 24px)}
+/* a long word in a language other than the design's (Polish, Arabic) must
+   not widen a phone's page: the column may shrink, the word may break */
+main>.hero>*{min-width:0}
+.hero h1{overflow-wrap:break-word;hyphens:auto}
+@media (max-width:1099px){main>.hero{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:640px){h1 .l{white-space:normal}}
 @media (min-width:1100px){
   body{font-size:clamp(17px,.22vw + 14px,22px)}
   h2{font-size:clamp(44px,3.2vw,104px)}
@@ -477,10 +763,11 @@ main .col,main .wide{max-width:none;margin-inline:0}
   main>section{display:grid;grid-template-columns:minmax(300px,30%) minmax(0,1fr);column-gap:clamp(48px,5vw,180px);align-items:start;padding-block:clamp(72px,12vh,220px) 8px}
   /* the left column: the stripe and the heading share one area, so the
      first picture's row can't push the heading down */
-  main>section.col>.hazard,main>section.col>.head{grid-column:1;grid-row:1/span 60;align-self:start;position:sticky;top:calc(var(--gut) + 6vh)}
-  main>section.col>.head{margin-top:30px}
+  main>section.col>.hazard,main>section.col>.head{grid-column:1;grid-row:1/span 60;align-self:start;position:sticky;top:calc(var(--nav) + 4vh)}
+  /* stuck, a margin no longer counts: the heading sits under the stripe by its offset */
+  main>section.col>.head{margin-top:30px;top:calc(var(--nav) + 4vh + 30px)}
   main>section.col>:not(.hazard):not(.head){grid-column:2}
-  main>section.wide>.col:first-child{grid-column:1;grid-row:1/span 60;align-self:start;position:sticky;top:calc(var(--gut) + 6vh)}
+  main>section.wide>.col:first-child{grid-column:1;grid-row:1/span 60;align-self:start;position:sticky;top:calc(var(--nav) + 4vh)}
   main>section.wide>:not(.col:first-child){grid-column:2}
   main>section.wide>.col~.col{position:static}
   main>footer{padding-inline:0}
@@ -513,6 +800,7 @@ html.js main img:focus-visible{outline-color:var(--gold)}
 @keyframes zIn{from{opacity:0;transform:scale(.97)}}
 @media (prefers-reduced-motion:reduce){.zoom[open]{animation:none}}
 </style>
+<script type="module" src="/assets/home/site.js?v=6b25487e"></script>
 </head>
 <body>
 <div class="loader" id="loader" role="status"><svg viewBox="0 0 100 100" aria-hidden="true">
@@ -529,9 +817,35 @@ html.js main img:focus-visible{outline-color:var(--gold)}
 <g class="ld" style="--dx:-22.97"><path d="M28.97,75.39 L43.40,75.39 L59.90,24.61 L45.46,24.61 Z" fill="#ECE4D6"/></g>
 <g class="ld" style="--dx:-45.93"><path d="M51.93,75.39 L66.37,75.39 L82.86,24.61 L68.43,24.61 Z" fill="#F4B223"/></g>
 </svg><span class="sr">Завантаження</span></div>
+<a class="skip" href="#main">Перейти до змісту</a>
+<header class="top" id="top">
+  <a class="brand" href="/uk/" aria-label="Maintra"><svg class="mt" viewBox="0 0 100 57.69" aria-hidden="true"><path d="M26.10,0.00 L35.15,0.00 L35.15,57.69 L26.10,57.69 Z" style="fill:var(--lg-stem)"/><path d="M52.20,0.00 L61.25,0.00 L61.25,57.69 L52.20,57.69 Z" style="fill:var(--lg-stem)"/><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" style="fill:var(--lg-gold)"/><clipPath id="mtc1"><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z"/></clipPath><g clip-path="url(#mtc1)"><path d="M2.40,57.69 L18.80,57.69 L37.55,0.00 L21.15,0.00 Z" style="fill:var(--lg-shade)"/><path d="M28.50,57.69 L44.90,57.69 L63.65,0.00 L47.24,0.00 Z" style="fill:var(--lg-shade)"/><path d="M54.60,57.69 L71.00,57.69 L89.75,0.00 L73.34,0.00 Z" style="fill:var(--lg-shade)"/></g><path d="M0.00,57.69 L16.40,57.69 L35.15,0.00 L18.75,0.00 Z" style="fill:var(--lg-ink)"/><path d="M26.10,57.69 L42.50,57.69 L61.25,0.00 L44.84,0.00 Z" style="fill:var(--lg-ink)"/><path d="M52.20,57.69 L68.60,57.69 L87.35,0.00 L70.94,0.00 Z" style="fill:var(--lg-gold)"/></svg><span class="word">Maintra</span></a>
+  <nav class="top-nav" aria-label="Maintra">
+    <a href="/uk/#tour">Спробуй</a>
+    <a href="/uk/faq.html">Часті питання</a>
+    <a href="/uk/support.html">Підтримка</a>
+    <a href="/press">Для преси</a>
+    <a href="/uk/about.html">Про розробника</a>
+  </nav>
+  <div class="lang">
+    <button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="Мова"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 3.5h7l5 5v7l-5 5h-7l-5-5v-7z"></path><path d="M3.5 12h17M12 3.5L8.5 12l3.5 8.5M12 3.5l3.5 8.5-3.5 8.5"></path></svg><span>UK</span></button>
+    <ul class="lang-menu" id="lang-menu" hidden><li><a href="/journey-en" hreflang="en" lang="en" data-lang="en"><span class="code">en</span>English</a></li><li><a href="/journey" hreflang="uk" lang="uk" data-lang="uk" aria-current="true"><span class="code">uk</span>Українська</a></li><li><a href="/pl/journey" hreflang="pl" lang="pl" data-lang="pl"><span class="code">pl</span>Polski</a></li><li><a href="/fr/journey" hreflang="fr" lang="fr" data-lang="fr"><span class="code">fr</span>Français</a></li><li><a href="/it/journey" hreflang="it" lang="it" data-lang="it"><span class="code">it</span>Italiano</a></li><li><a href="/es/journey" hreflang="es" lang="es" data-lang="es"><span class="code">es</span>Español</a></li><li><a href="/de/journey" hreflang="de" lang="de" data-lang="de"><span class="code">de</span>Deutsch</a></li><li><a href="/ar/journey" hreflang="ar" lang="ar" dir="rtl" data-lang="ar"><span class="code">ar</span>العربية</a></li><li><a href="/ko/journey" hreflang="ko" lang="ko" data-lang="ko"><span class="code">ko</span>한국어</a></li><li><a href="/ja/journey" hreflang="ja" lang="ja" data-lang="ja"><span class="code">ja</span>日本語</a></li><li><a href="/zh/journey" hreflang="zh-Hans" lang="zh-Hans" data-lang="zh"><span class="code">zh</span>简体中文</a></li></ul>
+  </div>
+  <a class="btn btn-line btn-sm top-get" href="/uk/#get">Завантажити</a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Меню"><i></i><i></i><i></i></button>
+</header>
+<div class="menu" id="menu" hidden>
+  <nav aria-label="Меню">
+    <a href="/uk/#tour"><span class="n">01</span>Спробуй</a>
+    <a href="/uk/faq.html"><span class="n">02</span>Часті питання</a>
+    <a href="/uk/support.html"><span class="n">03</span>Підтримка</a>
+    <a href="/press"><span class="n">04</span>Для преси</a>
+    <a href="/uk/about.html"><span class="n">05</span>Про розробника</a>
+  </nav>
+  <a class="btn btn-gold menu-get" href="/uk/#get">Завантажити</a>
+</div>
 <div class="wall" aria-hidden="true"></div>
-<main>
-<nav class="lang" aria-label="Мова"><a href="/journey" lang="uk" hreflang="uk" aria-current="page">UA</a><span aria-hidden="true">/</span><a href="/journey-en" lang="en" hreflang="en">EN</a></nav>
+<main id="main">
 
 <header class="hero wide">
   <div class="hero-txt">
@@ -542,7 +856,7 @@ html.js main img:focus-visible{outline-color:var(--gold)}
   </div>
   <div class="hero-3d" id="hero3d" role="img" aria-label="Maintra 2.0 на телефоні: гараж, меню плюса, свайп між авто і полароїд, що стає шапкою">
     <canvas aria-hidden="true"></canvas>
-    <div class="hero-fallback" aria-hidden="true"><video id="heroVid" src="assets/journey/hero.mp4" data-poster="assets/journey/hero-poster.webp" muted loop playsinline preload="none"></video></div>
+    <div class="hero-fallback" aria-hidden="true"><video id="heroVid" src="/assets/journey/hero.mp4" data-poster="/assets/journey/hero-poster.webp" muted loop playsinline preload="none"></video></div>
   </div>
 </header>
 
@@ -557,25 +871,25 @@ html.js main img:focus-visible{outline-color:var(--gold)}
   <div class="era">
     <span class="era-tag"><i class="oct"></i>Перша версія</span>
     <div class="phones">
-      <figure class="ph"><img src="assets/journey/old-garage.webp" alt="Перша версія Maintra: гараж з однією карткою авто" loading="lazy"><figcaption><b>Гараж</b>Картка авто, кнопка «додати» і золота шестерня з мандалою в навбарі.</figcaption></figure>
-      <figure class="ph"><img src="assets/journey/old-car.webp" alt="Перша версія Maintra: екран авто зі списком сервісів" loading="lazy"><figcaption><b>Авто</b>Список робіт, вкладки, ціни. Чисто, але дефолтно і без власного стилю.</figcaption></figure>
+      <figure class="ph"><img src="/assets/journey/old-garage.webp" alt="Перша версія Maintra: гараж з однією карткою авто" loading="lazy"><figcaption><b>Гараж</b>Картка авто, кнопка «додати» і золота шестерня з мандалою в навбарі.</figcaption></figure>
+      <figure class="ph"><img src="/assets/journey/old-car.webp" alt="Перша версія Maintra: екран авто зі списком сервісів" loading="lazy"><figcaption><b>Авто</b>Список робіт, вкладки, ціни. Чисто, але дефолтно і без власного стилю.</figcaption></figure>
     </div>
   </div>
 
   <div class="era">
     <span class="era-tag"><i class="oct"></i>1.5</span>
     <div class="phones">
-      <figure class="ph"><img src="assets/journey/v15-garage.webp" alt="Maintra 1.5: гараж з двома авто, документами і шинами" loading="lazy"><figcaption><b>Гараж</b>Два авто, план, документи, шини. Все потрібне, але все однакової ваги.</figcaption></figure>
-      <figure class="ph"><img src="assets/journey/v15-car.webp" alt="Maintra 1.5: екран авто з вішлистом і олива-фільтрами" loading="lazy"><figcaption><b>Авто</b>Вішлист, полиця, інтервали. Кнопок більше, ніж відповідей.</figcaption></figure>
+      <figure class="ph"><img src="/assets/journey/v15-garage.webp" alt="Maintra 1.5: гараж з двома авто, документами і шинами" loading="lazy"><figcaption><b>Гараж</b>Два авто, план, документи, шини. Все потрібне, але все однакової ваги.</figcaption></figure>
+      <figure class="ph"><img src="/assets/journey/v15-car.webp" alt="Maintra 1.5: екран авто з вішлистом і олива-фільтрами" loading="lazy"><figcaption><b>Авто</b>Вішлист, полиця, інтервали. Кнопок більше, ніж відповідей.</figcaption></figure>
     </div>
   </div>
 
   <div class="era">
     <span class="era-tag"><i class="oct"></i>1.6, перед редизайном</span>
     <div class="phones">
-      <figure class="ph"><img src="assets/journey/now-garage.webp" alt="Maintra 1.6: гараж з полароїдом і лічильником пробігу" loading="lazy"><figcaption><b>Гараж</b>З'явився полароїд. І ще здоров'я, сервіс, вішлист, витрати, наступні роботи.</figcaption></figure>
-      <figure class="ph"><img src="assets/journey/now-car.webp" alt="Maintra 1.6: екран авто" loading="lazy"><figcaption><b>Авто</b>Історія робіт уже головна, але тоне серед плашок.</figcaption></figure>
-      <figure class="ph"><img src="assets/journey/now-plan.webp" alt="Maintra 1.6: план обслуговування" loading="lazy"><figcaption><b>План</b>AI-план робить свою справу, а виглядає як усе інше. Плюс згенеровані AI іконки, які помічає кожен і каже «слоп, фу».</figcaption></figure>
+      <figure class="ph"><img src="/assets/journey/now-garage.webp" alt="Maintra 1.6: гараж з полароїдом і лічильником пробігу" loading="lazy"><figcaption><b>Гараж</b>З'явився полароїд. І ще здоров'я, сервіс, вішлист, витрати, наступні роботи.</figcaption></figure>
+      <figure class="ph"><img src="/assets/journey/now-car.webp" alt="Maintra 1.6: екран авто" loading="lazy"><figcaption><b>Авто</b>Історія робіт уже головна, але тоне серед плашок.</figcaption></figure>
+      <figure class="ph"><img src="/assets/journey/now-plan.webp" alt="Maintra 1.6: план обслуговування" loading="lazy"><figcaption><b>План</b>AI-план робить свою справу, а виглядає як усе інше. Плюс згенеровані AI іконки, які помічає кожен і каже «слоп, фу».</figcaption></figure>
     </div>
     <p class="quote">Користувачі писали прямо: перевантажено, і виглядає як AI slop. Це і стало стартом.</p>
   </div>
@@ -617,7 +931,7 @@ html.js main img:focus-visible{outline-color:var(--gold)}
           <li>Спокійні меню, де кожна дія приємна, як звук механіки.</li>
         </ul>
       </div>
-      <div class="pics three"><img src="assets/journey/x-card.webp" alt="Набросок: авто як колекційна картка з класом і станом по вузлах" loading="lazy"><img src="assets/journey/x-game-garage.webp" alt="Набросок v4: гараж як у гоночній грі" loading="lazy"><img src="assets/journey/x-pit-rating.webp" alt="Набросок v5: рейтинг серед власників Pajero" loading="lazy"></div>
+      <div class="pics three"><img src="/assets/journey/x-card.webp" alt="Набросок: авто як колекційна картка з класом і станом по вузлах" loading="lazy"><img src="/assets/journey/x-game-garage.webp" alt="Набросок v4: гараж як у гоночній грі" loading="lazy"><img src="/assets/journey/x-pit-rating.webp" alt="Набросок v5: рейтинг серед власників Pajero" loading="lazy"></div>
     </article>
     <article class="ref">
       <div class="txt">
@@ -629,7 +943,7 @@ html.js main img:focus-visible{outline-color:var(--gold)}
           <li>Темний фон і один яскравий колір, який означає «натисни тут».</li>
         </ul>
       </div>
-      <div class="pics"><img src="assets/journey/x-v12-garage.webp" alt="Набросок v12: чорне, золото, шестикутники" loading="lazy"><img src="assets/journey/x-v19-garage-menu.webp" alt="Набросок v19: вішлист, документи і шини як меню гри" loading="lazy"></div>
+      <div class="pics"><img src="/assets/journey/x-v12-garage.webp" alt="Набросок v12: чорне, золото, шестикутники" loading="lazy"><img src="/assets/journey/x-v19-garage-menu.webp" alt="Набросок v19: вішлист, документи і шини як меню гри" loading="lazy"></div>
     </article>
     <article class="ref">
       <div class="txt">
@@ -641,7 +955,7 @@ html.js main img:focus-visible{outline-color:var(--gold)}
           <li>Темна і світла тема з першого дня.</li>
         </ul>
       </div>
-      <div class="pics"><img src="assets/journey/x-premium-garage.webp" alt="Набросок v2: преміальний гараж" loading="lazy"><img src="assets/journey/x-v24-garage-open.webp" alt="Набросок v24: скляний трей над навбаром" loading="lazy"></div>
+      <div class="pics"><img src="/assets/journey/x-premium-garage.webp" alt="Набросок v2: преміальний гараж" loading="lazy"><img src="/assets/journey/x-v24-garage-open.webp" alt="Набросок v24: скляний трей над навбаром" loading="lazy"></div>
     </article>
     <article class="ref full">
       <div class="txt">
@@ -655,12 +969,12 @@ html.js main img:focus-visible{outline-color:var(--gold)}
         </ul>
       </div>
       <div class="els">
-        <figure><img src="assets/journey/doodle.webp" alt="Шпалери з дрібних інструментів" loading="lazy"><figcaption>Фон · був і лишився</figcaption></figure>
-        <figure><img src="assets/journey/el-polaroid-old.webp" alt="Полароїд у попередній версії" loading="lazy"><figcaption>Полароїд · було</figcaption></figure>
-        <figure><img src="assets/journey/el-polaroid.webp" alt="Полароїд у 2.0" loading="lazy"><figcaption>Полароїд · стало</figcaption></figure>
-        <figure class="fr"><img src="assets/journey/el-frames.webp" alt="Рамки полароїда: класична, вугільна, дудл" loading="lazy"><figcaption>Рамки</figcaption></figure>
-        <figure class="w2"><picture><source media="(max-width:760px)" srcset="assets/journey/el-icons-m.webp"><img src="assets/journey/el-icons.webp" alt="Іконки речей і категорій" loading="lazy"></picture><figcaption>Іконки · один аркуш</figcaption></figure>
-        <figure class="w3"><div class="frs"><img src="assets/journey/fr-rust.webp" alt="Рамка: метал з заклепками" loading="lazy"><img src="assets/journey/fr-topo.webp" alt="Рамка: топографічна карта" loading="lazy"><img src="assets/journey/fr-pearl.webp" alt="Рамка: перламутр" loading="lazy"><img src="assets/journey/fr-carbon.webp" alt="Рамка: білий карбон" loading="lazy"></div></figure>
+        <figure><img src="/assets/journey/doodle.webp" alt="Шпалери з дрібних інструментів" loading="lazy"><figcaption>Фон · був і лишився</figcaption></figure>
+        <figure><img src="/assets/journey/el-polaroid-old.webp" alt="Полароїд у попередній версії" loading="lazy"><figcaption>Полароїд · було</figcaption></figure>
+        <figure><img src="/assets/journey/el-polaroid.webp" alt="Полароїд у 2.0" loading="lazy"><figcaption>Полароїд · стало</figcaption></figure>
+        <figure class="fr"><img src="/assets/journey/el-frames.webp" alt="Рамки полароїда: класична, вугільна, дудл" loading="lazy"><figcaption>Рамки</figcaption></figure>
+        <figure class="w2"><picture><source media="(max-width:760px)" srcset="/assets/journey/el-icons-m.webp"><img src="/assets/journey/el-icons.webp" alt="Іконки речей і категорій" loading="lazy"></picture><figcaption>Іконки · один аркуш</figcaption></figure>
+        <figure class="w3"><div class="frs"><img src="/assets/journey/fr-rust.webp" alt="Рамка: метал з заклепками" loading="lazy"><img src="/assets/journey/fr-topo.webp" alt="Рамка: топографічна карта" loading="lazy"><img src="/assets/journey/fr-pearl.webp" alt="Рамка: перламутр" loading="lazy"><img src="/assets/journey/fr-carbon.webp" alt="Рамка: білий карбон" loading="lazy"></div></figure>
       </div>
     </article>
   </div>
@@ -677,20 +991,20 @@ html.js main img:focus-visible{outline-color:var(--gold)}
   </div>
   <div class="rail" aria-hidden="true"><span>Початок</span><i></i><span>Фінал</span></div>
   <div class="strip" tabindex="0" aria-label="Ітерації головного екрана">
-    <figure class="it"><img src="assets/journey/x-main.webp" alt="Перший підхід" loading="lazy"><figcaption><span class="v">Старт</span><span class="t">Цех</span><span class="n">Прибрати зайве, лишити суть.</span></figcaption></figure>
-    <figure class="it"><img src="assets/journey/x-premium-garage.webp" alt="v2" loading="lazy"><figcaption><span class="v">v2</span><span class="t">Преміальний гараж</span><span class="n">Скло, Apple, спокій.</span></figcaption></figure>
-    <figure class="it"><img src="assets/journey/x-garage-bay.webp" alt="v3" loading="lazy"><figcaption><span class="v">v3</span><span class="t">Справжній бокс</span><span class="n">Лампа над авто, табличка на воротах.</span></figcaption></figure>
-    <figure class="it"><img src="assets/journey/x-game-garage.webp" alt="v4" loading="lazy"><figcaption><span class="v">v4</span><span class="t">Гараж як у грі</span><span class="n">Шоурум, клас B, стан по вузлах.</span></figcaption></figure>
-    <figure class="it"><img src="assets/journey/x-pit-garage.webp" alt="v5" loading="lazy"><figcaption><span class="v">v5</span><span class="t">Піт-стоп</span><span class="n">Схема авто з балами по системах.</span></figcaption></figure>
-    <figure class="it"><img src="assets/journey/x-pad-garage.webp" alt="v6" loading="lazy"><figcaption><span class="v">v6</span><span class="t">Енергія гри</span><span class="n">Той самий настрій на весь застосунок.</span></figcaption></figure>
-    <figure class="it"><img src="assets/journey/x-v8-garage.webp" alt="v8" loading="lazy"><figcaption><span class="v">v8</span><span class="t">Авто як картка</span><span class="n">Колекційна картка зі спеками і класом.</span></figcaption></figure>
-    <figure class="it"><img src="assets/journey/x-v9-garage.webp" alt="v9" loading="lazy"><figcaption><span class="v">v9</span><span class="t">Полароїд повертається</span><span class="n">Гра поверх, але фото знову на стіні.</span></figcaption></figure>
-    <figure class="it"><img src="assets/journey/x-v12-garage.webp" alt="v12" loading="lazy"><figcaption><span class="v">v12</span><span class="t">Чорне і золото</span><span class="n">Шестикутники, гоночний HUD.</span></figcaption></figure>
-    <figure class="it"><img src="assets/journey/x-v13-dark.webp" alt="v13" loading="lazy"><figcaption><span class="v">v13</span><span class="t">Забрати все зайве</span><span class="n">Матовий чорний, жовтий тільки для акценту.</span></figcaption></figure>
-    <figure class="it"><img src="assets/journey/x-v19-garage-menu.webp" alt="v19" loading="lazy"><figcaption><span class="v">v19</span><span class="t">Меню як у грі</span><span class="n">Вішлист, документи, шини, полиця.</span></figcaption></figure>
-    <figure class="it"><img src="assets/journey/x-v24-garage-open.webp" alt="v24" loading="lazy"><figcaption><span class="v">v24</span><span class="t">Один зріз для всього</span><span class="n">Скляний трей, контраст повернувся.</span></figcaption></figure>
-    <figure class="it"><img src="assets/journey/x-v26-garage.webp" alt="v26" loading="lazy"><figcaption><span class="v">v26</span><span class="t">Одна мова</span><span class="n">Ті самі правила на кожному екрані.</span></figcaption></figure>
-    <figure class="it"><img src="assets/journey/x-v29-garage.webp" alt="v29" loading="lazy"><figcaption><span class="v">v29</span><span class="t">Майже фінал</span><span class="n">Ледь нахилений полароїд, рамки, тихий вішлист.</span></figcaption></figure>
+    <figure class="it"><img src="/assets/journey/x-main.webp" alt="Перший підхід" loading="lazy"><figcaption><span class="v">Старт</span><span class="t">Цех</span><span class="n">Прибрати зайве, лишити суть.</span></figcaption></figure>
+    <figure class="it"><img src="/assets/journey/x-premium-garage.webp" alt="v2" loading="lazy"><figcaption><span class="v">v2</span><span class="t">Преміальний гараж</span><span class="n">Скло, Apple, спокій.</span></figcaption></figure>
+    <figure class="it"><img src="/assets/journey/x-garage-bay.webp" alt="v3" loading="lazy"><figcaption><span class="v">v3</span><span class="t">Справжній бокс</span><span class="n">Лампа над авто, табличка на воротах.</span></figcaption></figure>
+    <figure class="it"><img src="/assets/journey/x-game-garage.webp" alt="v4" loading="lazy"><figcaption><span class="v">v4</span><span class="t">Гараж як у грі</span><span class="n">Шоурум, клас B, стан по вузлах.</span></figcaption></figure>
+    <figure class="it"><img src="/assets/journey/x-pit-garage.webp" alt="v5" loading="lazy"><figcaption><span class="v">v5</span><span class="t">Піт-стоп</span><span class="n">Схема авто з балами по системах.</span></figcaption></figure>
+    <figure class="it"><img src="/assets/journey/x-pad-garage.webp" alt="v6" loading="lazy"><figcaption><span class="v">v6</span><span class="t">Енергія гри</span><span class="n">Той самий настрій на весь застосунок.</span></figcaption></figure>
+    <figure class="it"><img src="/assets/journey/x-v8-garage.webp" alt="v8" loading="lazy"><figcaption><span class="v">v8</span><span class="t">Авто як картка</span><span class="n">Колекційна картка зі спеками і класом.</span></figcaption></figure>
+    <figure class="it"><img src="/assets/journey/x-v9-garage.webp" alt="v9" loading="lazy"><figcaption><span class="v">v9</span><span class="t">Полароїд повертається</span><span class="n">Гра поверх, але фото знову на стіні.</span></figcaption></figure>
+    <figure class="it"><img src="/assets/journey/x-v12-garage.webp" alt="v12" loading="lazy"><figcaption><span class="v">v12</span><span class="t">Чорне і золото</span><span class="n">Шестикутники, гоночний HUD.</span></figcaption></figure>
+    <figure class="it"><img src="/assets/journey/x-v13-dark.webp" alt="v13" loading="lazy"><figcaption><span class="v">v13</span><span class="t">Забрати все зайве</span><span class="n">Матовий чорний, жовтий тільки для акценту.</span></figcaption></figure>
+    <figure class="it"><img src="/assets/journey/x-v19-garage-menu.webp" alt="v19" loading="lazy"><figcaption><span class="v">v19</span><span class="t">Меню як у грі</span><span class="n">Вішлист, документи, шини, полиця.</span></figcaption></figure>
+    <figure class="it"><img src="/assets/journey/x-v24-garage-open.webp" alt="v24" loading="lazy"><figcaption><span class="v">v24</span><span class="t">Один зріз для всього</span><span class="n">Скляний трей, контраст повернувся.</span></figcaption></figure>
+    <figure class="it"><img src="/assets/journey/x-v26-garage.webp" alt="v26" loading="lazy"><figcaption><span class="v">v26</span><span class="t">Одна мова</span><span class="n">Ті самі правила на кожному екрані.</span></figcaption></figure>
+    <figure class="it"><img src="/assets/journey/x-v29-garage.webp" alt="v29" loading="lazy"><figcaption><span class="v">v29</span><span class="t">Майже фінал</span><span class="n">Ледь нахилений полароїд, рамки, тихий вішлист.</span></figcaption></figure>
   </div>
   <p class="small col" style="margin-top:6px">Що не вижило: рейтинг серед інших власників, картки-колекції, шестикутники і великий HUD. Що лишилось від ігор: клас і стан авто, меню-смуга, жовтий як головна дія.</p>
 </section>
@@ -754,14 +1068,14 @@ html.js main img:focus-visible{outline-color:var(--gold)}
     <div><span class="k">Гучно тільки в Моменті</span><p>Відскок, масштаб і вібрація лише тоді, коли закрив роботу.</p></div>
   </div>
   <div class="motion">
-    <figure class="mv"><video data-src="assets/journey/m-add-local.mp4" data-poster="assets/journey/m-add-local.webp" muted loop playsinline preload="none" aria-label="+ меню"></video><figcaption><b>+ меню</b>Плашки виїжджають з-за правого краю, ближня до пальця перша. Плюс повертається в хрестик.</figcaption></figure>
-    <figure class="mv"><video data-src="assets/journey/m-next-car.mp4" data-poster="assets/journey/m-next-car.webp" muted loop playsinline preload="none" aria-label="Свайп по гаражу"></video><figcaption><b>Свайп по гаражу</b>Полароїд іде за пальцем і сідає на місце пружиною. Наприкінці місце для ще однієї машини.</figcaption></figure>
-    <figure class="mv"><video data-src="assets/journey/m-hero.mp4" data-poster="assets/journey/m-hero.webp" muted loop playsinline preload="none" aria-label="Полароїд у шапку"></video><figcaption><b>Полароїд у шапку</b>Фото з гаража стає шапкою екрана авто, а не відкривається з нуля.</figcaption></figure>
-    <figure class="mv"><video data-src="assets/journey/m-push.mp4" data-poster="assets/journey/m-push.webp" muted loop playsinline preload="none" aria-label="З гаража в авто"></video><figcaption><b>З гаража в авто</b>Екран авто заїжджає збоку і так само повертається, гараж лишається під ним.</figcaption></figure>
-    <figure class="mv"><video data-src="assets/journey/m-moment.mp4" data-poster="assets/journey/m-moment.webp" muted loop playsinline preload="none" aria-label="Момент"></video><figcaption><b>Момент</b>Роботу закрито: штамп SERVICED, потім +8 до здоров'я. Єдине місце, де анімація гучна.</figcaption></figure>
-    <figure class="mv"><video data-src="assets/journey/m-plan-gen.mp4" data-poster="assets/journey/m-plan-gen.webp" muted loop playsinline preload="none" aria-label="AI пише план"></video><figcaption><b>AI пише план</b>Видно, що саме зараз робиться і скільки ще чекати.</figcaption></figure>
-    <figure class="mv"><video data-src="assets/journey/m-save.mp4" data-poster="assets/journey/m-save.webp" muted loop playsinline preload="none" aria-label="Витрату збережено"></video><figcaption><b>Витрату збережено</b>Лист закривається, запис лягає в список, де його й шукатимеш.</figcaption></figure>
-    <figure class="mv"><video data-src="assets/journey/m-tabs.mp4" data-poster="assets/journey/m-tabs.webp" muted loop playsinline preload="none" aria-label="Вкладки авто"></video><figcaption><b>Вкладки авто</b>Сервіси, план, пальне, гроші. Шапка лишається, міняється тільки зміст.</figcaption></figure>
+    <figure class="mv"><video data-src="/assets/journey/m-add-local.mp4" data-poster="/assets/journey/m-add-local.webp" muted loop playsinline preload="none" aria-label="+ меню"></video><figcaption><b>+ меню</b>Плашки виїжджають з-за правого краю, ближня до пальця перша. Плюс повертається в хрестик.</figcaption></figure>
+    <figure class="mv"><video data-src="/assets/journey/m-next-car.mp4" data-poster="/assets/journey/m-next-car.webp" muted loop playsinline preload="none" aria-label="Свайп по гаражу"></video><figcaption><b>Свайп по гаражу</b>Полароїд іде за пальцем і сідає на місце пружиною. Наприкінці місце для ще однієї машини.</figcaption></figure>
+    <figure class="mv"><video data-src="/assets/journey/m-hero.mp4" data-poster="/assets/journey/m-hero.webp" muted loop playsinline preload="none" aria-label="Полароїд у шапку"></video><figcaption><b>Полароїд у шапку</b>Фото з гаража стає шапкою екрана авто, а не відкривається з нуля.</figcaption></figure>
+    <figure class="mv"><video data-src="/assets/journey/m-push.mp4" data-poster="/assets/journey/m-push.webp" muted loop playsinline preload="none" aria-label="З гаража в авто"></video><figcaption><b>З гаража в авто</b>Екран авто заїжджає збоку і так само повертається, гараж лишається під ним.</figcaption></figure>
+    <figure class="mv"><video data-src="/assets/journey/m-moment.mp4" data-poster="/assets/journey/m-moment.webp" muted loop playsinline preload="none" aria-label="Момент"></video><figcaption><b>Момент</b>Роботу закрито: штамп SERVICED, потім +8 до здоров'я. Єдине місце, де анімація гучна.</figcaption></figure>
+    <figure class="mv"><video data-src="/assets/journey/m-plan-gen.mp4" data-poster="/assets/journey/m-plan-gen.webp" muted loop playsinline preload="none" aria-label="AI пише план"></video><figcaption><b>AI пише план</b>Видно, що саме зараз робиться і скільки ще чекати.</figcaption></figure>
+    <figure class="mv"><video data-src="/assets/journey/m-save.mp4" data-poster="/assets/journey/m-save.webp" muted loop playsinline preload="none" aria-label="Витрату збережено"></video><figcaption><b>Витрату збережено</b>Лист закривається, запис лягає в список, де його й шукатимеш.</figcaption></figure>
+    <figure class="mv"><video data-src="/assets/journey/m-tabs.mp4" data-poster="/assets/journey/m-tabs.webp" muted loop playsinline preload="none" aria-label="Вкладки авто"></video><figcaption><b>Вкладки авто</b>Сервіси, план, пальне, гроші. Шапка лишається, міняється тільки зміст.</figcaption></figure>
   </div>
   <p class="small col" style="margin-top:14px">З увімкненим «Зменшити рух» у системі все те саме, але без руху: прості проявлення або миттєва зміна.</p>
 </section>
@@ -776,8 +1090,8 @@ html.js main img:focus-visible{outline-color:var(--gold)}
     </div>
   </div>
   <div class="logo-row">
-    <figure><img src="assets/journey/logo-old.webp" alt="Старий логотип: шестерня з мандалою" loading="lazy"><figcaption><b>Було.</b> Шестерня і мандала.</figcaption></figure>
-    <figure><img src="assets/journey/logo-sketch.webp" alt="Ескізи нового логотипа в блокноті" loading="lazy"><figcaption><b>Блокнот.</b> Пошук ритму з трьох похилих штрихів.</figcaption></figure>
+    <figure><img src="/assets/journey/logo-old.webp" alt="Старий логотип: шестерня з мандалою" loading="lazy"><figcaption><b>Було.</b> Шестерня і мандала.</figcaption></figure>
+    <figure><img src="/assets/journey/logo-sketch.webp" alt="Ескізи нового логотипа в блокноті" loading="lazy"><figcaption><b>Блокнот.</b> Пошук ритму з трьох похилих штрихів.</figcaption></figure>
     <figure><div class="newmark" role="img" aria-label="Новий знак Maintra"><svg aria-hidden="true" class="" viewBox="0 0 100 57.69" width="220" height="126.9" style="display: block; flex-shrink: 0; overflow: visible; "><path d="M26.10,0.00 L35.15,0.00 L35.15,57.69 L26.10,57.69 Z" fill="#8F897E"></path><path d="M52.20,0.00 L61.25,0.00 L61.25,57.69 L52.20,57.69 Z" fill="#8F897E"></path><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" fill="#F4B223"></path><clipPath id="mtlg3"><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" fill="#000"></path></clipPath><g clip-path="url(#mtlg3)"><path d="M2.40,57.69 L18.80,57.69 L37.55,0.00 L21.15,0.00 Z" fill="#9A6700"></path><path d="M28.50,57.69 L44.90,57.69 L63.65,0.00 L47.24,0.00 Z" fill="#9A6700"></path><path d="M54.60,57.69 L71.00,57.69 L89.75,0.00 L73.34,0.00 Z" fill="#9A6700"></path></g><path d="M0.00,57.69 L16.40,57.69 L35.15,0.00 L18.75,0.00 Z" fill="#ECE4D6"></path><path d="M26.10,57.69 L42.50,57.69 L61.25,0.00 L44.84,0.00 Z" fill="#ECE4D6"></path><path d="M52.20,57.69 L68.60,57.69 L87.35,0.00 L70.94,0.00 Z" fill="#F4B223"></path></svg></div><figcaption><b>Стало.</b> M і t з трьох скошених штрихів.</figcaption></figure>
   </div>
   <div class="logo-why">
@@ -798,21 +1112,21 @@ html.js main img:focus-visible{outline-color:var(--gold)}
     </div>
   </div>
   <div class="pair">
-    <figure><img src="assets/journey/now-garage.webp" alt="Гараж у версії 1.6" loading="lazy"><figcaption>1.6 · Гараж</figcaption></figure>
+    <figure><img src="/assets/journey/now-garage.webp" alt="Гараж у версії 1.6" loading="lazy"><figcaption>1.6 · Гараж</figcaption></figure>
     <span class="vs" aria-hidden="true">→</span>
-    <figure class="after"><img src="assets/journey/new-garage-dark.webp" alt="Гараж у версії 2.0" loading="lazy"><figcaption>2.0 · Гараж</figcaption></figure>
+    <figure class="after"><img src="/assets/journey/new-garage-dark.webp" alt="Гараж у версії 2.0" loading="lazy"><figcaption>2.0 · Гараж</figcaption></figure>
   </div>
   <p class="pair-note">Полароїд більший, під ним одна цифра: скільки до заміни оливи. Далі тільки найтерміновіше. Вішлист, документи, шини і полиця переїхали в смугу внизу.</p>
   <div class="pair">
-    <figure><img src="assets/journey/now-car.webp" alt="Екран авто у версії 1.6" loading="lazy"><figcaption>1.6 · Авто</figcaption></figure>
+    <figure><img src="/assets/journey/now-car.webp" alt="Екран авто у версії 1.6" loading="lazy"><figcaption>1.6 · Авто</figcaption></figure>
     <span class="vs" aria-hidden="true">→</span>
-    <figure class="after"><img src="assets/journey/new-services.webp" alt="Екран авто у версії 2.0" loading="lazy"><figcaption>2.0 · Авто</figcaption></figure>
+    <figure class="after"><img src="/assets/journey/new-services.webp" alt="Екран авто у версії 2.0" loading="lazy"><figcaption>2.0 · Авто</figcaption></figure>
   </div>
   <p class="pair-note">Роботи згруповані по візитах на СТО, з сумою за візит. Зроблене і куплене на полицю розділені.</p>
   <div class="pair">
-    <figure><img src="assets/journey/now-plan.webp" alt="План у версії 1.6" loading="lazy"><figcaption>1.6 · План</figcaption></figure>
+    <figure><img src="/assets/journey/now-plan.webp" alt="План у версії 1.6" loading="lazy"><figcaption>1.6 · План</figcaption></figure>
     <span class="vs" aria-hidden="true">→</span>
-    <figure class="after"><img src="assets/journey/new-plan-dark.webp" alt="План у версії 2.0" loading="lazy"><figcaption>2.0 · План</figcaption></figure>
+    <figure class="after"><img src="/assets/journey/new-plan-dark.webp" alt="План у версії 2.0" loading="lazy"><figcaption>2.0 · План</figcaption></figure>
   </div>
   <p class="pair-note">Прострочене, скоро і пізніше. Кожен рядок каже, коли і чому. Менше іконок і тексту, стриманіші кольори, більше повітря.</p>
 </section>
@@ -827,16 +1141,16 @@ html.js main img:focus-visible{outline-color:var(--gold)}
     </div>
   </div>
   <div class="store">
-    <img src="assets/journey/store-main.webp" alt="Скріншот стору: Service book on autopilot" loading="lazy">
-    <img src="assets/journey/store-ios-2.webp" alt="Скріншот стору: 50+ інструментів" loading="lazy">
-    <img src="assets/journey/store-ios-5.webp" alt="Скріншот стору: офлайн-навігація" loading="lazy">
-    <img src="assets/journey/store-ios-9.webp" alt="Скріншот стору: налаштування гаража" loading="lazy">
+    <img src="/assets/journey/store-main.webp" alt="Скріншот стору: Service book on autopilot" loading="lazy">
+    <img src="/assets/journey/store-ios-2.webp" alt="Скріншот стору: 50+ інструментів" loading="lazy">
+    <img src="/assets/journey/store-ios-5.webp" alt="Скріншот стору: офлайн-навігація" loading="lazy">
+    <img src="/assets/journey/store-ios-9.webp" alt="Скріншот стору: налаштування гаража" loading="lazy">
   </div>
-  <img class="ipad" src="assets/journey/store-ipad-1.webp" alt="Скріншот стору для iPad" loading="lazy">
+  <img class="ipad" src="/assets/journey/store-ipad-1.webp" alt="Скріншот стору для iPad" loading="lazy">
   <div class="phones" style="margin-top:22px">
-    <figure class="ph"><img src="assets/journey/new-trip-result.webp" alt="Підсумок поїздки" loading="lazy"><figcaption><b>Після поїздки</b>Швидкість, час, найшвидша ділянка. Трек не покидає телефон.</figcaption></figure>
-    <figure class="ph"><img src="assets/journey/new-tyres.webp" alt="Шини" loading="lazy"><figcaption><b>Шини</b>Протектор по кожному колесу, вік, ротація.</figcaption></figure>
-    <figure class="ph"><img src="assets/journey/new-docs.webp" alt="Документи" loading="lazy"><figcaption><b>Документи</b>Шифруються на телефоні ще до завантаження.</figcaption></figure>
+    <figure class="ph"><img src="/assets/journey/new-trip-result.webp" alt="Підсумок поїздки" loading="lazy"><figcaption><b>Після поїздки</b>Швидкість, час, найшвидша ділянка. Трек не покидає телефон.</figcaption></figure>
+    <figure class="ph"><img src="/assets/journey/new-tyres.webp" alt="Шини" loading="lazy"><figcaption><b>Шини</b>Протектор по кожному колесу, вік, ротація.</figcaption></figure>
+    <figure class="ph"><img src="/assets/journey/new-docs.webp" alt="Документи" loading="lazy"><figcaption><b>Документи</b>Шифруються на телефоні ще до завантаження.</figcaption></figure>
   </div>
 </section>
 
@@ -850,10 +1164,10 @@ html.js main img:focus-visible{outline-color:var(--gold)}
     </div>
   </div>
   <div class="themes">
-    <div class="tset"><div class="tpair"><img src="assets/journey/new-garage-dark.webp" alt="Гараж, темна тема" loading="lazy"><img src="assets/journey/new-garage-light.webp" alt="Гараж, світла тема" loading="lazy"></div><span class="tl">Гараж</span></div>
-    <div class="tset"><div class="tpair"><img src="assets/journey/new-plan-dark.webp" alt="План, темна тема" loading="lazy"><img src="assets/journey/new-plan-light.webp" alt="План, світла тема" loading="lazy"></div><span class="tl">План</span></div>
-    <div class="tset"><div class="tpair"><img src="assets/journey/new-money-dark.webp" alt="Витрати, темна тема" loading="lazy"><img src="assets/journey/new-money-light.webp" alt="Витрати, світла тема" loading="lazy"></div><span class="tl">Витрати</span></div>
-    <div class="tset"><div class="tpair"><img src="assets/journey/new-classic-dark.webp" alt="Класичний гараж, темна тема" loading="lazy"><img src="assets/journey/new-classic-light.webp" alt="Класичний гараж, світла тема" loading="lazy"></div><span class="tl">Класичний гараж</span></div>
+    <div class="tset"><div class="tpair"><img src="/assets/journey/new-garage-dark.webp" alt="Гараж, темна тема" loading="lazy"><img src="/assets/journey/new-garage-light.webp" alt="Гараж, світла тема" loading="lazy"></div><span class="tl">Гараж</span></div>
+    <div class="tset"><div class="tpair"><img src="/assets/journey/new-plan-dark.webp" alt="План, темна тема" loading="lazy"><img src="/assets/journey/new-plan-light.webp" alt="План, світла тема" loading="lazy"></div><span class="tl">План</span></div>
+    <div class="tset"><div class="tpair"><img src="/assets/journey/new-money-dark.webp" alt="Витрати, темна тема" loading="lazy"><img src="/assets/journey/new-money-light.webp" alt="Витрати, світла тема" loading="lazy"></div><span class="tl">Витрати</span></div>
+    <div class="tset"><div class="tpair"><img src="/assets/journey/new-classic-dark.webp" alt="Класичний гараж, темна тема" loading="lazy"><img src="/assets/journey/new-classic-light.webp" alt="Класичний гараж, світла тема" loading="lazy"></div><span class="tl">Класичний гараж</span></div>
   </div>
   <div class="col" style="margin-top:56px">
     <div class="head">
@@ -862,24 +1176,19 @@ html.js main img:focus-visible{outline-color:var(--gold)}
     </div>
   </div>
   <div class="tgrid">
-    <figure class="tpick"><img src="assets/journey/th-picker.webp" alt="Екран вибору теми" loading="lazy"><figcaption><b>Вибір теми</b>Профіль → Вигляд</figcaption></figure>
-    <figure><img src="assets/journey/new-garage-dark.webp" alt="Тема Garage" loading="lazy"><figcaption><b>Garage</b>Темна, знайома</figcaption></figure>
-    <figure><img src="assets/journey/new-garage-light.webp" alt="Тема Workshop" loading="lazy"><figcaption><b>Workshop</b>Світла, на день</figcaption></figure>
-    <figure><img src="assets/journey/th-red.webp" alt="Тема Red light" loading="lazy"><figcaption><b>Red light</b>Червоний акцент на ніч</figcaption></figure>
-    <figure><img src="assets/journey/th-field.webp" alt="Тема Field" loading="lazy"><figcaption><b>Field <i>Pro</i></b>Олива і тан, камуфляж на +</figcaption></figure>
-    <figure><img src="assets/journey/th-blueprint.webp" alt="Тема Blueprint" loading="lazy"><figcaption><b>Blueprint <i>Pro</i></b>Креслення, блакитні лінії</figcaption></figure>
-    <figure><img src="assets/journey/th-logbook.webp" alt="Тема Logbook" loading="lazy"><figcaption><b>Logbook <i>Pro</i></b>Стара сервісна книжка, синє чорнило</figcaption></figure>
-    <figure><img src="assets/journey/th-rose.webp" alt="Тема Rose, ніч" loading="lazy"><figcaption><b>Rose <i>Pro</i></b>Сливова вночі</figcaption></figure>
-    <figure><img src="assets/journey/th-rose-day.webp" alt="Тема Rose, день" loading="lazy"><figcaption><b>Rose <i>Pro</i></b>Рожева вдень</figcaption></figure>
+    <figure class="tpick"><img src="/assets/journey/th-picker.webp" alt="Екран вибору теми" loading="lazy"><figcaption><b>Вибір теми</b>Профіль → Вигляд</figcaption></figure>
+    <figure><img src="/assets/journey/new-garage-dark.webp" alt="Тема Garage" loading="lazy"><figcaption><b>Garage</b>Темна, знайома</figcaption></figure>
+    <figure><img src="/assets/journey/new-garage-light.webp" alt="Тема Workshop" loading="lazy"><figcaption><b>Workshop</b>Світла, на день</figcaption></figure>
+    <figure><img src="/assets/journey/th-red.webp" alt="Тема Red light" loading="lazy"><figcaption><b>Red light</b>Червоний акцент на ніч</figcaption></figure>
+    <figure><img src="/assets/journey/th-field.webp" alt="Тема Field" loading="lazy"><figcaption><b>Field <i>Pro</i></b>Олива і тан, камуфляж на +</figcaption></figure>
+    <figure><img src="/assets/journey/th-blueprint.webp" alt="Тема Blueprint" loading="lazy"><figcaption><b>Blueprint <i>Pro</i></b>Креслення, блакитні лінії</figcaption></figure>
+    <figure><img src="/assets/journey/th-logbook.webp" alt="Тема Logbook" loading="lazy"><figcaption><b>Logbook <i>Pro</i></b>Стара сервісна книжка, синє чорнило</figcaption></figure>
+    <figure><img src="/assets/journey/th-rose.webp" alt="Тема Rose, ніч" loading="lazy"><figcaption><b>Rose <i>Pro</i></b>Сливова вночі</figcaption></figure>
+    <figure><img src="/assets/journey/th-rose-day.webp" alt="Тема Rose, день" loading="lazy"><figcaption><b>Rose <i>Pro</i></b>Рожева вдень</figcaption></figure>
   </div>
 </section>
-
-<footer class="col">
-  <div class="mark"><svg aria-hidden="true" class="" viewBox="0 0 100 57.69" width="40" height="23.1" style="display: block; flex-shrink: 0; overflow: visible; "><path d="M26.10,0.00 L35.15,0.00 L35.15,57.69 L26.10,57.69 Z" fill="#8F897E"></path><path d="M52.20,0.00 L61.25,0.00 L61.25,57.69 L52.20,57.69 Z" fill="#8F897E"></path><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" fill="#F4B223"></path><clipPath id="mtlg2"><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" fill="#000"></path></clipPath><g clip-path="url(#mtlg2)"><path d="M2.40,57.69 L18.80,57.69 L37.55,0.00 L21.15,0.00 Z" fill="#9A6700"></path><path d="M28.50,57.69 L44.90,57.69 L63.65,0.00 L47.24,0.00 Z" fill="#9A6700"></path><path d="M54.60,57.69 L71.00,57.69 L89.75,0.00 L73.34,0.00 Z" fill="#9A6700"></path></g><path d="M0.00,57.69 L16.40,57.69 L35.15,0.00 L18.75,0.00 Z" fill="#ECE4D6"></path><path d="M26.10,57.69 L42.50,57.69 L61.25,0.00 L44.84,0.00 Z" fill="#ECE4D6"></path><path d="M52.20,57.69 L68.60,57.69 L87.35,0.00 L70.94,0.00 Z" fill="#F4B223"></path></svg><span>MAINTRA</span></div>
-  <p class="small">Смарт-трекер обслуговування для твого гаража. <a href="https://maintra.me">maintra.me</a></p>
-</footer>
 </main>
-<script type="module" src="assets/journey/hero3d.js?v=1a7bb98f"></script>
+<script type="module" src="/assets/journey/hero3d.js?v=1a7bb98f"></script>
 <script>
 // motion clips: load and play only while on screen
 (function(){var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -891,6 +1200,22 @@ vs.forEach(function(v){io.observe(v);v.addEventListener('click',function(){if(v.
 </script>
 
 
+<footer class="foot">
+  <div class="foot-in">
+    <div class="foot-brand"><a class="brand" href="/uk/" aria-label="Maintra"><svg class="mt" viewBox="0 0 100 57.69" aria-hidden="true"><path d="M26.10,0.00 L35.15,0.00 L35.15,57.69 L26.10,57.69 Z" style="fill:var(--lg-stem)"/><path d="M52.20,0.00 L61.25,0.00 L61.25,57.69 L52.20,57.69 Z" style="fill:var(--lg-stem)"/><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" style="fill:var(--lg-gold)"/><clipPath id="mtc2"><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z"/></clipPath><g clip-path="url(#mtc2)"><path d="M2.40,57.69 L18.80,57.69 L37.55,0.00 L21.15,0.00 Z" style="fill:var(--lg-shade)"/><path d="M28.50,57.69 L44.90,57.69 L63.65,0.00 L47.24,0.00 Z" style="fill:var(--lg-shade)"/><path d="M54.60,57.69 L71.00,57.69 L89.75,0.00 L73.34,0.00 Z" style="fill:var(--lg-shade)"/></g><path d="M0.00,57.69 L16.40,57.69 L35.15,0.00 L18.75,0.00 Z" style="fill:var(--lg-ink)"/><path d="M26.10,57.69 L42.50,57.69 L61.25,0.00 L44.84,0.00 Z" style="fill:var(--lg-ink)"/><path d="M52.20,57.69 L68.60,57.69 L87.35,0.00 L70.94,0.00 Z" style="fill:var(--lg-gold)"/></svg><span class="word">Maintra</span></a><p>Смарт-трекер обслуговування для твого гаража.</p></div>
+    <nav class="foot-links" aria-label="Maintra">
+      <a href="/uk/about.html">Про розробника</a>
+      <a href="/uk/faq.html">Часті питання</a>
+      <a href="/uk/support.html">Підтримка</a>
+      <a href="/press">Для преси</a>
+      <a href="/journey">Шлях до 2.0</a>
+      <a href="/uk/privacy.html">Конфіденційність</a>
+      <a href="/uk/terms.html">Умови</a>
+      <a href="/uk/delete-account.html">Видалити акаунт</a>
+    </nav>
+    <p class="copy">© 2026 Maintra</p>
+  </div>
+</footer>
 <script>
 (function(){
   var root = document.documentElement, el = document.getElementById('loader');

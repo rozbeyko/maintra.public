@@ -274,7 +274,8 @@ for (const l of built) {
     langlinks: built
       .map((x) => `<a href="${pathOf(x.code)}" hreflang="${htmlLang(x)}" lang="${htmlLang(x)}"${x.dir ? ` dir="${x.dir}"` : ''} data-lang="${x.code}"${x.code === l.code ? ' aria-current="true"' : ''}>${x.name}</a>`)
       .join(''),
-    journey: l.code === 'uk' ? '/journey' : '/journey-en',
+    // the journey page in this language, if tools/genjourney.mjs made it
+    journey: l.code === 'uk' ? '/journey' : l.code !== 'en' && existsSync(join(SITE, `${l.code}/journey.html`)) ? `/${l.code}/journey` : '/journey-en',
     // the site's other pages in this language, where they are translated
     ...Object.fromEntries(
       ['about', 'faq', 'support', 'privacy', 'terms', 'delete-account'].map((n) => [

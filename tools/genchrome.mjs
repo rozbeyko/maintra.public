@@ -66,6 +66,8 @@ const has = (code, name) => existsSync(join(SITE, fileOf(code, name)));
 // a link to one of the site's pages, in this language if it is translated
 const loc = (code, name) => (has(code, name) ? urlOf(code, name) : urlOf('en', name));
 const homeOf = (code) => (code === 'en' ? '/' : `/${code}/`);
+// the journey page in this language, if tools/genjourney.mjs made it
+const journeyOf = (code) => (code === 'uk' ? '/journey' : code !== 'en' && existsSync(join(SITE, `${code}/journey.html`)) ? `/${code}/journey` : '/journey-en');
 
 const dicts = {};
 const dict = (code) => (dicts[code] ??= JSON.parse(read(`tools/home/i18n/${existsSync(join(SITE, `tools/home/i18n/${code}.json`)) ? code : 'en'}.json`)));
@@ -126,7 +128,7 @@ function chromeFoot(code) {
     [loc(code, 'faq'), d['foot.faq']],
     [loc(code, 'support'), d['foot.support']],
     [code === 'uk' ? '/press' : '/press-en', d['foot.press']],
-    [code === 'uk' ? '/journey' : '/journey-en', d['foot.journey']],
+    [journeyOf(code), d['foot.journey']],
     [loc(code, 'privacy'), d['foot.privacy']],
     [loc(code, 'terms'), d['foot.terms']],
     [loc(code, 'delete-account'), d['foot.delete']],

@@ -1,0 +1,1018 @@
+{
+ "meta": {
+  "title": "The road to Maintra 2.0",
+  "description": "How Maintra got from its first version to 2.0: what bothered me, where the inspiration came from, which ideas didn't survive, and what the new design language is made of.",
+  "loading": "Loading",
+  "zoom_label": "Picture viewer",
+  "zoom_open": "Open larger",
+  "zoom_close": "Close",
+  "zoom_prev": "Previous",
+  "zoom_next": "Next"
+ },
+ "strings": [
+  {
+   "uk": "Maintra 2.0 на телефоні: гараж, меню плюса, свайп між авто і полароїд, що стає шапкою",
+   "en": "Maintra 2.0 on a phone: the garage, the plus menu, swiping between cars, and the polaroid turning into the header"
+  },
+  {
+   "uk": "Переосмислити все.",
+   "en": "Rethink everything."
+  },
+  {
+   "uk": "Зберегти коріння.",
+   "en": "Keep the roots."
+  },
+  {
+   "uk": "Як Maintra прийшла від першої версії до 2.0. Що мене не влаштовувало, де я брав натхнення, які ідеї не вижили і з чого склалась нова мова дизайну.",
+   "en": "How Maintra got from its first version to 2.0. What bothered me, where I looked for inspiration, which ideas didn't survive, and what the new design language is made of."
+  },
+  {
+   "uk": "<b>01</b> Початок",
+   "en": "<b>01</b> The start"
+  },
+  {
+   "uk": "Три Maintra<br><span class=\"g\">до 2.0</span>",
+   "en": "Three Maintras<br><span class=\"g\">before 2.0</span>"
+  },
+  {
+   "uk": "Maintra з'явилась, бо я постійно забував, яку оливу, скільки і коли заливав у свою VW Jetta. Ексельки, паперові чеки, чати з GPT теж постійно губились. Далі застосунок ріс разом із фічами, і кожна нова фіча діставала собі місце на екрані.",
+   "en": "Maintra exists because I kept forgetting which oil I'd put in my VW Jetta, how much, and when. Spreadsheets, paper receipts and GPT chats kept getting lost too. Then the app grew feature by feature, and every new feature claimed its own spot on the screen."
+  },
+  {
+   "uk": "Перша версія</span>",
+   "en": "First version</span>"
+  },
+  {
+   "uk": "Перша версія Maintra: гараж з однією карткою авто",
+   "en": "Maintra's first version: a garage with one car card"
+  },
+  {
+   "uk": "<b>Гараж</b>Картка авто, кнопка «додати» і золота шестерня з мандалою в навбарі.",
+   "en": "<b>Garage</b>A car card, an “add” button and a gold gear with a mandala in the nav bar."
+  },
+  {
+   "uk": "Перша версія Maintra: екран авто зі списком сервісів",
+   "en": "Maintra's first version: the car screen with a list of services"
+  },
+  {
+   "uk": "<b>Авто</b>Список робіт, вкладки, ціни. Чисто, але дефолтно і без власного стилю.",
+   "en": "<b>Car</b>A list of jobs, tabs, prices. Clean, but stock, with no style of its own."
+  },
+  {
+   "uk": "Maintra 1.5: гараж з двома авто, документами і шинами",
+   "en": "Maintra 1.5: a garage with two cars, documents and tyres"
+  },
+  {
+   "uk": "<b>Гараж</b>Два авто, план, документи, шини. Все потрібне, але все однакової ваги.",
+   "en": "<b>Garage</b>Two cars, a plan, documents, tyres. All of it needed, all of it the same weight."
+  },
+  {
+   "uk": "Maintra 1.5: екран авто з вішлистом і олива-фільтрами",
+   "en": "Maintra 1.5: the car screen with a wishlist and oil and filters"
+  },
+  {
+   "uk": "<b>Авто</b>Вішлист, полиця, інтервали. Кнопок більше, ніж відповідей.",
+   "en": "<b>Car</b>Wishlist, shelf, intervals. More buttons than answers."
+  },
+  {
+   "uk": "1.6, перед редизайном",
+   "en": "1.6, before the redesign"
+  },
+  {
+   "uk": "Maintra 1.6: гараж з полароїдом і лічильником пробігу",
+   "en": "Maintra 1.6: a garage with a polaroid and an odometer"
+  },
+  {
+   "uk": "<b>Гараж</b>З'явився полароїд. І ще здоров'я, сервіс, вішлист, витрати, наступні роботи.",
+   "en": "<b>Garage</b>The polaroid arrived. So did health, service, wishlist, costs and upcoming jobs."
+  },
+  {
+   "uk": "Maintra 1.6: екран авто",
+   "en": "Maintra 1.6: the car screen"
+  },
+  {
+   "uk": "<b>Авто</b>Історія робіт уже головна, але тоне серед плашок.",
+   "en": "<b>Car</b>Service history is already the main thing, but it drowns among the cards."
+  },
+  {
+   "uk": "Maintra 1.6: план обслуговування",
+   "en": "Maintra 1.6: the maintenance plan"
+  },
+  {
+   "uk": "<b>План</b>AI-план робить свою справу, а виглядає як усе інше. Плюс згенеровані AI іконки, які помічає кожен і каже «слоп, фу».",
+   "en": "<b>Plan</b>The AI plan does its job, but looks like everything else. Plus AI-generated icons that everyone spots and calls “slop, ew”."
+  },
+  {
+   "uk": "Користувачі писали прямо: перевантажено, і виглядає як AI slop. Це і стало стартом.",
+   "en": "Users said it straight: too busy, and it looks like AI slop. That was the starting point."
+  },
+  {
+   "uk": "<b>02</b> Що мало лишитись",
+   "en": "<b>02</b> What had to stay"
+  },
+  {
+   "uk": "Шість правил<br><span class=\"g\">до першого наброску</span>",
+   "en": "Six rules<br><span class=\"g\">before the first sketch</span>"
+  },
+  {
+   "uk": "Історія авто в центрі",
+   "en": "The car's history at the centre"
+  },
+  {
+   "uk": "Таймлайн обслуговування і є застосунок. Нові фічі не мають виштовхувати його з екрана.",
+   "en": "The service timeline is the app. New features must not push it off the screen."
+  },
+  {
+   "uk": "Гараж, а не блокнот",
+   "en": "A garage, not a notebook"
+  },
+  {
+   "uk": "Фото авто висить на стіні, жовтий малярний скотч, наліпки на коробках із запчастинами.",
+   "en": "The car's photo hangs on the wall, yellow masking tape, stickers on boxes of parts."
+  },
+  {
+   "uk": "<h3>Полароїд лишається</h3>",
+   "en": "<h3>The polaroid stays</h3>"
+  },
+  {
+   "uk": "Перші 1000+ користувачів отримали свою рамку. Її не можна було просто викинути.",
+   "en": "The first 1000+ users got their own frame. It couldn't just be thrown away."
+  },
+  {
+   "uk": "Відповіді, не кнопки",
+   "en": "Answers, not buttons"
+  },
+  {
+   "uk": "Краще щільний екран з цифрами, ніж екран з кнопками і картинками.",
+   "en": "A dense screen of numbers beats a screen of buttons and pictures."
+  },
+  {
+   "uk": "Нічого не викидати",
+   "en": "Throw nothing away"
+  },
+  {
+   "uk": "Усі наявні фічі лишаються. Те, що потрібно часто, на відстані одного тапу.",
+   "en": "Every existing feature stays. What you need often is one tap away."
+  },
+  {
+   "uk": "Екран під себе",
+   "en": "Your screen, your way"
+  },
+  {
+   "uk": "Користувач сам вирішує, що буде на екранах: які блоки під полароїдом, що в куті, яка рамка.",
+   "en": "You decide what goes on your screens: which blocks sit under the polaroid, what's in the corner, which frame."
+  },
+  {
+   "uk": "<b>03</b> Звідки натхнення",
+   "en": "<b>03</b> Where the inspiration came from"
+  },
+  {
+   "uk": "Ігри, студії<br><span class=\"g\">і справжній бокс</span>",
+   "en": "Games, studios<br><span class=\"g\">and a real garage</span>"
+  },
+  {
+   "uk": "Я збирав мудборди, дивився на ігри й інтерфейси, які люблю. Брав відчуття жанру, а не конкретну гру. Нижче перші наброски і проби пера, які з цього вийшли. Сирі, як є, без поліровки.",
+   "en": "I collected moodboards and looked at games and interfaces I love. I took the feel of a genre, not any one game. Below are the first sketches and trial runs that came out of it. Raw, as they were, no polish."
+  },
+  {
+   "uk": "Рейсінг-ігри",
+   "en": "Racing games"
+  },
+  {
+   "uk": "Гараж як колекція: кожне авто має свою сторінку, клас і стан.",
+   "en": "The garage as a collection: every car has its own page, class and condition."
+  },
+  {
+   "uk": "Стан по вузлах: двигун, гальма, шини, рідини, кузов.",
+   "en": "Condition by system: engine, brakes, tyres, fluids, body."
+  },
+  {
+   "uk": "Спокійні меню, де кожна дія приємна, як звук механіки.",
+   "en": "Calm menus where every action feels as good as a mechanical click."
+  },
+  {
+   "uk": "Набросок: авто як колекційна картка з класом і станом по вузлах",
+   "en": "Sketch: the car as a collectible card with class and condition by system"
+  },
+  {
+   "uk": "Набросок v4: гараж як у гоночній грі",
+   "en": "Sketch v4: a garage like in a racing game"
+  },
+  {
+   "uk": "Набросок v5: рейтинг серед власників Pajero",
+   "en": "Sketch v5: a ranking among Pajero owners"
+  },
+  {
+   "uk": "Індустріальний UI",
+   "en": "Industrial UI"
+  },
+  {
+   "uk": "Вузький шрифт для назв і цифр, як на табличках та маркуванні.",
+   "en": "A narrow typeface for names and numbers, like on signs and labels."
+  },
+  {
+   "uk": "Зрізані кути замість заокруглень.",
+   "en": "Cut corners instead of rounded ones."
+  },
+  {
+   "uk": "Темний фон і один яскравий колір, який означає «натисни тут».",
+   "en": "A dark background and one bright colour that means “press here”."
+  },
+  {
+   "uk": "Набросок v12: чорне, золото, шестикутники",
+   "en": "Sketch v12: black, gold, hexagons"
+  },
+  {
+   "uk": "Набросок v19: вішлист, документи і шини як меню гри",
+   "en": "Sketch v19: wishlist, documents and tyres as a game menu"
+  },
+  {
+   "uk": "Нативне відчуття",
+   "en": "A native feel"
+  },
+  {
+   "uk": "Матове скло для панелей, які пливуть над контентом.",
+   "en": "Frosted glass for panels that float over the content."
+  },
+  {
+   "uk": "Один-два шрифти, чітка ієрархія, великі цілі для пальця.",
+   "en": "One or two typefaces, a clear hierarchy, big tap targets."
+  },
+  {
+   "uk": "Темна і світла тема з першого дня.",
+   "en": "Dark and light themes from day one."
+  },
+  {
+   "uk": "Набросок v2: преміальний гараж",
+   "en": "Sketch v2: a premium garage"
+  },
+  {
+   "uk": "Набросок v24: скляний трей над навбаром",
+   "en": "Sketch v24: a glass tray above the nav bar"
+  },
+  {
+   "uk": "Свій бокс · Pajero 2008",
+   "en": "My own garage · Pajero 2008"
+  },
+  {
+   "uk": "<h3>Справжній гараж</h3>",
+   "en": "<h3>A real garage</h3>"
+  },
+  {
+   "uk": "Шпалери з дрібних інструментів були в застосунку й раніше. Лишили, бо це вже впізнаваний фон Maintra.",
+   "en": "The wallpaper of small tools was already in the app. It stayed, because it's become Maintra's recognisable background."
+  },
+  {
+   "uk": "Полароїд теж був. Тепер на ньому тільки фото, пробіг і найближча робота. Рамку можна обрати: класична, вугільна, дудл для перших 1000 користувачів, плюс рамки, які вже є в застосунку. Колекція далі поповнюватиметься.",
+   "en": "The polaroid was there too. Now it holds only the photo, the mileage and the next job. You can pick the frame: classic, charcoal, the doodle for the first 1000 users, plus the frames already in the app. More will keep coming."
+  },
+  {
+   "uk": "Іконки з одного аркуша для всього застосунку: прямі лінії, восьмикутники, зрізані кути.",
+   "en": "Icons from a single sheet for the whole app: straight lines, octagons, cut corners."
+  },
+  {
+   "uk": "3D-модель кожної автівки майже нереальна: тисячі моделей, років, комплектацій і тюнінгу. Тому в центрі реальне фото саме твого авто.",
+   "en": "A 3D model of every car is close to impossible: thousands of models, years, trims and tuning jobs. So the centre of it all is a real photo of your own car."
+  },
+  {
+   "uk": "alt=\"Шпалери з дрібних інструментів\"",
+   "en": "alt=\"Wallpaper of small tools\""
+  },
+  {
+   "uk": "Фон · був і лишився",
+   "en": "Background · was there, stayed"
+  },
+  {
+   "uk": "Полароїд у попередній версії",
+   "en": "The polaroid in the previous version"
+  },
+  {
+   "uk": "Полароїд · було",
+   "en": "Polaroid · before"
+  },
+  {
+   "uk": "Полароїд у 2.0",
+   "en": "The polaroid in 2.0"
+  },
+  {
+   "uk": "Полароїд · стало",
+   "en": "Polaroid · after"
+  },
+  {
+   "uk": "Рамки полароїда: класична, вугільна, дудл",
+   "en": "Polaroid frames: classic, charcoal, doodle"
+  },
+  {
+   "uk": "<figcaption>Рамки</figcaption>",
+   "en": "<figcaption>Frames</figcaption>"
+  },
+  {
+   "uk": "Іконки речей і категорій",
+   "en": "Icons for items and categories"
+  },
+  {
+   "uk": "Іконки · один аркуш",
+   "en": "Icons · one sheet"
+  },
+  {
+   "uk": "Рамка: метал з заклепками",
+   "en": "Frame: riveted metal"
+  },
+  {
+   "uk": "Рамка: топографічна карта",
+   "en": "Frame: topographic map"
+  },
+  {
+   "uk": "Рамка: перламутр",
+   "en": "Frame: mother of pearl"
+  },
+  {
+   "uk": "Рамка: білий карбон",
+   "en": "Frame: white carbon"
+  },
+  {
+   "uk": "<b>04</b> Наброски",
+   "en": "<b>04</b> Sketches"
+  },
+  {
+   "uk": "Один екран,<br><span class=\"g\">29 спроб</span>",
+   "en": "One screen,<br><span class=\"g\">29 attempts</span>"
+  },
+  {
+   "uk": "Головний екран гаража я переробляв найчастіше. Ось частина шляху, від першого підходу до майже фіналу. Гортайте вбік.",
+   "en": "The garage screen is the one I redid most. Here is part of the road, from the first attempt to almost final. Scroll sideways."
+  },
+  {
+   "uk": "<span>Початок</span><i></i><span>Фінал</span>",
+   "en": "<span>Start</span><i></i><span>Final</span>"
+  },
+  {
+   "uk": "Ітерації головного екрана",
+   "en": "Iterations of the main screen"
+  },
+  {
+   "uk": "alt=\"Перший підхід\"",
+   "en": "alt=\"First attempt\""
+  },
+  {
+   "uk": "<span class=\"v\">Старт</span><span class=\"t\">Цех</span>",
+   "en": "<span class=\"v\">Start</span><span class=\"t\">Workshop</span>"
+  },
+  {
+   "uk": "Прибрати зайве, лишити суть.",
+   "en": "Cut the clutter, keep the core."
+  },
+  {
+   "uk": "<span class=\"t\">Преміальний гараж</span>",
+   "en": "<span class=\"t\">Premium garage</span>"
+  },
+  {
+   "uk": "Скло, Apple, спокій.",
+   "en": "Glass, Apple, calm."
+  },
+  {
+   "uk": "<span class=\"t\">Справжній бокс</span>",
+   "en": "<span class=\"t\">A real garage bay</span>"
+  },
+  {
+   "uk": "Лампа над авто, табличка на воротах.",
+   "en": "A lamp over the car, a sign on the door."
+  },
+  {
+   "uk": "<span class=\"t\">Гараж як у грі</span>",
+   "en": "<span class=\"t\">A garage from a game</span>"
+  },
+  {
+   "uk": "Шоурум, клас B, стан по вузлах.",
+   "en": "Showroom, class B, condition by system."
+  },
+  {
+   "uk": "<span class=\"t\">Піт-стоп</span>",
+   "en": "<span class=\"t\">Pit stop</span>"
+  },
+  {
+   "uk": "Схема авто з балами по системах.",
+   "en": "A car diagram with a score for each system."
+  },
+  {
+   "uk": "<span class=\"t\">Енергія гри</span>",
+   "en": "<span class=\"t\">Game energy</span>"
+  },
+  {
+   "uk": "Той самий настрій на весь застосунок.",
+   "en": "The same mood across the whole app."
+  },
+  {
+   "uk": "<span class=\"t\">Авто як картка</span>",
+   "en": "<span class=\"t\">The car as a card</span>"
+  },
+  {
+   "uk": "Колекційна картка зі спеками і класом.",
+   "en": "A collectible card with specs and class."
+  },
+  {
+   "uk": "<span class=\"t\">Полароїд повертається</span>",
+   "en": "<span class=\"t\">The polaroid returns</span>"
+  },
+  {
+   "uk": "Гра поверх, але фото знову на стіні.",
+   "en": "Game on top, but the photo is back on the wall."
+  },
+  {
+   "uk": "<span class=\"t\">Чорне і золото</span>",
+   "en": "<span class=\"t\">Black and gold</span>"
+  },
+  {
+   "uk": "Шестикутники, гоночний HUD.",
+   "en": "Hexagons, a racing HUD."
+  },
+  {
+   "uk": "<span class=\"t\">Забрати все зайве</span>",
+   "en": "<span class=\"t\">Strip it all back</span>"
+  },
+  {
+   "uk": "Матовий чорний, жовтий тільки для акценту.",
+   "en": "Matte black, yellow only as an accent."
+  },
+  {
+   "uk": "<span class=\"t\">Меню як у грі</span>",
+   "en": "<span class=\"t\">A game-style menu</span>"
+  },
+  {
+   "uk": "<span class=\"n\">Вішлист, документи, шини, полиця.</span>",
+   "en": "<span class=\"n\">Wishlist, documents, tyres, shelf.</span>"
+  },
+  {
+   "uk": "<span class=\"t\">Один зріз для всього</span>",
+   "en": "<span class=\"t\">One cut for everything</span>"
+  },
+  {
+   "uk": "Скляний трей, контраст повернувся.",
+   "en": "A glass tray, and the contrast is back."
+  },
+  {
+   "uk": "<span class=\"t\">Одна мова</span>",
+   "en": "<span class=\"t\">One language</span>"
+  },
+  {
+   "uk": "Ті самі правила на кожному екрані.",
+   "en": "The same rules on every screen."
+  },
+  {
+   "uk": "<span class=\"t\">Майже фінал</span>",
+   "en": "<span class=\"t\">Almost final</span>"
+  },
+  {
+   "uk": "Ледь нахилений полароїд, рамки, тихий вішлист.",
+   "en": "A slightly tilted polaroid, frames, a quiet wishlist."
+  },
+  {
+   "uk": "Що не вижило: рейтинг серед інших власників, картки-колекції, шестикутники і великий HUD. Що лишилось від ігор: клас і стан авто, меню-смуга, жовтий як головна дія.",
+   "en": "What didn't survive: rankings against other owners, collectible cards, hexagons and the big HUD. What stayed from games: the car's class and condition, the menu strip, yellow as the main action."
+  },
+  {
+   "uk": "<b>05</b> Мова дизайну",
+   "en": "<b>05</b> Design language"
+  },
+  {
+   "uk": "Зріз, восьмикутник<br><span class=\"g\">і жовтий для дії</span>",
+   "en": "A cut, an octagon<br><span class=\"g\">and yellow for action</span>"
+  },
+  {
+   "uk": "Спочатку я взяв Barlow, той самий, що в ARC Raiders. Потім перейшов на Tektur: його зрізані кути збігаються з картками, кнопками й іконками. Для тексту Fira Sans. Статуси замість кружечків стали восьмикутниками. Жовтий лише там, де треба натиснути або глянути першим.",
+   "en": "I started with Barlow, the same typeface ARC Raiders uses. Then I moved to Tektur: its cut corners match the cards, buttons and icons. Fira Sans for text. Status dots became octagons instead of circles. Yellow only where you need to tap or look first."
+  },
+  {
+   "uk": "<span class=\"num\">ШРИФТ</span>",
+   "en": "<span class=\"num\">TYPE</span>"
+  },
+  {
+   "uk": "Tektur для назв і цифр, Fira Sans для всього, що читаєш.",
+   "en": "Tektur for names and numbers, Fira Sans for everything you read."
+  },
+  {
+   "uk": "<span class=\"num\">КНОПКИ</span>",
+   "en": "<span class=\"num\">BUTTONS</span>"
+  },
+  {
+   "uk": "<span class=\"btn\">Зберегти</span>",
+   "en": "<span class=\"btn\">Save</span>"
+  },
+  {
+   "uk": "<span>Пізніше</span>",
+   "en": "<span>Later</span>"
+  },
+  {
+   "uk": "Той самий скіс на кнопках, чипах і вкладках, той самий зріз на кутах карток.",
+   "en": "The same slant on buttons, chips and tabs, the same cut on card corners."
+  },
+  {
+   "uk": "<span class=\"num\">СТАТУСИ</span>",
+   "en": "<span class=\"num\">STATUSES</span>"
+  },
+  {
+   "uk": "Патрубок охолодження",
+   "en": "Coolant hose"
+  },
+  {
+   "uk": ">5 днів<",
+   "en": ">5 days<"
+  },
+  {
+   "uk": "Повітряний фільтр",
+   "en": "Air filter"
+  },
+  {
+   "uk": ">900 км<",
+   "en": ">900 km<"
+  },
+  {
+   "uk": "Олива + фільтри",
+   "en": "Oil + filters"
+  },
+  {
+   "uk": ">4 023 км<",
+   "en": ">4 023 km<"
+  },
+  {
+   "uk": "<span class=\"num\">ЗДОРОВ'Я 71</span>",
+   "en": "<span class=\"num\">HEALTH 71</span>"
+  },
+  {
+   "uk": "Здоров'я 71 зі 100",
+   "en": "Health 71 out of 100"
+  },
+  {
+   "uk": "Скошені сегменти, як шкала на приладці.",
+   "en": "Slanted segments, like a gauge on the dashboard."
+  },
+  {
+   "uk": "Фон #0B0B0A",
+   "en": "Background #0B0B0A"
+  },
+  {
+   "uk": "Плашка #151513",
+   "en": "Card #151513"
+  },
+  {
+   "uk": "Текст #ECE4D6",
+   "en": "Text #ECE4D6"
+  },
+  {
+   "uk": "Другорядне #8F897E",
+   "en": "Secondary #8F897E"
+  },
+  {
+   "uk": "Дія #F4B223",
+   "en": "Action #F4B223"
+  },
+  {
+   "uk": "<b>06</b> Рух",
+   "en": "<b>06</b> Motion"
+  },
+  {
+   "uk": "Спокійно,<br><span class=\"g\">поки не час</span>",
+   "en": "Calm,<br><span class=\"g\">until it's time</span>"
+  },
+  {
+   "uk": "Анімація тут частина мови, а не прикраса. Вона показує, звідки взялась річ і куди пішла: полароїд стає шапкою, плашки їдуть з-під пальця, штамп ставиться, коли роботу закрито. Усе коротше за 320 мс, крім Моменту.",
+   "en": "Animation here is part of the language, not decoration. It shows where a thing came from and where it went: the polaroid becomes the header, cards slide out from under your finger, a stamp lands when a job is done. Everything is under 320 ms, except the Moment."
+  },
+  {
+   "uk": "Спокійно за замовчуванням",
+   "en": "Calm by default"
+  },
+  {
+   "uk": "До 320 мс. Приходить швидко, йде ще швидше.",
+   "en": "Up to 320 ms. Arrives fast, leaves faster."
+  },
+  {
+   "uk": "Ближче до пальця першим",
+   "en": "Nearest the finger first"
+  },
+  {
+   "uk": "Меню розкривається знизу вгору, з кроком 40 мс.",
+   "en": "Menus open from the bottom up, 40 ms apart."
+  },
+  {
+   "uk": "З-за краю, не з повітря",
+   "en": "From the edge, not thin air"
+  },
+  {
+   "uk": "Плашки виїжджають справа і ніколи не проявляються на місці.",
+   "en": "Cards slide in from the right and never just fade in on the spot."
+  },
+  {
+   "uk": "Гучно тільки в Моменті",
+   "en": "Loud only in the Moment"
+  },
+  {
+   "uk": "Відскок, масштаб і вібрація лише тоді, коли закрив роботу.",
+   "en": "Bounce, scale and haptics only when you finish a job."
+  },
+  {
+   "uk": "aria-label=\"+ меню\"",
+   "en": "aria-label=\"+ menu\""
+  },
+  {
+   "uk": "<b>+ меню</b>Плашки виїжджають з-за правого краю, ближня до пальця перша. Плюс повертається в хрестик.",
+   "en": "<b>+ menu</b>Cards slide in from the right edge, the one nearest your finger first. The plus turns into a cross."
+  },
+  {
+   "uk": "aria-label=\"Свайп по гаражу\"",
+   "en": "aria-label=\"Swiping the garage\""
+  },
+  {
+   "uk": "<b>Свайп по гаражу</b>Полароїд іде за пальцем і сідає на місце пружиною. Наприкінці місце для ще однієї машини.",
+   "en": "<b>Swiping the garage</b>The polaroid follows your finger and springs into place. At the end, room for one more car."
+  },
+  {
+   "uk": "aria-label=\"Полароїд у шапку\"",
+   "en": "aria-label=\"Polaroid to header\""
+  },
+  {
+   "uk": "<b>Полароїд у шапку</b>Фото з гаража стає шапкою екрана авто, а не відкривається з нуля.",
+   "en": "<b>Polaroid to header</b>The photo from the garage becomes the car screen's header instead of opening from scratch."
+  },
+  {
+   "uk": "aria-label=\"З гаража в авто\"",
+   "en": "aria-label=\"Garage to car\""
+  },
+  {
+   "uk": "<b>З гаража в авто</b>Екран авто заїжджає збоку і так само повертається, гараж лишається під ним.",
+   "en": "<b>Garage to car</b>The car screen slides in from the side and back out the same way, with the garage staying underneath."
+  },
+  {
+   "uk": "aria-label=\"Момент\"",
+   "en": "aria-label=\"The Moment\""
+  },
+  {
+   "uk": "<b>Момент</b>Роботу закрито: штамп SERVICED, потім +8 до здоров'я. Єдине місце, де анімація гучна.",
+   "en": "<b>The Moment</b>A job is done: the SERVICED stamp, then +8 health. The only place where animation gets loud."
+  },
+  {
+   "uk": "aria-label=\"AI пише план\"",
+   "en": "aria-label=\"AI writes the plan\""
+  },
+  {
+   "uk": "<b>AI пише план</b>Видно, що саме зараз робиться і скільки ще чекати.",
+   "en": "<b>AI writes the plan</b>You can see what's happening right now and how long is left."
+  },
+  {
+   "uk": "aria-label=\"Витрату збережено\"",
+   "en": "aria-label=\"Expense saved\""
+  },
+  {
+   "uk": "<b>Витрату збережено</b>Лист закривається, запис лягає в список, де його й шукатимеш.",
+   "en": "<b>Expense saved</b>The sheet closes and the entry drops into the list, right where you'll look for it."
+  },
+  {
+   "uk": "aria-label=\"Вкладки авто\"",
+   "en": "aria-label=\"Car tabs\""
+  },
+  {
+   "uk": "<b>Вкладки авто</b>Сервіси, план, пальне, гроші. Шапка лишається, міняється тільки зміст.",
+   "en": "<b>Car tabs</b>Services, plan, fuel, money. The header stays, only the content changes."
+  },
+  {
+   "uk": "З увімкненим «Зменшити рух» у системі все те саме, але без руху: прості проявлення або миттєва зміна.",
+   "en": "With “Reduce motion” turned on in the system, everything is the same but without movement: simple fades or an instant change."
+  },
+  {
+   "uk": "<b>07</b> Логотип",
+   "en": "<b>07</b> Logo"
+  },
+  {
+   "uk": "Від мандали<br><span class=\"g\">до штриха</span>",
+   "en": "From mandala<br><span class=\"g\">to stroke</span>"
+  },
+  {
+   "uk": "Назва складена з maintenance і tracker, а звучить як «мантра». Звідси стара шестерня з мандалою всередині. У нову мову вона не лягала: круглий, детальний знак серед зрізаних форм. Перебрав усе: шестерні, одометри, значки з ігор, гаражні ритуали. На це пішла не одна безсонна ніч, а коли я все ж спав, мені снилися логотипи.",
+   "en": "The name is made of maintenance and tracker, and it sounds like “mantra”. Hence the old gear with a mandala inside. It didn't fit the new language: a round, detailed mark among cut shapes. I tried everything: gears, odometers, game badges, garage rituals. It cost more than one sleepless night, and when I did sleep, I dreamed of logos."
+  },
+  {
+   "uk": "Старий логотип: шестерня з мандалою",
+   "en": "The old logo: a gear with a mandala"
+  },
+  {
+   "uk": "<b>Було.</b> Шестерня і мандала.",
+   "en": "<b>Before.</b> A gear and a mandala."
+  },
+  {
+   "uk": "Ескізи нового логотипа в блокноті",
+   "en": "Sketches of the new logo in a notebook"
+  },
+  {
+   "uk": "<b>Блокнот.</b> Пошук ритму з трьох похилих штрихів.",
+   "en": "<b>Notebook.</b> Looking for a rhythm in three slanted strokes."
+  },
+  {
+   "uk": "Новий знак Maintra",
+   "en": "The new Maintra mark"
+  },
+  {
+   "uk": "<b>Стало.</b> M і t з трьох скошених штрихів.",
+   "en": "<b>After.</b> M and t from three slanted strokes."
+  },
+  {
+   "uk": "Дві літери",
+   "en": "Two letters"
+  },
+  {
+   "uk": "M і t одразу: maintenance tracker в одному знаку.",
+   "en": "M and t at once: maintenance tracker in one mark."
+  },
+  {
+   "uk": "<span class=\"k\">Пружина</span>",
+   "en": "<span class=\"k\">A spring</span>"
+  },
+  {
+   "uk": "Похилі штрихи читаються як пружина амортизатора. Це про машину, а не про абстракцію.",
+   "en": "The slanted strokes read as a shock absorber's spring. It's about the car, not an abstraction."
+  },
+  {
+   "uk": "Простір для руху",
+   "en": "Room to move"
+  },
+  {
+   "uk": "Штрихи можуть стискатись і відбивати, як підвіска на ямі. Готова анімація для запуску, синхронізації й завантаження.",
+   "en": "The strokes can compress and rebound like suspension over a pothole. A ready-made animation for launch, sync and loading."
+  },
+  {
+   "uk": "<span class=\"k\">Мова 2.0</span>",
+   "en": "<span class=\"k\">The 2.0 language</span>"
+  },
+  {
+   "uk": "Ті самі скошені лінії й зрізи, що в кнопках, картках, іконках і шрифті Tektur.",
+   "en": "The same slanted lines and cuts as the buttons, cards, icons and the Tektur typeface."
+  },
+  {
+   "uk": "<b>08</b> До і після",
+   "en": "<b>08</b> Before and after"
+  },
+  {
+   "uk": "<h2>1.6 проти 2.0</h2>",
+   "en": "<h2>1.6 vs 2.0</h2>"
+  },
+  {
+   "uk": "Ті самі дані, той самий Pajero. Різниця в тому, що екран тепер відповідає на питання, а не перелічує все.",
+   "en": "Same data, same Pajero. The difference is that the screen now answers a question instead of listing everything."
+  },
+  {
+   "uk": "Гараж у версії 1.6",
+   "en": "The garage in 1.6"
+  },
+  {
+   "uk": "1.6 · Гараж",
+   "en": "1.6 · Garage"
+  },
+  {
+   "uk": "Гараж у версії 2.0",
+   "en": "The garage in 2.0"
+  },
+  {
+   "uk": "2.0 · Гараж",
+   "en": "2.0 · Garage"
+  },
+  {
+   "uk": "Полароїд більший, під ним одна цифра: скільки до заміни оливи. Далі тільки найтерміновіше. Вішлист, документи, шини і полиця переїхали в смугу внизу.",
+   "en": "The polaroid is bigger, with one number under it: how long until the oil change. Then only what's most urgent. Wishlist, documents, tyres and the shelf moved to a strip at the bottom."
+  },
+  {
+   "uk": "Екран авто у версії 1.6",
+   "en": "The car screen in 1.6"
+  },
+  {
+   "uk": "1.6 · Авто",
+   "en": "1.6 · Car"
+  },
+  {
+   "uk": "Екран авто у версії 2.0",
+   "en": "The car screen in 2.0"
+  },
+  {
+   "uk": "2.0 · Авто",
+   "en": "2.0 · Car"
+  },
+  {
+   "uk": "Роботи згруповані по візитах на СТО, з сумою за візит. Зроблене і куплене на полицю розділені.",
+   "en": "Jobs are grouped by visit to the shop, with a total for each visit. Work done and parts bought for the shelf are kept apart."
+  },
+  {
+   "uk": "План у версії 1.6",
+   "en": "The plan in 1.6"
+  },
+  {
+   "uk": "1.6 · План",
+   "en": "1.6 · Plan"
+  },
+  {
+   "uk": "План у версії 2.0",
+   "en": "The plan in 2.0"
+  },
+  {
+   "uk": "2.0 · План",
+   "en": "2.0 · Plan"
+  },
+  {
+   "uk": "Прострочене, скоро і пізніше. Кожен рядок каже, коли і чому. Менше іконок і тексту, стриманіші кольори, більше повітря.",
+   "en": "Overdue, soon and later. Every row says when and why. Fewer icons and less text, calmer colours, more room to breathe."
+  },
+  {
+   "uk": "<b>09</b> Куди дійшли",
+   "en": "<b>09</b> Where we got to"
+  },
+  {
+   "uk": "Темна і світла теми, класичний вигляд гаража, телефон і планшет, офлайн-мапа зі статистикою поїздок, сейф для документів, шини. Скріншоти для сторів уже готові дванадцятьма мовами.",
+   "en": "Dark and light themes, a classic garage view, phone and tablet, an offline map with trip stats, a vault for documents, tyres. The store screenshots are already done in twelve languages."
+  },
+  {
+   "uk": "Скріншот стору: Service book on autopilot",
+   "en": "Store screenshot: Service book on autopilot"
+  },
+  {
+   "uk": "Скріншот стору: 50+ інструментів",
+   "en": "Store screenshot: 50+ tools"
+  },
+  {
+   "uk": "Скріншот стору: офлайн-навігація",
+   "en": "Store screenshot: offline navigation"
+  },
+  {
+   "uk": "Скріншот стору: налаштування гаража",
+   "en": "Store screenshot: garage settings"
+  },
+  {
+   "uk": "Скріншот стору для iPad",
+   "en": "Store screenshot for iPad"
+  },
+  {
+   "uk": "alt=\"Підсумок поїздки\"",
+   "en": "alt=\"Trip summary\""
+  },
+  {
+   "uk": "<b>Після поїздки</b>Швидкість, час, найшвидша ділянка. Трек не покидає телефон.",
+   "en": "<b>After a drive</b>Speed, time, the fastest stretch. The track never leaves your phone."
+  },
+  {
+   "uk": "alt=\"Шини\"",
+   "en": "alt=\"Tyres\""
+  },
+  {
+   "uk": "<b>Шини</b>Протектор по кожному колесу, вік, ротація.",
+   "en": "<b>Tyres</b>Tread on every wheel, age, rotation."
+  },
+  {
+   "uk": "alt=\"Документи\"",
+   "en": "alt=\"Documents\""
+  },
+  {
+   "uk": "<b>Документи</b>Шифруються на телефоні ще до завантаження.",
+   "en": "<b>Documents</b>Encrypted on your phone before they're uploaded."
+  },
+  {
+   "uk": "<b>10</b> Під себе",
+   "en": "<b>10</b> Make it yours"
+  },
+  {
+   "uk": "Темна, світла<br><span class=\"g\">або як у телефоні</span>",
+   "en": "Dark, light<br><span class=\"g\">or like your phone</span>"
+  },
+  {
+   "uk": "Тему обираєш у профілі: темна, світла або за системою. Правила ті самі, змінюється тільки світло. Гараж теж можна перемкнути: полароїд з фото або класичний список карток. А далі власні теми, нижче.",
+   "en": "You pick the theme in your profile: dark, light or system. The rules stay the same, only the light changes. The garage can switch too: a polaroid with a photo, or a classic list of cards. Then come our own themes, below."
+  },
+  {
+   "uk": "Гараж, темна тема",
+   "en": "Garage, dark theme"
+  },
+  {
+   "uk": "Гараж, світла тема",
+   "en": "Garage, light theme"
+  },
+  {
+   "uk": "<span class=\"tl\">Гараж</span>",
+   "en": "<span class=\"tl\">Garage</span>"
+  },
+  {
+   "uk": "План, темна тема",
+   "en": "Plan, dark theme"
+  },
+  {
+   "uk": "План, світла тема",
+   "en": "Plan, light theme"
+  },
+  {
+   "uk": "<span class=\"tl\">План</span>",
+   "en": "<span class=\"tl\">Plan</span>"
+  },
+  {
+   "uk": "Витрати, темна тема",
+   "en": "Costs, dark theme"
+  },
+  {
+   "uk": "Витрати, світла тема",
+   "en": "Costs, light theme"
+  },
+  {
+   "uk": "<span class=\"tl\">Витрати</span>",
+   "en": "<span class=\"tl\">Costs</span>"
+  },
+  {
+   "uk": "Класичний гараж, темна тема",
+   "en": "Classic garage, dark theme"
+  },
+  {
+   "uk": "Класичний гараж, світла тема",
+   "en": "Classic garage, light theme"
+  },
+  {
+   "uk": "<span class=\"tl\">Класичний гараж</span>",
+   "en": "<span class=\"tl\">Classic garage</span>"
+  },
+  {
+   "uk": "Теми на вибір",
+   "en": "Themes to choose from"
+  },
+  {
+   "uk": "Три безкоштовні і чотири в Pro. Тема змінює тільки фон і акцент. Текст, іконки і статуси лишаються: червоне прострочене, бурштинове скоро, зелене все гаразд. Будь-яку можна приміряти на хвилину, а Red light може вмикатись сам після заходу сонця.",
+   "en": "Three free and four in Pro. A theme changes only the background and the accent. Text, icons and statuses stay put: red is overdue, amber is soon, green is all good. You can try any of them on for a minute, and Red light can switch itself on after sunset."
+  },
+  {
+   "uk": "Екран вибору теми",
+   "en": "Theme picker screen"
+  },
+  {
+   "uk": "<b>Вибір теми</b>Профіль → Вигляд",
+   "en": "<b>Theme picker</b>Profile → Appearance"
+  },
+  {
+   "uk": "Тема Garage",
+   "en": "Garage theme"
+  },
+  {
+   "uk": "Темна, знайома",
+   "en": "Dark, familiar"
+  },
+  {
+   "uk": "Тема Workshop",
+   "en": "Workshop theme"
+  },
+  {
+   "uk": "Світла, на день",
+   "en": "Light, for daytime"
+  },
+  {
+   "uk": "Тема Red light",
+   "en": "Red light theme"
+  },
+  {
+   "uk": "Червоний акцент на ніч",
+   "en": "A red accent for night"
+  },
+  {
+   "uk": "Тема Field",
+   "en": "Field theme"
+  },
+  {
+   "uk": "Олива і тан, камуфляж на +",
+   "en": "Olive and tan, camo on the +"
+  },
+  {
+   "uk": "Тема Blueprint",
+   "en": "Blueprint theme"
+  },
+  {
+   "uk": "Креслення, блакитні лінії",
+   "en": "Technical drawing, blue lines"
+  },
+  {
+   "uk": "Тема Logbook",
+   "en": "Logbook theme"
+  },
+  {
+   "uk": "Стара сервісна книжка, синє чорнило",
+   "en": "An old service book, blue ink"
+  },
+  {
+   "uk": "Тема Rose, ніч",
+   "en": "Rose theme, night"
+  },
+  {
+   "uk": "Сливова вночі",
+   "en": "Plum at night"
+  },
+  {
+   "uk": "Тема Rose, день",
+   "en": "Rose theme, day"
+  },
+  {
+   "uk": "Рожева вдень",
+   "en": "Pink by day"
+  },
+  {
+   "uk": "Смарт-трекер обслуговування для твого гаража.",
+   "en": "A smart maintenance tracker for your garage."
+  }
+ ]
+}
