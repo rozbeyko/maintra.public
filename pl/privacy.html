@@ -99,7 +99,7 @@
     <!-- /chrome:toc -->
     <article class="doc-body">
       <p class="muted">To tłumaczenie przygotowane dla Twojej wygody. Jeśli różni się od wersji angielskiej, obowiązuje wersja angielska. <a href="/privacy.html">Wersja angielska</a></p>
-      <p class="muted">Ostatnia aktualizacja: <strong>17 czerwca 2026 r.</strong></p>
+      <p class="muted">Ostatnia aktualizacja: <strong>10 października 2026 r.</strong></p>
       
           <p>Niniejsza Polityka prywatności opisuje, w jaki sposób <strong>Maintra</strong> („my”, „nasz” lub „aplikacja”) zbiera, wykorzystuje i chroni Twoje informacje, gdy korzystasz z naszej aplikacji mobilnej.</p>
       
@@ -137,16 +137,16 @@
       
           <h3>Analityka produktowa</h3>
           <ul>
-            <li>Anonimowe zdarzenia użytkowania: które ekrany otwierasz i z jakich funkcji korzystasz (na przykład dodanie pojazdu, wygenerowanie planu AI lub wyświetlenie ekranu przejścia na płatny pakiet), wraz z Twoim pakietem subskrypcji, wersją aplikacji, modelem urządzenia i systemem operacyjnym. Dane te są zbierane za pośrednictwem PostHog (zob. sekcja 5), hostowanego w Unii Europejskiej, i są powiązane wyłącznie z identyfikatorem pseudonimowym. Nigdy nie obejmują danych Twoich pojazdów, wpisów serwisowych, zdjęć ani treści czatu. Wykorzystujemy je wyłącznie po to, aby zrozumieć, które funkcje są przydatne, i ulepszać aplikację.</li>
+            <li><strong>Tylko za Twoją zgodą; jeśli odmówisz, nic nie jest zbierane.</strong> Anonimowe zdarzenia użytkowania: które ekrany otwierasz i z jakich funkcji korzystasz (na przykład dodanie pojazdu, wygenerowanie planu AI lub wyświetlenie ekranu przejścia na płatny pakiet), wraz z Twoim pakietem subskrypcji, wersją aplikacji, modelem urządzenia i systemem operacyjnym. Dane te są zbierane za pośrednictwem PostHog (zob. sekcja 5), hostowanego w Unii Europejskiej, i są powiązane wyłącznie z identyfikatorem pseudonimowym. Nigdy nie obejmują danych Twoich pojazdów, wpisów serwisowych, zdjęć ani treści czatu. Wykorzystujemy je wyłącznie po to, aby zrozumieć, które funkcje są przydatne, i ulepszać aplikację.</li>
           </ul>
       
           <h3>Dane, których <em>nie</em> zbieramy</h3>
           <ul>
-            <li>Nie zbieramy Twojej dokładnej lokalizacji.</li>
+            <li>Lokalizacja: aplikacja korzysta z GPS urządzenia wyłącznie do nawigacji offline, wyłącznie za Twoją zgodą i wyłącznie na urządzeniu. Twoje trasy, przejazdy i odwiedzane miejsca nie są do nas wysyłane ani przechowywane na naszych serwerach.</li>
             <li>Nie zbieramy Twoich kontaktów, kalendarza, plików ani wiadomości.</li>
             <li>Nie przechowujemy na naszych serwerach zdjęć z Twojego aparatu ani galerii, z jednym wyjątkiem: funkcji skanowania paragonów. Gdy skanujesz paragon, obraz jest wysyłany do Anthropic (Claude AI) w celu odczytania pozycji. Jeśli korzystasz z płatnego pakietu i zdecydujesz się zachować ten paragon, obraz jest następnie przechowywany prywatnie na Twoim koncie, aby mógł służyć jako dowód wykonania serwisu i być dołączany do eksportów PDF; jeśli go nie zachowasz, obraz jest usuwany po przetworzeniu. Przechowywane obrazy paragonów są dostępne tylko dla Ciebie, są usuwane, gdy usuniesz powiązany wpis serwisowy lub swoje konto, i nigdy nie są wykorzystywane do celów reklamowych ani udostępniane. Funkcja wpisu serwisowego AI może też działać wyłącznie na podstawie wpisanego przez Ciebie tekstu, bez żadnego obrazu.</li>
             <li>Nie używamy identyfikatorów reklamowych, a aplikacja nie zawiera reklam.</li>
-            <li>Nie używamy SDK reklamowych ani SDK do śledzenia między aplikacjami. Używamy natomiast SDK do raportowania awarii (Sentry) oraz przyjaznego dla prywatności SDK analityki produktowej (PostHog, hostowanego w UE), opisanych w sekcji 5, aby naprawiać błędy i rozumieć, z których funkcji się korzysta. Żadne z nich nigdy nie otrzymuje danych Twoich pojazdów, wpisów serwisowych, zdjęć ani treści czatu.</li>
+            <li>Nie używamy SDK reklamowych ani SDK do śledzenia między aplikacjami. Używamy natomiast SDK do raportowania awarii (Sentry) oraz przyjaznego dla prywatności SDK analityki produktowej (PostHog, hostowanego w UE), opisanych w sekcji 5, aby naprawiać błędy i rozumieć, z których funkcji się korzysta. Żadne z nich nigdy nie otrzymuje danych Twoich pojazdów, wpisów serwisowych, zdjęć ani treści czatu. Analityka produktowa działa wyłącznie za Twoją zgodą.</li>
           </ul>
       
           <h2 id="3-how-we-use-your-information">Jak wykorzystujemy Twoje informacje</h2>
@@ -159,7 +159,7 @@
           </ul>
       
           <h2 id="4-where-your-data-is-stored">Gdzie przechowywane są Twoje dane</h2>
-          <p>Twoje dane są przechowywane w dwóch miejscach:</p>
+          <p>Twoje dane są przechowywane w trzech miejscach:</p>
           <ul>
             <li><strong>Na Twoim urządzeniu</strong> – w lokalnej bazie danych SQLite. Dzięki temu aplikacja działa offline.</li>
             <li><strong>Na naszym backendzie</strong> – hostowanym przez <a href="https://supabase.com/" target="_blank" rel="noopener">Supabase</a> (baza danych PostgreSQL). Supabase zapewnia infrastrukturę uwierzytelniania, bazy danych i API, z której korzystamy.</li>
@@ -216,6 +216,7 @@
             <h3 style="margin-top:0;">PostHog (UE)</h3>
             <p class="muted">Przyjazna dla prywatności analityka produktowa, hostowana w Unii Europejskiej.</p>
             <p>Otrzymuje: pseudonimowy identyfikator użytkownika i zdarzenia użytkowania produktu – które ekrany otwierasz, z jakich funkcji korzystasz (np. dodanie pojazdu lub wygenerowanie planu), Twój pakiet subskrypcji, wersję aplikacji, model urządzenia i system operacyjny. Nie wysyłamy do PostHog danych Twoich pojazdów, wpisów serwisowych, obrazów paragonów ani treści czatu. PostHog przetwarza te dane na serwerach w UE. Zob. <a href="https://posthog.com/privacy" target="_blank" rel="noopener">Politykę prywatności PostHog</a>.</p>
+            <p>PostHog otrzymuje te zdarzenia tylko wtedy, gdy wyrazisz zgodę na analitykę produktową. Jeśli odmówisz, aplikacja nie wysyła do PostHog niczego.</p>
           </div>
       
           <h2 id="6-your-rights">Twoje prawa</h2>

@@ -99,7 +99,7 @@
     <!-- /chrome:toc -->
     <article class="doc-body">
       <p class="muted">Diese Übersetzung wird Ihnen der Einfachheit halber bereitgestellt. Weicht sie von der englischen Fassung ab, ist die englische Fassung maßgeblich. <a href="/privacy.html">Englische Fassung</a></p>
-      <p class="muted">Stand: <strong>17. Juni 2026</strong></p>
+      <p class="muted">Stand: <strong>10. Oktober 2026</strong></p>
       
           <p>Diese Datenschutzerklärung beschreibt, wie <strong>Maintra</strong> („wir“, „unser“ oder „die App“) Ihre Informationen erhebt, verwendet und schützt, wenn Sie unsere mobile Anwendung nutzen.</p>
       
@@ -137,16 +137,16 @@
       
           <h3>Produktanalyse</h3>
           <ul>
-            <li>Anonyme Nutzungsereignisse: welche Bildschirme Sie öffnen und welche Funktionen Sie nutzen (zum Beispiel ein Fahrzeug hinzufügen, einen KI-Plan erstellen oder den Upgrade-Bildschirm aufrufen), zusammen mit Ihrem Abo-Tarif, der App-Version, dem Gerätemodell und dem Betriebssystem. Diese Daten werden über PostHog (siehe Abschnitt 5) erhoben, das in der Europäischen Union gehostet wird, und sind nur mit einer pseudonymen Kennung verknüpft. Sie enthalten niemals Ihre Fahrzeugdaten, Serviceeinträge, Fotos oder Chatinhalte. Wir verwenden sie ausschließlich, um zu verstehen, welche Funktionen nützlich sind, und um die App zu verbessern.</li>
+            <li><strong>Nur mit Ihrer Einwilligung; wenn Sie ablehnen, wird nichts erfasst.</strong> Anonyme Nutzungsereignisse: welche Bildschirme Sie öffnen und welche Funktionen Sie nutzen (zum Beispiel ein Fahrzeug hinzufügen, einen KI-Plan erstellen oder den Upgrade-Bildschirm aufrufen), zusammen mit Ihrem Abo-Tarif, der App-Version, dem Gerätemodell und dem Betriebssystem. Diese Daten werden über PostHog (siehe Abschnitt 5) erhoben, das in der Europäischen Union gehostet wird, und sind nur mit einer pseudonymen Kennung verknüpft. Sie enthalten niemals Ihre Fahrzeugdaten, Serviceeinträge, Fotos oder Chatinhalte. Wir verwenden sie ausschließlich, um zu verstehen, welche Funktionen nützlich sind, und um die App zu verbessern.</li>
           </ul>
       
           <h3>Daten, die wir <em>nicht</em> erheben</h3>
           <ul>
-            <li>Wir erheben nicht Ihren genauen Standort.</li>
+            <li>Standort: Die App nutzt das GPS Ihres Geräts ausschließlich für die Offline-Navigation, nur mit Ihrer Erlaubnis und nur auf dem Gerät. Ihre Routen, Fahrten und besuchten Orte werden weder an uns übermittelt noch auf unseren Servern gespeichert.</li>
             <li>Wir erheben weder Ihre Kontakte noch Ihren Kalender, Ihre Dateien oder Ihre Nachrichten.</li>
             <li>Wir speichern keine Fotos aus Ihrer Kamera oder Fotomediathek auf unseren Servern, mit einer Ausnahme: der Belegscan-Funktion. Wenn Sie einen Beleg scannen, wird das Bild an Anthropic (Claude AI) gesendet, um die einzelnen Positionen auszulesen. Wenn Sie einen kostenpflichtigen Tarif nutzen und den Beleg behalten möchten, wird das Bild anschließend privat in Ihrem Konto gespeichert, damit Sie es als Nachweis der Wartung aufbewahren und in PDF-Exporte aufnehmen können; behalten Sie ihn nicht, wird das Bild nach dem Auslesen verworfen. Gespeicherte Belegbilder sind nur für Sie zugänglich, werden gelöscht, wenn Sie den zugehörigen Serviceeintrag oder Ihr Konto löschen, und werden niemals für Werbung verwendet oder weitergegeben. Die Funktion KI-Serviceeintrag funktioniert auch allein mit Text, den Sie eingeben, ganz ohne Bild.</li>
             <li>Wir verwenden keine Werbe-IDs, und die App enthält keine Werbung.</li>
-            <li>Wir verwenden keine SDKs für Werbung oder App-übergreifendes Tracking. Wir verwenden jedoch ein SDK für Absturzberichte (Sentry) und ein datenschutzfreundliches SDK für Produktanalyse (PostHog, in der EU gehostet), beide in Abschnitt 5 beschrieben, um Fehler zu beheben und zu verstehen, welche Funktionen genutzt werden. Keines von beiden erhält jemals Ihre Fahrzeugdaten, Serviceeinträge, Fotos oder Chatinhalte.</li>
+            <li>Wir verwenden keine SDKs für Werbung oder App-übergreifendes Tracking. Wir verwenden jedoch ein SDK für Absturzberichte (Sentry) und ein datenschutzfreundliches SDK für Produktanalyse (PostHog, in der EU gehostet), beide in Abschnitt 5 beschrieben, um Fehler zu beheben und zu verstehen, welche Funktionen genutzt werden. Keines von beiden erhält jemals Ihre Fahrzeugdaten, Serviceeinträge, Fotos oder Chatinhalte. Die Nutzungsanalyse läuft nur mit Ihrer Einwilligung.</li>
           </ul>
       
           <h2 id="3-how-we-use-your-information">Wie wir Ihre Daten verwenden</h2>
@@ -159,7 +159,7 @@
           </ul>
       
           <h2 id="4-where-your-data-is-stored">Wo Ihre Daten gespeichert werden</h2>
-          <p>Ihre Daten werden an zwei Orten gespeichert:</p>
+          <p>Ihre Daten werden an drei Orten gespeichert:</p>
           <ul>
             <li><strong>Auf Ihrem Gerät</strong>: in einer lokalen SQLite-Datenbank. So funktioniert die App auch offline.</li>
             <li><strong>In unserem Backend</strong>: gehostet von <a href="https://supabase.com/" target="_blank" rel="noopener">Supabase</a> (PostgreSQL-Datenbank). Supabase stellt die Infrastruktur für Authentifizierung, Datenbank und API bereit, die wir nutzen.</li>
@@ -216,6 +216,7 @@
             <h3 style="margin-top:0;">PostHog (EU)</h3>
             <p class="muted">Datenschutzfreundliche Produktanalyse, gehostet in der Europäischen Union.</p>
             <p>Erhält: eine pseudonyme Nutzerkennung und Ereignisse zur Produktnutzung: welche Bildschirme Sie öffnen, welche Funktionen Sie nutzen (z. B. ein Fahrzeug hinzufügen oder einen Plan erstellen), Ihren Abo-Tarif, die App-Version, das Gerätemodell und das Betriebssystem. Wir senden PostHog keine Fahrzeugdaten, Serviceeinträge, Belegbilder oder Chatinhalte. PostHog verarbeitet diese Daten auf Servern in der EU. Siehe die <a href="https://posthog.com/privacy" target="_blank" rel="noopener">Datenschutzerklärung von PostHog</a>.</p>
+            <p>PostHog erhält diese Ereignisse nur, wenn Sie der Nutzungsanalyse zustimmen. Lehnen Sie ab, sendet die App nichts an PostHog.</p>
           </div>
       
           <h2 id="6-your-rights">Ihre Rechte</h2>

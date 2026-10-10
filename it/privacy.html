@@ -99,7 +99,7 @@
     <!-- /chrome:toc -->
     <article class="doc-body">
       <p class="muted">Questa traduzione è fornita per comodità. In caso di differenze rispetto alla versione inglese, prevale la versione inglese. <a href="/privacy.html">Versione inglese</a></p>
-      <p class="muted">Ultimo aggiornamento: <strong>17 giugno 2026</strong></p>
+      <p class="muted">Ultimo aggiornamento: <strong>10 ottobre 2026</strong></p>
       
           <p>La presente informativa sulla privacy descrive come <strong>Maintra</strong> («noi», «nostro» o «l'app») raccoglie, utilizza e protegge le tue informazioni quando usi la nostra applicazione mobile.</p>
       
@@ -137,16 +137,16 @@
       
           <h3>Analisi di utilizzo del prodotto</h3>
           <ul>
-            <li>Eventi di utilizzo anonimi: quali schermate apri e quali funzioni usi (ad esempio l'aggiunta di un veicolo, la generazione di un piano con l'IA o la visualizzazione della schermata di upgrade), insieme al tuo piano di abbonamento, alla versione dell'app, al modello del dispositivo e al sistema operativo. Questi dati sono raccolti tramite PostHog (vedi la sezione 5), ospitato nell'Unione europea, e sono collegati solo a un identificativo pseudonimo. Non includono mai i dati dei tuoi veicoli, gli interventi, le foto o il contenuto delle chat. Li usiamo esclusivamente per capire quali funzioni sono utili e per migliorare l'app.</li>
+            <li><strong>Solo con il tuo consenso; se rifiuti, non viene raccolto nulla.</strong> Eventi di utilizzo anonimi: quali schermate apri e quali funzioni usi (ad esempio l'aggiunta di un veicolo, la generazione di un piano con l'IA o la visualizzazione della schermata di upgrade), insieme al tuo piano di abbonamento, alla versione dell'app, al modello del dispositivo e al sistema operativo. Questi dati sono raccolti tramite PostHog (vedi la sezione 5), ospitato nell'Unione europea, e sono collegati solo a un identificativo pseudonimo. Non includono mai i dati dei tuoi veicoli, gli interventi, le foto o il contenuto delle chat. Li usiamo esclusivamente per capire quali funzioni sono utili e per migliorare l'app.</li>
           </ul>
       
           <h3>Dati che <em>non</em> raccogliamo</h3>
           <ul>
-            <li>Non raccogliamo la tua posizione precisa.</li>
+            <li>Posizione: l'app usa il GPS del dispositivo solo per la navigazione offline, solo con il tuo permesso e solo sul dispositivo. I tuoi percorsi, i viaggi e i luoghi che visiti non ci vengono inviati e non sono conservati sui nostri server.</li>
             <li>Non raccogliamo i tuoi contatti, il calendario, i file o i messaggi.</li>
             <li>Non conserviamo sui nostri server le foto della fotocamera o della libreria foto, con un'unica eccezione: la funzione di scansione degli scontrini. Quando scansioni uno scontrino, l'immagine viene inviata ad Anthropic (Claude AI) per leggerne le singole voci. Se hai un piano a pagamento e scegli di conservare lo scontrino, l'immagine viene poi conservata in forma privata nel tuo account, così puoi tenerla come prova dell'intervento e includerla negli export PDF; se non lo conservi, l'immagine viene eliminata dopo l'analisi. Le immagini degli scontrini conservate sono visibili solo a te, vengono eliminate quando elimini l'intervento collegato o il tuo account, e non vengono mai usate per pubblicità né condivise. L'inserimento degli interventi con l'IA può funzionare anche solo dal testo che digiti, senza alcuna immagine.</li>
             <li>Non usiamo identificativi pubblicitari e l'app non contiene pubblicità.</li>
-            <li>Non usiamo SDK pubblicitari o di tracciamento tra app. Usiamo invece un SDK per la segnalazione degli arresti anomali (Sentry) e un SDK di analisi di utilizzo rispettoso della privacy (PostHog, ospitato nell'UE), entrambi descritti nella sezione 5, per correggere i bug e capire quali funzioni vengono usate. Nessuno dei due riceve mai i dati dei tuoi veicoli, gli interventi, le foto o il contenuto delle chat.</li>
+            <li>Non usiamo SDK pubblicitari o di tracciamento tra app. Usiamo invece un SDK per la segnalazione degli arresti anomali (Sentry) e un SDK di analisi di utilizzo rispettoso della privacy (PostHog, ospitato nell'UE), entrambi descritti nella sezione 5, per correggere i bug e capire quali funzioni vengono usate. Nessuno dei due riceve mai i dati dei tuoi veicoli, gli interventi, le foto o il contenuto delle chat. Le statistiche d'uso funzionano solo con il tuo consenso.</li>
           </ul>
       
           <h2 id="3-how-we-use-your-information">Come usiamo le tue informazioni</h2>
@@ -159,7 +159,7 @@
           </ul>
       
           <h2 id="4-where-your-data-is-stored">Dove sono conservati i tuoi dati</h2>
-          <p>I tuoi dati sono conservati in due posti:</p>
+          <p>I tuoi dati sono conservati in tre posti:</p>
           <ul>
             <li><strong>Sul tuo dispositivo</strong>: in un database SQLite locale. Questo permette all'app di funzionare offline.</li>
             <li><strong>Sul nostro backend</strong>: ospitato da <a href="https://supabase.com/" target="_blank" rel="noopener">Supabase</a> (database PostgreSQL). Supabase fornisce l'infrastruttura di autenticazione, database e API che utilizziamo.</li>
@@ -216,6 +216,7 @@
             <h3 style="margin-top:0;">PostHog (EU)</h3>
             <p class="muted">Analisi di utilizzo del prodotto rispettosa della privacy, ospitata nell'Unione europea.</p>
             <p>Riceve: un identificativo utente pseudonimo ed eventi di utilizzo del prodotto, cioè quali schermate apri, quali funzioni usi (ad esempio l'aggiunta di un veicolo o la generazione di un piano), il tuo piano di abbonamento, la versione dell'app, il modello del dispositivo e il sistema operativo. Non inviamo a PostHog i dati dei tuoi veicoli, gli interventi, le immagini degli scontrini o il contenuto delle chat. PostHog elabora questi dati su server situati nell'UE. Vedi l'<a href="https://posthog.com/privacy" target="_blank" rel="noopener">informativa sulla privacy di PostHog</a>.</p>
+            <p>PostHog riceve questi eventi solo se acconsenti alle statistiche d'uso. Se rifiuti, l'app non invia nulla a PostHog.</p>
           </div>
       
           <h2 id="6-your-rights">I tuoi diritti</h2>

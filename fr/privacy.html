@@ -99,7 +99,7 @@
     <!-- /chrome:toc -->
     <article class="doc-body">
       <p class="muted">Cette traduction est fournie pour votre commodité. En cas de divergence avec la version anglaise, c'est la version anglaise qui prévaut. <a href="/privacy.html">Version anglaise</a></p>
-      <p class="muted">Dernière mise à jour : <strong>17 juin 2026</strong></p>
+      <p class="muted">Dernière mise à jour : <strong>10 octobre 2026</strong></p>
       
           <p>La présente politique de confidentialité décrit comment <strong>Maintra</strong> (« nous », « notre » ou « l'app ») collecte, utilise et protège vos informations lorsque vous utilisez notre application mobile.</p>
       
@@ -137,16 +137,16 @@
       
           <h3>Analyse d'utilisation du produit</h3>
           <ul>
-            <li>Événements d'utilisation anonymes : les écrans que vous ouvrez et les fonctions que vous utilisez (par exemple l'ajout d'un véhicule, la génération d'un plan par IA ou l'affichage de l'écran de passage à une formule supérieure), ainsi que votre formule d'abonnement, la version de l'app, le modèle de votre appareil et son système d'exploitation. Ces données sont collectées via PostHog (voir la section 5), hébergé dans l'Union européenne, et ne sont liées qu'à un identifiant pseudonyme. Elles n'incluent jamais les données de vos véhicules, vos interventions, vos photos ni le contenu de vos discussions. Nous les utilisons uniquement pour comprendre quelles fonctions sont utiles et pour améliorer l'app.</li>
+            <li><strong>Uniquement avec votre consentement ; si vous refusez, rien n'est collecté.</strong> Événements d'utilisation anonymes : les écrans que vous ouvrez et les fonctions que vous utilisez (par exemple l'ajout d'un véhicule, la génération d'un plan par IA ou l'affichage de l'écran de passage à une formule supérieure), ainsi que votre formule d'abonnement, la version de l'app, le modèle de votre appareil et son système d'exploitation. Ces données sont collectées via PostHog (voir la section 5), hébergé dans l'Union européenne, et ne sont liées qu'à un identifiant pseudonyme. Elles n'incluent jamais les données de vos véhicules, vos interventions, vos photos ni le contenu de vos discussions. Nous les utilisons uniquement pour comprendre quelles fonctions sont utiles et pour améliorer l'app.</li>
           </ul>
       
           <h3>Données que nous ne collectons <em>pas</em></h3>
           <ul>
-            <li>Nous ne collectons pas votre position précise.</li>
+            <li>Localisation : l'application utilise le GPS de votre appareil uniquement pour la navigation hors ligne, uniquement avec votre autorisation et uniquement sur l'appareil. Vos itinéraires, vos trajets et les lieux où vous vous rendez ne nous sont pas envoyés et ne sont pas stockés sur nos serveurs.</li>
             <li>Nous ne collectons pas vos contacts, votre agenda, vos fichiers ni vos messages.</li>
             <li>Nous ne stockons pas sur nos serveurs les photos de votre appareil photo ou de votre photothèque, à une exception près : la fonction de scan des tickets. Lorsque vous scannez un ticket, l'image est envoyée à Anthropic (Claude AI) pour en lire les lignes. Si vous avez une formule payante et choisissez de conserver ce ticket, l'image est ensuite stockée de façon privée dans votre compte, pour que vous puissiez la garder comme justificatif de l'intervention et l'inclure dans vos exports PDF ; si vous ne la conservez pas, l'image est supprimée après analyse. Les images de tickets stockées ne sont accessibles qu'à vous, sont supprimées lorsque vous supprimez l'intervention correspondante ou votre compte, et ne sont jamais utilisées à des fins publicitaires ni partagées. La saisie d'intervention par IA peut aussi fonctionner à partir du seul texte que vous tapez, sans aucune image.</li>
             <li>Nous n'utilisons pas d'identifiants publicitaires, et l'app ne contient aucune publicité.</li>
-            <li>Nous n'utilisons pas de SDK publicitaires ni de SDK de suivi entre applications. Nous utilisons en revanche un SDK de signalement des plantages (Sentry) et un SDK d'analyse d'utilisation respectueux de la vie privée (PostHog, hébergé dans l'UE), tous deux décrits à la section 5, pour corriger les bugs et comprendre quelles fonctions sont utilisées. Aucun des deux ne reçoit jamais les données de vos véhicules, vos interventions, vos photos ni le contenu de vos discussions.</li>
+            <li>Nous n'utilisons pas de SDK publicitaires ni de SDK de suivi entre applications. Nous utilisons en revanche un SDK de signalement des plantages (Sentry) et un SDK d'analyse d'utilisation respectueux de la vie privée (PostHog, hébergé dans l'UE), tous deux décrits à la section 5, pour corriger les bugs et comprendre quelles fonctions sont utilisées. Aucun des deux ne reçoit jamais les données de vos véhicules, vos interventions, vos photos ni le contenu de vos discussions. L'analyse d'utilisation ne fonctionne qu'avec votre consentement.</li>
           </ul>
       
           <h2 id="3-how-we-use-your-information">Comment nous utilisons vos informations</h2>
@@ -159,7 +159,7 @@
           </ul>
       
           <h2 id="4-where-your-data-is-stored">Où vos données sont stockées</h2>
-          <p>Vos données sont stockées à deux endroits :</p>
+          <p>Vos données sont stockées à trois endroits :</p>
           <ul>
             <li><strong>Sur votre appareil</strong> : dans une base de données SQLite locale. C'est ce qui permet à l'app de fonctionner hors ligne.</li>
             <li><strong>Sur notre backend</strong> : hébergé par <a href="https://supabase.com/" target="_blank" rel="noopener">Supabase</a> (base de données PostgreSQL). Supabase fournit l'infrastructure d'authentification, de base de données et d'API que nous utilisons.</li>
@@ -216,6 +216,7 @@
             <h3 style="margin-top:0;">PostHog (EU)</h3>
             <p class="muted">Analyse d'utilisation du produit respectueuse de la vie privée, hébergée dans l'Union européenne.</p>
             <p>Reçoit : un identifiant utilisateur pseudonyme et des événements d'utilisation du produit, à savoir les écrans que vous ouvrez, les fonctions que vous utilisez (par exemple l'ajout d'un véhicule ou la génération d'un plan), votre formule d'abonnement, la version de l'app, le modèle de votre appareil et son système d'exploitation. Nous n'envoyons à PostHog ni les données de vos véhicules, ni vos interventions, ni les images de vos tickets, ni le contenu de vos discussions. PostHog traite ces données sur des serveurs situés dans l'UE. Voir la <a href="https://posthog.com/privacy" target="_blank" rel="noopener">politique de confidentialité de PostHog</a>.</p>
+            <p>PostHog ne reçoit ces événements que si vous acceptez l'analyse d'utilisation. Si vous refusez, l'application n'envoie rien à PostHog.</p>
           </div>
       
           <h2 id="6-your-rights">Vos droits</h2>

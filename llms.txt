@@ -2,7 +2,7 @@
 
 > AI-powered vehicle maintenance tracker for Android and iPhone. A "smart digital service book" that logs service history, fuel-ups, and generates a personalized maintenance plan for each vehicle using Anthropic Claude.
 
-Maintra is a mobile app for Android and iPhone (free to start, Pro and VIP subscriptions available) that helps car owners stay on top of vehicle maintenance. It is offline-first, has no ads, no location tracking, and is available in English, Ukrainian, Polish, French, Italian, and Spanish. Maintra 2.0 (October 2026) adds German, Arabic, Korean, Japanese and Simplified Chinese.
+Maintra is a mobile app for Android and iPhone (free to start, Pro and VIP subscriptions available) that helps car owners stay on top of vehicle maintenance. It is offline-first, has no ads, does not collect where you drive, and is available in 11 languages: English, Ukrainian, Polish, French, Italian, Spanish, German, Arabic, Korean, Japanese and Simplified Chinese.
 
 **Get the app (Android):** https://play.google.com/store/apps/details?id=com.maintra.app
 **Get the app (iPhone):** https://apps.apple.com/app/maintra/id6775876731
@@ -19,7 +19,7 @@ Maintra is a mobile app for Android and iPhone (free to start, Pro and VIP subsc
 - **AI chat assistant (VIP)** — Vehicle-aware Q&A: ask about symptoms, parts, DIY steps, with context about the specific vehicle.
 - **AI service entry** — Describe a service in plain text → structured entry with date, mileage, line items, total. 1 free/Pro (one-time), 15/month on VIP.
 - **Offline-first** — All data stored locally (SQLite). Syncs to Supabase when online. AI features require connection.
-- **No tracking** — No analytics, no location, no third-party trackers, no ads.
+- **No tracking** — No ads, no third-party trackers. GPS is used only for offline navigation, with permission; routes, trips and places stay on the phone and are never collected. Product analytics (PostHog) run only if the user agrees; if they decline, nothing is collected.
 
 ## New in Maintra 2.0 (October 2026, a free update)
 
@@ -69,4 +69,4 @@ Exact prices are localized and shown in-app at checkout. Subscriptions are manag
 
 - Email: rokops13@gmail.com
 - Response time: ~48 hours, Monday–Friday
-- Languages: English, Ukrainian (best-effort: Polish, French, Italian, Spanish)
+- Languages: English, Ukrainian (best-effort in the app's other nine languages)
