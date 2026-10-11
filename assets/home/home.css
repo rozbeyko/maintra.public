@@ -279,6 +279,7 @@ html.loading body { overflow: hidden; }
   text-transform: uppercase;
   color: var(--text2);
   text-decoration: none;
+  white-space: nowrap;
   transition: color .2s;
 }
 .top-nav a:hover, .top-nav a[aria-current] { color: var(--text); }
@@ -328,6 +329,8 @@ html.loading body { overflow: hidden; }
 .top-get { display: none; }
 @media (min-width: 560px) { .top-get { display: inline-flex; } }
 @media (min-width: 1100px) { .top-nav { display: flex; } }
+/* six links and the switches only just fit a laptop: closer together there */
+@media (min-width: 1100px) and (max-width: 1279px) { .top-nav { gap: 14px; margin-inline-start: 4px; } }
 
 /* The menu, where the header has no room for its links: three bars that
    lean like the logo's, the last one short and gold; open, they cross. */
@@ -372,6 +375,11 @@ html.loading body { overflow: hidden; }
 .menu nav a[aria-current='true'] .n { color: var(--accent-line); }
 .menu nav a:hover { color: var(--accent-line); }
 .menu-get { margin-top: 22px; }
+/* the homepage's sheet: this page's sections, then the rest of the site, a size down */
+.menu-group { margin: 16px 0 6px; font: 600 12px/1 var(--display); font-stretch: 78%; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.menu-group:first-child { margin-top: 10px; }
+.menu nav + .menu-group { margin-top: 26px; }
+.menu .menu-pages a { min-height: 52px; padding: 14px 2px 12px; font-size: clamp(20px, 5.2vw, 30px); }
 @media (min-width: 560px) { .menu-get { display: none; } }
 /* in: the sheet drops in, the rows follow it 40 ms apart, as the app's + menu does */
 .menu.in { animation: menuIn .32s var(--ease) both; }

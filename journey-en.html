@@ -372,6 +372,7 @@
   text-transform: uppercase;
   color: var(--text2);
   text-decoration: none;
+  white-space: nowrap;
   transition: color .2s;
 }
 .top-nav a:hover, .top-nav a[aria-current] { color: var(--text); }
@@ -421,6 +422,8 @@
 .top-get { display: none; }
 @media (min-width: 560px) { .top-get { display: inline-flex; } }
 @media (min-width: 1100px) { .top-nav { display: flex; } }
+/* six links and the switches only just fit a laptop: closer together there */
+@media (min-width: 1100px) and (max-width: 1279px) { .top-nav { gap: 14px; margin-inline-start: 4px; } }
 
 /* The menu, where the header has no room for its links: three bars that
    lean like the logo's, the last one short and gold; open, they cross. */
@@ -465,6 +468,11 @@
 .menu nav a[aria-current='true'] .n { color: var(--accent-line); }
 .menu nav a:hover { color: var(--accent-line); }
 .menu-get { margin-top: 22px; }
+/* the homepage's sheet: this page's sections, then the rest of the site, a size down */
+.menu-group { margin: 16px 0 6px; font: 600 12px/1 var(--display); font-stretch: 78%; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.menu-group:first-child { margin-top: 10px; }
+.menu nav + .menu-group { margin-top: 26px; }
+.menu .menu-pages a { min-height: 52px; padding: 14px 2px 12px; font-size: clamp(20px, 5.2vw, 30px); }
 @media (min-width: 560px) { .menu-get { display: none; } }
 /* in: the sheet drops in, the rows follow it 40 ms apart, as the app's + menu does */
 .menu.in { animation: menuIn .32s var(--ease) both; }
@@ -820,6 +828,7 @@ html.js main img:focus-visible{outline-color:var(--gold)}
   <a class="brand" href="/" aria-label="Maintra"><svg class="mt" viewBox="0 0 100 57.69" aria-hidden="true"><path d="M26.10,0.00 L35.15,0.00 L35.15,57.69 L26.10,57.69 Z" style="fill:var(--lg-stem)"/><path d="M52.20,0.00 L61.25,0.00 L61.25,57.69 L52.20,57.69 Z" style="fill:var(--lg-stem)"/><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" style="fill:var(--lg-gold)"/><clipPath id="mtc1"><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z"/></clipPath><g clip-path="url(#mtc1)"><path d="M2.40,57.69 L18.80,57.69 L37.55,0.00 L21.15,0.00 Z" style="fill:var(--lg-shade)"/><path d="M28.50,57.69 L44.90,57.69 L63.65,0.00 L47.24,0.00 Z" style="fill:var(--lg-shade)"/><path d="M54.60,57.69 L71.00,57.69 L89.75,0.00 L73.34,0.00 Z" style="fill:var(--lg-shade)"/></g><path d="M0.00,57.69 L16.40,57.69 L35.15,0.00 L18.75,0.00 Z" style="fill:var(--lg-ink)"/><path d="M26.10,57.69 L42.50,57.69 L61.25,0.00 L44.84,0.00 Z" style="fill:var(--lg-ink)"/><path d="M52.20,57.69 L68.60,57.69 L87.35,0.00 L70.94,0.00 Z" style="fill:var(--lg-gold)"/></svg><span class="word">Maintra</span></a>
   <nav class="top-nav" aria-label="Maintra">
     <a href="/#tour">Try it</a>
+    <a href="/journey-en">The road to 2.0</a>
     <a href="/faq.html">FAQ</a>
     <a href="/support.html">Support</a>
     <a href="/press-en">Press</a>
@@ -835,10 +844,11 @@ html.js main img:focus-visible{outline-color:var(--gold)}
 <div class="menu" id="menu" hidden>
   <nav aria-label="Menu">
     <a href="/#tour"><span class="n">01</span>Try it</a>
-    <a href="/faq.html"><span class="n">02</span>FAQ</a>
-    <a href="/support.html"><span class="n">03</span>Support</a>
-    <a href="/press-en"><span class="n">04</span>Press</a>
-    <a href="/about.html"><span class="n">05</span>About</a>
+    <a href="/journey-en"><span class="n">02</span>The road to 2.0</a>
+    <a href="/faq.html"><span class="n">03</span>FAQ</a>
+    <a href="/support.html"><span class="n">04</span>Support</a>
+    <a href="/press-en"><span class="n">05</span>Press</a>
+    <a href="/about.html"><span class="n">06</span>About</a>
   </nav>
   <a class="btn btn-gold menu-get" href="/#get">Get the app</a>
 </div>

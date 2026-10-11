@@ -135,7 +135,7 @@ for (const a of $$('[data-lang]')) {
 })();
 
 // section in view lights its link in the header
-const navAll = $$('.top-nav a, .menu nav a');
+const navAll = $$('.top-nav a, .menu nav a').filter((a) => a.getAttribute('href').startsWith('#'));
 const navIds = [...new Set(navAll.map((a) => a.getAttribute('href').slice(1)))];
 const navIO = new IntersectionObserver(
   (es) => {

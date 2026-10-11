@@ -79,6 +79,7 @@ function chromeTop(name, code, versions) {
   const press = code === 'uk' ? '/press' : '/press-en';
   const links = [
     [`${homePath}#tour`, d['nav.tour'], null],
+    [journeyOf(code), d['foot.journey'], null],
     [loc(code, 'faq'), d['foot.faq'], 'faq'],
     [loc(code, 'support'), d['foot.support'], 'support'],
     [press, d['foot.press'], code === 'uk' ? 'press' : 'press-en'],

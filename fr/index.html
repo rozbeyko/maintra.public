@@ -44,7 +44,7 @@
 <link rel="icon" href="/assets/favicon.svg?v=e32348a9" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=75d1922e">
 
-<link rel="modulepreload" href="/assets/home/home.js?v=294717eb">
+<link rel="modulepreload" href="/assets/home/home.js?v=ce4d037b">
 <link rel="modulepreload" href="/assets/home/stage.js?v=36fdbb8a">
 <link rel="modulepreload" href="/assets/home/room.js?v=c84e5b5f">
 <link rel="modulepreload" href="/assets/home/player.js?v=4104dfe0">
@@ -56,8 +56,8 @@
 <link rel="preload" href="/assets/journey/fonts/firasans-600-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/home/fonts.css?v=3a8a3f95">
 
-<link rel="stylesheet" href="/assets/home/home.css?v=de947d99">
-<script type="module" src="/assets/home/home.js?v=294717eb"></script>
+<link rel="stylesheet" href="/assets/home/home.css?v=f46011bb">
+<script type="module" src="/assets/home/home.js?v=ce4d037b"></script>
 <script>setTimeout(function () { document.documentElement.classList.remove('loading'); }, 7000);</script>
 <noscript><style>html.loading .loader{display:none}</style></noscript>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"MobileApplication","name":"Maintra","url":"https://maintra.me/fr/","description":"Maintra 2.0 arrive en octobre : un nouveau garage, des cartes hors ligne qui comptent vos kilomètres, une voiture à prêter, partager ou vendre avec son historique, 11 langues. Le carnet d'entretien pour ceux qui s'occupent eux-mêmes de leur voiture. Essayez l'app directement sur la page.","inLanguage":"fr","operatingSystem":"iOS, Android","applicationCategory":"UtilitiesApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"ROK"},"downloadUrl":["https://apps.apple.com/app/maintra/id6775876731","https://play.google.com/store/apps/details?id=com.maintra.app"]}</script>
@@ -83,9 +83,11 @@
   <a class="brand" href="/fr/" aria-label="Maintra"><svg class="mt" viewBox="0 0 100 57.69" aria-hidden="true"><path d="M26.10,0.00 L35.15,0.00 L35.15,57.69 L26.10,57.69 Z" style="fill:var(--lg-stem)"/><path d="M52.20,0.00 L61.25,0.00 L61.25,57.69 L52.20,57.69 Z" style="fill:var(--lg-stem)"/><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" style="fill:var(--lg-gold)"/><clipPath id="mtc1"><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z"/></clipPath><g clip-path="url(#mtc1)"><path d="M2.40,57.69 L18.80,57.69 L37.55,0.00 L21.15,0.00 Z" style="fill:var(--lg-shade)"/><path d="M28.50,57.69 L44.90,57.69 L63.65,0.00 L47.24,0.00 Z" style="fill:var(--lg-shade)"/><path d="M54.60,57.69 L71.00,57.69 L89.75,0.00 L73.34,0.00 Z" style="fill:var(--lg-shade)"/></g><path d="M0.00,57.69 L16.40,57.69 L35.15,0.00 L18.75,0.00 Z" style="fill:var(--lg-ink)"/><path d="M26.10,57.69 L42.50,57.69 L61.25,0.00 L44.84,0.00 Z" style="fill:var(--lg-ink)"/><path d="M52.20,57.69 L68.60,57.69 L87.35,0.00 L70.94,0.00 Z" style="fill:var(--lg-gold)"/></svg><span class="word">Maintra</span></a>
   <nav class="top-nav" aria-label="Maintra">
     <a href="#tour">Essayer</a>
-    <a href="#why">Pourquoi Maintra</a>
-    <a href="#maker">Qui l'a faite</a>
-    <a href="#faq">Questions</a>
+    <a href="/fr/journey">En route vers la 2.0</a>
+    <a href="/fr/faq.html">FAQ</a>
+    <a href="/fr/support.html">Assistance</a>
+    <a href="/press-en">Presse</a>
+    <a href="/fr/about.html">À propos</a>
   </nav>
   <div class="lang">
     <button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="Langue"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 3.5h7l5 5v7l-5 5h-7l-5-5v-7z"></path><path d="M3.5 12h17M12 3.5L8.5 12l3.5 8.5M12 3.5l3.5 8.5-3.5 8.5"></path></svg><span>FR</span></button>
@@ -96,11 +98,20 @@
   <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menu"><i></i><i></i><i></i></button>
 </header>
 <div class="menu" id="menu" hidden>
-  <nav aria-label="Menu">
+  <p class="menu-group" id="menu-here">Sur cette page</p>
+  <nav aria-labelledby="menu-here">
     <a href="#tour"><span class="n">01</span>Essayer</a>
     <a href="#why"><span class="n">02</span>Pourquoi Maintra</a>
     <a href="#maker"><span class="n">03</span>Qui l'a faite</a>
     <a href="#faq"><span class="n">04</span>Questions</a>
+  </nav>
+  <p class="menu-group" id="menu-site">Sur le site</p>
+  <nav class="menu-pages" aria-labelledby="menu-site">
+    <a href="/fr/journey">En route vers la 2.0</a>
+    <a href="/fr/faq.html">FAQ</a>
+    <a href="/fr/support.html">Assistance</a>
+    <a href="/press-en">Presse</a>
+    <a href="/fr/about.html">À propos</a>
   </nav>
   <a class="btn btn-gold menu-get" href="#get">Obtenir l'app</a>
 </div>
