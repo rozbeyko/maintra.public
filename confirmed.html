@@ -13,7 +13,7 @@
       var hash = window.location.hash || '';
       var target = 'autocare://' + qs + hash;
       var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-      if (isMobile) {
+      if (isMobile && !/(^|[#&?])error(_code)?=/.test(hash + '&' + qs)) {
         window.location.replace(target);
       }
       window.__maintraDeepLink = target;
@@ -108,6 +108,15 @@
       
           <h2 id="don-t-have-the-app-yet">Don't have the app yet?</h2>
           <p>Maintra is available on <a href="https://play.google.com/store/apps/details?id=com.maintra.app" rel="noopener">Google Play</a> for Android and on the <a href="https://apps.apple.com/app/maintra/id6775876731" rel="noopener">App Store</a> for iPhone.</p>
+      <section id="expired" hidden data-title="This link has expired." data-lede="A confirmation link works once, and not for long. Type your email and we’ll send a new one." data-sent="Sent. Open the newest email from Maintra and tap its link." data-failed="Couldn’t send it. Wait a minute and try again.">
+        <form class="expired-form" novalidate>
+          <label for="expired-email">Email</label>
+          <input id="expired-email" type="email" autocomplete="email" inputmode="email" required>
+          <button type="submit" class="btn btn-gold">Send a new link</button>
+        </form>
+        <p data-note role="status" aria-live="polite"></p>
+      </section>
+      <script src="/assets/confirm-expired.js?v=1" defer></script>
     </article>
   </div>
 </main>

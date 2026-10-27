@@ -13,7 +13,7 @@
       var hash = window.location.hash || '';
       var target = 'autocare://' + qs + hash;
       var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-      if (isMobile) {
+      if (isMobile && !/(^|[#&?])error(_code)?=/.test(hash + '&' + qs)) {
         window.location.replace(target);
       }
       window.__maintraDeepLink = target;
@@ -108,6 +108,15 @@
       
           <h2 id="don-t-have-the-app-yet">Vous n'avez pas encore l'app ?</h2>
           <p>Maintra est disponible sur <a href="https://play.google.com/store/apps/details?id=com.maintra.app" rel="noopener">Google Play</a> pour Android et sur l'<a href="https://apps.apple.com/app/maintra/id6775876731" rel="noopener">App Store</a> pour iPhone.</p>
+      <section id="expired" hidden data-title="Ce lien a expiré." data-lede="Un lien de confirmation ne sert qu’une fois, et pas longtemps. Saisissez votre e-mail et nous vous en enverrons un nouveau." data-sent="Envoyé. Ouvrez le dernier e-mail de Maintra et touchez son lien." data-failed="Envoi impossible. Patientez une minute et réessayez.">
+        <form class="expired-form" novalidate>
+          <label for="expired-email">E-mail</label>
+          <input id="expired-email" type="email" autocomplete="email" inputmode="email" required>
+          <button type="submit" class="btn btn-gold">Envoyer un nouveau lien</button>
+        </form>
+        <p data-note role="status" aria-live="polite"></p>
+      </section>
+      <script src="/assets/confirm-expired.js?v=1" defer></script>
     </article>
   </div>
 </main>

@@ -13,7 +13,7 @@
       var hash = window.location.hash || '';
       var target = 'autocare://' + qs + hash;
       var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-      if (isMobile) {
+      if (isMobile && !/(^|[#&?])error(_code)?=/.test(hash + '&' + qs)) {
         window.location.replace(target);
       }
       window.__maintraDeepLink = target;
@@ -108,6 +108,15 @@
       
           <h2 id="don-t-have-the-app-yet">Ще не маєш застосунку?</h2>
           <p>Maintra є в <a href="https://play.google.com/store/apps/details?id=com.maintra.app" rel="noopener">Google Play</a> для Android і в <a href="https://apps.apple.com/app/maintra/id6775876731" rel="noopener">App Store</a> для iPhone.</p>
+      <section id="expired" hidden data-title="Це посилання застаріло." data-lede="Посилання для підтвердження спрацьовує лише раз і недовго. Введи свій email, і ми надішлемо нове." data-sent="Надіслано. Відкрий найновіший лист від Maintra й натисни посилання в ньому." data-failed="Не вдалося надіслати. Зачекай хвилину й спробуй ще раз.">
+        <form class="expired-form" novalidate>
+          <label for="expired-email">Email</label>
+          <input id="expired-email" type="email" autocomplete="email" inputmode="email" required>
+          <button type="submit" class="btn btn-gold">Надіслати нове посилання</button>
+        </form>
+        <p data-note role="status" aria-live="polite"></p>
+      </section>
+      <script src="/assets/confirm-expired.js?v=1" defer></script>
     </article>
   </div>
 </main>
