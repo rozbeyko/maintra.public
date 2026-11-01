@@ -1,5 +1,6 @@
 /* The site's other pages (about, FAQ, support, privacy, terms, account
- * deletion, press kit, the app's bounce pages, the shared wishlist), in the
+ * deletion, press kit, the app's bounce pages, the shared wishlist, the
+ * handover links), in the
  * 2.0 design language. Loaded after home.css, which carries the tokens, both
  * themes, the type, the header, the menu, the buttons and the footer; this
  * adds the reading layout.
@@ -153,3 +154,36 @@ a.lang-btn { text-decoration: none; }
 .wl-total { margin: 18px 0 6px; font: 800 1.3em/1 var(--display); font-stretch: 78%; text-transform: uppercase; }
 .wl-cta { margin: 30px 0; }
 .wl-err { color: var(--text2); margin: 40px 0; }
+/* --------------------------------------- the handover links, /k/ and /t/ */
+/* (tools/genhandover.mjs, assets/handover.js; the app's boards Transfer-Buyer and Web-Transfer) */
+.ho [hidden] { display: none !important; }
+.ho .ho-msg { color: var(--text2); margin: 0 0 32px; font-size: 1.1em; }
+.ho .ho-eyebrow { margin: 0 0 12px; font: 600 13px/1.3 var(--display); font-stretch: 78%; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-line); }
+.ho .ho-title { margin: 0 0 10px; font: italic 800 clamp(40px, 5vw, 96px)/.92 var(--display); font-stretch: 78%; text-transform: uppercase; overflow-wrap: anywhere; }
+.ho .ho-sub { margin: 0 0 8px; color: var(--text2); }
+.ho .ho-fact { display: grid; grid-template-columns: minmax(0, 9em) minmax(0, 1fr); column-gap: 12px; align-items: center; min-height: 44px; margin: 18px 0 0; border-block: 1px solid var(--hair); }
+.ho .ho-fact-label, .ho .ho-label { font: 600 12px/1.3 var(--display); font-stretch: 78%; letter-spacing: .14em; text-transform: uppercase; color: var(--text2); }
+.ho .ho-fact-value { font-weight: 500; font-variant-numeric: tabular-nums; }
+.ho .ho-label { margin: 32px 0 6px; }
+.ho .ho-rows { border-top: 1px solid var(--hair); }
+.ho .ho-row { display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; column-gap: 12px; align-items: center; min-height: 60px; padding: 9px 0; border-bottom: 1px solid var(--hair); }
+.ho .ho-row-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.ho .ho-row-title { font-weight: 500; }
+.ho .ho-row-sub { font-size: .85em; line-height: 1.35; color: var(--text2); }
+.ho .ho-row-value { font: 700 1.15em/1 var(--display); font-stretch: 78%; font-variant-numeric: tabular-nums; color: var(--text2); white-space: nowrap; }
+.ho .ho-row-value.ho-amber { color: var(--amber); }
+.ho .ho-ico { display: flex; justify-content: center; }
+.ho .ho-ico svg { width: 18px; height: 18px; fill: none; stroke-width: 2.4; stroke-linecap: square; stroke-linejoin: miter; }
+.ho .ho-ok svg { stroke: var(--green); }
+.ho .ho-lock svg { stroke: var(--muted); stroke-width: 1.9; }
+.ho .ho-lock + .ho-row-body .ho-row-title { color: var(--text2); }
+.ho .ho-oct { width: 12px; height: 12px; background: var(--amber); clip-path: polygon(29% 0, 71% 0, 100% 29%, 100% 71%, 71% 100%, 29% 100%, 0 71%, 0 29%); }
+.ho .ho-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 0; }
+.ho .ho-chip { padding: 6px 12px; background: var(--surface); box-shadow: inset 0 0 0 1px var(--hair); font-size: .9em; }
+.ho .ho-until { margin: 22px 0 0; color: var(--text2); font-size: .9em; }
+.ho .ho-cta { margin: 40px 0 0; padding-top: 28px; border-top: 1px solid var(--hair); }
+.ho .ho-cta-title { margin: 0 0 8px; font: italic 800 clamp(28px, 3vw, 48px)/.95 var(--display); font-stretch: 78%; text-transform: uppercase; }
+.ho .ho-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0 0; }
+.ho .ho-fine { margin: 36px 0 0; color: var(--text2); font-size: .85em; line-height: 1.5; }
+:lang(ar) .ho .ho-eyebrow, :lang(ar) .ho .ho-label, :lang(ar) .ho .ho-fact-label, :lang(ja) .ho .ho-eyebrow, :lang(ja) .ho .ho-label, :lang(ko) .ho .ho-eyebrow, :lang(ko) .ho .ho-label, :lang(zh) .ho .ho-eyebrow, :lang(zh) .ho .ho-label { letter-spacing: 0; }
+:lang(ar) .ho .ho-title, :lang(ja) .ho .ho-title, :lang(ko) .ho .ho-title, :lang(zh) .ho .ho-title { font-style: normal; line-height: 1.1; }

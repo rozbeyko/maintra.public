@@ -31,12 +31,15 @@ import { createHash } from 'node:crypto';
 import { join } from 'node:path';
 
 const SITE = process.argv[2] ?? '.';
-const read = (p) => readFileSync(join(SITE, p), 'utf8');
-const hash = (p) => createHash('sha256').update(readFileSync(join(SITE, p))).digest('hex').slice(0, 8);
+// LF whatever the checkout: on Windows git hands the files over with CRLF, and the patterns below are LF.
+const read = (p) => readFileSync(join(SITE, p), 'utf8').replace(/\r\n/g, '\n');
+// A text file is hashed as LF too, so a Windows checkout stamps what git holds and changes nothing.
+const hash = (p) => createHash('sha256').update(/\.(css|js|mjs|svg|json)$/.test(p) ? read(p) : readFileSync(join(SITE, p))).digest('hex').slice(0, 8);
 const asset = (p) => `/${p}?v=${hash(p)}`;
 
 const ORIGIN = 'https://maintra.me';
-const TRANSLATED = ['about', 'faq', 'support', 'privacy', 'terms', 'delete-account', 'confirmed', 'reset-password'];
+const TRANSLATED = ['about', 'faq', 'support', 'privacy', 'terms', 'delete-account', 'confirmed', 'reset-password', 'k', 't'];
+// k and t: the handover links' pages, written by tools/genhandover.mjs (run it first)
 const PAGES = [...TRANSLATED, 'press', 'press-en', 'wishlist'];
 
 // ------------------------------------------------- parts of the homepage

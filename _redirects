@@ -1,0 +1,27 @@
+# Cloudflare Pages. The app's handover links: /k/<code> (an invite to a car) and
+# /t/<token> (a car handed over for good), and the same in each language. A 200 is a
+# rewrite: the address stays as it is, and assets/handover.js reads the code from it.
+# The target has no .html, because Pages sends k.html to /k with a 308 and the code
+# would be lost on the way. tools/genhandover.mjs writes the pages.
+/k/* /k 200
+/t/* /t 200
+/uk/k/* /uk/k 200
+/uk/t/* /uk/t 200
+/pl/k/* /pl/k 200
+/pl/t/* /pl/t 200
+/fr/k/* /fr/k 200
+/fr/t/* /fr/t 200
+/it/k/* /it/k 200
+/it/t/* /it/t 200
+/es/k/* /es/k 200
+/es/t/* /es/t 200
+/de/k/* /de/k 200
+/de/t/* /de/t 200
+/ar/k/* /ar/k 200
+/ar/t/* /ar/t 200
+/ko/k/* /ko/k 200
+/ko/t/* /ko/t 200
+/ja/k/* /ja/k 200
+/ja/t/* /ja/t 200
+/zh/k/* /zh/k 200
+/zh/t/* /zh/t 200
