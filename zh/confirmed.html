@@ -13,7 +13,7 @@
       var hash = window.location.hash || '';
       var target = 'autocare://' + qs + hash;
       var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-      if (isMobile) {
+      if (isMobile && !/(^|[#&?])error(_code)?=/.test(hash + '&' + qs)) {
         window.location.replace(target);
       }
       window.__maintraDeepLink = target;
@@ -108,6 +108,15 @@
       
           <h2 id="don-t-have-the-app-yet">还没有安装 App？</h2>
           <p>Maintra 的安卓版可以在 <a href="https://play.google.com/store/apps/details?id=com.maintra.app" rel="noopener">Google Play</a> 下载，iPhone 版可以在 <a href="https://apps.apple.com/app/maintra/id6775876731" rel="noopener">App Store</a> 下载。</p>
+      <section id="expired" hidden data-title="此链接已过期。" data-lede="确认链接只能使用一次，而且很快就会失效。输入你的邮箱，我们会发送新的链接。" data-sent="已发送。打开 Maintra 发来的最新邮件，点击其中的链接。" data-failed="发送失败。请等一分钟后再试。">
+        <form class="expired-form" novalidate>
+          <label for="expired-email">邮箱</label>
+          <input id="expired-email" type="email" autocomplete="email" inputmode="email" required>
+          <button type="submit" class="btn btn-gold">发送新链接</button>
+        </form>
+        <p data-note role="status" aria-live="polite"></p>
+      </section>
+      <script src="/assets/confirm-expired.js?v=1" defer></script>
     </article>
   </div>
 </main>

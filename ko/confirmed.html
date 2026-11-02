@@ -13,7 +13,7 @@
       var hash = window.location.hash || '';
       var target = 'autocare://' + qs + hash;
       var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-      if (isMobile) {
+      if (isMobile && !/(^|[#&?])error(_code)?=/.test(hash + '&' + qs)) {
         window.location.replace(target);
       }
       window.__maintraDeepLink = target;
@@ -108,6 +108,15 @@
       
           <h2 id="don-t-have-the-app-yet">아직 앱이 없나요?</h2>
           <p>Maintra는 Android용은 <a href="https://play.google.com/store/apps/details?id=com.maintra.app" rel="noopener">Google Play</a>에서, iPhone용은 <a href="https://apps.apple.com/app/maintra/id6775876731" rel="noopener">App Store</a>에서 받을 수 있어요.</p>
+      <section id="expired" hidden data-title="이 링크는 만료되었어요." data-lede="확인 링크는 한 번만, 잠깐 동안만 쓸 수 있어요. 이메일을 입력하면 새 링크를 보내 드릴게요." data-sent="보냈어요. Maintra에서 온 가장 최근 메일을 열고 링크를 누르세요." data-failed="보내지 못했어요. 1분 뒤에 다시 시도하세요.">
+        <form class="expired-form" novalidate>
+          <label for="expired-email">이메일</label>
+          <input id="expired-email" type="email" autocomplete="email" inputmode="email" required>
+          <button type="submit" class="btn btn-gold">새 링크 보내기</button>
+        </form>
+        <p data-note role="status" aria-live="polite"></p>
+      </section>
+      <script src="/assets/confirm-expired.js?v=1" defer></script>
     </article>
   </div>
 </main>
