@@ -135,25 +135,102 @@ a.lang-btn { text-decoration: none; }
 .menu nav a[aria-current] .n { color: var(--accent-line); }
 
 /* ---------------------------------------------------- shared wishlist */
-.wl-head { margin: 0 0 8px; }
-.wl-head h1 { margin: 0 0 10px; font: italic 800 clamp(36px, 5vw, 96px)/.95 var(--display); font-stretch: 78%; text-transform: uppercase; }
-.wl-sub { color: var(--text2); font-size: .9em; }
-.wl-list { display: flex; flex-direction: column; margin: 28px 0; border-top: 1px solid var(--hair); }
-.doc-body .wl-item { display: flex; gap: 16px; align-items: center; padding: 14px 2px; border-bottom: 1px solid var(--hair); text-decoration: none; color: inherit; }
-.doc-body .wl-item:hover { color: inherit; background: var(--hover); }
-.wl-thumb { flex: none; width: 56px; height: 56px; object-fit: cover; background: var(--card); clip-path: polygon(8px 0, 100% 0, 100% 100%, 0 100%, 0 8px); }
-.wl-thumb.ph { display: grid; place-items: center; font-size: 24px; }
-.wl-body { flex: 1; min-width: 0; }
-.wl-title { font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.wl-site { font-size: .8em; color: var(--text2); }
-.wl-price { font: 700 1.1em/1 var(--display); font-stretch: 78%; white-space: nowrap; font-variant-numeric: tabular-nums; }
-.wl-prio { margin-inline-start: 8px; padding: 3px 8px; font: 700 10px/1 var(--display); font-stretch: 78%; letter-spacing: .12em; }
-.wl-prio.high { color: var(--red); box-shadow: inset 0 0 0 1px var(--red); }
-.wl-prio.normal { color: var(--amber); box-shadow: inset 0 0 0 1px var(--amber); }
-.wl-prio.low { color: var(--text2); box-shadow: inset 0 0 0 1px var(--control); }
-.wl-total { margin: 18px 0 6px; font: 800 1.3em/1 var(--display); font-stretch: 78%; text-transform: uppercase; }
-.wl-cta { margin: 30px 0; }
-.wl-err { color: var(--text2); margin: 40px 0; }
+/* (tools/genwishlist.mjs, assets/wishlist.js; the app's board Wish-Guest) */
+.wl [hidden] { display: none !important; }
+.wl .wl-msg { margin: 0 0 32px; color: var(--text2); font-size: 1.1em; }
+.wl .wl-msg p { margin: 0 0 12px; }
+.wl .wl-msg .wl-msg-title { margin: 0 0 16px; color: var(--text); font: italic 800 clamp(34px, 4.4vw, 84px)/.95 var(--display); font-stretch: 78%; text-transform: uppercase; overflow-wrap: anywhere; }
+.wl .wl-msg .wl-retry { margin-top: 22px; }
+.wl .wl-eyebrow { margin: 0 0 12px; font: 600 13px/1.3 var(--display); font-stretch: 78%; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-line); overflow-wrap: anywhere; }
+.wl .wl-heading { margin: 0 0 14px; font: italic 800 clamp(40px, 5vw, 96px)/.92 var(--display); font-stretch: 78%; text-transform: uppercase; overflow-wrap: anywhere; }
+.wl .wl-hint { margin: 0; color: var(--text2); }
+/* the name a booking goes with, its note under it */
+.wl .wl-you { margin: 28px 0 0; }
+.wl .wl-label { display: block; margin: 0 0 8px; font: 600 12px/1.3 var(--display); font-stretch: 78%; letter-spacing: .14em; text-transform: uppercase; color: var(--text2); }
+.wl .wl-input {
+  display: block;
+  width: 100%;
+  max-width: 26em;
+  height: 50px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 0;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--edge);
+  color: var(--text);
+  font: 400 1em/1.2 var(--sans);
+  clip-path: polygon(10px 0, 100% 0, 100% 100%, 0 100%, 0 10px);
+  -webkit-appearance: none;
+  appearance: none;
+}
+.wl .wl-input:focus { outline: none; box-shadow: inset 0 0 0 2px var(--accent-line); }
+.wl .wl-note { margin: 8px 0 0; max-width: 40em; color: var(--text2); font-size: .85em; line-height: 1.45; }
+/* the wishes: picture, what and where, then Book it or what it is */
+.doc-body .wl-list { margin: 32px 0 0; border-top: 1px solid var(--hair); }
+.doc-body .wl-list > li { margin: 0; padding: 14px 0; }
+.doc-body .wl-list > li::before { content: none; }
+.wl .wl-item { display: grid; grid-template-columns: 56px minmax(0, 1fr) auto; column-gap: 14px; align-items: center; border-bottom: 1px solid var(--hair); }
+.wl .wl-item:focus { outline: none; }
+.wl .wl-item:focus-visible { outline: 2px solid var(--accent-line); outline-offset: 2px; }
+.wl .wl-thumb { display: grid; place-items: center; width: 56px; height: 56px; overflow: hidden; background: var(--card); clip-path: polygon(8px 0, 100% 0, 100% 100%, 0 100%, 0 8px); }
+.wl .wl-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.wl .wl-thumb svg, .wl .wl-title svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: square; stroke-linejoin: miter; }
+.wl .wl-thumb svg { width: 24px; height: 24px; color: var(--muted); }
+.wl .wl-body { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; min-width: 0; }
+.doc-body .wl-title { font-weight: 600; line-height: 1.35; overflow-wrap: anywhere; color: var(--text); text-decoration: none; }
+.doc-body a.wl-title:hover { color: var(--accent-line); text-decoration: underline; text-decoration-color: var(--accent-line); }
+.wl .wl-title svg { display: inline-block; width: .8em; height: .8em; margin-inline-start: .35em; vertical-align: -.05em; color: var(--text2); }
+[dir='rtl'] .wl .wl-title svg { transform: scaleX(-1); }
+.wl .wl-line { font-size: .85em; line-height: 1.4; color: var(--text2); font-variant-numeric: tabular-nums; }
+.wl .wl-act { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+.wl .wl-state { max-width: 10em; font: 600 12px/1.3 var(--display); font-stretch: 78%; letter-spacing: .14em; text-transform: uppercase; text-align: end; color: var(--text2); }
+.wl .wl-state.wl-mine { color: var(--accent-line); }
+.wl .wl-state.wl-gone { color: var(--amber); letter-spacing: .06em; }
+.wl .wl-item.is-gone .wl-thumb, .wl .wl-item.is-gone .wl-body { opacity: .5; }
+.doc-body .wl-book { --h: 44px; background: var(--accent-line); color: var(--accent-line); }
+.doc-body .wl-book:hover { background: var(--gold-hi); color: var(--accent-line); }
+.wl .wl-book[disabled] { cursor: progress; opacity: .55; }
+.wl .wl-release { display: inline-flex; align-items: center; min-height: 44px; font: 600 .85em/1.3 var(--sans); text-align: end; text-decoration: underline; text-decoration-color: var(--accent-line); text-decoration-thickness: 2px; text-underline-offset: .2em; }
+.wl .wl-release:hover { color: var(--accent-line); }
+.wl .wl-release[disabled] { cursor: progress; opacity: .55; }
+.wl .wl-snap { margin: 22px 0 0; color: var(--text2); font-size: .9em; }
+.wl .wl-cta { display: flex; flex-wrap: wrap; gap: 10px; margin: 48px 0 0; padding-top: 28px; border-top: 1px solid var(--hair); }
+/* what a tap came to, for a moment, over the page's foot */
+.wl .wl-toast {
+  position: fixed;
+  z-index: 95;
+  inset-inline: 16px;
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-width: 30em;
+  margin: 0 auto;
+  padding: 14px 18px;
+  background: var(--card);
+  box-shadow: inset 0 0 0 1px var(--edge);
+  clip-path: polygon(var(--cut) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cut));
+  font-size: .95em;
+  line-height: 1.4;
+  opacity: 0;
+  transform: translateY(14px);
+  pointer-events: none;
+  transition: opacity .2s, transform .25s var(--ease);
+}
+.wl .wl-toast.in { opacity: 1; transform: none; }
+.wl .wl-toast-title { font-weight: 600; }
+.wl .wl-toast-detail { overflow-wrap: anywhere; color: var(--text2); font-size: .9em; }
+@media (prefers-reduced-motion: reduce) { .wl .wl-toast { transform: none; transition: opacity .2s; } }
+/* a phone: Book it goes under the wish, so its name keeps the width */
+@media (max-width: 519px) {
+  .wl .wl-item { grid-template-columns: 56px minmax(0, 1fr); row-gap: 8px; align-items: start; }
+  .wl .wl-act { grid-column: 2; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 0 18px; }
+  .wl .wl-act:empty { display: none; }
+  .wl .wl-state { max-width: none; text-align: start; }
+  .wl .wl-release { text-align: start; }
+}
+:lang(ar) .wl .wl-eyebrow, :lang(ar) .wl .wl-label, :lang(ar) .wl .wl-state, :lang(ja) .wl .wl-eyebrow, :lang(ja) .wl .wl-label, :lang(ja) .wl .wl-state, :lang(ko) .wl .wl-eyebrow, :lang(ko) .wl .wl-label, :lang(ko) .wl .wl-state, :lang(zh) .wl .wl-eyebrow, :lang(zh) .wl .wl-label, :lang(zh) .wl .wl-state { letter-spacing: 0; }
+:lang(ar) .wl .wl-heading, :lang(ja) .wl .wl-heading, :lang(ko) .wl .wl-heading, :lang(zh) .wl .wl-heading, :lang(ar) .wl .wl-msg-title, :lang(ja) .wl .wl-msg-title, :lang(ko) .wl .wl-msg-title, :lang(zh) .wl .wl-msg-title { font-style: normal; line-height: 1.1; }
 /* --------------------------------------- the handover links, /k/ and /t/ */
 /* (tools/genhandover.mjs, assets/handover.js; the app's boards Transfer-Buyer and Web-Transfer) */
 .ho [hidden] { display: none !important; }

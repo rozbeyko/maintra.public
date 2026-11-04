@@ -3,10 +3,52 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shared wishlist — Maintra</title>
+  <title>Shared wishlist · Maintra</title>
   <meta name="robots" content="noindex" />
+  <meta name="description" content="Book a gift so nobody buys the same thing. No account needed." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Maintra" />
+  <meta property="og:title" content="Shared wishlist" />
+  <meta property="og:description" content="Book a gift so nobody buys the same thing. No account needed." />
+  <meta property="og:url" content="https://maintra.me/wishlist.html" />
+  <meta property="og:image" content="https://maintra.me/assets/home/og/en.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+<script>
+(function () {
+  var L = ["en","ar","de","es","fr","it","ja","ko","pl","uk","zh"];
+  var go = function (l) {
+    if (!l || l === 'en' || L.indexOf(l) < 0) return false;
+    location.replace('/' + l + '/wishlist' + (/\.html$/.test(location.pathname) ? '.html' : '') + location.search + location.hash);
+    return true;
+  };
+  var saved = null;
+  try { saved = localStorage.getItem('maintra.lang'); } catch (e) {}
+  if (saved) { go(saved); return; }
+  if (/bot|crawl|spider|slurp|lighthouse|preview/i.test(navigator.userAgent)) return;
+  var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+  for (var i = 0; i < langs.length; i++) {
+    var raw = String(langs[i]).toLowerCase(), c = raw.split('-')[0];
+    if (c === 'en') break;
+    if (c === 'zh' && /-(tw|hk|mo|hant)/.test(raw)) continue;
+    if (L.indexOf(c) >= 0) { go(c); break; }
+  }
+})();
+</script>
 <meta name="theme-color" content="#0B0B0A" />
 <!-- chrome:head -->
+<link rel="canonical" href="https://maintra.me/wishlist.html" />
+<link rel="alternate" hreflang="en" href="https://maintra.me/wishlist.html" />
+<link rel="alternate" hreflang="uk" href="https://maintra.me/uk/wishlist.html" />
+<link rel="alternate" hreflang="pl" href="https://maintra.me/pl/wishlist.html" />
+<link rel="alternate" hreflang="fr" href="https://maintra.me/fr/wishlist.html" />
+<link rel="alternate" hreflang="it" href="https://maintra.me/it/wishlist.html" />
+<link rel="alternate" hreflang="es" href="https://maintra.me/es/wishlist.html" />
+<link rel="alternate" hreflang="de" href="https://maintra.me/de/wishlist.html" />
+<link rel="alternate" hreflang="ar" href="https://maintra.me/ar/wishlist.html" />
+<link rel="alternate" hreflang="ko" href="https://maintra.me/ko/wishlist.html" />
+<link rel="alternate" hreflang="ja" href="https://maintra.me/ja/wishlist.html" />
+<link rel="alternate" hreflang="zh-Hans" href="https://maintra.me/zh/wishlist.html" />
+<link rel="alternate" hreflang="x-default" href="https://maintra.me/wishlist.html" />
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
 <link rel="icon" href="/assets/favicon.svg?v=e32348a9" type="image/svg+xml" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=ab4ae831" />
@@ -21,7 +63,7 @@
 </script>
 <link rel="stylesheet" href="/assets/home/fonts.css?v=3a8a3f95" />
 <link rel="stylesheet" href="/assets/home/home.css?v=f46011bb" />
-<link rel="stylesheet" href="/assets/home/site.css?v=57356e26" />
+<link rel="stylesheet" href="/assets/home/site.css?v=c9556b94" />
 <script type="module" src="/assets/home/site.js?v=6b25487e"></script>
 <!-- /chrome:head -->
 </head>
@@ -38,7 +80,10 @@
     <a href="/press-en">Press</a>
     <a href="/about.html">About</a>
   </nav>
-  <span class="top-gap"></span>
+  <div class="lang">
+    <button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="Language"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 3.5h7l5 5v7l-5 5h-7l-5-5v-7z"></path><path d="M3.5 12h17M12 3.5L8.5 12l3.5 8.5M12 3.5l3.5 8.5-3.5 8.5"></path></svg><span>EN</span></button>
+    <ul class="lang-menu" id="lang-menu" hidden><li><a href="/wishlist.html" hreflang="en" lang="en" data-lang="en" aria-current="true"><span class="code">en</span>English</a></li><li><a href="/uk/wishlist.html" hreflang="uk" lang="uk" data-lang="uk"><span class="code">uk</span>Українська</a></li><li><a href="/pl/wishlist.html" hreflang="pl" lang="pl" data-lang="pl"><span class="code">pl</span>Polski</a></li><li><a href="/fr/wishlist.html" hreflang="fr" lang="fr" data-lang="fr"><span class="code">fr</span>Français</a></li><li><a href="/it/wishlist.html" hreflang="it" lang="it" data-lang="it"><span class="code">it</span>Italiano</a></li><li><a href="/es/wishlist.html" hreflang="es" lang="es" data-lang="es"><span class="code">es</span>Español</a></li><li><a href="/de/wishlist.html" hreflang="de" lang="de" data-lang="de"><span class="code">de</span>Deutsch</a></li><li><a href="/ar/wishlist.html" hreflang="ar" lang="ar" dir="rtl" data-lang="ar"><span class="code">ar</span>العربية</a></li><li><a href="/ko/wishlist.html" hreflang="ko" lang="ko" data-lang="ko"><span class="code">ko</span>한국어</a></li><li><a href="/ja/wishlist.html" hreflang="ja" lang="ja" data-lang="ja"><span class="code">ja</span>日本語</a></li><li><a href="/zh/wishlist.html" hreflang="zh-Hans" lang="zh-Hans" data-lang="zh"><span class="code">zh</span>简体中文</a></li></ul>
+  </div>
   <button class="theme-btn" type="button" data-to-light="Switch to the light theme" data-to-dark="Switch to the dark theme" aria-label="Switch to the light theme"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 8.5h7v7h-7z"></path><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"></path></svg><svg class="i moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3.5L5.5 5.5 3.5 10v4l2 4.5 4.5 2h4l4.5-2 2-4.5-5 .5-4.5-2-1.5-4z"></path></svg></button>
   <a class="btn btn-line btn-sm top-get" href="/#get">Get the app</a>
   <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menu"><i></i><i></i><i></i></button>
@@ -59,25 +104,33 @@
   <div class="doc-grid">
     <!-- chrome:toc --><!-- /chrome:toc -->
     <article class="doc-body">
-      <div class="wl-head">
-            <h1 id="wl-vehicle">Wishlist</h1>
-            <div class="wl-sub" id="wl-meta">Loading…</div>
+      <div class="wl">
+        <div class="wl-msg" data-wl="msg" role="status">
+          <p class="wl-msg-title" data-wl="msgTitle" hidden></p>
+          <p data-wl="msgText">Loading…</p>
+          <p class="wl-retry" data-wl="retryBox" hidden><button class="btn btn-line btn-sm" type="button" data-wl="retry">Try again</button></p>
+        </div>
+        <div data-wl="view" hidden>
+          <p class="wl-eyebrow" data-wl="eyebrow"></p>
+          <h1 class="wl-heading" data-wl="heading"></h1>
+          <p class="wl-hint" data-wl="hint"></p>
+          <div class="wl-you" data-wl="you" hidden>
+            <label class="wl-label" for="wl-name">Your name, optional</label>
+            <input class="wl-input" id="wl-name" type="text" maxlength="40" autocomplete="given-name" autocapitalize="words" enterkeyhint="done" aria-describedby="wl-name-note" />
+            <p class="wl-note" id="wl-name-note" data-wl="nameNote"></p>
           </div>
-      
-          <div class="wl-open">
-            <a id="open-app" href="#" class="btn btn-gold" style="display:none">
-              📱 Open in the Maintra app
-            </a>
-          </div>
-      
-          <div class="wl-list" id="wl-list"></div>
-          <div class="wl-total" id="wl-total"></div>
-      
-          <div class="wl-cta">
-            <a href="/" class="js-store btn btn-gold">
-              Get Maintra
-            </a>
-          </div>
+          <ul class="wl-list" data-wl="list"></ul>
+          <p class="wl-snap" data-wl="snapshot" hidden></p>
+        </div>
+        <p class="wl-cta">
+          <a class="btn btn-gold" data-wl="open" href="#" hidden>Open in Maintra</a>
+          <a class="btn btn-line" data-wl="get" href="/#get">Get the app</a>
+        </p>
+        <div class="wl-toast" data-wl="toast" role="status" aria-live="polite"></div>
+      </div>
+      <noscript><style>.wl-msg{display:none}</style></noscript>
+      <script type="application/json" id="wl-words">{"book":"Book it","bookLabel":"Book {{title}}","booked":"Booked","bookedByYou":"Booked by you","bookedToast":"Booked","eyebrowBy":"Wishlist · shared by {{name}}","failed":"Couldn’t open the link. Check the connection and try again.","forCount":{"one":"{{total}} for {{count}}","other":"{{total}} for {{count}}"},"get":"Get the app","goneBody":"The owner may have stopped sharing it, or removed it. Ask them for a new link.","goneToast":"This wish is no longer on the list","heading":"Gifts for {{car}}","hint":"Book one so nobody buys the same thing. The owner sees that it’s booked. If you leave your name, it shows only when they ask to see it.","hintBy":"Book one so nobody buys the same thing. {{name}} sees that it’s booked. If you leave your name, it shows only when {{name}} asks to see it.","loading":"Loading…","missingTitle":"No such wishlist","nameLabel":"Your name, optional","nameNote":"Only the list’s owner can see it, and only on asking.","nameNoteBy":"Only {{name}} can see it, and only on asking.","noCode":"This link is missing its code. Ask for it again.","og":"Book a gift so nobody buys the same thing. No account needed.","offline":"No connection. Try again when you’re online.","open":"Open in Maintra","release":"Cancel my booking","releasedToast":"Booking cancelled","retry":"Try again","snapshot":"A snapshot from {{date}}. Prices may have changed.","takenToast":"Someone booked it a moment ago","title":"Shared wishlist","wrong":"Something went wrong"}</script>
+      <script src="/assets/wishlist.js?v=7d832cb5" defer></script>
     </article>
   </div>
 </main>
@@ -99,79 +152,5 @@
   </div>
 </footer>
 <!-- /chrome:foot -->
-<script>
-// Store + open-in-app wiring. Android: an intent URL opens the app if
-    // installed, else falls back to the Play Store. iOS: the custom scheme
-    // opens the app if installed; the "Get Maintra" CTA points at the App
-    // Store. The shared list below always renders as the web fallback for
-    // anyone without the app.
-    (function () {
-      var ua = navigator.userAgent || '';
-      var isAndroid = /android/i.test(ua);
-      var isIOS = /iphone|ipad|ipod/i.test(ua);
-      var PLAY = 'https://play.google.com/store/apps/details?id=com.maintra.app';
-      var APPSTORE = 'https://apps.apple.com/app/maintra/id6775876731';
-      var storeUrl = isAndroid ? PLAY : (isIOS ? APPSTORE : 'index.html');
-      Array.prototype.forEach.call(document.querySelectorAll('.js-store'), function (a) { a.href = storeUrl; });
-
-      var token = new URLSearchParams(location.search).get('t');
-      if (token && (isAndroid || isIOS)) {
-        var openBtn = document.getElementById('open-app');
-        openBtn.href = isAndroid
-          ? 'intent://shared/' + token + '#Intent;scheme=autocare;package=com.maintra.app;S.browser_fallback_url=' + encodeURIComponent(PLAY) + ';end'
-          : 'autocare://shared/' + token;
-        openBtn.style.display = 'inline-block';
-      }
-    })();
-
-    (async function () {
-      var token = new URLSearchParams(location.search).get('t');
-      var meta = document.getElementById('wl-meta');
-      var list = document.getElementById('wl-list');
-      if (!token) { meta.textContent = ''; list.innerHTML = '<div class="wl-err">This link is missing its key.</div>'; return; }
-      try {
-        var res = await fetch('https://girxnrqwghdarubohncs.supabase.co/rest/v1/rpc/get_shared_wishlist', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'apikey': 'sb_publishable_l2vb-NocFTY08FQJ5dfHbg_Nv3B64z6',
-          },
-          body: JSON.stringify({ p_token: token }),
-        });
-        var data = await res.json();
-        if (!data || !data.items) throw new Error('not found');
-        document.getElementById('wl-vehicle').textContent = data.vehicle_label;
-        var items = data.items;
-        meta.textContent = items.length + ' item' + (items.length === 1 ? '' : 's') + ' wanted';
-        var totals = {};
-        items.forEach(function (i) {
-          var a = document.createElement(i.url ? 'a' : 'div');
-          if (i.url) { a.href = i.url; a.target = '_blank'; a.rel = 'noopener nofollow'; }
-          a.className = 'wl-item';
-          var prio = i.priority || 'normal';
-          a.innerHTML =
-            (i.image_url
-              ? '<img class="wl-thumb" src="/' + encodeURI(i.image_url) + '" alt="" loading="lazy" />'
-              : '<div class="wl-thumb ph">🎁</div>') +
-            '<div class="wl-body"><div class="wl-title"></div><div class="wl-site"></div></div>' +
-            '<div class="wl-price"></div>' +
-            '<span class="wl-prio ' + prio + '">' + prio.toUpperCase() + '</span>';
-          a.querySelector('.wl-title').textContent = i.title;
-          a.querySelector('.wl-site').textContent = i.site_name || '';
-          var qty = i.quantity || 1; // price is per unit; qty multiplies (4 tires)
-          a.querySelector('.wl-price').textContent = i.price != null
-            ? (Number(i.price) * qty).toLocaleString() + ' ' + (i.currency || '') + (qty > 1 ? ' (×' + qty + ')' : '')
-            : '';
-          list.appendChild(a);
-          if (i.price != null) totals[i.currency || ''] = (totals[i.currency || ''] || 0) + Number(i.price) * qty;
-        });
-        var totalStr = Object.keys(totals).map(function (c) { return totals[c].toLocaleString() + ' ' + c; }).join(' + ');
-        if (totalStr) document.getElementById('wl-total').textContent = 'Total: ~' + totalStr;
-      } catch (e) {
-        meta.textContent = '';
-        list.innerHTML = '<div class="wl-err">This wishlist link doesn\'t exist or was removed.</div>';
-      }
-    })();
-  </script>
 </body>
 </html>

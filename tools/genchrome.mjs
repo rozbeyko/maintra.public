@@ -38,9 +38,10 @@ const hash = (p) => createHash('sha256').update(/\.(css|js|mjs|svg|json)$/.test(
 const asset = (p) => `/${p}?v=${hash(p)}`;
 
 const ORIGIN = 'https://maintra.me';
-const TRANSLATED = ['about', 'faq', 'support', 'privacy', 'terms', 'delete-account', 'confirmed', 'reset-password', 'k', 't'];
-// k and t: the handover links' pages, written by tools/genhandover.mjs (run it first)
-const PAGES = [...TRANSLATED, 'press', 'press-en', 'wishlist'];
+const TRANSLATED = ['about', 'faq', 'support', 'privacy', 'terms', 'delete-account', 'confirmed', 'reset-password', 'k', 't', 'wishlist'];
+// k and t: the handover links' pages, written by tools/genhandover.mjs; wishlist: the shared
+// wishlist, written by tools/genwishlist.mjs (run them first)
+const PAGES = [...TRANSLATED, 'press', 'press-en'];
 
 // ------------------------------------------------- parts of the homepage
 const home = read('index.html');
