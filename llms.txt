@@ -21,7 +21,7 @@ Maintra is a mobile app for Android and iPhone (free to start, Pro and VIP subsc
 - **Offline-first** — All data stored locally (SQLite). Syncs to Supabase when online. AI features require connection.
 - **No tracking** — No ads, no third-party trackers. GPS is used only for offline navigation, with permission; routes, trips and places stay on the phone and are never collected. Product analytics (PostHog) run only if the user agrees; if they decline, nothing is collected.
 
-## New in Maintra 2.0 (October 2026, a free update)
+## New in Maintra 2.0 (November 2026, a free update)
 
 The whole app is redesigned from the first screen. Existing records stay where they are; the update arrives through the App Store and Google Play like any other.
 

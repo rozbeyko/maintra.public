@@ -50,7 +50,7 @@ committed, and the generators are plain Node scripts with no dependencies.
 
 ## The homepage (2.0)
 
-"Update coming this October". Two three.js phones. The hero's is a still
+"Update coming this November". Two three.js phones. The hero's is a still
 picture of the app in a garage at night (or by day, in the light theme)
 that leans with the mouse. The tour's comes in as you scroll to it and is
 the app to press: eight chapters, the copy explaining each feature next to
