@@ -76,6 +76,7 @@
             ["Show it a photo.", "A receipt, the dashboard, a part or its box, a screenshot of an order. Andrew works out what it is, which car it is for and where it goes."],
             ["No signal? The photo waits.", "It is read as soon as there is a connection."],
             ["One AI charge for everything.", "One charge in percent instead of separate limits. A reading you don't save costs nothing, and up to a third of what is left carries into next month."],
+            ["The mechanic searches the web.", "Ask for a part number, a price or where to buy it, and the pages the answer came from are under it. With VIP."],
             ["The chat with a mechanic stays.", "The conversation is kept on your phone until you clear it. The mechanic knows the parts on your shelf and your tyre sets."],
             ["You can see AI working.", "A quiet notification while a plan is written or a receipt is read. You can leave the app."]
           ]
