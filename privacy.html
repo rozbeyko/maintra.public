@@ -102,7 +102,7 @@
     </nav>
     <!-- /chrome:toc -->
     <article class="doc-body">
-      <p class="muted">Last updated: <strong>October 10, 2026</strong></p>
+      <p class="muted">Last updated: <strong>November 25, 2026</strong></p>
       
           <p>This Privacy Policy describes how <strong>Maintra</strong> ("we", "our", or "the app") collects, uses, and protects your information when you use our mobile application.</p>
       
@@ -125,10 +125,27 @@
             <li>Service records (date, mileage, category, description, parts and labor cost, service station name).</li>
             <li>Fuel logs (date, liters, price, station name, fuel quality rating).</li>
             <li>Maintenance plan items (intervals, due dates, priority, notes).</li>
-            <li>AI chat messages you send to the in-app AI assistant about your vehicle.</li>
+            <li>AI chat messages you send to the in-app AI assistant about your vehicle. The conversation is kept on your device; each question is sent with the recent messages so that the assistant can answer it.</li>
+            <li>Expenses, fines, tyres and tread readings, the car's sheet, wishlists, and the workshops, fuel stations and shops you save.</li>
             <li>Free-text notes you provide to the AI (sounds, driving issues, outside work done).</li>
           </ul>
       
+          <h3>Photos, documents and voice</h3>
+          <ul>
+            <li><strong>Photos you attach</strong> (receipts, the work or a part, a tyre, what you log on a car lent to you, a shop's loyalty card) are stored privately in your account. The people you share a car with can see the receipts and photos on that car.</li>
+            <li><strong>The photo of your car</strong> stays on your device.</li>
+            <li><strong>Documents</strong> are encrypted on your device before they are uploaded, and we cannot open them. Only the kind of document and its expiry date are stored readable, so that you can be reminded.</li>
+            <li><strong>Photos you show to the AI</strong> (a receipt, a fuel slip, a dashboard, a part, a VIN plate, a registration document, a tyre) are sent to Anthropic to be read. They are not kept on our servers unless you choose to keep them with a record.</li>
+            <li><strong>Voice notes</strong> are turned into text by your phone's own speech service. A note recorded on a watch may be sent to OpenAI to be turned into text. The recording is not stored. The text is read by the AI.</li>
+          </ul>
+
+          <h3>Sharing you choose</h3>
+          <ul>
+            <li>If you drive a car together with someone or lend it, they see that car and what you allow, and entries show who added them by display name. Your documents and wishlist are not shared this way.</li>
+            <li>If you hand a car over for good, the new owner receives a copy of the parts of its history you pick, and the receipt photos that go with it.</li>
+            <li>Anyone with the link to a wishlist you share can see that list. A friend who books a gift may leave a name, which you see only if you ask to.</li>
+          </ul>
+
           <h3>Preferences and usage</h3>
           <ul>
             <li>Language, preferred currency, country.</li>
@@ -145,9 +162,9 @@
       
           <h3>Data we do <em>not</em> collect</h3>
           <ul>
-            <li>Location: the app uses your device's GPS only for offline navigation, only with your permission, and only on your device. Your routes, your trips and the places you visit are not sent to us and are not stored on our servers.</li>
+            <li>Location: the app uses your location only for the map, navigation and the trips you start, only with your permission, and only on your device. Your routes, your trips and the places you visit are not sent to us and are not stored on our servers. A trip you keep and the place where you parked stay on your phone. Indoors, your phone's own location service (Google's on Android, Apple's on iPhone) may help to find you, under its own privacy policy. Noticing that you set off, by motion or your car's Bluetooth, also happens on the device.</li>
             <li>We do not collect your contacts, calendar, files, or messages.</li>
-            <li>We do not store photos from your camera or photo library on our servers, with one exception: the receipt-scan feature. When you scan a receipt, the image is sent to Anthropic (Claude AI) to read the line items. If you are on a paid plan and choose to keep that receipt, the image is then stored privately in your account so you can keep it as proof of service and include it in PDF exports; if you don't keep it, the image is discarded after parsing. Stored receipt images are private to you, are deleted when you delete the related service record or your account, and are never used for advertising or shared. The AI service-entry feature can also work from text you type alone, without any image.</li>
+            <li>We do not look through your photo library. Only the photos you pick or take are used, as described above. They are never used for advertising, and they are deleted from our servers when you delete the record they belong to or your account.</li>
             <li>We do not use advertising identifiers and the app contains no ads.</li>
             <li>We do not use advertising or cross-app tracking SDKs. We do use a crash-reporting SDK (Sentry) and a privacy-friendly product-analytics SDK (PostHog, hosted in the EU) — both described in Section 5 — to fix bugs and understand which features are used. Neither ever receives your vehicle data, service records, photos, or chat content. Product analytics run only with your consent.</li>
           </ul>
@@ -166,7 +183,7 @@
           <ul>
             <li><strong>On your device</strong> — in a local SQLite database. This allows the app to work offline.</li>
             <li><strong>On our backend</strong> — hosted by <a href="https://supabase.com/" target="_blank" rel="noopener">Supabase</a> (PostgreSQL database). Supabase provides the authentication, database, and API infrastructure we use.</li>
-            <li><strong>Receipt images</strong> (paid feature, only if you choose to keep a scanned receipt) — stored privately in Supabase Storage with access restricted to your account.</li>
+            <li><strong>Photos you attach and encrypted documents</strong> are stored privately in Supabase Storage. Access is limited to your account and, for the photos on a car you share, the people you share it with.</li>
           </ul>
           <p>Data is transmitted over encrypted HTTPS connections and stored with row-level security so that one user cannot read another user's data.</p>
       
@@ -181,8 +198,20 @@
       
           <div class="card">
             <h3 style="margin-top:0;">Anthropic PBC (Claude AI)</h3>
-            <p class="muted">AI processing for maintenance plan generation, in-app chat, AI service entry, and AI receipt scanning.</p>
-            <p>Receives: your vehicle details (make, model, year, mileage, VIN, fuel type), service history summaries, any free-text notes or chat messages you send, and — only when you use the receipt-scan feature — the receipt image you choose to scan. Anthropic processes these requests to generate responses and does not train on this data. See the <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic Privacy Policy</a>.</p>
+            <p class="muted">AI processing for maintenance plans, the in-app chat, reading photos, typed and spoken notes, the car's sheet and tyres.</p>
+            <p>Receives: your vehicle details (make, model, year, mileage, VIN, license plate, fuel type), summaries of the service history and plan, tyre details, any free-text notes or chat messages you send, and the photos you choose to show to the AI. When the chat assistant searches the web, Anthropic's search service receives the words of the search, such as the make, model, year, engine and the name of a part. The assistant is instructed never to put your VIN, license plate or name into a search. Anthropic processes these requests to generate responses and does not train on this data. See the <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic Privacy Policy</a>.</p>
+          </div>
+      
+          <div class="card">
+            <h3 style="margin-top:0;">OpenAI</h3>
+            <p class="muted">Turning watch voice notes into text.</p>
+            <p>Receives: the recording of a note made on a watch, when it has to be put into words on our server, and the language. We do not store the recording. See the <a href="https://openai.com/policies/privacy-policy/" target="_blank" rel="noopener">OpenAI Privacy Policy</a>.</p>
+          </div>
+      
+          <div class="card">
+            <h3 style="margin-top:0;">Cloudflare, Inc.</h3>
+            <p class="muted">Map downloads and this website.</p>
+            <p>Receives: your IP address and which map region or page was requested. See the <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare Privacy Policy</a>.</p>
           </div>
       
           <div class="card">
@@ -194,13 +223,13 @@
           <div class="card">
             <h3 style="margin-top:0;">Google LLC (Sign-in with Google, Google Play Billing)</h3>
             <p class="muted">Optional authentication and in-app purchases.</p>
-            <p>Receives: authentication request (only if you choose to sign in with Google) and in-app purchase transactions. See the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.</p>
+            <p>Receives: authentication request (only if you choose to sign in with Google) and in-app purchase transactions. On Android, Google's services on your phone may also turn your voice into text, help to find your location indoors and notice that you are driving, under Google's own policy. See the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.</p>
           </div>
       
           <div class="card">
             <h3 style="margin-top:0;">Apple Inc. (App Store Billing)</h3>
             <p class="muted">In-app purchases on iOS.</p>
-            <p>Receives: in-app purchase transactions when you subscribe on an iPhone. See the <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple Privacy Policy</a>.</p>
+            <p>Receives: in-app purchase transactions when you subscribe on an iPhone. Apple's services on your device may also turn your voice into text and help to find your location, under Apple's own policy. See the <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple Privacy Policy</a>.</p>
           </div>
       
           <div class="card">
@@ -228,18 +257,18 @@
             <li><strong>Access</strong> — view all of your data directly inside the app.</li>
             <li><strong>Correct</strong> — edit or delete any record inside the app at any time.</li>
             <li><strong>Delete</strong> — permanently delete your entire account and all associated data. See <a href="/delete-account.html">How to delete your account</a>.</li>
-            <li><strong>Export</strong> — generate a PDF of your vehicle history from within the app.</li>
+            <li><strong>Export</strong>: a backup of your records in one file, spreadsheets, and a PDF of your vehicle history, all from within the app.</li>
             <li><strong>Object / restrict / complain</strong> — if you are in the EU/UK, you may contact your local data protection authority.</li>
           </ul>
       
           <h2 id="7-data-retention">Data retention</h2>
-          <p>We retain your data for as long as your account is active. When you delete your account, all of your data (profile, vehicles, service records, fuel logs, maintenance plans, and chat history) is deleted immediately from our database. Encrypted backups may contain residual copies for up to <strong>30 days</strong> before they are overwritten in the normal course of operation.</p>
+          <p>We retain your data for as long as your account is active. When you delete your account, your profile, vehicles, service records, fuel logs, plans, photos and documents are deleted immediately. Entries you added to a car that belongs to someone else stay with that car. So that a deleted account cannot be used to restart the free AI trial, we keep a one-way fingerprint of the email address and how much of the trial was used for up to <strong>two years</strong>; the address cannot be read from it. Encrypted backups may contain residual copies for up to <strong>30 days</strong> before they are overwritten in the normal course of operation.</p>
       
           <h2 id="8-children">Children</h2>
           <p>Maintra is not directed at children under 13 and we do not knowingly collect personal information from children under 13. If you believe a child has created an account, please contact us and we will delete it.</p>
       
           <h2 id="9-international-transfers">International transfers</h2>
-          <p>Our service providers Supabase, Anthropic, Google, RevenueCat, and Sentry are based in the United States and may process your data there. By using the app you consent to this transfer. Our product-analytics provider, PostHog, processes your data within the European Union. These providers are required to protect your data in accordance with applicable data protection laws.</p>
+          <p>Our service providers Supabase, Anthropic, OpenAI, Cloudflare, Google, Apple, RevenueCat, Expo and Sentry are based in the United States and may process your data there. By using the app you consent to this transfer. Our product-analytics provider, PostHog, processes your data within the European Union. These providers are required to protect your data in accordance with applicable data protection laws.</p>
       
           <h2 id="10-security">Security</h2>
           <p>We take reasonable technical and organizational measures to protect your data, including HTTPS encryption in transit, database-level encryption at rest, row-level security policies, and the principle of least privilege for service access. No system is perfect, however, and we cannot guarantee absolute security.</p>

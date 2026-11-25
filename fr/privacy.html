@@ -103,7 +103,7 @@
     <!-- /chrome:toc -->
     <article class="doc-body">
       <p class="muted">Cette traduction est fournie pour votre commodité. En cas de divergence avec la version anglaise, c'est la version anglaise qui prévaut. <a href="/privacy.html">Version anglaise</a></p>
-      <p class="muted">Dernière mise à jour : <strong>10 octobre 2026</strong></p>
+      <p class="muted">Dernière mise à jour : <strong>25 novembre 2026</strong></p>
       
           <p>La présente politique de confidentialité décrit comment <strong>Maintra</strong> (« nous », « notre » ou « l'app ») collecte, utilise et protège vos informations lorsque vous utilisez notre application mobile.</p>
       
@@ -126,10 +126,27 @@
             <li>Interventions d'entretien (date, kilométrage, catégorie, description, coût des pièces et de la main-d'œuvre, nom du garage).</li>
             <li>Pleins de carburant (date, litres, prix, nom de la station, note de qualité du carburant).</li>
             <li>Éléments du plan d'entretien (intervalles, échéances, priorité, notes).</li>
-            <li>Messages que vous envoyez à l'assistant IA de l'app au sujet de votre véhicule.</li>
+            <li>Messages que vous envoyez à l'assistant IA de l'app au sujet de votre véhicule. La conversation est conservée sur votre appareil ; chaque question est envoyée avec les messages récents afin que l'assistant puisse y répondre.</li>
+            <li>Dépenses, amendes, pneus et relevés d'usure, fiche technique de la voiture, listes d'envies, ainsi que les garages, stations-service et magasins que vous enregistrez.</li>
             <li>Notes libres que vous transmettez à l'IA (bruits, problèmes de conduite, travaux effectués ailleurs).</li>
           </ul>
       
+          <h3>Photos, documents et voix</h3>
+          <ul>
+            <li><strong>Les photos que vous joignez</strong> (tickets, les travaux ou une pièce, un pneu, ce que vous notez sur une voiture qu'on vous a prêtée, la carte de fidélité d'un magasin) sont stockées de façon privée dans votre compte. Les personnes avec qui vous partagez une voiture peuvent voir les tickets et les photos associés à cette voiture.</li>
+            <li><strong>La photo de votre voiture</strong> reste sur votre appareil.</li>
+            <li><strong>Les documents</strong> sont chiffrés sur votre appareil avant d'être envoyés, et nous ne pouvons pas les ouvrir. Seuls le type de document et sa date d'expiration sont stockés sous une forme lisible, afin qu'un rappel puisse vous être envoyé.</li>
+            <li><strong>Les photos que vous montrez à l'IA</strong> (un ticket, un ticket de carburant, un tableau de bord, une pièce, une plaque VIN, une carte grise, un pneu) sont envoyées à Anthropic pour être lues. Elles ne sont pas conservées sur nos serveurs, sauf si vous choisissez de les conserver avec une entrée.</li>
+            <li><strong>Les notes vocales</strong> sont converties en texte par le service de reconnaissance vocale propre à votre téléphone. Une note enregistrée sur une montre peut être envoyée à OpenAI pour être convertie en texte. L'enregistrement n'est pas stocké. Le texte est lu par l'IA.</li>
+          </ul>
+
+          <h3>Partages que vous choisissez</h3>
+          <ul>
+            <li>Si vous conduisez une voiture en commun avec quelqu'un ou si vous la prêtez, cette personne voit cette voiture et ce que vous autorisez, et les entrées indiquent qui les a ajoutées, par son nom affiché. Vos documents et votre liste d'envies ne sont pas partagés de cette façon.</li>
+            <li>Si vous cédez une voiture pour de bon, le nouveau propriétaire reçoit une copie des parties que vous choisissez de l'historique de la voiture, ainsi que les photos de tickets qui l'accompagnent.</li>
+            <li>Toute personne disposant du lien vers une liste d'envies que vous partagez peut voir cette liste. Un ami qui réserve un cadeau peut laisser un nom, que vous ne voyez que si vous demandez à le voir.</li>
+          </ul>
+
           <h3>Préférences et utilisation</h3>
           <ul>
             <li>Langue, devise préférée, pays.</li>
@@ -146,9 +163,9 @@
       
           <h3>Données que nous ne collectons <em>pas</em></h3>
           <ul>
-            <li>Localisation : l'application utilise le GPS de votre appareil uniquement pour la navigation hors ligne, uniquement avec votre autorisation et uniquement sur l'appareil. Vos itinéraires, vos trajets et les lieux où vous vous rendez ne nous sont pas envoyés et ne sont pas stockés sur nos serveurs.</li>
+            <li>Localisation : l'application utilise votre position uniquement pour la carte, la navigation et les trajets que vous démarrez, uniquement avec votre autorisation et uniquement sur votre appareil. Vos itinéraires, vos trajets et les lieux où vous vous rendez ne nous sont pas envoyés et ne sont pas stockés sur nos serveurs. Un trajet que vous conservez et l'endroit où vous avez stationné restent sur votre téléphone. En intérieur, le service de localisation propre à votre téléphone (celui de Google sur Android, celui d'Apple sur iPhone) peut aider à vous localiser, selon sa propre politique de confidentialité. La détection de votre départ, par le mouvement ou par le Bluetooth de votre voiture, se fait elle aussi sur l'appareil.</li>
             <li>Nous ne collectons pas vos contacts, votre agenda, vos fichiers ni vos messages.</li>
-            <li>Nous ne stockons pas sur nos serveurs les photos de votre appareil photo ou de votre photothèque, à une exception près : la fonction de scan des tickets. Lorsque vous scannez un ticket, l'image est envoyée à Anthropic (Claude AI) pour en lire les lignes. Si vous avez une formule payante et choisissez de conserver ce ticket, l'image est ensuite stockée de façon privée dans votre compte, pour que vous puissiez la garder comme justificatif de l'intervention et l'inclure dans vos exports PDF ; si vous ne la conservez pas, l'image est supprimée après analyse. Les images de tickets stockées ne sont accessibles qu'à vous, sont supprimées lorsque vous supprimez l'intervention correspondante ou votre compte, et ne sont jamais utilisées à des fins publicitaires ni partagées. La saisie d'intervention par IA peut aussi fonctionner à partir du seul texte que vous tapez, sans aucune image.</li>
+            <li>Nous ne parcourons pas votre photothèque. Seules les photos que vous choisissez ou prenez sont utilisées, comme décrit ci-dessus. Elles ne sont jamais utilisées à des fins publicitaires, et elles sont supprimées de nos serveurs lorsque vous supprimez l'entrée à laquelle elles appartiennent ou votre compte.</li>
             <li>Nous n'utilisons pas d'identifiants publicitaires, et l'app ne contient aucune publicité.</li>
             <li>Nous n'utilisons pas de SDK publicitaires ni de SDK de suivi entre applications. Nous utilisons en revanche un SDK de signalement des plantages (Sentry) et un SDK d'analyse d'utilisation respectueux de la vie privée (PostHog, hébergé dans l'UE), tous deux décrits à la section 5, pour corriger les bugs et comprendre quelles fonctions sont utilisées. Aucun des deux ne reçoit jamais les données de vos véhicules, vos interventions, vos photos ni le contenu de vos discussions. L'analyse d'utilisation ne fonctionne qu'avec votre consentement.</li>
           </ul>
@@ -167,7 +184,7 @@
           <ul>
             <li><strong>Sur votre appareil</strong> : dans une base de données SQLite locale. C'est ce qui permet à l'app de fonctionner hors ligne.</li>
             <li><strong>Sur notre backend</strong> : hébergé par <a href="https://supabase.com/" target="_blank" rel="noopener">Supabase</a> (base de données PostgreSQL). Supabase fournit l'infrastructure d'authentification, de base de données et d'API que nous utilisons.</li>
-            <li><strong>Images de tickets</strong> (fonction payante, uniquement si vous choisissez de conserver un ticket scanné) : stockées de façon privée dans Supabase Storage, avec un accès limité à votre compte.</li>
+            <li><strong>Les photos que vous joignez et les documents chiffrés</strong> sont stockés de façon privée dans Supabase Storage. L'accès est limité à votre compte et, pour les photos associées à une voiture que vous partagez, aux personnes avec qui vous la partagez.</li>
           </ul>
           <p>Les données transitent par des connexions HTTPS chiffrées et sont stockées avec une sécurité au niveau des lignes (row-level security), de sorte qu'un utilisateur ne peut pas lire les données d'un autre utilisateur.</p>
       
@@ -182,8 +199,20 @@
       
           <div class="card">
             <h3 style="margin-top:0;">Anthropic PBC (Claude AI)</h3>
-            <p class="muted">Traitement par IA pour la génération des plans d'entretien, la discussion dans l'app, la saisie d'intervention par IA et le scan des tickets par IA.</p>
-            <p>Reçoit : les informations sur votre véhicule (marque, modèle, année, kilométrage, VIN, type de carburant), des résumés de l'historique d'entretien, les notes libres ou messages que vous envoyez et, uniquement lorsque vous utilisez la fonction de scan des tickets, l'image du ticket que vous choisissez de scanner. Anthropic traite ces requêtes pour générer des réponses et n'entraîne pas ses modèles sur ces données. Voir la <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">politique de confidentialité d'Anthropic</a>.</p>
+            <p class="muted">Traitement par IA pour les plans d'entretien, la discussion dans l'app, la lecture des photos, les notes écrites et vocales, la fiche technique de la voiture et les pneus.</p>
+            <p>Reçoit : les informations sur votre véhicule (marque, modèle, année, kilométrage, VIN, immatriculation, type de carburant), des résumés de l'historique d'entretien et du plan, les informations sur les pneus, les notes libres ou messages que vous envoyez et les photos que vous choisissez de montrer à l'IA. Lorsque l'assistant de discussion effectue une recherche sur le web, le service de recherche d'Anthropic reçoit les mots de la recherche, comme la marque, le modèle, l'année, le moteur et le nom d'une pièce. L'assistant a pour instruction de ne jamais inclure votre VIN, votre immatriculation ou votre nom dans une recherche. Anthropic traite ces requêtes pour générer des réponses et n'entraîne pas ses modèles sur ces données. Voir la <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">politique de confidentialité d'Anthropic</a>.</p>
+          </div>
+      
+          <div class="card">
+            <h3 style="margin-top:0;">OpenAI</h3>
+            <p class="muted">Conversion en texte des notes vocales de la montre.</p>
+            <p>Reçoit : l'enregistrement d'une note faite sur une montre, lorsqu'il doit être converti en texte sur notre serveur, et la langue. Nous ne stockons pas l'enregistrement. Voir la <a href="https://openai.com/policies/privacy-policy/" target="_blank" rel="noopener">politique de confidentialité d'OpenAI</a>.</p>
+          </div>
+      
+          <div class="card">
+            <h3 style="margin-top:0;">Cloudflare, Inc.</h3>
+            <p class="muted">Téléchargement des cartes et ce site web.</p>
+            <p>Reçoit : votre adresse IP et la région de la carte ou la page demandée. Voir la <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">politique de confidentialité de Cloudflare</a>.</p>
           </div>
       
           <div class="card">
@@ -195,13 +224,13 @@
           <div class="card">
             <h3 style="margin-top:0;">Google LLC (Se connecter avec Google, Google Play Billing)</h3>
             <p class="muted">Authentification facultative et achats intégrés.</p>
-            <p>Reçoit : la demande d'authentification (uniquement si vous choisissez de vous connecter avec Google) et les transactions d'achats intégrés. Voir les <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">règles de confidentialité de Google</a>.</p>
+            <p>Reçoit : la demande d'authentification (uniquement si vous choisissez de vous connecter avec Google) et les transactions d'achats intégrés. Sur Android, les services de Google présents sur votre téléphone peuvent aussi convertir votre voix en texte, aider à déterminer votre position en intérieur et détecter que vous conduisez, selon les propres règles de Google. Voir les <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">règles de confidentialité de Google</a>.</p>
           </div>
       
           <div class="card">
             <h3 style="margin-top:0;">Apple Inc. (App Store Billing)</h3>
             <p class="muted">Achats intégrés sur iOS.</p>
-            <p>Reçoit : les transactions d'achats intégrés lorsque vous vous abonnez sur un iPhone. Voir la <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">politique de confidentialité d'Apple</a>.</p>
+            <p>Reçoit : les transactions d'achats intégrés lorsque vous vous abonnez sur un iPhone. Les services d'Apple présents sur votre appareil peuvent aussi convertir votre voix en texte et aider à déterminer votre position, selon la propre politique d'Apple. Voir la <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">politique de confidentialité d'Apple</a>.</p>
           </div>
       
           <div class="card">
@@ -229,18 +258,18 @@
             <li><strong>Accès</strong> : consulter toutes vos données directement dans l'app.</li>
             <li><strong>Rectification</strong> : modifier ou supprimer n'importe quelle entrée dans l'app, à tout moment.</li>
             <li><strong>Suppression</strong> : supprimer définitivement l'intégralité de votre compte et toutes les données associées. Voir <a href="/fr/delete-account.html">Comment supprimer votre compte</a>.</li>
-            <li><strong>Export</strong> : générer un PDF de l'historique de votre véhicule depuis l'app.</li>
+            <li><strong>Export</strong> : une sauvegarde de vos entrées en un seul fichier, des feuilles de calcul et un PDF de l'historique de votre véhicule, le tout depuis l'app.</li>
             <li><strong>Opposition / limitation / réclamation</strong> : si vous vous trouvez dans l'UE ou au Royaume-Uni, vous pouvez contacter votre autorité locale de protection des données.</li>
           </ul>
       
           <h2 id="7-data-retention">Conservation des données</h2>
-          <p>Nous conservons vos données tant que votre compte est actif. Lorsque vous supprimez votre compte, toutes vos données (profil, véhicules, interventions, pleins, plans d'entretien et historique des discussions) sont immédiatement supprimées de notre base de données. Des sauvegardes chiffrées peuvent en contenir des copies résiduelles pendant <strong>30 jours</strong> au maximum, avant d'être écrasées dans le cadre du fonctionnement normal.</p>
+          <p>Nous conservons vos données tant que votre compte est actif. Lorsque vous supprimez votre compte, votre profil, vos véhicules, vos interventions, vos pleins, vos plans, vos photos et vos documents sont immédiatement supprimés. Les entrées que vous avez ajoutées à une voiture qui appartient à quelqu'un d'autre restent avec cette voiture. Afin qu'un compte supprimé ne puisse pas servir à recommencer l'essai gratuit de l'IA, nous conservons pendant <strong>deux ans</strong> au maximum une empreinte à sens unique de l'adresse e-mail et la part de l'essai qui a été utilisée ; l'adresse ne peut pas être lue à partir de cette empreinte. Des sauvegardes chiffrées peuvent contenir des copies résiduelles pendant <strong>30 jours</strong> au maximum, avant d'être écrasées dans le cadre du fonctionnement normal.</p>
       
           <h2 id="8-children">Enfants</h2>
           <p>Maintra ne s'adresse pas aux enfants de moins de 13 ans, et nous ne collectons pas sciemment d'informations personnelles auprès d'enfants de moins de 13 ans. Si vous pensez qu'un enfant a créé un compte, contactez-nous et nous le supprimerons.</p>
       
           <h2 id="9-international-transfers">Transferts internationaux</h2>
-          <p>Nos prestataires Supabase, Anthropic, Google, RevenueCat et Sentry sont établis aux États-Unis et peuvent y traiter vos données. En utilisant l'app, vous consentez à ce transfert. Notre prestataire d'analyse d'utilisation, PostHog, traite vos données au sein de l'Union européenne. Ces prestataires sont tenus de protéger vos données conformément aux lois applicables en matière de protection des données.</p>
+          <p>Nos prestataires Supabase, Anthropic, OpenAI, Cloudflare, Google, Apple, RevenueCat, Expo et Sentry sont établis aux États-Unis et peuvent y traiter vos données. En utilisant l'app, vous consentez à ce transfert. Notre prestataire d'analyse d'utilisation, PostHog, traite vos données au sein de l'Union européenne. Ces prestataires sont tenus de protéger vos données conformément aux lois applicables en matière de protection des données.</p>
       
           <h2 id="10-security">Sécurité</h2>
           <p>Nous prenons des mesures techniques et organisationnelles raisonnables pour protéger vos données, notamment le chiffrement HTTPS en transit, le chiffrement au repos au niveau de la base de données, des règles de sécurité au niveau des lignes et le principe du moindre privilège pour l'accès aux services. Aucun système n'est toutefois parfait, et nous ne pouvons pas garantir une sécurité absolue.</p>

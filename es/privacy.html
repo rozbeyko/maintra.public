@@ -103,7 +103,7 @@
     <!-- /chrome:toc -->
     <article class="doc-body">
       <p class="muted">Esta traducción se ofrece para su comodidad. Si difiere de la versión en inglés, prevalece la versión en inglés. <a href="/privacy.html">Versión en inglés</a></p>
-      <p class="muted">Última actualización: <strong>10 de octubre de 2026</strong></p>
+      <p class="muted">Última actualización: <strong>25 de noviembre de 2026</strong></p>
       
           <p>Esta Política de privacidad describe cómo <strong>Maintra</strong> («nosotros», «nuestro» o «la app») recopila, usa y protege su información cuando usted utiliza nuestra aplicación móvil.</p>
       
@@ -126,10 +126,27 @@
             <li>Registros de servicio (fecha, kilometraje, categoría, descripción, costo de repuestos y mano de obra, nombre del taller).</li>
             <li>Registros de combustible (fecha, litros, precio, nombre de la gasolinera, valoración de la calidad del combustible).</li>
             <li>Elementos del plan de mantenimiento (intervalos, fechas de vencimiento, prioridad, notas).</li>
-            <li>Los mensajes de chat que envía al asistente de IA de la app sobre su vehículo.</li>
+            <li>Los mensajes de chat que envía al asistente de IA de la app sobre su vehículo. La conversación se conserva en su dispositivo; cada pregunta se envía junto con los mensajes recientes para que el asistente pueda responderla.</li>
+            <li>Gastos, multas, neumáticos y mediciones del dibujo, la ficha del auto, listas de deseos, y los talleres, gasolineras y tiendas que usted guarda.</li>
             <li>Notas de texto libre que proporciona a la IA (ruidos, problemas al conducir, trabajos realizados fuera de la app).</li>
           </ul>
       
+          <h3>Fotos, documentos y voz</h3>
+          <ul>
+            <li><strong>Las fotos que adjunta</strong> (recibos, el trabajo o un repuesto, un neumático, lo que registra en un auto que le han prestado, la tarjeta de cliente de una tienda) se guardan de forma privada en su cuenta. Las personas con las que comparte un auto pueden ver los recibos y las fotos de ese auto.</li>
+            <li><strong>La foto de su auto</strong> permanece en su dispositivo.</li>
+            <li><strong>Los documentos</strong> se cifran en su dispositivo antes de subirse, y nosotros no podemos abrirlos. Solo el tipo de documento y su fecha de vencimiento se guardan de forma legible, para que usted pueda recibir un recordatorio.</li>
+            <li><strong>Las fotos que muestra a la IA</strong> (un recibo, un ticket de combustible, un tablero, un repuesto, una placa VIN, un permiso de circulación, un neumático) se envían a Anthropic para su lectura. No se conservan en nuestros servidores, salvo que usted decida conservarlas con un registro.</li>
+            <li><strong>Las notas de voz</strong> se convierten en texto mediante el servicio de voz de su propio teléfono. Una nota grabada en un reloj puede enviarse a OpenAI para convertirla en texto. La grabación no se almacena. La IA lee el texto.</li>
+          </ul>
+
+          <h3>Lo que usted decide compartir</h3>
+          <ul>
+            <li>Si conduce un auto junto con otra persona o se lo presta, esa persona ve ese auto y lo que usted permite, y los registros muestran quién los agregó mediante su nombre visible. Sus documentos y su lista de deseos no se comparten de esta manera.</li>
+            <li>Si entrega un auto de forma definitiva, el nuevo propietario recibe una copia de las partes del historial del auto que usted elija, y las fotos de los recibos que las acompañan.</li>
+            <li>Cualquier persona que tenga el enlace a una lista de deseos que usted comparta puede ver esa lista. Un amigo que reserve un regalo puede dejar un nombre, que usted verá solo si pide verlo.</li>
+          </ul>
+
           <h3>Preferencias y uso</h3>
           <ul>
             <li>Idioma, moneda preferida, país.</li>
@@ -146,9 +163,9 @@
       
           <h3>Datos que <em>no</em> recopilamos</h3>
           <ul>
-            <li>Ubicación: la app usa el GPS de su dispositivo solo para la navegación sin conexión, solo con su permiso y solo en el dispositivo. Sus rutas, sus viajes y los lugares que visita no se nos envían ni se almacenan en nuestros servidores.</li>
+            <li>Ubicación: la app usa su ubicación solo para el mapa, la navegación y los viajes que usted inicia, solo con su permiso y solo en su dispositivo. Sus rutas, sus viajes y los lugares que visita no se nos envían ni se almacenan en nuestros servidores. Un viaje que usted conserva y el lugar donde estacionó permanecen en su teléfono. En interiores, el servicio de ubicación de su propio teléfono (el de Google en Android, el de Apple en iPhone) puede ayudar a localizarlo, conforme a la política de privacidad propia de ese servicio. La detección de que usted se pone en marcha, por el movimiento o por el Bluetooth de su auto, también se realiza en el dispositivo.</li>
             <li>No recopilamos sus contactos, calendario, archivos ni mensajes.</li>
-            <li>No almacenamos en nuestros servidores fotos de su cámara ni de su galería, con una excepción: la función de escaneo de recibos. Cuando escanea un recibo, la imagen se envía a Anthropic (Claude AI) para leer sus partidas. Si tiene un plan de pago y decide conservar ese recibo, la imagen se guarda entonces de forma privada en su cuenta para que pueda conservarla como comprobante del servicio e incluirla en las exportaciones en PDF; si no lo conserva, la imagen se descarta después del análisis. Las imágenes de recibos guardadas son privadas y solo usted puede verlas, se eliminan cuando usted elimina el registro de servicio correspondiente o su cuenta, y nunca se usan con fines publicitarios ni se comparten. La función de entrada de servicio con IA también puede funcionar solo con el texto que usted escribe, sin ninguna imagen.</li>
+            <li>No revisamos su galería de fotos. Solo se usan las fotos que usted elige o toma, como se describe más arriba. Nunca se usan con fines publicitarios, y se eliminan de nuestros servidores cuando usted elimina el registro al que pertenecen o su cuenta.</li>
             <li>No usamos identificadores publicitarios y la app no contiene anuncios.</li>
             <li>No usamos SDK de publicidad ni de rastreo entre apps. Sí usamos un SDK de informes de fallos (Sentry) y un SDK de analítica de producto respetuoso con la privacidad (PostHog, alojado en la UE), ambos descritos en la sección 5, para corregir errores y entender qué funciones se usan. Ninguno de los dos recibe nunca los datos de sus vehículos, registros de servicio, fotos ni el contenido del chat. La analítica de uso solo funciona con su consentimiento.</li>
           </ul>
@@ -167,7 +184,7 @@
           <ul>
             <li><strong>En su dispositivo</strong>: en una base de datos SQLite local. Esto permite que la app funcione sin conexión.</li>
             <li><strong>En nuestro backend</strong>: alojado por <a href="https://supabase.com/" target="_blank" rel="noopener">Supabase</a> (base de datos PostgreSQL). Supabase proporciona la infraestructura de autenticación, base de datos y API que utilizamos.</li>
-            <li><strong>Imágenes de recibos</strong> (función de pago, solo si decide conservar un recibo escaneado): se guardan de forma privada en Supabase Storage, con acceso restringido a su cuenta.</li>
+            <li><strong>Las fotos que adjunta y los documentos cifrados</strong> se guardan de forma privada en Supabase Storage. El acceso está limitado a su cuenta y, en el caso de las fotos de un auto que comparte, a las personas con las que lo comparte.</li>
           </ul>
           <p>Los datos se transmiten mediante conexiones HTTPS cifradas y se almacenan con seguridad a nivel de fila, de modo que ningún usuario pueda leer los datos de otro.</p>
       
@@ -182,8 +199,20 @@
       
           <div class="card">
             <h3 style="margin-top:0;">Anthropic PBC (Claude AI)</h3>
-            <p class="muted">Procesamiento con IA para generar planes de mantenimiento, el chat de la app, la entrada de servicio con IA y el escaneo de recibos con IA.</p>
-            <p>Recibe: los datos de su vehículo (marca, modelo, año, kilometraje, VIN, tipo de combustible), resúmenes del historial de mantenimiento, las notas de texto libre o los mensajes de chat que envíe y, solo cuando usa la función de escaneo de recibos, la imagen del recibo que decide escanear. Anthropic procesa estas solicitudes para generar respuestas y no utiliza estos datos para entrenamiento. Consulte la <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Política de privacidad de Anthropic</a>.</p>
+            <p class="muted">Procesamiento con IA para los planes de mantenimiento, el chat de la app, la lectura de fotos, las notas escritas y habladas, la ficha del auto y los neumáticos.</p>
+            <p>Recibe: los datos de su vehículo (marca, modelo, año, kilometraje, VIN, placa, tipo de combustible), resúmenes del historial de mantenimiento y del plan, datos de los neumáticos, las notas de texto libre o los mensajes de chat que envíe y las fotos que decida mostrar a la IA. Cuando el asistente del chat busca en la web, el servicio de búsqueda de Anthropic recibe las palabras de la búsqueda, como la marca, el modelo, el año, el motor y el nombre de un repuesto. El asistente tiene instrucciones de no incluir nunca su VIN, su placa ni su nombre en una búsqueda. Anthropic procesa estas solicitudes para generar respuestas y no utiliza estos datos para entrenamiento. Consulte la <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Política de privacidad de Anthropic</a>.</p>
+          </div>
+      
+          <div class="card">
+            <h3 style="margin-top:0;">OpenAI</h3>
+            <p class="muted">Conversión en texto de las notas de voz del reloj.</p>
+            <p>Recibe: la grabación de una nota hecha en un reloj, cuando debe convertirse en texto en nuestro servidor, y el idioma. No almacenamos la grabación. Consulte la <a href="https://openai.com/policies/privacy-policy/" target="_blank" rel="noopener">Política de privacidad de OpenAI</a>.</p>
+          </div>
+      
+          <div class="card">
+            <h3 style="margin-top:0;">Cloudflare, Inc.</h3>
+            <p class="muted">Descargas de mapas y este sitio web.</p>
+            <p>Recibe: su dirección IP y qué región del mapa o qué página se solicitó. Consulte la <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Política de privacidad de Cloudflare</a>.</p>
           </div>
       
           <div class="card">
@@ -195,13 +224,13 @@
           <div class="card">
             <h3 style="margin-top:0;">Google LLC (Sign-in with Google, Google Play Billing)</h3>
             <p class="muted">Autenticación opcional y compras dentro de la app.</p>
-            <p>Recibe: la solicitud de autenticación (solo si decide iniciar sesión con Google) y las transacciones de compras dentro de la app. Consulte la <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Política de privacidad de Google</a>.</p>
+            <p>Recibe: la solicitud de autenticación (solo si decide iniciar sesión con Google) y las transacciones de compras dentro de la app. En Android, los servicios de Google de su teléfono también pueden convertir su voz en texto, ayudar a determinar su ubicación en interiores y detectar que está conduciendo, conforme a la propia política de Google. Consulte la <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Política de privacidad de Google</a>.</p>
           </div>
       
           <div class="card">
             <h3 style="margin-top:0;">Apple Inc. (App Store Billing)</h3>
             <p class="muted">Compras dentro de la app en iOS.</p>
-            <p>Recibe: las transacciones de compras dentro de la app cuando se suscribe en un iPhone. Consulte la <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Política de privacidad de Apple</a>.</p>
+            <p>Recibe: las transacciones de compras dentro de la app cuando se suscribe en un iPhone. Los servicios de Apple de su dispositivo también pueden convertir su voz en texto y ayudar a determinar su ubicación, conforme a la propia política de Apple. Consulte la <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Política de privacidad de Apple</a>.</p>
           </div>
       
           <div class="card">
@@ -229,18 +258,18 @@
             <li><strong>Acceso</strong>: ver todos sus datos directamente en la app.</li>
             <li><strong>Rectificación</strong>: editar o eliminar cualquier registro en la app en cualquier momento.</li>
             <li><strong>Eliminación</strong>: eliminar de forma permanente toda su cuenta y todos los datos asociados. Consulte <a href="/es/delete-account.html">Cómo eliminar su cuenta</a>.</li>
-            <li><strong>Exportación</strong>: generar desde la app un PDF con el historial de su vehículo.</li>
+            <li><strong>Exportación</strong>: una copia de seguridad de sus registros en un solo archivo, hojas de cálculo y un PDF con el historial de su vehículo, todo desde la app.</li>
             <li><strong>Oposición / limitación / reclamación</strong>: si se encuentra en la UE o el Reino Unido, puede dirigirse a la autoridad de protección de datos de su país.</li>
           </ul>
       
           <h2 id="7-data-retention">Conservación de los datos</h2>
-          <p>Conservamos sus datos mientras su cuenta esté activa. Cuando elimina su cuenta, todos sus datos (perfil, vehículos, registros de servicio, registros de combustible, planes de mantenimiento e historial de chat) se eliminan de inmediato de nuestra base de datos. Las copias de seguridad cifradas pueden contener copias residuales durante un máximo de <strong>30 días</strong>, hasta que se sobrescriben como parte del funcionamiento normal.</p>
+          <p>Conservamos sus datos mientras su cuenta esté activa. Cuando elimina su cuenta, su perfil, vehículos, registros de servicio, registros de combustible, planes, fotos y documentos se eliminan de inmediato. Los registros que usted agregó a un auto que pertenece a otra persona permanecen con ese auto. Para que una cuenta eliminada no pueda usarse para reiniciar la prueba gratuita de la IA, conservamos una huella unidireccional de la dirección de correo electrónico y el dato de cuánto se usó de la prueba durante un máximo de <strong>dos años</strong>; la dirección no puede leerse a partir de esa huella. Las copias de seguridad cifradas pueden contener copias residuales durante un máximo de <strong>30 días</strong>, hasta que se sobrescriben como parte del funcionamiento normal.</p>
       
           <h2 id="8-children">Menores</h2>
           <p>Maintra no está dirigida a menores de 13 años y no recopilamos a sabiendas información personal de menores de 13 años. Si cree que un menor ha creado una cuenta, contáctenos y la eliminaremos.</p>
       
           <h2 id="9-international-transfers">Transferencias internacionales</h2>
-          <p>Nuestros proveedores Supabase, Anthropic, Google, RevenueCat y Sentry tienen su sede en los Estados Unidos y pueden procesar sus datos allí. Al usar la app, usted consiente esta transferencia. Nuestro proveedor de analítica de producto, PostHog, procesa sus datos dentro de la Unión Europea. Estos proveedores están obligados a proteger sus datos de acuerdo con las leyes de protección de datos aplicables.</p>
+          <p>Nuestros proveedores Supabase, Anthropic, OpenAI, Cloudflare, Google, Apple, RevenueCat, Expo y Sentry tienen su sede en los Estados Unidos y pueden procesar sus datos allí. Al usar la app, usted consiente esta transferencia. Nuestro proveedor de analítica de producto, PostHog, procesa sus datos dentro de la Unión Europea. Estos proveedores están obligados a proteger sus datos de acuerdo con las leyes de protección de datos aplicables.</p>
       
           <h2 id="10-security">Seguridad</h2>
           <p>Adoptamos medidas técnicas y organizativas razonables para proteger sus datos, entre ellas el cifrado HTTPS en tránsito, el cifrado en reposo a nivel de base de datos, políticas de seguridad a nivel de fila y el principio de mínimo privilegio para el acceso a los servicios. Sin embargo, ningún sistema es perfecto y no podemos garantizar una seguridad absoluta.</p>
