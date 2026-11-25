@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Every update · Maintra</title>
+  <meta name="description" content="Every Maintra update in detail: what is new in 2.0 and what changed in each version before it." />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Maintra" />
+  <meta property="og:title" content="Every update · Maintra" />
+  <meta property="og:description" content="Every Maintra update in detail: what is new in 2.0 and what changed in each version before it." />
+  <meta property="og:url" content="https://maintra.me/updates.html" />
+  <meta property="og:image" content="https://maintra.me/assets/home/og/en.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+<script>
+(function () {
+  var L = ["en","uk"];
+  var go = function (l) {
+    if (!l || l === 'en' || L.indexOf(l) < 0) return false;
+    location.replace('/' + l + '/updates' + (/\.html$/.test(location.pathname) ? '.html' : '') + location.search + location.hash);
+    return true;
+  };
+  var saved = null;
+  try { saved = localStorage.getItem('maintra.lang'); } catch (e) {}
+  if (saved) { go(saved); return; }
+  if (/bot|crawl|spider|slurp|lighthouse|preview/i.test(navigator.userAgent)) return;
+  var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+  for (var i = 0; i < langs.length; i++) {
+    var raw = String(langs[i]).toLowerCase(), c = raw.split('-')[0];
+    if (c === 'en') break;
+    if (c === 'zh' && /-(tw|hk|mo|hant)/.test(raw)) continue;
+    if (L.indexOf(c) >= 0) { go(c); break; }
+  }
+})();
+</script>
+<meta name="theme-color" content="#0B0B0A" />
+<!-- chrome:head -->
+<link rel="canonical" href="https://maintra.me/updates.html" />
+<link rel="alternate" hreflang="en" href="https://maintra.me/updates.html" />
+<link rel="alternate" hreflang="uk" href="https://maintra.me/uk/updates.html" />
+<link rel="alternate" hreflang="x-default" href="https://maintra.me/updates.html" />
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
+<link rel="icon" href="/assets/favicon.svg?v=e32348a9" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=ab4ae831" />
+<script>
+(function () {
+  var t = null;
+  try { t = localStorage.getItem('maintra.theme'); } catch (e) {}
+  if (t !== 'light' && t !== 'dark') t = window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', t);
+  if (t === 'light') document.querySelector('meta[name="theme-color"]').setAttribute('content', '#EEEAE2');
+})();
+</script>
+<link rel="stylesheet" href="/assets/home/fonts.css?v=3a8a3f95" />
+<link rel="stylesheet" href="/assets/home/home.css?v=f46011bb" />
+<link rel="stylesheet" href="/assets/home/site.css?v=c9556b94" />
+<script type="module" src="/assets/home/site.js?v=6b25487e"></script>
+<!-- /chrome:head -->
+</head>
+<body>
+<!-- chrome:top -->
+<a class="skip" href="#main">Skip to content</a>
+<header class="top" id="top">
+  <a class="brand" href="/" aria-label="Maintra"><svg class="mt" viewBox="0 0 100 57.69" aria-hidden="true"><path d="M26.10,0.00 L35.15,0.00 L35.15,57.69 L26.10,57.69 Z" style="fill:var(--lg-stem)"/><path d="M52.20,0.00 L61.25,0.00 L61.25,57.69 L52.20,57.69 Z" style="fill:var(--lg-stem)"/><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" style="fill:var(--lg-gold)"/><clipPath id="mtc1"><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z"/></clipPath><g clip-path="url(#mtc1)"><path d="M2.40,57.69 L18.80,57.69 L37.55,0.00 L21.15,0.00 Z" style="fill:var(--lg-shade)"/><path d="M28.50,57.69 L44.90,57.69 L63.65,0.00 L47.24,0.00 Z" style="fill:var(--lg-shade)"/><path d="M54.60,57.69 L71.00,57.69 L89.75,0.00 L73.34,0.00 Z" style="fill:var(--lg-shade)"/></g><path d="M0.00,57.69 L16.40,57.69 L35.15,0.00 L18.75,0.00 Z" style="fill:var(--lg-ink)"/><path d="M26.10,57.69 L42.50,57.69 L61.25,0.00 L44.84,0.00 Z" style="fill:var(--lg-ink)"/><path d="M52.20,57.69 L68.60,57.69 L87.35,0.00 L70.94,0.00 Z" style="fill:var(--lg-gold)"/></svg><span class="word">Maintra</span></a>
+  <nav class="top-nav" aria-label="Maintra">
+    <a href="/#tour">Try it</a>
+    <a href="/journey-en">The road to 2.0</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/support.html">Support</a>
+    <a href="/press-en">Press</a>
+    <a href="/about.html">About</a>
+  </nav>
+  <div class="lang">
+    <button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="Language"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 3.5h7l5 5v7l-5 5h-7l-5-5v-7z"></path><path d="M3.5 12h17M12 3.5L8.5 12l3.5 8.5M12 3.5l3.5 8.5-3.5 8.5"></path></svg><span>EN</span></button>
+    <ul class="lang-menu" id="lang-menu" hidden><li><a href="/updates.html" hreflang="en" lang="en" data-lang="en" aria-current="true"><span class="code">en</span>English</a></li><li><a href="/uk/updates.html" hreflang="uk" lang="uk" data-lang="uk"><span class="code">uk</span>Українська</a></li></ul>
+  </div>
+  <button class="theme-btn" type="button" data-to-light="Switch to the light theme" data-to-dark="Switch to the dark theme" aria-label="Switch to the light theme"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 8.5h7v7h-7z"></path><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"></path></svg><svg class="i moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3.5L5.5 5.5 3.5 10v4l2 4.5 4.5 2h4l4.5-2 2-4.5-5 .5-4.5-2-1.5-4z"></path></svg></button>
+  <a class="btn btn-line btn-sm top-get" href="/#get">Get the app</a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menu"><i></i><i></i><i></i></button>
+</header>
+<div class="menu" id="menu" hidden>
+  <nav aria-label="Menu">
+    <a href="/#tour"><span class="n">01</span>Try it</a>
+    <a href="/journey-en"><span class="n">02</span>The road to 2.0</a>
+    <a href="/faq.html"><span class="n">03</span>FAQ</a>
+    <a href="/support.html"><span class="n">04</span>Support</a>
+    <a href="/press-en"><span class="n">05</span>Press</a>
+    <a href="/about.html"><span class="n">06</span>About</a>
+  </nav>
+  <a class="btn btn-gold menu-get" href="/#get">Get the app</a>
+</div>
+<!-- /chrome:top -->
+<main id="main" class="doc">
+  <header class="doc-head">
+    <h1 class="h1">Every update</h1>
+    <p class="lede">What is new in Maintra 2.0, section by section, and everything that changed before it.</p>
+  </header>
+  <div class="doc-grid has-toc">
+    <!-- chrome:toc -->
+    <nav class="doc-toc" aria-label="Sections">
+      <ol>
+        <li><a href="#v2-0"><span class="n">01</span>Maintra 2.0</a></li>
+        <li><a href="#v1-6-0"><span class="n">02</span>1.6.0</a></li>
+        <li><a href="#v1-5-4"><span class="n">03</span>1.5.4</a></li>
+        <li><a href="#v1-5-3"><span class="n">04</span>1.5.3</a></li>
+        <li><a href="#v1-5-2"><span class="n">05</span>1.5.2</a></li>
+        <li><a href="#v1-5-1"><span class="n">06</span>1.5.1</a></li>
+        <li><a href="#v1-5-0"><span class="n">07</span>1.5.0</a></li>
+        <li><a href="#earlier"><span class="n">08</span>Earlier</a></li>
+      </ol>
+    </nav>
+    <!-- /chrome:toc -->
+    <article class="doc-body">
+      <h2 id="v2-0">Maintra 2.0</h2>
+      <p class="muted">Coming soon to the App Store and Google Play</p>
+      <p class="lede">A new Maintra, from the first screen to the last. It comes as an ordinary update: your cars, records, photos and documents stay where they are.</p>
+      <p aria-label="Sections of 2.0"><a href="#v2-0-look">A new look</a> · <a href="#v2-0-garage">The garage and the car</a> · <a href="#v2-0-plan">The plan and reminders</a> · <a href="#v2-0-map">The map, navigation and trips</a> · <a href="#v2-0-ai">Voice, photos and AI</a> · <a href="#v2-0-money">Money, fuel and stats</a> · <a href="#v2-0-service">The service book</a> · <a href="#v2-0-tyres">Tyres, documents and wishes</a> · <a href="#v2-0-share">One car, two people or more</a> · <a href="#v2-0-devices">Widgets, the watch and Siri</a> · <a href="#v2-0-rest">Languages, offline and your account</a></p>
+      <h3 id="v2-0-look" style="scroll-margin-top:calc(var(--nav) + 24px)">A new look</h3>
+      <ul>
+        <li><strong>Everything redrawn.</strong> Carbon and gold, a new sign-in, a short launch animation.</li>
+        <li><strong>Four tabs and a gold plus.</strong> Garage, Map, Stats and Profile. Under + is everything you can add: a fill-up, a service, an expense, a receipt, a spoken note.</li>
+        <li><strong>Themes.</strong> Garage, Workshop and Red light for the night are free, and Pro adds Field, Blueprint, Logbook and Rose. Or let Maintra go dark and light with your phone. Try any of them on for a minute.</li>
+        <li><strong>Frames for your polaroids.</strong> Charcoal and copper for everyone, six frames with Pro and eight more with VIP, each shown with your own photo. A frame you picked before stays with you.</li>
+        <li><strong>A garage arranged your way.</strong> Choose what the polaroid's corner shows, which blocks sit under it and in what order, and the pattern behind it. The classic list is there too.</li>
+        <li><strong>Liquid Glass on iPhone.</strong> On iOS 26 the buttons over the photo, the + menu and the map's search are glass, in Maintra's own slanted shapes.</li>
+        <li><strong>Tablets.</strong> A sidebar, forms in the middle of the screen, either way up.</li>
+        <li><strong>Large text.</strong> With the phone's text size turned up, lines wrap instead of being cut off.</li>
+      </ul>
+      <h3 id="v2-0-garage" style="scroll-margin-top:calc(var(--nav) + 24px)">The garage and the car</h3>
+      <ul>
+        <li><strong>A car opens from its polaroid.</strong> The photo grows into the car's page and folds into the top bar as you scroll.</li>
+        <li><strong>Health you can trust.</strong> It counts how close each job is and how much it matters: late brakes weigh more than a late cabin filter.</li>
+        <li><strong>The car's sheet.</strong> Oil, coolant, filters, pads, tyres, bulbs and wipers on one page. It fills itself from your records, and AI can suggest what is missing, marked as something to check.</li>
+        <li><strong>Search the whole garage.</strong> A car, a service, a job in the plan or a part on the shelf, from one line.</li>
+        <li><strong>The odometer, right from the garage.</strong> Tap the number on the photo and type what the dashboard shows. Maintra double-checks a number lower than before.</li>
+        <li><strong>One shelf for every car.</strong> All the parts you bought ahead on one screen. A fitted part sits inside the job it went into.</li>
+        <li><strong>Selling and deleting.</strong> A sold car moves to Sold with its whole history, and can come back. Deleting can be undone for a few seconds.</li>
+        <li><strong>More cars by VIN.</strong> The Citroën Picasso family, newer Opels, and older Citroëns and Peugeots the list was missing.</li>
+      </ul>
+      <h3 id="v2-0-plan" style="scroll-margin-top:calc(var(--nav) + 24px)">The plan and reminders</h3>
+      <ul>
+        <li><strong>What needs you first.</strong> Late, urgent, soon, later. A job shows both of its dues, by distance and by date.</li>
+        <li><strong>A stamp for every job done.</strong> Mark a job done and the polaroid is stamped: what it did for the car, what it cost and when it comes round next. Changed your mind? Undo.</li>
+        <li><strong>A regular service made for your car.</strong> Jobs by its fuel, gearbox and drive, and a motorcycle gets its own: chain, valves, fork oil.</li>
+        <li><strong>A new AI plan.</strong> You see what it will read before it starts, and can add what is bothering you. Rebuilding touches only its own jobs; yours stay.</li>
+        <li><strong>Reminders that don't nag.</strong> On the day, and then once a week until it is done. Tap one and that very job opens.</li>
+        <li><strong>A check before a long drive.</strong> Before a trip of 150 km or more Maintra says what is late, what comes due on the way, how the tyres are and whether the oil lasts.</li>
+      </ul>
+      <h3 id="v2-0-map" style="scroll-margin-top:calc(var(--nav) + 24px)">The map, navigation and trips</h3>
+      <ul>
+        <li><strong>A map with no internet.</strong> Download a country or one of its regions once, and the map works with no signal, labelled in your language.</li>
+        <li><strong>Turn by turn.</strong> A voice in your language, even in airplane mode. Miss a turn and a new way is worked out right on the phone.</li>
+        <li><strong>Addresses with no signal.</strong> A street and number, a town or a shop's name. What you type never leaves the phone.</li>
+        <li><strong>Your speed and the limit.</strong> Your speed beside the road's limit, with a warning when you go over and before a camera.</li>
+        <li><strong>Kilometres into the odometer.</strong> A free drive counts the distance from GPS, and at the end you add it to the odometer in one tap. Your line by speed, your stops, what the fuel cost. A trip can be kept, on your phone only.</li>
+        <li><strong>Find your car again.</strong> Maintra remembers the place, the parking level and a photo, and walks you back.</li>
+        <li><strong>One question when you set off.</strong> Link your car's Bluetooth, and when the phone connects Maintra asks whether to count the kilometres.</li>
+        <li><strong>Your own routes.</strong> Sketch roughly and the map finds the roads, or follow your own line exactly.</li>
+        <li><strong>Places beside the map.</strong> Workshops, fuel stations and shops, the nearest first. A club card opens full screen, even with no signal. Add places from Google Maps, Waze, Organic Maps and maps.me.</li>
+        <li><strong>Where you are stays yours.</strong> Maintra sends nobody where you are or where you go.</li>
+        <li><strong>No map of russia, Iran or North Korea.</strong> In their place it says why. Crimea is on the map as part of Ukraine.</li>
+      </ul>
+      <h3 id="v2-0-ai" style="scroll-margin-top:calc(var(--nav) + 24px)">Voice, photos and AI</h3>
+      <ul>
+        <li><strong>Just say it.</strong> Hold + and talk: &quot;45 litres at OKKO, 55 a litre&quot;. Maintra fills the form in, and nothing is saved until you check it and tap Save.</li>
+        <li><strong>Show it a photo.</strong> A receipt, the dashboard, a part or its box, a screenshot of an order. Andrew works out what it is, which car it is for and where it goes.</li>
+        <li><strong>No signal? The photo waits.</strong> It is read as soon as there is a connection.</li>
+        <li><strong>One AI charge for everything.</strong> One charge in percent instead of separate limits. A reading you don't save costs nothing, and up to a third of what is left carries into next month.</li>
+        <li><strong>The chat with a mechanic stays.</strong> The conversation is kept on your phone until you clear it. The mechanic knows the parts on your shelf and your tyre sets.</li>
+        <li><strong>You can see AI working.</strong> A quiet notification while a plan is written or a receipt is read. You can leave the app.</li>
+      </ul>
+      <h3 id="v2-0-money" style="scroll-margin-top:calc(var(--nav) + 24px)">Money, fuel and stats</h3>
+      <ul>
+        <li><strong>What a car costs.</strong> This year against the same months last year, per km, per month and since you bought it.</li>
+        <li><strong>Fines, parking, washes, insurance, tax.</strong> In any currency, with photos. An unpaid fine reminds you, and in Ukraine the half price for paying within 10 days is filled in.</li>
+        <li><strong>Stats for the whole garage.</strong> Where the money goes, how far you drive, where you fill and what a litre really costs there, how well you keep up with the plan. In December, your year on one card.</li>
+        <li><strong>Fuel.</strong> Average consumption, prices over time, stations by rating. Price, litres and total fill each other in, and LPG and petrol are counted apart.</li>
+        <li><strong>Old fill-ups no longer spoil consumption.</strong> An entry dated in the past no longer takes today's odometer.</li>
+      </ul>
+      <h3 id="v2-0-service" style="scroll-margin-top:calc(var(--nav) + 24px)">The service book</h3>
+      <ul>
+        <li><strong>Visit, job, parts.</strong> Jobs from one visit together, and under each one the labour and the parts apart.</li>
+        <li><strong>Log it your way.</strong> Several jobs at once, &quot;Same as last time&quot;, up to three receipts on any plan. The total in dollars and euros at the rate of that day.</li>
+        <li><strong>A report for a buyer or a garage.</strong> One PDF: the car, its history and costs, the last fill-ups and what is next, with the receipts at the back. In the language you pick, with or without prices.</li>
+        <li><strong>Import and export.</strong> History from another app, a spreadsheet or notes, checked before it is saved. A backup of everything in one file.</li>
+      </ul>
+      <h3 id="v2-0-tyres" style="scroll-margin-top:calc(var(--nav) + 24px)">Tyres, documents and wishes</h3>
+      <ul>
+        <li><strong>Tyres at a glance.</strong> The shallowest tread, how far the set has run, its age, when to rotate and when it reaches the limit. Choose the months of your seasonal swap. A motorcycle has two wheels, not four.</li>
+        <li><strong>AI looks at your tyres.</strong> It reads the date and size off the sidewall on any plan. With Pro it looks for cracks and uneven wear and writes a report on the set. It never guesses a tread depth.</li>
+        <li><strong>Documents, closer to hand.</strong> The first page shows at once, and the ones running out come first. They open with no signal, and an open document cannot be screenshotted.</li>
+        <li><strong>Wishes with their price over time.</strong> Paste a link and Maintra reads the name, price and picture, now from Rozetka, Exist and Allo too. The chart shows the price on any day.</li>
+        <li><strong>Gifts from friends.</strong> Send the list as a link and friends book a gift in the browser, with no account. Who booked stays hidden until you ask.</li>
+      </ul>
+      <h3 id="v2-0-share" style="scroll-margin-top:calc(var(--nav) + 24px)">One car, two people or more</h3>
+      <ul>
+        <li><strong>Drive it together.</strong> Show a code or send a link, and the car appears in the garage of whoever you drive with. One history, with who added what. Free: you and one more. Pro: up to five.</li>
+        <li><strong>Lend a car.</strong> For an evening, a week or until a date. What your guest logs waits until you accept it.</li>
+        <li><strong>Hand it over for good.</strong> The new owner gets the history, the plan, the tyres and the fuel log, and sees what Maintra checked first. Documents, wishes and the chat stay yours.</li>
+      </ul>
+      <h3 id="v2-0-devices" style="scroll-margin-top:calc(var(--nav) + 24px)">Widgets, the watch and Siri</h3>
+      <ul>
+        <li><strong>New widgets.</strong> On Android and iPhone, in your units, wearing your car's frame.</li>
+        <li><strong>The watch.</strong> Wear OS and Apple Watch: how far to the next oil change, and a spoken note straight from your wrist.</li>
+        <li><strong>iPhone.</strong> Siri and Shortcuts, a trip and AI at work on the lock screen.</li>
+        <li><strong>Shortcuts.</strong> Press and hold the app's icon: a fill-up, a receipt photo, a voice note, the odometer.</li>
+      </ul>
+      <h3 id="v2-0-rest" style="scroll-margin-top:calc(var(--nav) + 24px)">Languages, offline and your account</h3>
+      <ul>
+        <li><strong>Five more languages.</strong> German, Arabic, Korean, Japanese and Chinese. AI translated them, so if something reads wrong, tell us.</li>
+        <li><strong>Everything works offline.</strong> Changes wait on the phone and go by themselves when there is a connection. The Sync screen shows what is waiting and why.</li>
+        <li><strong>Signing out and deleting the account.</strong> Maintra says what has not been sent yet, and lets you export your records first.</li>
+        <li><strong>Paying by the year.</strong> Pro and VIP can now be paid for a year at a time.</li>
+        <li><strong>Your choice about usage.</strong> Maintra asks once whether to share which features you use.</li>
+        <li><strong>iPhone with iOS 16.4.</strong> Older iPhones keep the version they have. Nothing changes on Android.</li>
+      </ul>
+
+      <h2 id="v1-6-0">1.6.0</h2>
+      <p class="muted">14 September 2026</p>
+      <p class="lede">The document vault and tyres.</p>
+      <ul>
+        <li><strong>Documents under lock.</strong> Encrypted on the phone before upload, opened with a fingerprint or a face, and with no signal. Several pages in one document, a reminder before it runs out.</li>
+        <li><strong>Tyres.</strong> A summer and a winter set, swaps, age by DOT, tread left, a photo history, rotations.</li>
+        <li><strong>AI for tyres.</strong> It reads the sidewall, says what a photo shows and writes a report on a set.</li>
+        <li><strong>Widgets around the oil.</strong> A ring with the countdown, the odometer, the last fill-up and a Scan button.</li>
+        <li><strong>The garage, top to bottom.</strong> Health, next service and this month's spending in one row.</li>
+        <li><strong>Plans for motorcycles.</strong> Without a car's jobs in them. A server update of 7 October 2026.</li>
+      </ul>
+
+      <h2 id="v1-5-4">1.5.4</h2>
+      <p class="muted">30 August 2026</p>
+      <ul>
+        <li><strong>Fixes for new accounts.</strong> The first screen no longer stops responding, and + sees the car you have just added.</li>
+      </ul>
+
+      <h2 id="v1-5-3">1.5.3</h2>
+      <p class="muted">29 August 2026</p>
+      <ul>
+        <li><strong>Frames for polaroids.</strong> And a gift for the first thousand drivers.</li>
+        <li><strong>A regular service as one entry.</strong> With intervals in your units.</li>
+        <li><strong>A more honest VIN.</strong> A half-read VIN no longer passes as the real thing, and a nearly right one can be corrected.</li>
+        <li><strong>Visits in the history.</strong> Jobs from one trip to the workshop read as one visit.</li>
+        <li><strong>Ukrainian and Polish counts.</strong> In the right form at last.</li>
+      </ul>
+
+      <h2 id="v1-5-2">1.5.2</h2>
+      <p class="muted">22 August 2026</p>
+      <ul>
+        <li><strong>Service history imports too.</strong> Not only fill-ups, and checked against the file's own totals.</li>
+        <li><strong>The rate of that day.</strong> A service from 2015 is converted at 2015's rate, from the National Bank of Ukraine.</li>
+        <li><strong>Consumption between full tanks.</strong> A truer average.</li>
+        <li><strong>A service as one visit.</strong> Several jobs, one date, one place, and the receipt shows on the record.</li>
+        <li><strong>45 searchable countries and more motorcycles.</strong> And a car photo that survives signing out.</li>
+        <li><strong>Glass on iPhone.</strong> The cards and the tab bar.</li>
+      </ul>
+
+      <h2 id="v1-5-1">1.5.1</h2>
+      <p class="muted">12 August 2026</p>
+      <ul>
+        <li><strong>Electric cars.</strong> Kilowatt-hours instead of litres, hybrids log both, real charging plugs.</li>
+        <li><strong>Places with no signal.</strong> Workshops, stations and shops kept on the phone, with several numbers and a discount card.</li>
+        <li><strong>More cars and motorcycles.</strong> Vans, and 58 makes of motorcycle.</li>
+        <li><strong>A light theme and feedback from the app.</strong> Maintra follows the phone's theme.</li>
+      </ul>
+
+      <h2 id="v1-5-0">1.5.0</h2>
+      <p class="muted">27 July 2026</p>
+      <ul>
+        <li><strong>A new main screen.</strong> Polaroids or the classic list.</li>
+        <li><strong>Scan first.</strong> A receipt, a VIN or the registration, with the camera.</li>
+        <li><strong>Parts apart from work.</strong> Bought does not mean done.</li>
+        <li><strong>Widgets, export and import.</strong> All your data can go with you.</li>
+      </ul>
+
+      <h2 id="earlier">Earlier</h2>
+      <p class="muted">1.3 and 1.4</p>
+      <ul>
+        <li><strong>1.4.</strong> A step-by-step first setup, wishlist quantities and price tracking, a tidier PDF.</li>
+        <li><strong>1.3.</strong> Receipts read by AI, a note on every job, shared wishlists.</li>
+      </ul>
+    </article>
+  </div>
+</main>
+<!-- chrome:foot -->
+<footer class="foot">
+  <div class="foot-in">
+    <div class="foot-brand"><a class="brand" href="/" aria-label="Maintra"><svg class="mt" viewBox="0 0 100 57.69" aria-hidden="true"><path d="M26.10,0.00 L35.15,0.00 L35.15,57.69 L26.10,57.69 Z" style="fill:var(--lg-stem)"/><path d="M52.20,0.00 L61.25,0.00 L61.25,57.69 L52.20,57.69 Z" style="fill:var(--lg-stem)"/><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" style="fill:var(--lg-gold)"/><clipPath id="mtc2"><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z"/></clipPath><g clip-path="url(#mtc2)"><path d="M2.40,57.69 L18.80,57.69 L37.55,0.00 L21.15,0.00 Z" style="fill:var(--lg-shade)"/><path d="M28.50,57.69 L44.90,57.69 L63.65,0.00 L47.24,0.00 Z" style="fill:var(--lg-shade)"/><path d="M54.60,57.69 L71.00,57.69 L89.75,0.00 L73.34,0.00 Z" style="fill:var(--lg-shade)"/></g><path d="M0.00,57.69 L16.40,57.69 L35.15,0.00 L18.75,0.00 Z" style="fill:var(--lg-ink)"/><path d="M26.10,57.69 L42.50,57.69 L61.25,0.00 L44.84,0.00 Z" style="fill:var(--lg-ink)"/><path d="M52.20,57.69 L68.60,57.69 L87.35,0.00 L70.94,0.00 Z" style="fill:var(--lg-gold)"/></svg><span class="word">Maintra</span></a><p>A smart maintenance tracker for your garage.</p></div>
+    <nav class="foot-links" aria-label="Maintra">
+      <a href="/about.html">About</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="/support.html">Support</a>
+      <a href="/press-en">Press</a>
+      <a href="/journey-en">The road to 2.0</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/delete-account.html">Delete account</a>
+    </nav>
+    <p class="copy">© 2026 Maintra</p>
+  </div>
+</footer>
+<!-- /chrome:foot -->
+</body>
+</html>

@@ -1,0 +1,225 @@
+{
+  "title": "Every update",
+  "desc": "Every Maintra update in detail: what is new in 2.0 and what changed in each version before it.",
+  "lede": "What is new in Maintra 2.0, section by section, and everything that changed before it.",
+  "soon": "Coming soon to the App Store and Google Play",
+  "jump": "Sections of 2.0",
+  "releases": [
+    {
+      "id": "v2-0",
+      "name": "Maintra 2.0",
+      "date": null,
+      "intro": "A new Maintra, from the first screen to the last. It comes as an ordinary update: your cars, records, photos and documents stay where they are.",
+      "sections": [
+        {
+          "id": "look",
+          "name": "A new look",
+          "items": [
+            ["Everything redrawn.", "Carbon and gold, a new sign-in, a short launch animation."],
+            ["Four tabs and a gold plus.", "Garage, Map, Stats and Profile. Under + is everything you can add: a fill-up, a service, an expense, a receipt, a spoken note."],
+            ["Themes.", "Garage, Workshop and Red light for the night are free, and Pro adds Field, Blueprint, Logbook and Rose. Or let Maintra go dark and light with your phone. Try any of them on for a minute."],
+            ["Frames for your polaroids.", "Charcoal and copper for everyone, six frames with Pro and eight more with VIP, each shown with your own photo. A frame you picked before stays with you."],
+            ["A garage arranged your way.", "Choose what the polaroid's corner shows, which blocks sit under it and in what order, and the pattern behind it. The classic list is there too."],
+            ["Liquid Glass on iPhone.", "On iOS 26 the buttons over the photo, the + menu and the map's search are glass, in Maintra's own slanted shapes."],
+            ["Tablets.", "A sidebar, forms in the middle of the screen, either way up."],
+            ["Large text.", "With the phone's text size turned up, lines wrap instead of being cut off."]
+          ]
+        },
+        {
+          "id": "garage",
+          "name": "The garage and the car",
+          "items": [
+            ["A car opens from its polaroid.", "The photo grows into the car's page and folds into the top bar as you scroll."],
+            ["Health you can trust.", "It counts how close each job is and how much it matters: late brakes weigh more than a late cabin filter."],
+            ["The car's sheet.", "Oil, coolant, filters, pads, tyres, bulbs and wipers on one page. It fills itself from your records, and AI can suggest what is missing, marked as something to check."],
+            ["Search the whole garage.", "A car, a service, a job in the plan or a part on the shelf, from one line."],
+            ["The odometer, right from the garage.", "Tap the number on the photo and type what the dashboard shows. Maintra double-checks a number lower than before."],
+            ["One shelf for every car.", "All the parts you bought ahead on one screen. A fitted part sits inside the job it went into."],
+            ["Selling and deleting.", "A sold car moves to Sold with its whole history, and can come back. Deleting can be undone for a few seconds."],
+            ["More cars by VIN.", "The Citroën Picasso family, newer Opels, and older Citroëns and Peugeots the list was missing."]
+          ]
+        },
+        {
+          "id": "plan",
+          "name": "The plan and reminders",
+          "items": [
+            ["What needs you first.", "Late, urgent, soon, later. A job shows both of its dues, by distance and by date."],
+            ["A stamp for every job done.", "Mark a job done and the polaroid is stamped: what it did for the car, what it cost and when it comes round next. Changed your mind? Undo."],
+            ["A regular service made for your car.", "Jobs by its fuel, gearbox and drive, and a motorcycle gets its own: chain, valves, fork oil."],
+            ["A new AI plan.", "You see what it will read before it starts, and can add what is bothering you. Rebuilding touches only its own jobs; yours stay."],
+            ["Reminders that don't nag.", "On the day, and then once a week until it is done. Tap one and that very job opens."],
+            ["A check before a long drive.", "Before a trip of 150 km or more Maintra says what is late, what comes due on the way, how the tyres are and whether the oil lasts."]
+          ]
+        },
+        {
+          "id": "map",
+          "name": "The map, navigation and trips",
+          "items": [
+            ["A map with no internet.", "Download a country or one of its regions once, and the map works with no signal, labelled in your language."],
+            ["Turn by turn.", "A voice in your language, even in airplane mode. Miss a turn and a new way is worked out right on the phone."],
+            ["Addresses with no signal.", "A street and number, a town or a shop's name. What you type never leaves the phone."],
+            ["Your speed and the limit.", "Your speed beside the road's limit, with a warning when you go over and before a camera."],
+            ["Kilometres into the odometer.", "A free drive counts the distance from GPS, and at the end you add it to the odometer in one tap. Your line by speed, your stops, what the fuel cost. A trip can be kept, on your phone only."],
+            ["Find your car again.", "Maintra remembers the place, the parking level and a photo, and walks you back."],
+            ["One question when you set off.", "Link your car's Bluetooth, and when the phone connects Maintra asks whether to count the kilometres."],
+            ["Your own routes.", "Sketch roughly and the map finds the roads, or follow your own line exactly."],
+            ["Places beside the map.", "Workshops, fuel stations and shops, the nearest first. A club card opens full screen, even with no signal. Add places from Google Maps, Waze, Organic Maps and maps.me."],
+            ["Where you are stays yours.", "Maintra sends nobody where you are or where you go."],
+            ["No map of russia, Iran or North Korea.", "In their place it says why. Crimea is on the map as part of Ukraine."]
+          ]
+        },
+        {
+          "id": "ai",
+          "name": "Voice, photos and AI",
+          "items": [
+            ["Just say it.", "Hold + and talk: \"45 litres at OKKO, 55 a litre\". Maintra fills the form in, and nothing is saved until you check it and tap Save."],
+            ["Show it a photo.", "A receipt, the dashboard, a part or its box, a screenshot of an order. Andrew works out what it is, which car it is for and where it goes."],
+            ["No signal? The photo waits.", "It is read as soon as there is a connection."],
+            ["One AI charge for everything.", "One charge in percent instead of separate limits. A reading you don't save costs nothing, and up to a third of what is left carries into next month."],
+            ["The chat with a mechanic stays.", "The conversation is kept on your phone until you clear it. The mechanic knows the parts on your shelf and your tyre sets."],
+            ["You can see AI working.", "A quiet notification while a plan is written or a receipt is read. You can leave the app."]
+          ]
+        },
+        {
+          "id": "money",
+          "name": "Money, fuel and stats",
+          "items": [
+            ["What a car costs.", "This year against the same months last year, per km, per month and since you bought it."],
+            ["Fines, parking, washes, insurance, tax.", "In any currency, with photos. An unpaid fine reminds you, and in Ukraine the half price for paying within 10 days is filled in."],
+            ["Stats for the whole garage.", "Where the money goes, how far you drive, where you fill and what a litre really costs there, how well you keep up with the plan. In December, your year on one card."],
+            ["Fuel.", "Average consumption, prices over time, stations by rating. Price, litres and total fill each other in, and LPG and petrol are counted apart."],
+            ["Old fill-ups no longer spoil consumption.", "An entry dated in the past no longer takes today's odometer."]
+          ]
+        },
+        {
+          "id": "service",
+          "name": "The service book",
+          "items": [
+            ["Visit, job, parts.", "Jobs from one visit together, and under each one the labour and the parts apart."],
+            ["Log it your way.", "Several jobs at once, \"Same as last time\", up to three receipts on any plan. The total in dollars and euros at the rate of that day."],
+            ["A report for a buyer or a garage.", "One PDF: the car, its history and costs, the last fill-ups and what is next, with the receipts at the back. In the language you pick, with or without prices."],
+            ["Import and export.", "History from another app, a spreadsheet or notes, checked before it is saved. A backup of everything in one file."]
+          ]
+        },
+        {
+          "id": "tyres",
+          "name": "Tyres, documents and wishes",
+          "items": [
+            ["Tyres at a glance.", "The shallowest tread, how far the set has run, its age, when to rotate and when it reaches the limit. Choose the months of your seasonal swap. A motorcycle has two wheels, not four."],
+            ["AI looks at your tyres.", "It reads the date and size off the sidewall on any plan. With Pro it looks for cracks and uneven wear and writes a report on the set. It never guesses a tread depth."],
+            ["Documents, closer to hand.", "The first page shows at once, and the ones running out come first. They open with no signal, and an open document cannot be screenshotted."],
+            ["Wishes with their price over time.", "Paste a link and Maintra reads the name, price and picture, now from Rozetka, Exist and Allo too. The chart shows the price on any day."],
+            ["Gifts from friends.", "Send the list as a link and friends book a gift in the browser, with no account. Who booked stays hidden until you ask."]
+          ]
+        },
+        {
+          "id": "share",
+          "name": "One car, two people or more",
+          "items": [
+            ["Drive it together.", "Show a code or send a link, and the car appears in the garage of whoever you drive with. One history, with who added what. Free: you and one more. Pro: up to five."],
+            ["Lend a car.", "For an evening, a week or until a date. What your guest logs waits until you accept it."],
+            ["Hand it over for good.", "The new owner gets the history, the plan, the tyres and the fuel log, and sees what Maintra checked first. Documents, wishes and the chat stay yours."]
+          ]
+        },
+        {
+          "id": "devices",
+          "name": "Widgets, the watch and Siri",
+          "items": [
+            ["New widgets.", "On Android and iPhone, in your units, wearing your car's frame."],
+            ["The watch.", "Wear OS and Apple Watch: how far to the next oil change, and a spoken note straight from your wrist."],
+            ["iPhone.", "Siri and Shortcuts, a trip and AI at work on the lock screen."],
+            ["Shortcuts.", "Press and hold the app's icon: a fill-up, a receipt photo, a voice note, the odometer."]
+          ]
+        },
+        {
+          "id": "rest",
+          "name": "Languages, offline and your account",
+          "items": [
+            ["Five more languages.", "German, Arabic, Korean, Japanese and Chinese. AI translated them, so if something reads wrong, tell us."],
+            ["Everything works offline.", "Changes wait on the phone and go by themselves when there is a connection. The Sync screen shows what is waiting and why."],
+            ["Signing out and deleting the account.", "Maintra says what has not been sent yet, and lets you export your records first."],
+            ["Paying by the year.", "Pro and VIP can now be paid for a year at a time."],
+            ["Your choice about usage.", "Maintra asks once whether to share which features you use."],
+            ["iPhone with iOS 16.4.", "Older iPhones keep the version they have. Nothing changes on Android."]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v1-6-0",
+      "name": "1.6.0",
+      "date": "14 September 2026",
+      "intro": "The document vault and tyres.",
+      "items": [
+        ["Documents under lock.", "Encrypted on the phone before upload, opened with a fingerprint or a face, and with no signal. Several pages in one document, a reminder before it runs out."],
+        ["Tyres.", "A summer and a winter set, swaps, age by DOT, tread left, a photo history, rotations."],
+        ["AI for tyres.", "It reads the sidewall, says what a photo shows and writes a report on a set."],
+        ["Widgets around the oil.", "A ring with the countdown, the odometer, the last fill-up and a Scan button."],
+        ["The garage, top to bottom.", "Health, next service and this month's spending in one row."],
+        ["Plans for motorcycles.", "Without a car's jobs in them. A server update of 7 October 2026."]
+      ]
+    },
+    {
+      "id": "v1-5-4",
+      "name": "1.5.4",
+      "date": "30 August 2026",
+      "items": [["Fixes for new accounts.", "The first screen no longer stops responding, and + sees the car you have just added."]]
+    },
+    {
+      "id": "v1-5-3",
+      "name": "1.5.3",
+      "date": "29 August 2026",
+      "items": [
+        ["Frames for polaroids.", "And a gift for the first thousand drivers."],
+        ["A regular service as one entry.", "With intervals in your units."],
+        ["A more honest VIN.", "A half-read VIN no longer passes as the real thing, and a nearly right one can be corrected."],
+        ["Visits in the history.", "Jobs from one trip to the workshop read as one visit."],
+        ["Ukrainian and Polish counts.", "In the right form at last."]
+      ]
+    },
+    {
+      "id": "v1-5-2",
+      "name": "1.5.2",
+      "date": "22 August 2026",
+      "items": [
+        ["Service history imports too.", "Not only fill-ups, and checked against the file's own totals."],
+        ["The rate of that day.", "A service from 2015 is converted at 2015's rate, from the National Bank of Ukraine."],
+        ["Consumption between full tanks.", "A truer average."],
+        ["A service as one visit.", "Several jobs, one date, one place, and the receipt shows on the record."],
+        ["45 searchable countries and more motorcycles.", "And a car photo that survives signing out."],
+        ["Glass on iPhone.", "The cards and the tab bar."]
+      ]
+    },
+    {
+      "id": "v1-5-1",
+      "name": "1.5.1",
+      "date": "12 August 2026",
+      "items": [
+        ["Electric cars.", "Kilowatt-hours instead of litres, hybrids log both, real charging plugs."],
+        ["Places with no signal.", "Workshops, stations and shops kept on the phone, with several numbers and a discount card."],
+        ["More cars and motorcycles.", "Vans, and 58 makes of motorcycle."],
+        ["A light theme and feedback from the app.", "Maintra follows the phone's theme."]
+      ]
+    },
+    {
+      "id": "v1-5-0",
+      "name": "1.5.0",
+      "date": "27 July 2026",
+      "items": [
+        ["A new main screen.", "Polaroids or the classic list."],
+        ["Scan first.", "A receipt, a VIN or the registration, with the camera."],
+        ["Parts apart from work.", "Bought does not mean done."],
+        ["Widgets, export and import.", "All your data can go with you."]
+      ]
+    },
+    {
+      "id": "earlier",
+      "name": "Earlier",
+      "date": "1.3 and 1.4",
+      "items": [
+        ["1.4.", "A step-by-step first setup, wishlist quantities and price tracking, a tidier PDF."],
+        ["1.3.", "Receipts read by AI, a note on every job, shared wishlists."]
+      ]
+    }
+  ]
+}
