@@ -1,0 +1,226 @@
+{
+  "title": "Alle Änderungen",
+  "desc": "Jedes Maintra-Update im Detail: was in 2.0 neu ist und was sich in jeder Version davor geändert hat.",
+  "lede": "Was in Maintra 2.0 neu ist, Bereich für Bereich, und alles, was sich davor geändert hat.",
+  "soon": "Bald im App Store und bei Google Play",
+  "jump": "Die Bereiche von 2.0",
+  "releases": [
+    {
+      "id": "v2-0",
+      "name": "Maintra 2.0",
+      "date": null,
+      "intro": "Ein neues Maintra, vom ersten bis zum letzten Bildschirm. Es kommt als ganz normales Update: Deine Autos, Einträge, Fotos und Dokumente bleiben, wo sie sind.",
+      "sections": [
+        {
+          "id": "look",
+          "name": "Ein neuer Look",
+          "items": [
+            ["Alles neu gezeichnet.", "Carbon und Gold, eine neue Anmeldung, eine kurze Startanimation."],
+            ["Vier Tabs und ein goldenes Plus.", "Garage, Karte, Statistik und Profil. Unter + findest du alles, was du hinzufügen kannst: Tanken, Wartung, Ausgabe, Beleg, Sprachnotiz."],
+            ["Designs.", "Garage, Werkstatt und Nachtrot sind kostenlos, mit Pro kommen Gelände, Blaupause, Scheckheft und Rosé dazu. Oder lass Maintra mit deinem Handy zwischen hell und dunkel wechseln. Jedes Design kannst du eine Minute lang ausprobieren."],
+            ["Rahmen für deine Polaroids.", "Anthrazit und Kupfer für alle, sechs Rahmen mit Pro und acht weitere mit VIP, jeder gleich mit deinem eigenen Foto als Vorschau. Einen Rahmen, den du schon gewählt hattest, behältst du."],
+            ["Eine Garage nach deinem Geschmack.", "Wähle, was in der Ecke des Polaroids steht, welche Blöcke darunter kommen und in welcher Reihenfolge, und das Muster dahinter. Die klassische Liste gibt es auch weiterhin."],
+            ["Liquid Glass auf dem iPhone.", "Unter iOS 26 sind die Buttons über dem Foto, das +-Menü und die Suche auf der Karte aus Glas, in den schrägen Formen von Maintra."],
+            ["Auf dem Tablet.", "Eine Seitenleiste, Formulare in der Bildschirmmitte, im Hoch- und im Querformat."],
+            ["Große Schrift.", "Wenn die Schrift am Handy größer gestellt ist, brechen Zeilen um, statt abgeschnitten zu werden."]
+          ]
+        },
+        {
+          "id": "garage",
+          "name": "Die Garage und das Auto",
+          "items": [
+            ["Ein Auto öffnet sich aus seinem Polaroid.", "Das Foto öffnet sich zur Seite des Autos und schrumpft beim Scrollen in die obere Leiste."],
+            ["Ein Zustand, auf den du dich verlassen kannst.", "Er berücksichtigt, wie bald jede Arbeit fällig ist und wie wichtig sie ist: Überfällige Bremsen wiegen schwerer als ein überfälliger Innenraumfilter."],
+            ["Das Datenblatt.", "Öl, Kühlmittel, Filter, Bremsbeläge, Reifen, Lampen und Scheibenwischer auf einer Seite. Es füllt sich aus deinen Einträgen, und was fehlt, kann die KI ergänzen, mit dem Hinweis, dass du es prüfen solltest."],
+            ["Die ganze Garage durchsuchen.", "Ein Auto, eine Wartung, eine Aufgabe im Plan oder ein Teil im Regal, alles aus einer einzigen Suchzeile."],
+            ["Der Kilometerstand, direkt aus der Garage.", "Tippe auf die Zahl auf dem Foto und gib ein, was der Tacho zeigt. Ist die Zahl niedriger als zuvor, fragt Maintra lieber nach."],
+            ["Ein Regal für alle Autos.", "Alle vorab gekauften Teile auf einem Bildschirm. Ein verbautes Teil findest du in der Arbeit, bei der es eingebaut wurde."],
+            ["Verkaufen und Löschen.", "Ein verkauftes Auto wandert mit seiner ganzen Historie zu „Verkauft“ und kann von dort zurückkommen. Löschen lässt sich ein paar Sekunden lang rückgängig machen."],
+            ["Mehr Autos per FIN.", "Die Citroën-Picasso-Familie, neuere Opel und ältere Citroën und Peugeot, die in der Liste noch fehlten."]
+          ]
+        },
+        {
+          "id": "plan",
+          "name": "Plan und Erinnerungen",
+          "items": [
+            ["Was zuerst dran ist.", "Überfällig, dringend, bald, später. Bei jeder Aufgabe siehst du beide Fälligkeiten, nach Kilometern und nach Datum."],
+            ["Ein Stempel für jede erledigte Arbeit.", "Hake eine Aufgabe als erledigt ab, und das Polaroid bekommt einen Stempel: was sie dem Auto gebracht hat, was sie gekostet hat und wann sie wieder fällig ist. Doch anders überlegt? Rückgängig machen."],
+            ["Eine Inspektion, auf dein Auto zugeschnitten.", "Arbeiten passend zu Kraftstoff, Getriebe und Antrieb, und ein Motorrad bekommt eigene: Kette, Ventile, Gabelöl."],
+            ["Ein neuer KI-Plan.", "Bevor er startet, siehst du, was er liest, und kannst ergänzen, was dir Sorgen macht. Beim Neuerstellen ändert er nur seine eigenen Aufgaben, deine bleiben."],
+            ["Erinnerungen, die nicht nerven.", "Am fälligen Tag und danach einmal pro Woche, bis es erledigt ist. Tippst du auf eine, öffnet sich genau diese Aufgabe."],
+            ["Ein Check vor langen Fahrten.", "Vor einer Fahrt ab 150 km sagt dir Maintra, was überfällig ist, was unterwegs fällig wird, wie es um die Reifen steht und ob das Öl reicht."]
+          ]
+        },
+        {
+          "id": "map",
+          "name": "Karte, Navigation und Fahrten",
+          "items": [
+            ["Eine Karte ohne Internet.", "Lade ein Land oder eine seiner Regionen einmal herunter, und die Karte funktioniert ohne Empfang, beschriftet in deiner Sprache."],
+            ["Navigation mit Abbiegehinweisen.", "Ansagen in deiner Sprache, sogar im Flugmodus. Abzweigung verpasst? Eine neue Route wird direkt auf dem Handy berechnet."],
+            ["Adressen ohne Empfang.", "Straße und Hausnummer, ein Ort oder der Name eines Geschäfts. Was du eintippst, verlässt das Handy nie."],
+            ["Dein Tempo und das Limit.", "Deine Geschwindigkeit neben dem Tempolimit der Straße, mit einer Warnung, wenn du zu schnell bist, und vor Blitzern."],
+            ["Die Kilometer landen im Kilometerstand.", "Bei einer freien Fahrt zählt Maintra die Strecke per GPS, und am Ende fügst du sie mit einem Tipp zum Kilometerstand hinzu. Deine Strecke nach Tempo eingefärbt, deine Stopps, was der Sprit gekostet hat. Eine Fahrt kannst du behalten, und zwar nur auf deinem Handy."],
+            ["Dein Auto wiederfinden.", "Maintra merkt sich den Ort, die Parkebene und ein Foto und führt dich zu Fuß zurück."],
+            ["Eine Frage beim Losfahren.", "Verknüpfe das Bluetooth deines Autos, und sobald sich das Handy verbindet, fragt Maintra, ob es die Kilometer zählen soll."],
+            ["Deine eigenen Routen.", "Skizziere grob, und die Karte findet die Straßen, oder folge genau deiner eigenen Linie."],
+            ["Orte neben der Karte.", "Werkstätten, Tankstellen und Geschäfte, die nächsten zuerst. Eine Kundenkarte öffnet sich im Vollbild, auch ohne Empfang. Orte kannst du aus Google Maps, Waze, Organic Maps und maps.me übernehmen."],
+            ["Wo du bist, bleibt deine Sache.", "Maintra schickt niemandem, wo du bist oder wohin du fährst."],
+            ["Keine Karten von Russland, dem Iran und Nordkorea.", "Stattdessen steht dort, warum. Die Krim ist auf der Karte Teil der Ukraine."]
+          ]
+        },
+        {
+          "id": "ai",
+          "name": "Stimme, Fotos und KI",
+          "items": [
+            ["Sag es einfach.", "Halte + gedrückt und sprich: „45 Liter bei OKKO, 55 pro Liter“. Maintra füllt das Formular aus, und gespeichert wird erst, wenn du alles geprüft und auf Speichern getippt hast."],
+            ["Zeig Maintra ein Foto.", "Einen Beleg, den Tacho, ein Teil oder seine Verpackung, einen Screenshot einer Bestellung. Andrew erkennt, was es ist, zu welchem Auto es gehört und wo es eingetragen wird."],
+            ["Kein Empfang? Das Foto wartet.", "Es wird gelesen, sobald wieder eine Verbindung da ist."],
+            ["Ein KI-Akku für alles.", "Ein Akku in Prozent statt getrennter Limits. Was gelesen, aber nicht gespeichert wird, kostet nichts, und bis zu ein Drittel vom Rest geht in den nächsten Monat über."],
+            ["Der Mechaniker sucht im Netz.", "Frag nach einer Teilenummer, einem Preis oder wo es das Teil gibt, und unter der Antwort stehen die Seiten, von denen sie stammt. Mit VIP."],
+            ["Der Chat mit dem Mechaniker bleibt.", "Das Gespräch bleibt auf deinem Handy, bis du es löschst. Der Mechaniker kennt die Teile in deinem Regal und deine Reifensätze."],
+            ["Du siehst, wenn die KI arbeitet.", "Eine stille Benachrichtigung, während ein Plan geschrieben oder ein Beleg gelesen wird. Du kannst die App in der Zwischenzeit verlassen."]
+          ]
+        },
+        {
+          "id": "money",
+          "name": "Geld, Tanken und Statistik",
+          "items": [
+            ["Was ein Auto kostet.", "Dieses Jahr im Vergleich zu denselben Monaten im Vorjahr, pro Kilometer, pro Monat und seit dem Kauf."],
+            ["Bußgelder, Parken, Autowäschen, Versicherung, Steuer.", "In jeder Währung, mit Fotos. Ein unbezahltes Bußgeld erinnert dich, und in der Ukraine wird der halbe Betrag bei Zahlung innerhalb von 10 Tagen automatisch eingetragen."],
+            ["Statistik für die ganze Garage.", "Wohin das Geld geht, wie viel du fährst, wo du tankst und was ein Liter dort wirklich kostet, wie gut du mit dem Plan Schritt hältst. Im Dezember: dein Jahr auf einer Karte."],
+            ["Tanken.", "Durchschnittsverbrauch, Preise im Zeitverlauf, Tankstellen nach Bewertung. Preis, Liter und Betrag ergänzen sich gegenseitig, und Autogas und Benzin werden getrennt gezählt."],
+            ["Alte Tankvorgänge verfälschen den Verbrauch nicht mehr.", "Ein rückdatierter Eintrag übernimmt nicht mehr den heutigen Kilometerstand."]
+          ]
+        },
+        {
+          "id": "service",
+          "name": "Das Serviceheft",
+          "items": [
+            ["Besuch, Arbeit, Teile.", "Die Arbeiten eines Werkstattbesuchs zusammen, und bei jeder Arbeitslohn und Teile getrennt."],
+            ["Trag es ein, wie du willst.", "Mehrere Arbeiten auf einmal, „Wie beim letzten Mal“, bis zu drei Belege in jedem Tarif. Die Summe in Dollar und Euro zum Kurs des jeweiligen Tages."],
+            ["Ein Bericht für Käufer oder Werkstatt.", "Ein PDF: das Auto, seine Historie und Kosten, die letzten Tankvorgänge und was als Nächstes ansteht, mit den Belegen am Ende. In der Sprache deiner Wahl, mit oder ohne Preise."],
+            ["Import und Export.", "Die Historie aus einer anderen App, einer Tabelle oder aus Notizen, vor dem Speichern geprüft. Ein Backup von allem in einer einzigen Datei."]
+          ]
+        },
+        {
+          "id": "tyres",
+          "name": "Reifen, Dokumente und Wünsche",
+          "items": [
+            ["Reifen auf einen Blick.", "Die geringste Profiltiefe, wie weit der Satz gelaufen ist, sein Alter, wann der Reifentausch ansteht und wann die Grenze erreicht ist. Wähle die Monate für deinen saisonalen Wechsel. Ein Motorrad hat zwei Räder, nicht vier."],
+            ["Die KI schaut sich deine Reifen an.", "Sie liest Datum und Größe von der Reifenflanke, in jedem Tarif. Mit Pro sucht sie nach Rissen und ungleichmäßigem Verschleiß und schreibt einen Bericht über den Satz. Die Profiltiefe rät sie nie."],
+            ["Dokumente, schneller zur Hand.", "Die erste Seite ist sofort zu sehen, und was bald abläuft, steht oben. Sie öffnen sich ohne Empfang, und von einem geöffneten Dokument lässt sich kein Screenshot machen."],
+            ["Wünsche mit Preisverlauf.", "Füge einen Link ein, und Maintra liest Name, Preis und Bild, jetzt auch von Rozetka, Exist und Allo. Das Diagramm zeigt den Preis an jedem beliebigen Tag."],
+            ["Geschenke von Freunden.", "Schick die Liste als Link, und Freunde reservieren ein Geschenk im Browser, ohne Konto. Wer reserviert hat, bleibt verborgen, bis du es wissen willst."]
+          ]
+        },
+        {
+          "id": "share",
+          "name": "Ein Auto für zwei oder mehr",
+          "items": [
+            ["Gemeinsam fahren.", "Zeig einen Code oder schick einen Link, und das Auto erscheint in der Garage der Person, mit der du fährst. Eine gemeinsame Historie, in der du siehst, wer was eingetragen hat. Free: du und eine weitere Person. Pro: bis zu fünf."],
+            ["Ein Auto verleihen.", "Für einen Abend, eine Woche oder bis zu einem bestimmten Datum. Was dein Gast einträgt, wartet, bis du es annimmst."],
+            ["Endgültig übergeben.", "Der neue Besitzer bekommt die Historie, den Plan, die Reifen und das Tankbuch und sieht zuerst, was Maintra geprüft hat. Dokumente, Wünsche und der Chat bleiben bei dir."]
+          ]
+        },
+        {
+          "id": "devices",
+          "name": "Widgets, Uhr und Siri",
+          "items": [
+            ["Neue Widgets.", "Auf Android und dem iPhone, in deinen Einheiten, im Rahmen deines Autos."],
+            ["Die Uhr.", "Wear OS und Apple Watch: wie weit es bis zum nächsten Ölwechsel ist, und eine Sprachnotiz direkt vom Handgelenk."],
+            ["iPhone.", "Siri und Kurzbefehle, eine laufende Fahrt und die KI bei der Arbeit auf dem Sperrbildschirm."],
+            ["Schnellaktionen.", "Halte das App-Symbol gedrückt: Tanken, Belegfoto, Sprachnotiz, Kilometerstand."]
+          ]
+        },
+        {
+          "id": "rest",
+          "name": "Sprachen, offline und dein Konto",
+          "items": [
+            ["Fünf weitere Sprachen.", "Deutsch, Arabisch, Koreanisch, Japanisch und Chinesisch. Die KI hat sie übersetzt. Wenn also etwas seltsam klingt, sag uns Bescheid."],
+            ["Alles funktioniert offline.", "Änderungen warten auf dem Handy und gehen von selbst raus, sobald eine Verbindung da ist. Der Bildschirm „Synchronisierung“ zeigt, was wartet und warum."],
+            ["Abmelden und Konto löschen.", "Maintra sagt dir, was noch nicht gesendet wurde, und lässt dich vorher deine Einträge exportieren."],
+            ["Jährlich bezahlen.", "Pro und VIP kannst du jetzt für ein ganzes Jahr im Voraus bezahlen."],
+            ["Du entscheidest über Nutzungsdaten.", "Maintra fragt einmal, ob du teilen möchtest, welche Funktionen du nutzt."],
+            ["iPhone mit iOS 16.4.", "Ältere iPhones behalten die Version, die sie haben. Auf Android ändert sich nichts."]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v1-6-0",
+      "name": "1.6.0",
+      "date": "14. September 2026",
+      "intro": "Der Dokumententresor und Reifen.",
+      "items": [
+        ["Dokumente unter Verschluss.", "Auf dem Handy verschlüsselt, bevor sie hochgeladen werden, geöffnet per Fingerabdruck oder Gesicht, auch ohne Empfang. Mehrere Seiten in einem Dokument, eine Erinnerung, bevor es abläuft."],
+        ["Reifen.", "Ein Sommer- und ein Wintersatz, Wechsel, Alter per DOT, Restprofil, ein Fotoverlauf, Reifentausch."],
+        ["KI für Reifen.", "Sie liest die Reifenflanke, sagt, was ein Foto zeigt, und schreibt einen Bericht über einen Satz."],
+        ["Widgets rund ums Öl.", "Ein Ring mit dem Countdown, der Kilometerstand, der letzte Tankvorgang und ein Scan-Button."],
+        ["Die Garage, von oben nach unten.", "Zustand, nächste Wartung und die Ausgaben dieses Monats in einer Reihe."],
+        ["Pläne für Motorräder.", "Ohne Arbeiten, die nur Autos betreffen. Ein Server-Update vom 7. Oktober 2026."]
+      ]
+    },
+    {
+      "id": "v1-5-4",
+      "name": "1.5.4",
+      "date": "30. August 2026",
+      "items": [["Fehlerbehebungen für neue Konten.", "Der erste Bildschirm friert nicht mehr ein, und + sieht das Auto, das du gerade hinzugefügt hast."]]
+    },
+    {
+      "id": "v1-5-3",
+      "name": "1.5.3",
+      "date": "29. August 2026",
+      "items": [
+        ["Rahmen für Polaroids.", "Und ein Geschenk für die ersten tausend Fahrer."],
+        ["Eine Inspektion als ein Eintrag.", "Mit Intervallen in deinen Einheiten."],
+        ["Eine ehrlichere FIN.", "Eine halb gelesene FIN geht nicht mehr als echt durch, und eine fast richtige lässt sich korrigieren."],
+        ["Besuche in der Historie.", "Arbeiten von einem Werkstattbesuch erscheinen als ein Besuch."],
+        ["Mehrzahlformen auf Ukrainisch und Polnisch.", "Endlich richtig."]
+      ]
+    },
+    {
+      "id": "v1-5-2",
+      "name": "1.5.2",
+      "date": "22. August 2026",
+      "items": [
+        ["Auch die Wartungshistorie lässt sich importieren.", "Nicht nur Tankvorgänge, und abgeglichen mit den Summen in der Datei selbst."],
+        ["Der Kurs vom selben Tag.", "Eine Wartung von 2015 wird zum Kurs von 2015 umgerechnet, laut Nationalbank der Ukraine."],
+        ["Verbrauch zwischen vollen Tanks.", "Ein genauerer Durchschnitt."],
+        ["Eine Wartung als ein Besuch.", "Mehrere Arbeiten, ein Datum, ein Ort, und der Beleg erscheint am Eintrag."],
+        ["45 durchsuchbare Länder und mehr Motorräder.", "Und ein Autofoto, das die Abmeldung übersteht."],
+        ["Glas auf dem iPhone.", "Die Karten und die Tab-Leiste."]
+      ]
+    },
+    {
+      "id": "v1-5-1",
+      "name": "1.5.1",
+      "date": "12. August 2026",
+      "items": [
+        ["Elektroautos.", "Kilowattstunden statt Liter, Hybride erfassen beides, echte Ladestecker."],
+        ["Orte ohne Empfang.", "Werkstätten, Tankstellen und Geschäfte auf dem Handy gespeichert, mit mehreren Nummern und einer Rabattkarte."],
+        ["Mehr Autos und Motorräder.", "Transporter und 58 Motorradmarken."],
+        ["Ein helles Design und Feedback aus der App.", "Maintra folgt dem Design des Handys."]
+      ]
+    },
+    {
+      "id": "v1-5-0",
+      "name": "1.5.0",
+      "date": "27. Juli 2026",
+      "items": [
+        ["Ein neuer Hauptbildschirm.", "Polaroids oder die klassische Liste."],
+        ["Zuerst scannen.", "Einen Beleg, die FIN oder den Fahrzeugschein, mit der Kamera."],
+        ["Teile getrennt von der Arbeit.", "Gekauft heißt nicht erledigt."],
+        ["Widgets, Export und Import.", "Alle deine Daten können mit dir umziehen."]
+      ]
+    },
+    {
+      "id": "earlier",
+      "name": "Früher",
+      "date": "1.3 und 1.4",
+      "items": [
+        ["1.4.", "Eine Ersteinrichtung Schritt für Schritt, Mengen und Preisverfolgung auf der Wunschliste, ein aufgeräumteres PDF."],
+        ["1.3.", "Belege, von der KI gelesen, eine Notiz zu jeder Arbeit, geteilte Wunschlisten."]
+      ]
+    }
+  ]
+}

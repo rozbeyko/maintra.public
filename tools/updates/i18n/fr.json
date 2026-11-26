@@ -1,0 +1,226 @@
+{
+  "title": "Toutes les nouveautés",
+  "desc": "Chaque mise à jour de Maintra en détail : les nouveautés de la 2.0 et ce qui a changé dans chacune des versions précédentes.",
+  "lede": "Les nouveautés de Maintra 2.0, rubrique par rubrique, et tout ce qui a changé avant.",
+  "soon": "Bientôt sur l’App Store et Google Play",
+  "jump": "Rubriques de la 2.0",
+  "releases": [
+    {
+      "id": "v2-0",
+      "name": "Maintra 2.0",
+      "date": null,
+      "intro": "Une nouvelle Maintra, du premier écran au dernier. Elle arrive en simple mise à jour : vos voitures, entrées, photos et documents restent où ils sont.",
+      "sections": [
+        {
+          "id": "look",
+          "name": "Un nouveau look",
+          "items": [
+            ["Tout a été redessiné.", "Carbone et or, une nouvelle page de connexion, une courte animation au lancement."],
+            ["Quatre onglets et un plus doré.", "Garage, Carte, Statistiques et Profil. Sous le + se trouve tout ce que vous pouvez ajouter : un plein, un entretien, une dépense, un reçu, une note vocale."],
+            ["Thèmes.", "Garage, Atelier et Lumière rouge pour la nuit sont gratuits, et Pro ajoute Terrain, Plan, Carnet et Rose. Ou laissez Maintra passer du sombre au clair avec votre téléphone. Vous pouvez essayer chacun d’eux pendant une minute."],
+            ["Des cadres pour vos polaroïds.", "Anthracite et Cuivre pour tout le monde, six cadres avec Pro et huit de plus avec VIP, chacun présenté avec votre propre photo. Un cadre déjà choisi reste le vôtre."],
+            ["Un garage à votre façon.", "Choisissez ce qu’affiche le coin du polaroïd, quels blocs se placent dessous et dans quel ordre, et le motif en arrière-plan. La liste classique est toujours là."],
+            ["Liquid Glass sur iPhone.", "Sous iOS 26, les boutons au-dessus de la photo, le menu + et la recherche sur la carte sont en verre, aux formes obliques propres à Maintra."],
+            ["Tablettes.", "Une barre latérale, des formulaires au centre de l’écran, à la verticale comme à l’horizontale."],
+            ["Grands caractères.", "Si vous avez agrandi le texte du téléphone, il revient à la ligne au lieu d’être coupé."]
+          ]
+        },
+        {
+          "id": "garage",
+          "name": "Le garage et la voiture",
+          "items": [
+            ["Une voiture s’ouvre depuis son polaroïd.", "La photo s’agrandit pour devenir la page de la voiture, puis se replie dans la barre du haut quand vous faites défiler."],
+            ["Un indicateur de santé fiable.", "Il tient compte de l’échéance de chaque intervention et de son importance : des freins en retard pèsent plus lourd qu’un filtre d’habitacle en retard."],
+            ["La fiche de la voiture.", "Huile, liquide de refroidissement, filtres, plaquettes, pneus, ampoules et essuie-glaces sur une seule page. Elle se remplit à partir de vos entrées, et l’IA peut proposer ce qui manque, en le signalant comme à vérifier."],
+            ["Cherchez dans tout le garage.", "Une voiture, un entretien, une tâche du plan ou une pièce sur l’étagère, depuis une seule barre de recherche."],
+            ["Le compteur, directement depuis le garage.", "Touchez le chiffre sur la photo et saisissez ce qu’indique le tableau de bord. Si le chiffre est plus bas qu’avant, Maintra vous demande de confirmer."],
+            ["Une étagère pour toutes les voitures.", "Toutes les pièces achetées à l’avance sur un seul écran. Une pièce montée se retrouve dans l’intervention où elle a servi."],
+            ["Vendre et supprimer.", "Une voiture vendue rejoint les voitures vendues, avec tout son historique, et peut revenir. Une suppression peut être annulée pendant quelques secondes."],
+            ["Plus de voitures par VIN.", "La famille Citroën Picasso, les Opel récentes, et les anciennes Citroën et Peugeot qui manquaient à la liste."]
+          ]
+        },
+        {
+          "id": "plan",
+          "name": "Le plan et les rappels",
+          "items": [
+            ["Le plus urgent d’abord.", "En retard, urgent, bientôt, plus tard. Chaque tâche affiche ses deux échéances, en kilomètres et en date."],
+            ["Un tampon pour chaque tâche faite.", "Marquez une tâche comme faite et le polaroïd reçoit un tampon : ce qu’elle a apporté à la voiture, ce qu’elle a coûté et quand elle reviendra. Vous avez changé d’avis ? Annulez."],
+            ["Un entretien périodique pensé pour votre voiture.", "Des tâches selon le carburant, la boîte de vitesses et la transmission, et une moto a les siennes : chaîne, soupapes, huile de fourche."],
+            ["Un nouveau plan IA.", "Avant qu’il commence, vous voyez ce qu’il va lire, et vous pouvez ajouter ce qui vous inquiète. Le refaire ne touche que ses propres tâches, les vôtres restent."],
+            ["Des rappels qui ne harcèlent pas.", "Le jour J, puis une fois par semaine jusqu’à ce que ce soit fait. Touchez-en un et c’est cette tâche précise qui s’ouvre."],
+            ["Un contrôle avant un long trajet.", "Avant un trajet de 150 km ou plus, Maintra vous dit ce qui est en retard, ce qui arrive à échéance en route, l’état des pneus et si l’huile tiendra."]
+          ]
+        },
+        {
+          "id": "map",
+          "name": "La carte, la navigation et les trajets",
+          "items": [
+            ["Une carte sans internet.", "Téléchargez une fois un pays ou l’une de ses régions, et la carte fonctionne sans réseau, avec les noms dans votre langue."],
+            ["Guidage pas à pas.", "Une voix dans votre langue, même en mode avion. Vous ratez une sortie ? Un nouvel itinéraire est calculé directement sur le téléphone."],
+            ["Des adresses sans réseau.", "Une rue et un numéro, une ville ou le nom d’un magasin. Ce que vous tapez ne quitte jamais le téléphone."],
+            ["Votre vitesse et la limite.", "Votre vitesse à côté de la limite de la route, avec une alerte quand vous la dépassez et à l’approche d’un radar."],
+            ["Les kilomètres dans le compteur.", "La conduite libre compte la distance par GPS, et à la fin vous l’ajoutez au compteur d’une seule touche. Votre tracé coloré selon la vitesse, vos arrêts, le coût du carburant. Un trajet peut être gardé, uniquement sur votre téléphone."],
+            ["Retrouvez votre voiture.", "Maintra retient l’endroit, le niveau du parking et une photo, puis vous y ramène à pied."],
+            ["Une seule question au départ.", "Associez le Bluetooth de votre voiture, et quand le téléphone s’y connecte, Maintra vous demande s’il faut compter les kilomètres."],
+            ["Vos propres itinéraires.", "Tracez à main levée et la carte trouve les routes, ou suivez exactement votre propre tracé."],
+            ["Des lieux à côté de la carte.", "Garages, stations-service et magasins, les plus proches en premier. Une carte de fidélité s’ouvre en plein écran, même sans réseau. Ajoutez des lieux depuis Google Maps, Waze, Organic Maps et maps.me."],
+            ["Votre position reste à vous.", "Maintra n’envoie à personne où vous êtes ni où vous allez."],
+            ["Pas de carte de la Russie, de l’Iran ni de la Corée du Nord.", "À leur place, Maintra explique pourquoi. La Crimée figure sur la carte comme partie de l’Ukraine."]
+          ]
+        },
+        {
+          "id": "ai",
+          "name": "La voix, les photos et l’IA",
+          "items": [
+            ["Dites-le, tout simplement.", "Maintenez + et parlez : « 45 litres chez OKKO, 55 le litre ». Maintra remplit le formulaire, et rien n’est enregistré tant que vous n’avez pas vérifié et touché Enregistrer."],
+            ["Montrez une photo à Maintra.", "Un reçu, le tableau de bord, une pièce ou sa boîte, une capture d’écran d’une commande. Andrew comprend ce que c’est, pour quelle voiture et où le ranger."],
+            ["Pas de réseau ? La photo attend.", "Elle est lue dès que la connexion revient."],
+            ["Une seule énergie IA pour tout.", "Une seule jauge en pourcentage au lieu de limites séparées. Une lecture que vous n’enregistrez pas ne coûte rien, et jusqu’à un tiers de ce qui reste passe au mois suivant."],
+            ["Le mécano cherche sur le web.", "Demandez une référence de pièce, un prix ou où l’acheter, et les pages d’où vient la réponse s’affichent dessous. Avec VIP."],
+            ["La conversation avec le mécano reste.", "Elle est gardée sur votre téléphone jusqu’à ce que vous l’effaciez. Le mécano connaît les pièces de votre étagère et vos jeux de pneus."],
+            ["Vous voyez l’IA travailler.", "Une notification discrète pendant qu’un plan s’écrit ou qu’un reçu est lu. Vous pouvez quitter l’app en attendant."]
+          ]
+        },
+        {
+          "id": "money",
+          "name": "Argent, carburant et statistiques",
+          "items": [
+            ["Ce que coûte une voiture.", "Cette année comparée aux mêmes mois de l’an dernier, au kilomètre, par mois et depuis l’achat."],
+            ["Amendes, stationnement, lavages, assurance, taxes.", "Dans n’importe quelle devise, avec photos. Une amende impayée vous est rappelée, et en Ukraine, le demi-tarif pour un paiement sous 10 jours est rempli automatiquement."],
+            ["Des statistiques pour tout le garage.", "Où va l’argent, combien vous roulez, où vous faites le plein et ce que coûte vraiment un litre là-bas, si vous suivez bien le plan. En décembre, votre année sur une seule carte."],
+            ["Carburant.", "Consommation moyenne, prix dans le temps, stations par note. Prix, litres et total se complètent, et le GPL et l’essence sont comptés à part."],
+            ["Les anciens pleins ne faussent plus la consommation.", "Une entrée datée dans le passé ne prend plus le kilométrage du jour."]
+          ]
+        },
+        {
+          "id": "service",
+          "name": "Le carnet d’entretien",
+          "items": [
+            ["Visite, intervention, pièces.", "Les interventions d’une même visite regroupées, et sous chacune, la main-d’œuvre et les pièces à part."],
+            ["Notez à votre façon.", "Plusieurs interventions d’un coup, « Comme la dernière fois », jusqu’à trois reçus quelle que soit la formule. Le total en dollars et en euros au taux de ce jour-là."],
+            ["Un rapport pour un acheteur ou un garage.", "Un seul PDF : la voiture, son historique et ses coûts, les derniers pleins et ce qui est prévu, avec les reçus à la fin. Dans la langue de votre choix, avec ou sans les prix."],
+            ["Import et export.", "L’historique d’une autre app, d’un tableur ou de notes, vérifié avant l’enregistrement. Une sauvegarde de tout dans un seul fichier."]
+          ]
+        },
+        {
+          "id": "tyres",
+          "name": "Pneus, documents et envies",
+          "items": [
+            ["Les pneus d’un coup d’œil.", "La sculpture la moins profonde, le kilométrage du jeu, son âge, quand permuter et quand il atteindra la limite. Choisissez les mois de votre changement saisonnier. Une moto a deux roues, pas quatre."],
+            ["L’IA regarde vos pneus.", "Elle lit la date et la dimension sur le flanc, quelle que soit la formule. Avec Pro, elle cherche les craquelures et l’usure irrégulière et rédige un rapport sur le jeu. Elle ne devine jamais une profondeur de sculpture."],
+            ["Les documents, plus à portée de main.", "La première page s’affiche tout de suite, et ceux qui expirent bientôt passent en premier. Ils s’ouvrent sans réseau, et un document ouvert ne peut pas faire l’objet d’une capture d’écran."],
+            ["Des envies avec l’historique de leur prix.", "Collez un lien et Maintra lit le nom, le prix et l’image, désormais aussi depuis Rozetka, Exist et Allo. Le graphique montre le prix à n’importe quelle date."],
+            ["Des cadeaux de vos proches.", "Envoyez la liste sous forme de lien, et vos proches réservent un cadeau dans leur navigateur, sans compte. Qui a réservé reste caché jusqu’à ce que vous demandiez à le voir."]
+          ]
+        },
+        {
+          "id": "share",
+          "name": "Une voiture, à deux ou plus",
+          "items": [
+            ["Conduisez-la ensemble.", "Montrez un code ou envoyez un lien, et la voiture apparaît dans le garage de la personne avec qui vous la conduisez. Un seul historique, où l’on voit qui a ajouté quoi. Free : vous et une autre personne. Pro : jusqu’à cinq."],
+            ["Prêtez une voiture.", "Pour une soirée, une semaine ou jusqu’à une date. Ce que votre invité note attend que vous l’acceptiez."],
+            ["Cédez-la pour de bon.", "Le nouveau propriétaire reçoit l’historique, le plan, les pneus et le carnet de carburant, et voit d’abord ce que Maintra a vérifié. Les documents, les envies et le chat restent à vous."]
+          ]
+        },
+        {
+          "id": "devices",
+          "name": "Widgets, montre et Siri",
+          "items": [
+            ["De nouveaux widgets.", "Sur Android et iPhone, dans vos unités, avec le cadre de votre voiture."],
+            ["La montre.", "Wear OS et Apple Watch : la distance jusqu’à la prochaine vidange, et une note vocale directement depuis votre poignet."],
+            ["iPhone.", "Siri et Raccourcis, un trajet en cours et l’IA au travail sur l’écran verrouillé."],
+            ["Raccourcis de l’icône.", "Appuyez longuement sur l’icône de l’app : un plein, une photo de reçu, une note vocale, le kilométrage."]
+          ]
+        },
+        {
+          "id": "rest",
+          "name": "Langues, hors ligne et votre compte",
+          "items": [
+            ["Cinq langues de plus.", "Allemand, arabe, coréen, japonais et chinois. Elles ont été traduites par l’IA : si quelque chose sonne faux, dites-le-nous."],
+            ["Tout fonctionne hors ligne.", "Les modifications attendent sur le téléphone et partent toutes seules dès qu’il y a du réseau. L’écran Synchronisation montre ce qui attend et pourquoi."],
+            ["Déconnexion et suppression du compte.", "Maintra vous dit ce qui n’a pas encore été envoyé, et vous laisse d’abord exporter vos entrées."],
+            ["Payer à l’année.", "Pro et VIP se paient désormais aussi pour une année entière."],
+            ["Vous décidez pour les statistiques d’usage.", "Maintra vous demande une seule fois si vous voulez partager les fonctions que vous utilisez."],
+            ["iPhone avec iOS 16.4.", "Les iPhone plus anciens gardent la version qu’ils ont. Rien ne change sur Android."]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v1-6-0",
+      "name": "1.6.0",
+      "date": "14 septembre 2026",
+      "intro": "Le coffre à documents et les pneus.",
+      "items": [
+        ["Des documents sous clé.", "Chiffrés sur le téléphone avant l’envoi, ouverts avec une empreinte ou le visage, même sans réseau. Plusieurs pages dans un même document, un rappel avant l’expiration."],
+        ["Pneus.", "Un jeu été et un jeu hiver, les changements, l’âge selon le DOT, la sculpture restante, un historique de photos, les permutations."],
+        ["L’IA pour les pneus.", "Elle lit le flanc, dit ce que montre une photo et rédige un rapport sur un jeu."],
+        ["Des widgets autour de l’huile.", "Un anneau avec le compte à rebours, le compteur, le dernier plein et un bouton Scanner."],
+        ["Le garage, de haut en bas.", "Santé, prochain entretien et dépenses du mois sur une seule ligne."],
+        ["Des plans pour les motos.", "Sans les tâches propres aux voitures. Une mise à jour côté serveur du 7 octobre 2026."]
+      ]
+    },
+    {
+      "id": "v1-5-4",
+      "name": "1.5.4",
+      "date": "30 août 2026",
+      "items": [["Corrections pour les nouveaux comptes.", "Le premier écran ne se bloque plus, et le + voit la voiture que vous venez d’ajouter."]]
+    },
+    {
+      "id": "v1-5-3",
+      "name": "1.5.3",
+      "date": "29 août 2026",
+      "items": [
+        ["Des cadres pour les polaroïds.", "Et un cadeau pour les mille premiers conducteurs."],
+        ["Un entretien périodique en une seule entrée.", "Avec des intervalles dans vos unités."],
+        ["Un VIN plus honnête.", "Un VIN lu à moitié ne passe plus pour le vrai, et un VIN presque juste peut être corrigé."],
+        ["Les visites dans l’historique.", "Les interventions d’un même passage au garage apparaissent comme une seule visite."],
+        ["Les pluriels en ukrainien et en polonais.", "Enfin corrects."]
+      ]
+    },
+    {
+      "id": "v1-5-2",
+      "name": "1.5.2",
+      "date": "22 août 2026",
+      "items": [
+        ["L’historique d’entretien s’importe aussi.", "Pas seulement les pleins, et c’est vérifié par rapport aux totaux du fichier lui-même."],
+        ["Le taux du jour même.", "Un entretien de 2015 est converti au taux de 2015, celui de la Banque nationale d’Ukraine."],
+        ["La consommation entre deux pleins complets.", "Une moyenne plus juste."],
+        ["Un entretien comme une seule visite.", "Plusieurs interventions, une date, un lieu, et le reçu apparaît sur l’entrée."],
+        ["45 pays avec recherche et plus de motos.", "Et une photo de voiture qui survit à la déconnexion."],
+        ["Du verre sur iPhone.", "Les cartes et la barre d’onglets."]
+      ]
+    },
+    {
+      "id": "v1-5-1",
+      "name": "1.5.1",
+      "date": "12 août 2026",
+      "items": [
+        ["Voitures électriques.", "Des kilowattheures au lieu des litres, les hybrides notent les deux, de vraies prises de recharge."],
+        ["Des lieux sans réseau.", "Garages, stations et magasins gardés sur le téléphone, avec plusieurs numéros et une carte de réduction."],
+        ["Plus de voitures et de motos.", "Les utilitaires, et 58 marques de motos."],
+        ["Un thème clair et un retour depuis l’app.", "Maintra suit le thème du téléphone."]
+      ]
+    },
+    {
+      "id": "v1-5-0",
+      "name": "1.5.0",
+      "date": "27 juillet 2026",
+      "items": [
+        ["Un nouvel écran principal.", "Des polaroïds ou la liste classique."],
+        ["Scanner d’abord.", "Un reçu, un VIN ou la carte grise, avec l’appareil photo."],
+        ["Les pièces séparées des interventions.", "Acheté ne veut pas dire fait."],
+        ["Widgets, export et import.", "Toutes vos données peuvent partir avec vous."]
+      ]
+    },
+    {
+      "id": "earlier",
+      "name": "Avant",
+      "date": "1.3 et 1.4",
+      "items": [
+        ["1.4.", "Une première configuration pas à pas, quantités et suivi des prix dans la liste d’envies, un PDF plus soigné."],
+        ["1.3.", "Des reçus lus par l’IA, une note pour chaque intervention, des listes d’envies partagées."]
+      ]
+    }
+  ]
+}

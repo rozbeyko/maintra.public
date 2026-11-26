@@ -1,0 +1,226 @@
+{
+  "title": "Wszystkie zmiany",
+  "desc": "Wszystkie aktualizacje Maintry w szczegółach: co nowego w wersji 2.0 i co zmieniało się w każdej wcześniejszej.",
+  "lede": "Co nowego w Maintrze 2.0, sekcja po sekcji, i wszystko, co zmieniło się wcześniej.",
+  "soon": "Wkrótce w App Store i Google Play",
+  "jump": "Sekcje wersji 2.0",
+  "releases": [
+    {
+      "id": "v2-0",
+      "name": "Maintra 2.0",
+      "date": null,
+      "intro": "Nowa Maintra, od pierwszego do ostatniego ekranu. Przychodzi jako zwykła aktualizacja: Twoje auta, wpisy, zdjęcia i dokumenty zostają na swoim miejscu.",
+      "sections": [
+        {
+          "id": "look",
+          "name": "Nowy wygląd",
+          "items": [
+            ["Wszystko narysowane od nowa.", "Karbon i złoto, nowe logowanie, krótka animacja przy starcie."],
+            ["Cztery zakładki i złoty plus.", "Garaż, Mapa, Statystyki i Profil. Pod + jest wszystko, co możesz dodać: tankowanie, serwis, wydatek, paragon, notatka głosowa."],
+            ["Motywy.", "Garaż, Warsztat i nocne Czerwone światło są za darmo, a Pro dodaje Pole, Rysunek techniczny, Książkę serwisową i Różę. Możesz też ustawić, żeby Maintra ciemniała i jaśniała razem z telefonem. Każdy motyw przymierzysz na minutę."],
+            ["Ramki do polaroidów.", "Grafitowa i miedziana dla wszystkich, sześć ramek z Pro i jeszcze osiem z VIP, każda pokazana na Twoim zdjęciu. Ramka wybrana wcześniej zostaje z Tobą."],
+            ["Garaż po Twojemu.", "Wybierz, co pokazuje róg polaroidu, jakie bloki stoją pod nim i w jakiej kolejności oraz jaki wzór jest w tle. Klasyczna lista też została."],
+            ["Liquid Glass na iPhonie.", "W iOS 26 przyciski nad zdjęciem, menu + i wyszukiwarka na mapie są ze szkła, w skośnych kształtach Maintry."],
+            ["Tablety.", "Panel boczny, formularze na środku ekranu, w pionie i w poziomie."],
+            ["Duży tekst.", "Przy powiększonym tekście w telefonie wiersze przechodzą do następnej linii, zamiast się ucinać."]
+          ]
+        },
+        {
+          "id": "garage",
+          "name": "Garaż i auto",
+          "items": [
+            ["Auto otwiera się z polaroidu.", "Zdjęcie rozwija się w pełną stronę auta, a przy przewijaniu chowa się w górnym pasku."],
+            ["Stan, któremu można ufać.", "Liczy, jak blisko jest termin każdej pracy i jak bardzo jest ważna: spóźnione hamulce ważą więcej niż spóźniony filtr kabinowy."],
+            ["Karta auta.", "Olej, płyn chłodniczy, filtry, klocki, opony, żarówki i wycieraczki na jednej stronie. Wypełnia się sama z Twoich wpisów, a czego brakuje, może podpowiedzieć AI, z dopiskiem, że warto to sprawdzić."],
+            ["Szukaj w całym garażu.", "Auto, serwis, praca z planu albo część z półki, wszystko z jednego pola wyszukiwania."],
+            ["Przebieg prosto z garażu.", "Stuknij liczbę na zdjęciu i wpisz to, co pokazuje licznik. Jeśli liczba jest mniejsza niż poprzednio, Maintra dopyta."],
+            ["Jedna półka na wszystkie auta.", "Wszystkie części kupione z wyprzedzeniem na jednym ekranie. Zamontowaną część znajdziesz w pracy, przy której ją założono."],
+            ["Sprzedaż i usuwanie.", "Sprzedane auto przechodzi do sekcji „Sprzedane” z całą historią i może z niej wrócić. Usunięcie można cofnąć przez kilka sekund."],
+            ["Więcej aut po VIN.", "Rodzina Citroëna Picasso, nowsze Ople oraz starsze Citroëny i Peugeoty, których brakowało na liście."]
+          ]
+        },
+        {
+          "id": "plan",
+          "name": "Plan i przypomnienia",
+          "items": [
+            ["Najpierw to, co najpilniejsze.", "Po terminie, pilne, wkrótce, później. Przy każdej pracy widać oba terminy: według przebiegu i według daty."],
+            ["Pieczątka za każdą zrobioną pracę.", "Oznacz pracę jako zrobioną, a na polaroidzie pojawi się pieczątka: co dała autu, ile kosztowała i kiedy wypada następnym razem. Zmiana zdania? Cofnij."],
+            ["Przegląd okresowy skrojony pod Twoje auto.", "Prace dobrane do paliwa, skrzyni biegów i napędu, a motocykl ma swoje: łańcuch, zawory, olej w lagach."],
+            ["Nowy plan AI.", "Zanim zacznie, widzisz, co przeczyta, i możesz dopisać, co Cię niepokoi. Przebudowa zmienia tylko jego prace, Twoje zostają."],
+            ["Przypomnienia, które nie męczą.", "W dniu terminu, a potem raz w tygodniu, aż to zrobisz. Stuknij przypomnienie, a otworzy się dokładnie ta praca."],
+            ["Kontrola przed dłuższą trasą.", "Przed wyjazdem na 150 km lub więcej Maintra powie, co jest po terminie, co wypadnie po drodze, w jakim stanie są opony i czy wystarczy oleju."]
+          ]
+        },
+        {
+          "id": "map",
+          "name": "Mapa, nawigacja i przejazdy",
+          "items": [
+            ["Mapa bez internetu.", "Pobierz raz kraj albo jeden z jego regionów, a mapa będzie działać bez zasięgu, z nazwami w Twoim języku."],
+            ["Nawigacja zakręt po zakręcie.", "Głos w Twoim języku, nawet w trybie samolotowym. Przegapisz skręt? Nowa trasa wyliczy się od razu w telefonie."],
+            ["Adresy bez zasięgu.", "Ulica i numer, miejscowość albo nazwa sklepu. To, co wpisujesz, nie opuszcza telefonu."],
+            ["Twoja prędkość i ograniczenie.", "Twoja prędkość obok limitu na danej drodze, z ostrzeżeniem, gdy go przekroczysz, i przed fotoradarem."],
+            ["Kilometry prosto do przebiegu.", "Swobodna jazda liczy dystans z GPS, a na koniec jednym stuknięciem dodajesz go do przebiegu. Trasa pokolorowana według prędkości, postoje, koszt paliwa. Przejazd możesz zachować w telefonie i nigdzie indziej."],
+            ["Znajdź swoje auto.", "Maintra zapamięta miejsce, poziom parkingu i zdjęcie, a potem zaprowadzi Cię z powrotem."],
+            ["Jedno pytanie na start.", "Wskaż Bluetooth swojego auta, a gdy telefon się z nim połączy, Maintra zapyta, czy liczyć kilometry."],
+            ["Własne trasy.", "Naszkicuj trasę z grubsza, a mapa znajdzie drogi, albo jedź dokładnie po swojej linii."],
+            ["Miejsca obok mapy.", "Warsztaty, stacje paliw i sklepy, najbliższe na górze. Karta lojalnościowa otwiera się na cały ekran, nawet bez zasięgu. Miejsca dodasz z Google Maps, Waze, Organic Maps i maps.me."],
+            ["Gdzie jesteś, wiesz tylko Ty.", "Maintra nikomu nie wysyła, gdzie jesteś ani dokąd jedziesz."],
+            ["Bez mapy Rosji, Iranu i Korei Północnej.", "W ich miejscu Maintra wyjaśnia dlaczego. Krym jest na mapie częścią Ukrainy."]
+          ]
+        },
+        {
+          "id": "ai",
+          "name": "Głos, zdjęcia i AI",
+          "items": [
+            ["Po prostu powiedz.", "Przytrzymaj + i mów: „45 litrów na OKKO, po 55 za litr”. Maintra wypełni formularz, a nic się nie zapisze, dopóki tego nie sprawdzisz i nie stukniesz „Zapisz”."],
+            ["Pokaż Maintrze zdjęcie.", "Paragon, deska rozdzielcza, część albo jej pudełko, zrzut ekranu zamówienia. Andrew rozpozna, co to jest, do którego auta i gdzie to zapisać."],
+            ["Brak zasięgu? Zdjęcie poczeka.", "Zostanie odczytane, gdy tylko pojawi się połączenie."],
+            ["Wspólna energia AI na wszystko.", "Jedna pula w procentach zamiast osobnych limitów. Odczyt, którego nie zapiszesz, nic nie kosztuje, a do jednej trzeciej niewykorzystanej energii przechodzi na kolejny miesiąc."],
+            ["Mechanik szuka w sieci.", "Zapytaj o numer części, cenę albo o to, gdzie ją kupić, a pod odpowiedzią zobaczysz strony, z których pochodzi. Dostępne w VIP."],
+            ["Czat z mechanikiem zostaje.", "Rozmowa jest zapisana w telefonie, dopóki jej nie wyczyścisz. Mechanik zna części z Twojej półki i Twoje komplety opon."],
+            ["Widać, że AI pracuje.", "Ciche powiadomienie, gdy powstaje plan albo odczytywany jest paragon. Możesz w tym czasie wyjść z aplikacji."]
+          ]
+        },
+        {
+          "id": "money",
+          "name": "Pieniądze, paliwo i statystyki",
+          "items": [
+            ["Ile kosztuje auto.", "Ten rok w porównaniu z tymi samymi miesiącami zeszłego roku, na kilometr, na miesiąc i od dnia zakupu."],
+            ["Mandaty, parking, myjnia, ubezpieczenie, podatek.", "W dowolnej walucie, ze zdjęciami. Niezapłacony mandat przypomni o sobie, a w Ukrainie Maintra sama wpisze połowę kwoty, obowiązującą przy zapłacie w ciągu 10 dni."],
+            ["Statystyki całego garażu.", "Na co idą pieniądze, ile jeździsz, gdzie tankujesz i ile naprawdę kosztuje tam litr, jak nadążasz za planem. W grudniu cały Twój rok na jednej karcie."],
+            ["Paliwo.", "Średnie spalanie, ceny w czasie, stacje według ocen. Cena, litry i kwota uzupełniają się nawzajem, a LPG i benzyna liczą się osobno."],
+            ["Stare tankowania nie psują już spalania.", "Wpis z datą wsteczną nie bierze już dzisiejszego przebiegu."]
+          ]
+        },
+        {
+          "id": "service",
+          "name": "Książka serwisowa",
+          "items": [
+            ["Wizyta, praca, części.", "Prace z jednej wizyty razem, a pod każdą osobno robocizna i części."],
+            ["Zapisuj po swojemu.", "Kilka prac naraz, „Jak ostatnio”, do trzech paragonów w każdym planie. Suma w dolarach i euro po kursie z tamtego dnia."],
+            ["Raport dla kupującego albo warsztatu.", "Jeden PDF: auto, jego historia i koszty, ostatnie tankowania i to, co dalej, a na końcu paragony. W wybranym języku, z cenami albo bez."],
+            ["Import i eksport.", "Historia z innej aplikacji, arkusza albo notatek, sprawdzona przed zapisem. Kopia zapasowa wszystkiego w jednym pliku."]
+          ]
+        },
+        {
+          "id": "tyres",
+          "name": "Opony, dokumenty i lista życzeń",
+          "items": [
+            ["Opony na pierwszy rzut oka.", "Najpłytszy bieżnik, przebieg kompletu, jego wiek, kiedy zrobić rotację i kiedy dojdzie do granicy. Wybierz miesiące sezonowej wymiany. Motocykl ma dwa koła, nie cztery."],
+            ["AI ogląda Twoje opony.", "Odczytuje datę i rozmiar z boku opony w każdym planie. Z Pro szuka pęknięć i nierównego zużycia i pisze raport o komplecie. Nigdy nie zgaduje głębokości bieżnika."],
+            ["Dokumenty pod ręką.", "Pierwszą stronę widać od razu, a te, którym kończy się ważność, są na początku. Otwierają się bez zasięgu, a otwartemu dokumentowi nie da się zrobić zrzutu ekranu."],
+            ["Życzenia z historią cen.", "Wklej link, a Maintra odczyta nazwę, cenę i zdjęcie, teraz także z Rozetki, Exist i Allo. Wykres pokazuje cenę z każdego dnia."],
+            ["Prezenty od znajomych.", "Wyślij listę jako link, a znajomi zarezerwują prezent w przeglądarce, bez zakładania konta. Kto zarezerwował, pozostaje ukryte, dopóki nie zechcesz tego zobaczyć."]
+          ]
+        },
+        {
+          "id": "share",
+          "name": "Jedno auto, dwie osoby albo więcej",
+          "items": [
+            ["Jeźdźcie razem.", "Pokaż kod albo wyślij link, a auto pojawi się w garażu osoby, z którą jeździsz. Jedna historia, w której widać, kto co dodał. Free: Ty i jeszcze jedna osoba. Pro: do pięciu."],
+            ["Pożycz auto.", "Na wieczór, na tydzień albo do konkretnej daty. To, co zapisze gość, czeka, aż to zaakceptujesz."],
+            ["Przekaż na zawsze.", "Nowy właściciel dostaje historię, plan, opony i dziennik tankowań, a najpierw widzi, co sprawdziła Maintra. Dokumenty, lista życzeń i czat zostają u Ciebie."]
+          ]
+        },
+        {
+          "id": "devices",
+          "name": "Widżety, zegarek i Siri",
+          "items": [
+            ["Nowe widżety.", "Na Androidzie i iPhonie, w Twoich jednostkach, w ramce Twojego auta."],
+            ["Zegarek.", "Wear OS i Apple Watch: ile zostało do wymiany oleju i notatka głosowa prosto z nadgarstka."],
+            ["iPhone.", "Siri i Skróty, trwający przejazd i praca AI na ekranie blokady."],
+            ["Skróty na ikonie.", "Przytrzymaj ikonę aplikacji: tankowanie, zdjęcie paragonu, notatka głosowa, przebieg."]
+          ]
+        },
+        {
+          "id": "rest",
+          "name": "Języki, offline i Twoje konto",
+          "items": [
+            ["Pięć nowych języków.", "Niemiecki, arabski, koreański, japoński i chiński. Przetłumaczyło je AI, więc jeśli coś brzmi nie tak, daj nam znać."],
+            ["Wszystko działa offline.", "Zmiany czekają w telefonie i same się wysyłają, gdy pojawi się połączenie. Ekran synchronizacji pokazuje, co czeka i dlaczego."],
+            ["Wylogowanie i usunięcie konta.", "Maintra powie, czego jeszcze nie wysłano, i pozwoli najpierw wyeksportować wpisy."],
+            ["Płatność za rok.", "Pro i VIP możesz teraz opłacić od razu za cały rok."],
+            ["Ty decydujesz o danych użycia.", "Maintra raz zapyta, czy chcesz dzielić się tym, z jakich funkcji korzystasz."],
+            ["iPhone z iOS 16.4.", "Starsze iPhone’y zostają przy wersji, którą mają. Na Androidzie nic się nie zmienia."]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v1-6-0",
+      "name": "1.6.0",
+      "date": "14 września 2026 r.",
+      "intro": "Opony i sejf na dokumenty.",
+      "items": [
+        ["Dokumenty pod kluczem.", "Szyfrowane w telefonie przed wysłaniem, otwierane odciskiem palca albo twarzą, także bez zasięgu. Kilka stron w jednym dokumencie i przypomnienie, zanim straci ważność."],
+        ["Opony.", "Komplet letni i zimowy, wymiany, wiek z kodu DOT, pozostały bieżnik, historia zdjęć, rotacje."],
+        ["AI do opon.", "Odczytuje bok opony, mówi, co widać na zdjęciu, i pisze raport o komplecie."],
+        ["Widżety wokół oleju.", "Pierścień z odliczaniem, przebieg, ostatnie tankowanie i przycisk skanowania."],
+        ["Garaż od góry do dołu.", "Stan, najbliższy serwis i wydatki z tego miesiąca w jednym rzędzie."],
+        ["Plany dla motocykli.", "Bez prac samochodowych. Aktualizacja na serwerze z 7 października 2026 r."]
+      ]
+    },
+    {
+      "id": "v1-5-4",
+      "name": "1.5.4",
+      "date": "30 sierpnia 2026 r.",
+      "items": [["Poprawki dla nowych kont.", "Pierwszy ekran już się nie zawiesza, a + widzi właśnie dodane auto."]]
+    },
+    {
+      "id": "v1-5-3",
+      "name": "1.5.3",
+      "date": "29 sierpnia 2026 r.",
+      "items": [
+        ["Ramki do polaroidów.", "I prezent dla pierwszego tysiąca kierowców."],
+        ["Przegląd okresowy jako jeden wpis.", "Z interwałami w Twoich jednostkach."],
+        ["Bardziej uczciwy VIN.", "Częściowo odczytany VIN nie uchodzi już za prawdziwy, a ten prawie dobry da się poprawić."],
+        ["Wizyty w historii.", "Prace z jednego wyjazdu do warsztatu wyglądają jak jedna wizyta."],
+        ["Polska i ukraińska odmiana przy liczbach.", "Wreszcie poprawna."]
+      ]
+    },
+    {
+      "id": "v1-5-2",
+      "name": "1.5.2",
+      "date": "22 sierpnia 2026 r.",
+      "items": [
+        ["Import obejmuje też historię serwisową.", "Nie tylko tankowania, a wynik jest sprawdzany z sumami zapisanymi w samym pliku."],
+        ["Kurs z tamtego dnia.", "Serwis z 2015 roku przelicza się po kursie z 2015 roku, według Narodowego Banku Ukrainy."],
+        ["Spalanie między pełnymi bakami.", "Dokładniejsza średnia."],
+        ["Serwis jako jedna wizyta.", "Kilka prac, jedna data, jedno miejsce, a paragon widać przy wpisie."],
+        ["45 krajów w wyszukiwarce i więcej motocykli.", "I zdjęcie auta, które przetrwa wylogowanie."],
+        ["Szkło na iPhonie.", "Karty i pasek zakładek."]
+      ]
+    },
+    {
+      "id": "v1-5-1",
+      "name": "1.5.1",
+      "date": "12 sierpnia 2026 r.",
+      "items": [
+        ["Auta elektryczne.", "Kilowatogodziny zamiast litrów, hybrydy zapisują jedno i drugie, prawdziwe złącza ładowania."],
+        ["Miejsca bez zasięgu.", "Warsztaty, stacje i sklepy zapisane w telefonie, z kilkoma numerami i kartą rabatową."],
+        ["Więcej aut i motocykli.", "Busy i 58 marek motocykli."],
+        ["Jasny motyw i opinie prosto z aplikacji.", "Maintra podąża za motywem telefonu."]
+      ]
+    },
+    {
+      "id": "v1-5-0",
+      "name": "1.5.0",
+      "date": "27 lipca 2026 r.",
+      "items": [
+        ["Nowy ekran główny.", "Polaroidy albo klasyczna lista."],
+        ["Najpierw skan.", "Paragon, VIN albo dowód rejestracyjny, aparatem."],
+        ["Części osobno od pracy.", "Kupione nie znaczy zrobione."],
+        ["Widżety, eksport i import.", "Wszystkie dane możesz zabrać ze sobą."]
+      ]
+    },
+    {
+      "id": "earlier",
+      "name": "Wcześniej",
+      "date": "1.3 i 1.4",
+      "items": [
+        ["1.4.", "Pierwsza konfiguracja krok po kroku, ilości i śledzenie cen na liście życzeń, schludniejszy PDF."],
+        ["1.3.", "Paragony odczytywane przez AI, notatka przy każdej pracy, udostępniane listy życzeń."]
+      ]
+    }
+  ]
+}

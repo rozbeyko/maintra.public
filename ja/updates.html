@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>アップデート履歴 · Maintra</title>
+  <meta name="description" content="Maintraのアップデートを詳しくまとめました。2.0の新機能と、それまでの各バージョンでの変更点です。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Maintra" />
+  <meta property="og:title" content="アップデート履歴 · Maintra" />
+  <meta property="og:description" content="Maintraのアップデートを詳しくまとめました。2.0の新機能と、それまでの各バージョンでの変更点です。" />
+  <meta property="og:url" content="https://maintra.me/ja/updates.html" />
+  <meta property="og:image" content="https://maintra.me/assets/home/og/ja.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#0B0B0A" />
+<!-- chrome:head -->
+<link rel="canonical" href="https://maintra.me/ja/updates.html" />
+<link rel="alternate" hreflang="en" href="https://maintra.me/updates.html" />
+<link rel="alternate" hreflang="uk" href="https://maintra.me/uk/updates.html" />
+<link rel="alternate" hreflang="pl" href="https://maintra.me/pl/updates.html" />
+<link rel="alternate" hreflang="fr" href="https://maintra.me/fr/updates.html" />
+<link rel="alternate" hreflang="it" href="https://maintra.me/it/updates.html" />
+<link rel="alternate" hreflang="es" href="https://maintra.me/es/updates.html" />
+<link rel="alternate" hreflang="de" href="https://maintra.me/de/updates.html" />
+<link rel="alternate" hreflang="ar" href="https://maintra.me/ar/updates.html" />
+<link rel="alternate" hreflang="ko" href="https://maintra.me/ko/updates.html" />
+<link rel="alternate" hreflang="ja" href="https://maintra.me/ja/updates.html" />
+<link rel="alternate" hreflang="zh-Hans" href="https://maintra.me/zh/updates.html" />
+<link rel="alternate" hreflang="x-default" href="https://maintra.me/updates.html" />
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
+<link rel="icon" href="/assets/favicon.svg?v=e32348a9" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=ab4ae831" />
+<script>
+(function () {
+  var t = null;
+  try { t = localStorage.getItem('maintra.theme'); } catch (e) {}
+  if (t !== 'light' && t !== 'dark') t = window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', t);
+  if (t === 'light') document.querySelector('meta[name="theme-color"]').setAttribute('content', '#EEEAE2');
+})();
+</script>
+<link rel="stylesheet" href="/assets/home/fonts.css?v=3a8a3f95" />
+<link rel="stylesheet" href="/assets/home/home.css?v=f46011bb" />
+<link rel="stylesheet" href="/assets/home/site.css?v=c9556b94" />
+<script type="module" src="/assets/home/site.js?v=6b25487e"></script>
+<!-- /chrome:head -->
+</head>
+<body>
+<!-- chrome:top -->
+<a class="skip" href="#main">本文へスキップ</a>
+<header class="top" id="top">
+  <a class="brand" href="/ja/" aria-label="Maintra"><svg class="mt" viewBox="0 0 100 57.69" aria-hidden="true"><path d="M26.10,0.00 L35.15,0.00 L35.15,57.69 L26.10,57.69 Z" style="fill:var(--lg-stem)"/><path d="M52.20,0.00 L61.25,0.00 L61.25,57.69 L52.20,57.69 Z" style="fill:var(--lg-stem)"/><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" style="fill:var(--lg-gold)"/><clipPath id="mtc1"><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z"/></clipPath><g clip-path="url(#mtc1)"><path d="M2.40,57.69 L18.80,57.69 L37.55,0.00 L21.15,0.00 Z" style="fill:var(--lg-shade)"/><path d="M28.50,57.69 L44.90,57.69 L63.65,0.00 L47.24,0.00 Z" style="fill:var(--lg-shade)"/><path d="M54.60,57.69 L71.00,57.69 L89.75,0.00 L73.34,0.00 Z" style="fill:var(--lg-shade)"/></g><path d="M0.00,57.69 L16.40,57.69 L35.15,0.00 L18.75,0.00 Z" style="fill:var(--lg-ink)"/><path d="M26.10,57.69 L42.50,57.69 L61.25,0.00 L44.84,0.00 Z" style="fill:var(--lg-ink)"/><path d="M52.20,57.69 L68.60,57.69 L87.35,0.00 L70.94,0.00 Z" style="fill:var(--lg-gold)"/></svg><span class="word">Maintra</span></a>
+  <nav class="top-nav" aria-label="Maintra">
+    <a href="/ja/#tour">試してみる</a>
+    <a href="/ja/journey">2.0までの道のり</a>
+    <a href="/ja/faq.html">よくある質問</a>
+    <a href="/ja/support.html">サポート</a>
+    <a href="/press-en">プレス</a>
+    <a href="/ja/about.html">開発者について</a>
+  </nav>
+  <div class="lang">
+    <button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="lang-menu" aria-label="言語"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 3.5h7l5 5v7l-5 5h-7l-5-5v-7z"></path><path d="M3.5 12h17M12 3.5L8.5 12l3.5 8.5M12 3.5l3.5 8.5-3.5 8.5"></path></svg><span>JA</span></button>
+    <ul class="lang-menu" id="lang-menu" hidden><li><a href="/updates.html" hreflang="en" lang="en" data-lang="en"><span class="code">en</span>English</a></li><li><a href="/uk/updates.html" hreflang="uk" lang="uk" data-lang="uk"><span class="code">uk</span>Українська</a></li><li><a href="/pl/updates.html" hreflang="pl" lang="pl" data-lang="pl"><span class="code">pl</span>Polski</a></li><li><a href="/fr/updates.html" hreflang="fr" lang="fr" data-lang="fr"><span class="code">fr</span>Français</a></li><li><a href="/it/updates.html" hreflang="it" lang="it" data-lang="it"><span class="code">it</span>Italiano</a></li><li><a href="/es/updates.html" hreflang="es" lang="es" data-lang="es"><span class="code">es</span>Español</a></li><li><a href="/de/updates.html" hreflang="de" lang="de" data-lang="de"><span class="code">de</span>Deutsch</a></li><li><a href="/ar/updates.html" hreflang="ar" lang="ar" dir="rtl" data-lang="ar"><span class="code">ar</span>العربية</a></li><li><a href="/ko/updates.html" hreflang="ko" lang="ko" data-lang="ko"><span class="code">ko</span>한국어</a></li><li><a href="/ja/updates.html" hreflang="ja" lang="ja" data-lang="ja" aria-current="true"><span class="code">ja</span>日本語</a></li><li><a href="/zh/updates.html" hreflang="zh-Hans" lang="zh-Hans" data-lang="zh"><span class="code">zh</span>简体中文</a></li></ul>
+  </div>
+  <button class="theme-btn" type="button" data-to-light="ライトテーマに切り替え" data-to-dark="ダークテーマに切り替え" aria-label="ライトテーマに切り替え"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 8.5h7v7h-7z"></path><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"></path></svg><svg class="i moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3.5L5.5 5.5 3.5 10v4l2 4.5 4.5 2h4l4.5-2 2-4.5-5 .5-4.5-2-1.5-4z"></path></svg></button>
+  <a class="btn btn-line btn-sm top-get" href="/ja/#get">アプリを入手</a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="メニュー"><i></i><i></i><i></i></button>
+</header>
+<div class="menu" id="menu" hidden>
+  <nav aria-label="メニュー">
+    <a href="/ja/#tour"><span class="n">01</span>試してみる</a>
+    <a href="/ja/journey"><span class="n">02</span>2.0までの道のり</a>
+    <a href="/ja/faq.html"><span class="n">03</span>よくある質問</a>
+    <a href="/ja/support.html"><span class="n">04</span>サポート</a>
+    <a href="/press-en"><span class="n">05</span>プレス</a>
+    <a href="/ja/about.html"><span class="n">06</span>開発者について</a>
+  </nav>
+  <a class="btn btn-gold menu-get" href="/ja/#get">アプリを入手</a>
+</div>
+<!-- /chrome:top -->
+<main id="main" class="doc">
+  <header class="doc-head">
+    <h1 class="h1">アップデート履歴</h1>
+    <p class="lede">Maintra 2.0の新機能を項目ごとに、そしてそれまでの変更点もすべてまとめました。</p>
+  </header>
+  <div class="doc-grid has-toc">
+    <!-- chrome:toc -->
+    <nav class="doc-toc" aria-label="目次">
+      <ol>
+        <li><a href="#v2-0"><span class="n">01</span>Maintra 2.0</a></li>
+        <li><a href="#v1-6-0"><span class="n">02</span>1.6.0</a></li>
+        <li><a href="#v1-5-4"><span class="n">03</span>1.5.4</a></li>
+        <li><a href="#v1-5-3"><span class="n">04</span>1.5.3</a></li>
+        <li><a href="#v1-5-2"><span class="n">05</span>1.5.2</a></li>
+        <li><a href="#v1-5-1"><span class="n">06</span>1.5.1</a></li>
+        <li><a href="#v1-5-0"><span class="n">07</span>1.5.0</a></li>
+        <li><a href="#earlier"><span class="n">08</span>それ以前</a></li>
+      </ol>
+    </nav>
+    <!-- /chrome:toc -->
+    <article class="doc-body">
+      <h2 id="v2-0">Maintra 2.0</h2>
+      <p class="muted">App StoreとGoogle Playで近日公開</p>
+      <p class="lede">最初の画面から最後の画面まで、新しくなったMaintraです。いつものアップデートとして届き、車、記録、写真、書類はすべてそのまま残ります。</p>
+      <p aria-label="2.0の目次"><a href="#v2-0-look">新しいデザイン</a> · <a href="#v2-0-garage">ガレージと車</a> · <a href="#v2-0-plan">プランとリマインダー</a> · <a href="#v2-0-map">マップ、ナビ、ドライブ</a> · <a href="#v2-0-ai">音声、写真、AI</a> · <a href="#v2-0-money">費用、燃料、統計</a> · <a href="#v2-0-service">整備手帳</a> · <a href="#v2-0-tyres">タイヤ、書類、ほしい物</a> · <a href="#v2-0-share">1台の車を2人以上で</a> · <a href="#v2-0-devices">ウィジェット、ウォッチ、Siri</a> · <a href="#v2-0-rest">言語、オフライン、アカウント</a></p>
+      <h3 id="v2-0-look" style="scroll-margin-top:calc(var(--nav) + 24px)">新しいデザイン</h3>
+      <ul>
+        <li><strong>すべてを描き直しました。</strong> カーボンとゴールド、新しいログイン画面、短い起動アニメーション。</li>
+        <li><strong>4つのタブと金色の+。</strong> ガレージ、マップ、統計、マイページ。+には、追加できるものがすべてそろっています。給油、整備、費用、レシート、ボイスメモ。</li>
+        <li><strong>テーマ。</strong> 「ガレージ」「工房」、夜向けの「赤色ライト」は無料。Proなら「フィールド」「設計図」「整備手帳」「ローズ」も使えます。スマホに合わせて、ダークとライトを自動で切り替えることもできます。どのテーマも1分間お試しできます。</li>
+        <li><strong>ポラロイドのフレーム。</strong> 「チャコール」と「カッパー」は誰でも、Proなら6種類、VIPならさらに8種類。どれも自分の写真で確かめられます。前に選んだフレームはそのまま使えます。</li>
+        <li><strong>ガレージは好きなように。</strong> ポラロイドの隅に表示するもの、その下に並べるブロックとその順番、背景のパターンを選べます。リスト表示もあります。</li>
+        <li><strong>iPhoneでLiquid Glass。</strong> iOS 26では、写真の上のボタン、+メニュー、マップの検索欄がガラスになります。形はMaintraならではの斜めのカットです。</li>
+        <li><strong>タブレット。</strong> サイドバーが付き、入力フォームは画面の中央に開きます。縦でも横でも使えます。</li>
+        <li><strong>大きな文字。</strong> スマホの文字サイズを大きくしても、文字が切れずに折り返されます。</li>
+      </ul>
+      <h3 id="v2-0-garage" style="scroll-margin-top:calc(var(--nav) + 24px)">ガレージと車</h3>
+      <ul>
+        <li><strong>ポラロイドから車を開く。</strong> 写真がそのまま広がって車のページになり、スクロールすると上部のバーに収まります。</li>
+        <li><strong>信頼できる「状態」。</strong> それぞれの整備の期限がどれだけ迫っているか、どれだけ重要かを合わせて計算します。ブレーキの遅れは、エアコンフィルターの遅れより重く扱います。</li>
+        <li><strong>整備データ。</strong> オイル、クーラント、フィルター、パッド、タイヤ、電球、ワイパーを1ページに。記録から自動で埋まり、足りない項目はAIが提案します。提案には「要確認」の印が付きます。</li>
+        <li><strong>ガレージ全体を検索。</strong> 車、整備記録、プランの項目、買い置きの部品まで、ひとつの検索欄から探せます。</li>
+        <li><strong>走行距離はガレージから直接。</strong> 写真の数字をタップして、メーターの表示を入力します。前より小さい数字なら、Maintraが念のため確認します。</li>
+        <li><strong>買い置きは全車まとめて。</strong> 前もって買った部品が1つの画面にそろいます。取り付けた部品は、その作業の中に入ります。</li>
+        <li><strong>売却と削除。</strong> 売却した車は履歴ごと「売却済み」に移り、元に戻すこともできます。削除しても、数秒間なら取り消せます。</li>
+        <li><strong>VINで調べられる車が増えました。</strong> Citroën Picassoシリーズ、新しめのOpel、リストに足りなかった古いCitroënとPeugeot。</li>
+      </ul>
+      <h3 id="v2-0-plan" style="scroll-margin-top:calc(var(--nav) + 24px)">プランとリマインダー</h3>
+      <ul>
+        <li><strong>急ぐものから先に。</strong> 期限超過、急ぎ、まもなく、まだ先。各項目には、距離と日付、両方の期限が表示されます。</li>
+        <li><strong>作業を終えるたびにスタンプ。</strong> 作業を完了にすると、ポラロイドにスタンプが押されます。車に何をしてあげたか、いくらかかったか、次はいつか。気が変わったら、元に戻せます。</li>
+        <li><strong>車に合わせた定期点検。</strong> 燃料、ミッション、駆動方式に合った項目で組まれ、バイクにはチェーン、バルブ、フォークオイルなど専用の項目が入ります。</li>
+        <li><strong>新しいAIプラン。</strong> 作成前に、AIが何を読むかを確認でき、気になっていることを書き添えられます。作り直しても変わるのはAIの項目だけで、自分で追加した項目はそのまま残ります。</li>
+        <li><strong>しつこくないリマインダー。</strong> 期限の当日に1回、その後は完了するまで週に1回。タップすると、その項目がそのまま開きます。</li>
+        <li><strong>遠出の前にチェック。</strong> 150 km以上のドライブの前に、期限を過ぎているもの、途中で期限が来るもの、タイヤの状態、オイルが持つかどうかをMaintraが教えてくれます。</li>
+      </ul>
+      <h3 id="v2-0-map" style="scroll-margin-top:calc(var(--nav) + 24px)">マップ、ナビ、ドライブ</h3>
+      <ul>
+        <li><strong>ネットがなくても使えるマップ。</strong> 国全体か、その中の地域を一度ダウンロードしておけば、電波がなくてもマップが使えます。地名はアプリの言語で表示されます。</li>
+        <li><strong>右左折ごとに案内。</strong> 音声はアプリの言語で、機内モードでも案内します。曲がりそびれても、スマホの中ですぐに新しいルートを計算します。</li>
+        <li><strong>電波がなくても住所検索。</strong> 通りと番地、町の名前、お店の名前で探せます。入力した内容がスマホの外に出ることはありません。</li>
+        <li><strong>速度と制限速度。</strong> 今の速度を道路の制限速度と並べて表示します。超えたときと、オービスの手前で警告します。</li>
+        <li><strong>走った距離を走行距離に。</strong> 「目的地なし」で走るとGPSで距離を計測し、終わったらワンタップで走行距離に加えられます。速度がわかるルート、停車した場所、燃料代も表示。ドライブは保存でき、保存先はスマホの中だけです。</li>
+        <li><strong>駐車した車を見つける。</strong> Maintraが場所、駐車場の階、写真を記録して、車まで歩いて戻る道を案内します。</li>
+        <li><strong>出発するときに、ひとつだけ質問。</strong> 車のBluetoothを登録しておくと、スマホが接続されたときに、距離を記録するかどうかをMaintraが聞いてきます。</li>
+        <li><strong>自分だけのルート。</strong> ざっと描けば、マップが道路を見つけます。描いた線のとおりに進むこともできます。</li>
+        <li><strong>マップの隣にスポット。</strong> 整備工場、ガソリンスタンド、ショップを近い順に表示。会員カードは電波がなくても全画面で開きます。Google Maps、Waze、Organic Maps、maps.meからスポットを追加できます。</li>
+        <li><strong>居場所は自分だけのもの。</strong> 今どこにいるか、どこへ行くかを、Maintraが誰かに送ることはありません。</li>
+        <li><strong>ロシア、イラン、北朝鮮の地図はありません。</strong> 代わりに、その理由が書かれています。クリミアはウクライナの一部として地図に載っています。</li>
+      </ul>
+      <h3 id="v2-0-ai" style="scroll-margin-top:calc(var(--nav) + 24px)">音声、写真、AI</h3>
+      <ul>
+        <li><strong>話すだけ。</strong> +を長押しして、「OKKOで45リットル、1リットル55」のように話します。Maintraがフォームを埋めますが、内容を確認して「保存」をタップするまでは何も保存されません。</li>
+        <li><strong>写真を見せるだけ。</strong> レシート、メーター、部品やその箱、注文画面のスクリーンショット。何の写真か、どの車のものか、どこに記録するかをアンドリューが判断します。</li>
+        <li><strong>電波がない？写真は待っています。</strong> 接続されしだい読み取ります。</li>
+        <li><strong>AI残量はひとつに。</strong> 機能ごとの上限の代わりに、パーセントで表示される残量がひとつ。保存しなかった読み取りは残量を使わず、残った分の最大3分の1が翌月に繰り越されます。</li>
+        <li><strong>メカニックがWebを検索。</strong> 品番や価格、どこで買えるかを聞くと、回答の下に参照したページが表示されます。VIPで使えます。</li>
+        <li><strong>メカニックとのチャットが残ります。</strong> 会話は消去するまでスマホに保存されます。メカニックは買い置きの部品やタイヤセットのことも把握しています。</li>
+        <li><strong>AIの作業が見えます。</strong> プランの作成中やレシートの読み取り中は、控えめな通知が表示されます。アプリを離れても大丈夫です。</li>
+      </ul>
+      <h3 id="v2-0-money" style="scroll-margin-top:calc(var(--nav) + 24px)">費用、燃料、統計</h3>
+      <ul>
+        <li><strong>車にかかるお金。</strong> 今年と去年の同じ月を比べて、1 kmあたり、1か月あたり、購入してからの合計で表示します。</li>
+        <li><strong>反則金、駐車場代、洗車、保険、税金。</strong> どの通貨でも、写真付きで記録できます。未払いの反則金はリマインダーでお知らせ。ウクライナでは、10日以内に払うと半額になる金額が自動で入ります。</li>
+        <li><strong>ガレージ全体の統計。</strong> お金の使いみち、走った距離、どこで給油していて、そこでは1リットルが実際いくらなのか、プランをどれだけ守れているか。12月には、1年をカード1枚にまとめます。</li>
+        <li><strong>燃料。</strong> 平均燃費、価格の推移、評価順のスタンド。単価、リットル数、合計は2つ入れれば残りが自動で入り、LPGとガソリンは分けて計算します。</li>
+        <li><strong>過去の給油で燃費が狂わなくなりました。</strong> 過去の日付で入力した記録に、今日の走行距離が入らなくなりました。</li>
+      </ul>
+      <h3 id="v2-0-service" style="scroll-margin-top:calc(var(--nav) + 24px)">整備手帳</h3>
+      <ul>
+        <li><strong>来店、作業、部品。</strong> 1回の来店での作業はひとまとめに。各作業の下に、工賃と部品が分けて表示されます。</li>
+        <li><strong>記録は好きなやり方で。</strong> 複数の作業をまとめて入力でき、「前回と同じ」も使えます。レシートはどの料金プランでも3枚まで。合計は、その日のレートでドルとユーロでも表示されます。</li>
+        <li><strong>買い手や整備工場に渡せるレポート。</strong> 車の情報、履歴と費用、最近の給油、次の整備を1つのPDFに。巻末にはレシートが付きます。言語を選べて、金額を載せるかどうかも選べます。</li>
+        <li><strong>インポートとエクスポート。</strong> ほかのアプリ、スプレッドシート、メモから履歴を取り込み、保存前に確認できます。すべてのデータを1つのファイルにバックアップできます。</li>
+      </ul>
+      <h3 id="v2-0-tyres" style="scroll-margin-top:calc(var(--nav) + 24px)">タイヤ、書類、ほしい物</h3>
+      <ul>
+        <li><strong>タイヤの状態がひと目で。</strong> いちばん浅い溝、セットの走行距離、経過年数、ローテーションの時期、使用限度に達する時期。季節の履き替えをする月も選べます。バイクのタイヤは4本ではなく2本です。</li>
+        <li><strong>AIがタイヤをチェック。</strong> どの料金プランでも、サイドウォールから製造年週とサイズを読み取ります。Proなら、ひび割れや偏摩耗を探して、セットのレポートを作成します。溝の深さを推測で答えることはありません。</li>
+        <li><strong>書類がもっと手近に。</strong> 1ページ目がすぐに表示され、期限が近いものが先頭に来ます。電波がなくても開けて、開いている書類はスクリーンショットできません。</li>
+        <li><strong>価格の推移がわかる「ほしい物」。</strong> リンクを貼り付けると、Maintraが名前、価格、画像を読み取ります。Rozetka、Exist、Alloにも対応しました。グラフで、どの日の価格でも確認できます。</li>
+        <li><strong>友だちからのプレゼント。</strong> リストをリンクで送れば、友だちはアカウントなしでブラウザからプレゼントを予約できます。誰が予約したかは、自分で見ようとするまで隠れたままです。</li>
+      </ul>
+      <h3 id="v2-0-share" style="scroll-margin-top:calc(var(--nav) + 24px)">1台の車を2人以上で</h3>
+      <ul>
+        <li><strong>一緒に使う。</strong> コードを見せるかリンクを送ると、一緒に乗る人のガレージに車が追加されます。履歴は1つで、誰が何を追加したかもわかります。Freeは自分ともう1人、Proは最大5人まで。</li>
+        <li><strong>車を貸す。</strong> ひと晩、1週間、または決めた日まで。借りた人が記録した内容は、承認するまで保留されます。</li>
+        <li><strong>車を譲渡する。</strong> 新しいオーナーには、履歴、プラン、タイヤ、給油記録が渡り、Maintraが事前にチェックした内容も確認できます。書類、ほしい物、チャットは手元に残ります。</li>
+      </ul>
+      <h3 id="v2-0-devices" style="scroll-margin-top:calc(var(--nav) + 24px)">ウィジェット、ウォッチ、Siri</h3>
+      <ul>
+        <li><strong>新しいウィジェット。</strong> AndroidとiPhoneに対応。自分の単位で表示され、愛車のフレームも付きます。</li>
+        <li><strong>ウォッチ。</strong> Wear OSとApple Watchで、次のオイル交換までの距離がわかり、手首から直接ボイスメモを残せます。</li>
+        <li><strong>iPhone。</strong> Siriとショートカットに対応。ドライブの状況やAIの作業状況をロック画面に表示します。</li>
+        <li><strong>アイコンからすぐに。</strong> アプリのアイコンを長押しすると、給油、レシートの撮影、ボイスメモ、走行距離の入力をすぐに開けます。</li>
+      </ul>
+      <h3 id="v2-0-rest" style="scroll-margin-top:calc(var(--nav) + 24px)">言語、オフライン、アカウント</h3>
+      <ul>
+        <li><strong>対応言語が5つ増えました。</strong> ドイツ語、アラビア語、韓国語、日本語、中国語。翻訳はAIが行ったので、不自然な表現があればお知らせください。</li>
+        <li><strong>すべてオフラインで使えます。</strong> 変更はスマホで待機し、接続されると自動で送信されます。「同期」画面で、何がなぜ待機中なのかを確認できます。</li>
+        <li><strong>ログアウトとアカウント削除。</strong> まだ送信されていない内容をMaintraが知らせ、先に記録をエクスポートできます。</li>
+        <li><strong>年額プラン。</strong> ProとVIPを1年単位で支払えるようになりました。</li>
+        <li><strong>利用状況の共有は自分で選択。</strong> 使っている機能の情報を共有するかどうか、Maintraが一度だけ確認します。</li>
+        <li><strong>iPhoneはiOS 16.4から。</strong> それより古いiPhoneでは、今のバージョンをそのまま使えます。Androidは変わりません。</li>
+      </ul>
+
+      <h2 id="v1-6-0">1.6.0</h2>
+      <p class="muted">2026年9月14日</p>
+      <p class="lede">書類の保管庫とタイヤ。</p>
+      <ul>
+        <li><strong>書類に鍵を。</strong> アップロード前にスマホで暗号化し、指紋や顔で開けます。電波がなくても大丈夫です。1つの書類に複数のページ、期限前のリマインダーも。</li>
+        <li><strong>タイヤ。</strong> 夏用と冬用のセット、履き替え、DOTからわかる経過年数、残り溝、写真の履歴、ローテーション。</li>
+        <li><strong>タイヤのAI。</strong> サイドウォールを読み取り、写真から何がわかるかを伝え、セットのレポートを作成します。</li>
+        <li><strong>オイル交換が主役のウィジェット。</strong> カウントダウンのリング、走行距離、前回の給油、スキャンボタン。</li>
+        <li><strong>ガレージを上から下まで見直し。</strong> 状態、次の整備、今月の出費を横一列に。</li>
+        <li><strong>バイク用のプラン。</strong> 車向けの項目が入らなくなりました。2026年10月7日のサーバー更新で対応しました。</li>
+      </ul>
+
+      <h2 id="v1-5-4">1.5.4</h2>
+      <p class="muted">2026年8月30日</p>
+      <ul>
+        <li><strong>新規アカウントの不具合を修正。</strong> 最初の画面が反応しなくなる問題を解消し、+が追加したばかりの車を認識するようになりました。</li>
+      </ul>
+
+      <h2 id="v1-5-3">1.5.3</h2>
+      <p class="muted">2026年8月29日</p>
+      <ul>
+        <li><strong>ポラロイドのフレーム。</strong> 先着1,000人のドライバーにはプレゼントも。</li>
+        <li><strong>定期点検を1件の記録に。</strong> 間隔は自分の単位で。</li>
+        <li><strong>VINの読み取りがより正直に。</strong> 半分しか読めなかったVINを正しいものとして扱わなくなり、ほぼ合っているVINは修正できます。</li>
+        <li><strong>履歴を来店ごとに。</strong> 整備工場に1回行ったときの作業が、1回の来店としてまとまります。</li>
+        <li><strong>ウクライナ語とポーランド語の数の表現。</strong> ようやく正しい語形で表示されるようになりました。</li>
+      </ul>
+
+      <h2 id="v1-5-2">1.5.2</h2>
+      <p class="muted">2026年8月22日</p>
+      <ul>
+        <li><strong>整備履歴もインポート。</strong> 給油記録だけでなく整備履歴も取り込め、ファイル自体の合計と照合します。</li>
+        <li><strong>その日のレートで。</strong> 2015年の整備費は、ウクライナ国立銀行の2015年のレートで換算します。</li>
+        <li><strong>満タンから満タンまでの燃費。</strong> より正確な平均値に。</li>
+        <li><strong>整備を1回の来店として。</strong> 複数の作業、1つの日付、1つの場所。レシートも記録に表示されます。</li>
+        <li><strong>45か国で検索可能に、バイクも追加。</strong> ログアウトしても消えない車の写真も。</li>
+        <li><strong>iPhoneでガラス効果。</strong> カードとタブバー。</li>
+      </ul>
+
+      <h2 id="v1-5-1">1.5.1</h2>
+      <p class="muted">2026年8月12日</p>
+      <ul>
+        <li><strong>電気自動車。</strong> リットルの代わりにキロワット時。ハイブリッドは両方を記録でき、充電プラグも実際の規格で選べます。</li>
+        <li><strong>電波がなくても見られるスポット。</strong> 整備工場、スタンド、ショップをスマホに保存。電話番号は複数、割引カードも登録できます。</li>
+        <li><strong>車とバイクがさらに充実。</strong> バン、そしてバイク58メーカー。</li>
+        <li><strong>ライトテーマとアプリからのフィードバック。</strong> Maintraがスマホのテーマに合わせて切り替わります。</li>
+      </ul>
+
+      <h2 id="v1-5-0">1.5.0</h2>
+      <p class="muted">2026年7月27日</p>
+      <ul>
+        <li><strong>新しいメイン画面。</strong> ポラロイドか、リスト表示か。</li>
+        <li><strong>まずはスキャン。</strong> レシート、VIN、車検証をカメラで。</li>
+        <li><strong>部品と作業を別々に。</strong> 買っただけでは、作業済みではありません。</li>
+        <li><strong>ウィジェット、エクスポートとインポート。</strong> データはすべて持ち出せます。</li>
+      </ul>
+
+      <h2 id="earlier">それ以前</h2>
+      <p class="muted">1.3と1.4</p>
+      <ul>
+        <li><strong>1.4.</strong> ステップごとの初期設定、ほしい物の数量と価格の追跡、すっきりしたPDF。</li>
+        <li><strong>1.3.</strong> AIによるレシートの読み取り、すべての作業にメモ、ほしい物リストの共有。</li>
+      </ul>
+    </article>
+  </div>
+</main>
+<!-- chrome:foot -->
+<footer class="foot">
+  <div class="foot-in">
+    <div class="foot-brand"><a class="brand" href="/ja/" aria-label="Maintra"><svg class="mt" viewBox="0 0 100 57.69" aria-hidden="true"><path d="M26.10,0.00 L35.15,0.00 L35.15,57.69 L26.10,57.69 Z" style="fill:var(--lg-stem)"/><path d="M52.20,0.00 L61.25,0.00 L61.25,57.69 L52.20,57.69 Z" style="fill:var(--lg-stem)"/><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z" style="fill:var(--lg-gold)"/><clipPath id="mtc2"><path d="M9.26,11.54 L100.00,11.54 L96.51,22.29 L5.76,22.29 Z"/></clipPath><g clip-path="url(#mtc2)"><path d="M2.40,57.69 L18.80,57.69 L37.55,0.00 L21.15,0.00 Z" style="fill:var(--lg-shade)"/><path d="M28.50,57.69 L44.90,57.69 L63.65,0.00 L47.24,0.00 Z" style="fill:var(--lg-shade)"/><path d="M54.60,57.69 L71.00,57.69 L89.75,0.00 L73.34,0.00 Z" style="fill:var(--lg-shade)"/></g><path d="M0.00,57.69 L16.40,57.69 L35.15,0.00 L18.75,0.00 Z" style="fill:var(--lg-ink)"/><path d="M26.10,57.69 L42.50,57.69 L61.25,0.00 L44.84,0.00 Z" style="fill:var(--lg-ink)"/><path d="M52.20,57.69 L68.60,57.69 L87.35,0.00 L70.94,0.00 Z" style="fill:var(--lg-gold)"/></svg><span class="word">Maintra</span></a><p>ガレージのための、スマートな整備記録アプリ。</p></div>
+    <nav class="foot-links" aria-label="Maintra">
+      <a href="/ja/about.html">開発者について</a>
+      <a href="/ja/faq.html">よくある質問</a>
+      <a href="/ja/support.html">サポート</a>
+      <a href="/press-en">プレス</a>
+      <a href="/ja/journey">2.0までの道のり</a>
+      <a href="/ja/privacy.html">プライバシー</a>
+      <a href="/ja/terms.html">利用規約</a>
+      <a href="/ja/delete-account.html">アカウント削除</a>
+    </nav>
+    <p class="copy">© 2026 Maintra</p>
+  </div>
+</footer>
+<!-- /chrome:foot -->
+</body>
+</html>
